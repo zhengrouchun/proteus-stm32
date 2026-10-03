@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="_rhdefault.css"/><link rel="stylesheet" type="text/css" href="assets/css/lx.css"/>
+<meta name="template" content="assets/masterpages/LX Master.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Limitations</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="ehlpdhtm.js"></script></head>
+
+<body page-style="x-size: Letter;">
+<div>
+<h1 position="fixed">MODEL LIMITATIONS</h1>
+<h3>General Model Limitations</h3>
+<p>The following summarises the limitations in the model, correct at the 
+ time of writing:</p>
+<h4>General</h4>
+<ol type="1" class="Numbers">
+	<li class="Numbers">Bitband alias regions are of type XN (Execute Never). 
+	 Fetches from these regions are invalid.</li>
+	<li class="Numbers">Cache information is not used.</li>
+	<li class="Numbers">SysTick Calibration value Register (SYST_CALIB) 
+	 is ignored.</li>
+	<li class="Numbers">Alignment of memory accesses is not analyzed</li>
+	<li class="Numbers">Data Barrier instructions (DMB, DSB) are treated 
+	 as NOP.</li>
+	<li class="Numbers">Simulations are unlikely to run in real time with 
+	 high clock speeds. This will affect performance but not accuracy of 
+	 simulation.</li>
+</ol>
+<h4>System Control</h4>
+<ol type="1" class="Numbers">
+	<li class="Numbers">Register PLLCFG is not modeled</li>
+	<li class="Numbers">Reference to unknown RCC2 register is not modeled 
+	 - it exists in fact but is not described in the datasheet</li>
+	<li class="Numbers">Clock Verification Timers are not modeled.</li>
+	<li class="Numbers">Internal brown-out (BOR) detector is not implemented.</li>
+</ol>
+<h4>GPIO</h4>
+<ol type="1" class="Numbers">
+	<li class="Numbers">Register ODR is dummy – writing doesn’t change 
+	 the model behavior.</li>
+	<li class="Numbers">Registers DR2R, DR4R, DR8R, SLR are not modeled.</li>
+</ol>
+<h4>I2C Module</h4>
+<ol type="1" class="Numbers">
+	<li class="Numbers">Loopback feature is not modeled due to lack of 
+	 information</li>
+</ol>
+
+</div>
+
+</body></html>

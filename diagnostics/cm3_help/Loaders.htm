@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="_rhdefault.css"/><link rel="stylesheet" type="text/css" href="assets/css/lx.css"/>
+<meta name="template" content="assets/masterpages/LX Master.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Loaders</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="ehlpdhtm.js"></script></head>
+
+<body page-style="x-size: Letter;">
+<div>
+<h1 position="fixed">COMPILER SUPPORT &amp; INTEGRATION</h1>
+<p>The ARM Cortex model can load program files in ELF/DWARF debug formats 
+ as well as the exact same hex file that you would program a physical device 
+ with. The advantage of the debug format is that it contains symbolic debug 
+ information (source code, variables,etc.) which enables you to not only 
+ simulate your system in Proteus but also to single step debug. The following 
+ is a summary of supported formats with basic instructions on how to get 
+ started.</p>
+<p style="font-weight: bold; text-decoration: underline; ">See Also:</p>
+<p class="Reference"><a href="VSMTUT.chm::/Interactive_Tutorial/Tutorial.htm">Proteus 
+ VSM Tutorial</a></p>
+<h3>VSM Studio IDE</h3>
+<p>By far the easiest way to get set up for simulating in Proteus is through 
+ the integrated VSM Studio IDE. This tool is integrated into the Proteus 
+ Design Suite, will detect installed compilers and you can directly download 
+ and install additional tools from inside the IDE.</p>
+<p><img src="assets/images/compilers.png" alt="" style="border: none;" width="551" height="523" border="0"/></p>
+<p>Installed compilers are automatically configured by VSM Studio to produce 
+ debugging output suitable for driving Proteus VSM. If however you need 
+ to make changes all of the compiler options are made available in the 
+ Project Setting dialogue inside VSM Studio.</p>
+<p><img src="assets/images/compiler%20options.png" style="border: none;" alt="" width="592" height="204" border="0"/></p>
+<p>Once you have written some code and compiled your schematic will automatically 
+ be programmed with the firmware. You can then both simulate and single 
+ step debug inside VSM Studio. Active popups let you add &#39;schematic snippets&#39; 
+ to VSM Studio so that you can view and interact with the simulation while 
+ debugging the source code.</p>
+<p><img src="assets/images/debug_layout.png" alt="" style="border: none;" width="600" height="629" border="0"/></p>
+<p style="font-weight: bold; text-decoration: underline; ">See Also:</p>
+<p class="Reference"><a href="vsmstudio.chm::/Content/Tutorials/New_Project.htm">VSM 
+ Studio Tutorial (New Project)</a></p>
+<h3>Schematic Only</h3>
+<p>If you choose or prefer to work in your own IDE and use Proteus VSM 
+ only for simulation then several debug formats are available. The  process 
+ in each case is to produce the required debug file from your compiler 
+ and then to load this file as the PROGRAM property in the Edit Component 
+ dialogue form of the PIC microcontroller.</p>
+<h4>ELF/DWARF</h4>
+<p>The ELF/DWARF format for Cortex-M3 is a public domain symbolic debug 
+ format used by GCC Compilers and others.</p>
+<p>ELF files &#39;.ELF&#39;  and contain full symbolic debug information including 
+ source line address and variable data. To load ELF/DWARF files into the 
+ model, you will need to set the program property with the full filename 
+ and extension. e.g.</p>
+<p class="Courier">PROGRAM=MYFILE.ELF</p>
+<p>Note that the ELF file contains absolute paths to the &#39;C&#39; source files, 
+ and problems may arise if the project is moved from one directory to another. 
+  The corresponding DWARF file should be in the same directory as 
+ the ELF file.</p>
+<h4>HEX</h4>
+<p>Failing all else, simply specify the HEX file as the program property 
+ for the processor on the schematic. This will simulate but will not single 
+ step debug as there is not enough information to provide a source window.</p>
+
+</div>
+
+</body></html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>LED_Display</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+
+<h1>MULTIPLEXED LED DISPLAY</h1>
+<h3><a name="LEDMPX_Overview" id="LEDMPX_Overview"></a>Introduction</h3>
+<p>LEDMPX.DLL can be used to simulate an arbitrary array of LED display 
+ segments which are driven by a matrix of common digit and segment wires. 
+ Typical applications included blocks of two or two or more 7 segment displays 
+ in which the segment lines are commoned but it could also be used to model 
+ rectangular dot matrix type LED modules.</p>
+<p>The LEDs are modelled at the digital level only; there is no attempt 
+ to simulate their analogue behaviour (i.e. diode characteristics). However, 
+ provision is made to model a persistence of vision delay, so that a steady 
+ display can be achieved, not withstanding the multiplexed nature of the 
+ drive signals.</p>
+<p>LEDMPX is a combined active component and digital simulator model. Logic 
+ levels detected at the row and column pins are used to select and display 
+ the corresponding active symbols for each segment of each digit. The best 
+ way to understand how to use the model is to decompose one of the existing 
+ devices that is based on it such as 7SEG-MPX4-CA.</p>
+<h3>Symbol Naming</h3>
+<p>The ISIS library part should be created as a bitwise active symbol, 
+ with one bit (thus two symbols) per segment. For a typical example see 
+ BITWISE INDICATORS in the Proteus VSM SDK.</p>
+<p class="Tip">You may be required to sign an NDA in order to gain access 
+ to the SDK.</p>
+<p>A common symbol must also be defined, as this is used by LEDMPX.DLL 
+ to determine the width of a digit (or column).</p>
+<p>This scheme avoids the need to define a separate active symbol for each 
+ and every segment in the display; only two symbols (on and off) for each 
+ segment of the left most digit need be drawn.</p>
+<h3>Pin Naming</h3>
+<p>The LEDMPX model will automatically detect the number of segments (rows) 
+ and digits (columns) on the parent device. Segment pins should be named 
+ &#39;A&#39; - &#39;H&#39; whilst digit pins should be named &#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;.</p>
+<p>If you are attaching the device to a physical PCB footprint in ARES, 
+ you should use pin names as above, and pin numbers to match the footprint. 
+ Do not confuse digit numbers with pin numbers!</p>
+<p class="Warning">The Maximum number of rows and/or columns is set at 
+ 8.</p>
+<h3>Polarity</h3>
+<p>By default, a segment is drawn as lit if the corresponding row and column 
+ pins are both high for more than 1us during a given animation frame (typically 
+ 50ms). This gives a crude but effective representation of persistence 
+ of vision; in the real world, the segments are driven with a heavy current 
+ for short period of time, and the eye averages out the brightness.</p>
+<p>To model common anode or common cathode displays, you can use the INVERT 
+ property to list the pins that are active low.  For example, a display 
+ with four common cathode digits would need the property:</p>
+<p style="font-family: &#39;Courier New&#39;, monospace;">INVERT=1,2,3,4</p>
+<p> </p>
+
+</div>
+
+</body></html>

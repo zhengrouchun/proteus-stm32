@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="_rhdefault.css"/><link rel="stylesheet" type="text/css" href="assets/css/lx.css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>InternalDebug</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>INTERNAL DEBUG MODULE</h1>
+<p>In addition to source level debugging, model diagnostic messaging and 
+ other standard debugging windows, the Cortex-M3 module incorporates an 
+ internal debugging module which allows you to send messages to the ISIS 
+ simulation log from your firmware. This is implemented as a single read/write 
+ register (at address 0xFFFFFF00). the user would write some text to this 
+ address with a trailing zero and the text would then be displayed in the 
+ simulation log window.</p>
+<p>Typical Usage: </p>
+<p class="Courier">#ifdef TARGET_PROTEUS</p>
+<p class="Courier">void print_str(const char* s)</p>
+<p class="Courier"> { char* dbgout = (char*) 0xFFFFFF00;   // 
+ Addressing the debugging module</p>
+<p class="Courier">   while(*s)</p>
+<p class="Courier">    { *dbgout = *s;                     </p>
+<p class="Courier">      ++s;</p>
+<p class="Courier">    }</p>
+<p class="Courier">   *dbgout = 0;                         // 
+ Trailing zero – required!</p>
+<p class="Courier"> }</p>
+<p class="Courier">#endif</p>
+
+</div>
+
+</body></html>

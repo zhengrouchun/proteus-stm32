@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>HD44780</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+
+<h1>ALPHANUMERIC LCD (HD44780)</h1>
+<h3><a name="HDD44780_Overview" id="HDD44780_Overview"></a>Introduction</h3>
+<p>LCDALPHA.DLL can be used to simulate most commonly available alphanumeric 
+ LCD modules based around the HD44780 controller chip. The model is set 
+ up to allow for an arbitrary mapping of LCD character positions to controller 
+ chip addresses, and displays with one or two controller chips are catered 
+ for.</p>
+<p>A number of common display types from <a href="http://www.densitron.com" target="_blank">Densitron</a> 
+ are pre-defined in DISPLAYS.LIB.</p>
+<p>Details on how to program the controller chip can be found in the HD44780 
+ Datasheet.</p>
+<h3>Symbol Naming</h3>
+<p>The ISIS library part should be created with two active symbols representing 
+ the on and off states of the display backlight. The origin should be in 
+ the centre of the symbols; their area defines where the display output 
+ will appear.</p>
+<h3>Pin Naming</h3>
+<p>The model should have pin names corresponding to the pins of the HD44780 
+ controller - the easiest thing to do when making a new display is to decompose 
+ one of the existing ones.</p>
+<p>If the display has two controller chips, label the enable pins E1 and 
+ E2 as opposed to E.</p>
+<h3>Properties</h3>
+<p style="margin-bottom: 4pt;">The LCDALPHA model supports the following 
+ properties</p>
+<table class="LXTable" cellspacing="0" width="100%">
+	<colgroup><col style="width: 12.515%;"/>
+	<col style="width: 12.02%;"/>
+	<col style="width: 75.498%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">NUMCOLS</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">-</p></td>
+		<td><p style="font-size: 10pt;">Specifies the display width in 
+		 characters.</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">NUMROWS</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">-</p></td>
+		<td><p style="font-size: 10pt;">Specifies the display height in 
+		 characters.</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">CLOCK</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">250kHz</p></td>
+		<td><p style="font-size: 10pt;">Specifies the clock frequency of 
+		 the controller chip. This determines the time taken to process 
+		 the various commands, and also the blink rate of the cursor.</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">ROWn</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">-</p></td>
+		<td><p style="font-size: 10pt;">Specifies the address map for the 
+		 n&#39;th row.</p></td>
+	</tr>
+</tbody></table>
+<h3>Address Mapping</h3>
+<p>The mapping between address locations within the controller chip memory 
+ and physical locations on the display itself varies between different 
+ LCD modules. To cater for this, LCDALPHA.DLL allows you to specify the 
+ mapping for each row of the display.</p>
+<p>For example, the mapping for a typical 4x16 display is shown below:</p>
+<p><img src="../assets/images/HD44780/ALCD_Address_Mapping.gif" alt="" style="border: none;" width="416" height="137" border="0"/></p>
+<p>To correctly model this with LCDALPHA.DLL, you would need to add the 
+ following properties to the ISIS library part:</p>
+<p style="font-family: &#39;Courier New&#39;, monospace; margin-top: 2pt;">ROW1=80-8F</p>
+<p style="font-family: &#39;Courier New&#39;, monospace; margin-top: 2pt;">ROW2=C0-CF</p>
+<p style="font-family: &#39;Courier New&#39;, monospace; margin-top: 2pt;">ROW3=90-9F</p>
+<p style="font-family: &#39;Courier New&#39;, monospace; margin-top: 2pt;">ROW4=D0-DF</p>
+<p style="font-family: Arial, sans-serif;">If a row contains a non-contiguous 
+ run of address, you can add multiple address ranges on one line, as in</p>
+<p style="margin-top: 2pt; font-family: &#39;Courier New&#39;, monospace;">ROW1=80-8F 
+ C0-CF</p>
+<h3>Debug Support</h3>
+<p>The controller model contains internal debug or trace information which 
+ can be enabled manually from the <span style="font-style: italic;">Debug</span> 
+ menu in ISIS. When enabled internal trace data for the model will be dumped 
+ in the simulation log during a simulation run.</p>
+<p class="Tip">Bear in mind that enabling trace mode may send a great deal 
+ of data to the simulation log, and seriously degrade the performance of 
+ the simulator.</p>
+<p> </p>
+
+</div>
+
+</body></html>

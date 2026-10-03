@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>T6963</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+
+<h1>GRAPHICAL LCD (T6963)</h1>
+<h3><a name="T6963_Overview" id="T6963_Overview"></a>Introduction</h3>
+<p>LCDPIXEL.DLL can be used to simulate commonly available pixel addressable 
+ LCD display modules based around the Toshiba T6963C controller chip. Support 
+ for other controller chips may be added in the future - <a href="mailto:info@labcenter.co.uk">please 
+ tell us</a> what you are using.</p>
+<p>A number of common display types from <a href="http://www.densitron.com">Densitron</a> 
+ and <a href="http://www.powertip.com.tw">Powertip</a> are pre-defined 
+ in DISPLAYS.LIB.</p>
+<p>The T6963C Datasheet contains details of how to program the controller 
+ chip.</p>
+<h3>Symbol Naming</h3>
+<p>The ISIS library part should be created with two active symbols representing 
+ the on and off states of the display backlight. The origin should be at 
+ the top left corner of the symbols; their area defines where the display 
+ output will appear.</p>
+<h3>Pin Naming</h3>
+<p style="font-weight: normal;"><span style="font-weight: normal;">The 
+ model should have pin names corresponding to the pins of the T6963C controller 
+ - the easiest thing to do when making a new display is to decompose one 
+ of the existing ones.</span></p>
+<p style="font-weight: normal;">Special provision is made for dealing with 
+ the FS (font-select) and MD (mode select) pins which may, or may not, 
+ be presented on the display module connector. See below.</p>
+<h3>Properties</h3>
+<p style="margin-bottom: 4pt;">The LCDPIXEL model supports the following 
+ properties:</p>
+<table class="LXTable" cellspacing="0" width="100%">
+	<colgroup><col style="width: 16.481%;"/>
+	<col style="width: 11.772%;"/>
+	<col style="width: 71.747%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">WIDTH</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">-</p></td>
+		<td><p style="font-size: 10pt;">Specifies the display width in 
+		 characters.</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">HEIGHT</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">-</p></td>
+		<td><p style="font-size: 10pt;">Specifies the display height in 
+		 characters.</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">CLOCK</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">250kHz</p></td>
+		<td><p style="font-size: 10pt;">Specifies the clock frequency of 
+		 the controller chip. This determines the time taken to process 
+		 the various commands.</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">FS0,FS1</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">-</p></td>
+		<td><p style="font-size: 10pt;">Specifies a hard wired logic state 
+		 for the font select pins of the controller chip. Use these properties 
+		 if either of the font select pins is not present on the LCD module 
+		 connector</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">MD2,MD3</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">-</p></td>
+		<td><p style="font-size: 10pt;">Specifies a hard wired logic state 
+		 for the column width select pins of the controller chip. Use these 
+		 properties if either of the width select pins is not present on 
+		 the LCD module connector.</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">RAMSIZE</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-size: 10pt;">65536</p></td>
+		<td><p style="font-size: 10pt;">Specifies the amount of RAM present 
+		 on the LCD module. Address outside the RAM size are assumed to 
+		 &#39;wrap round&#39; into the physically memory space.</p></td>
+	</tr>
+</tbody></table>
+<h3>Debug Support</h3>
+<p style="font-weight: normal;">The controller model supports a trace mode 
+ which logs all commands sent to the display. This enables you to verify 
+ what commands are being received by the controller as program execution 
+ proceeds.</p>
+<p>Debug messaging can be enabled manually from the <span style="font-style: italic;">Debug</span> 
+  menu in ISIS. When enabled internal trace data for the model will 
+ be dumped in the simulation log during a simulation run.</p>
+<p class="Tip">Bear in mind that enabling trace mode may send a great deal 
+ of data to the simulation log, and seriously degrade the performance of 
+ the simulator.</p>
+<h3>Limitations</h3>
+<p>The T6963C model has the following limitations:</p>
+<ul class="p-Bullet">
+	<li class="p-Bullet"><p class="Bullet">The timing for many commands 
+	 is not specified in the data sheet; we have assumed that all command 
+	 and argument loads take 16 clock cycles. If you your code does not 
+	 check the status register as specified in the data sheet, it may not 
+	 work properly on a physical display module.</p></li>
+	<li class="p-Bullet"><p class="Bullet">The operation of the screen 
+	 peek and screen copy commands is very badly documented; we have tested 
+	 some 3rd party code that uses screen peek, but we cannot be certain 
+	 about the exact behaviour of these commands in more obscure situations 
+	 (e.g. text attribute mode).</p></li>
+	<li class="p-Bullet"><p class="Bullet">The clock frequencies used on 
+	 the specific display modules in DISPLAYS.LIB are not given in the 
+	 data sheets, so we have estimated clock frequencies assuming a 60Hz 
+	 refresh rate.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Dual scan mode is not supported.</p></li>
+	<li class="p-Bullet"><p class="Bullet">The action of the HALT pin is 
+	 not modelled.</p></li>
+</ul>
+<p style="font-weight: normal;"> </p>
+<p> </p>
+
+</div>
+
+</body></html>
