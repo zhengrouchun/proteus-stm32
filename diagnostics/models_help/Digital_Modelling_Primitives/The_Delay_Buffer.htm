@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Delay/Buffer</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Delay/Buffer Model - DELAY_#1</h1>
+<p>The DELAY primitive model, when the enable input (EN) is active, produces 
+ a delay between events on its input and events on its output. When the 
+ enable input is inactive, events are passed without delay.</p>
+<p>Note that the DELAY model is different from the BUFFER model in that 
+ it has no current amplifying action. In other words, if a <span style="font-style: italic;">Weak</span> 
+ input event will result in a <span style="font-style: italic;">Weak</span> 
+ output event.</p>
+<table class="LXTable" cellspacing="0" width="49.793%">
+	<colgroup><col style="width: 26.737%;"/>
+	<col style="width: 22.291%;"/>
+	<col style="width: 24.514%;"/>
+	<col style="width: 26.458%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td>D#</td>
+		<td>Input</td>
+		<td>#1</td>
+		<td>Data Inputs</td>
+	</tr>
+	<tr class="t1Row">
+		<td>Q</td>
+		<td>Output</td>
+		<td>#1</td>
+		<td>Output</td>
+	</tr>
+	<tr class="t2Row">
+		<td>EN</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>Enable Delay</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="79.697%">
+	<colgroup><col style="width: 16.696%;"/>
+	<col style="width: 13.744%;"/>
+	<col style="width: 15.307%;"/>
+	<col style="width: 17.042%;"/>
+	<col style="width: 18.605%;"/>
+	<col style="width: 18.605%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row">
+		<td>DELAY</td>
+		<td>Delay</td>
+		<td>D# &rarr; Q</td>
+		<td>Any</td>
+		<td>0</td>
+		<td>[1]</td>
+	</tr>
+	<tr class="t1Row">
+		<td>TDLHDQ </td>
+		<td>Delay</td>
+		<td>D# &rarr; Q</td>
+		<td>L &rarr; H</td>
+		<td>0</td>
+		<td>[2]</td>
+	</tr>
+	<tr class="t2Row">
+		<td>TDHLDQ </td>
+		<td>Delay</td>
+		<td>D#  &rarr; Q </td>
+		<td>H &rarr; L</td>
+		<td>0</td>
+		<td>[2]</td>
+	</tr>
+	<tr class="t1Row">
+		<td>TGQ </td>
+		<td>Glitch</td>
+		<td>Any &rarr; Q </td>
+		<td>Pulse</td>
+		<td>TDxxDQ</td>
+		<td> </td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p class="Tip"><span style="font-weight: bold;">1</span>. If the DELAY 
+ property is specified then both TDLHDQ and TDHLDQ are initialised to its 
+ value. </p>
+<p class="Tip"><span style="font-weight: bold;">2</span>. If the DELAY 
+ property is not specified, and one or both of TDLHDQ and TDHLDQ is specified 
+ then TDLHDQ and TDHLDQ are initialised to these properties (if only one 
+ is specified the other is initialised to its default).</p>
+<p class="Tip"><span style="font-weight: bold;">3</span>. If neither of 
+ the DELAY, TDLHDQ or TDHLDQ properties are specified then TDLHDQ and TDHLDQ 
+ are initialised to the device&#39;s VALUE property or VALUE field. </p>
+
+</div>
+
+</body></html>

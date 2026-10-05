@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Latch Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Latch Model - LATCH_#1</h1>
+<p>The LATCH model primitive implements an edge-triggered or transparent 
+ data latch with an asynchronous reset input and tristate outputs.</p>
+<p>For an edge-triggered latch (the <span style="font-weight: bold;">EDGE</span> 
+ property is set TRUE) data at the D input is latched to the Q  output 
+ on the positive edge of the CLK input providing the EN enable input is 
+ asserted. The Q outputs do not change whilst the CLK input is steady, 
+ on a negative CLK input edge or when the EN input is inactive. Note that, 
+ unlike simple external gating, toggling the EN enable input with the clock 
+ active produces does not produce spurious clock edges.</p>
+<p>For a transparent latch, the Q output follows the D input whilst the 
+ CLK input and EN enable input are asserted. The output is latched when 
+ on the negative edge of either the CLK or EN input and remains latched 
+ whilst the CLK and EN inputs are not asserted.</p>
+<p>When asserted, the asynchronous RESET input resets the latch data to 
+ zero.  The Q output is enabled by the OE input; when asserted the 
+ Q output drives the current latch data, when not asserted the Q output 
+ is in the high impedance state. The OE output-enable has no affect on 
+ the functioning of the CLK/EN/RESET inputs. Similarly, the EN enable input 
+ has no affect on the action of the RESET and OE inputs.</p>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="44.813%">
+	<colgroup><col style="width: 19.584%;"/>
+	<col style="width: 18.8%;"/>
+	<col style="width: 21.506%;"/>
+	<col style="width: 40.11%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">CLK</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Clock latch enable</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">EN</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Enable</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">RESET</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Reset</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">OE</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Output Enable</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">D#</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td>Latch data input</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">Q#</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">#1</p></td>
+		<td>Latch data output</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="51.919%">
+	<colgroup><col style="width: 19.147%;"/>
+	<col style="width: 16.496%;"/>
+	<col style="width: 25.812%;"/>
+	<col style="width: 20.475%;"/>
+	<col style="width: 18.07%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHCQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CLK &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLCQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CLK &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHDQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D#  &rarr; Q #</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLDQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D#  &rarr; Q #</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLZOQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE  &rarr; Q# </p></td>
+		<td><p align="center">L &rarr; Z</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHZOQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; Z</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDZLOQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE  &rarr; Q# </p></td>
+		<td><p align="center">Z &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDZHOQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; Q#</p></td>
+		<td><p align="center">Z &rarr; H</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDRQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">RESET &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TGQ </p></td>
+		<td><p align="center">Glitch</p></td>
+		<td><p align="center">ANY &rarr; Q#</p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDxxCQ</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="51.642%">
+	<colgroup><col style="width: 20.571%;"/>
+	<col style="width: 20.734%;"/>
+	<col style="width: 38.358%;"/>
+	<col style="width: 20.337%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">INIT</p></td>
+		<td><p align="center">Initialisation</p></td>
+		<td><p align="center">Initial latch value</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 24px;">
+		<td><p align="center">EDGE</p></td>
+		<td><p align="center">Boolean</p></td>
+		<td><p align="center">Edge triggered latch?</p></td>
+		<td><p align="center">FALSE</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p> </p>
+<p> </p>
+
+</div>
+
+</body></html>

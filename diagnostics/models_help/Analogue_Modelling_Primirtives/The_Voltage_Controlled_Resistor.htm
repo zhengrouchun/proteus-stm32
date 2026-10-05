@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Voltage Controlled Resistor</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Voltage Controlled Resistor Model - VCR</h1>
+<p>The primitive is essentially a resistor whose value is controlled by 
+ a voltage on the input pins. When the voltage is less than <span style="font-weight: bold;">VOFF</span>, 
+ the resistor is <span style="font-weight: bold;">ROFF</span> - when the 
+ voltage is greater than <span style="font-weight: bold;">VON</span>, the 
+ resistor is <span style="font-weight: bold;">RON</span>. Linear interpolation 
+ is used for voltages between <span style="font-weight: bold;">VOFF</span> 
+ and <span style="font-weight: bold;">VON</span>. Note that between these 
+ values the switch behaves as an amplifier,  so beware of making <span style="font-weight: bold;">VON-VOFF</span> too small, or <span style="font-weight: bold;">ROFF-RON</span> 
+ too large. Neither <span style="font-weight: bold;">RON</span> nor <span style="font-weight: bold;">ROFF</span> may be zero.</p>
+<table class="LXTable" width="59.751%" cellspacing="0">
+	<colgroup><col style="width: 17.207%;"/>
+	<col style="width: 17.67%;"/>
+	<col style="width: 65.123%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">VON</span></p></td>
+		<td><p align="center">1</p></td>
+		<td>Voltage above which the resistance is RON</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">RON</span></p></td>
+		<td><p align="center">1</p></td>
+		<td>Minimum Resistance</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">VOFF</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Voltage below which the resistance is ROFF</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">ROFF</span></p></td>
+		<td><p align="center">1M</p></td>
+		<td>Maximum Resistance</td>
+	</tr>
+</tbody></table>
+<p>This primitive is equivalent to the VSWITCH in ASIM - in fact you can 
+ use the <span style="font-weight: bold;">VON</span> and <span style="font-weight: bold;">VOFF</span> 
+ properties with a VSWITCH and PROSPICE will use the VCR model instead.</p>
+<p> </p>
+
+</div>
+
+</body></html>

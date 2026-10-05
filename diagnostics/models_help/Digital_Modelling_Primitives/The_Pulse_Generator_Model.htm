@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Pulse Generator Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Pulse Generator Model - PULSE</h1>
+<p>The PULSE primitive model produces both positive and negative pulses 
+ of a definable width on its Q and !Q outputs when triggered with a definable 
+ edge transition on its CLK input. A RESET input allows any current output 
+ pulse to be reset early.</p>
+<p>When a transition occurs on the clock input, a pulse of the defined 
+ width is generated on the Q and !Q outputs. If the RETRIGGER property 
+ is defined TRUE, then a current output pulse will be extended by a second 
+ transition occurring on the CLK input. The end time of the pulse is modified 
+ to equal to time of the second transition plus the defined pulse width.</p>
+<p> </p>
+<table class="LXTable" width="44.122%" cellspacing="0">
+	<colgroup><col style="width: 19.526%;"/>
+	<col style="width: 20.251%;"/>
+	<col style="width: 18.01%;"/>
+	<col style="width: 42.212%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">CLK</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Clock Input</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">RESET</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Pulse reset Input</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">Q</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>Positive pulse Output</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">!Q</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>inverted pulse Output</td>
+	</tr>
+</tbody></table>
+<br/>
+<table class="LXTable" width="58.005%" cellspacing="0">
+	<colgroup><col style="width: 17.138%;"/>
+	<col style="width: 14.765%;"/>
+	<col style="width: 23.104%;"/>
+	<col style="width: 18.327%;"/>
+	<col style="width: 16.174%;"/>
+	<col style="width: 10.492%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDCQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CLK &rarr; Q</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDCQB </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CLK &rarr; !Q</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDRQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">RESET  &rarr; Q </p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDCQ</p></td>
+		<td><p align="center">[2]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDRQB</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">RESET &rarr; !Q </p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDCQB</p></td>
+		<td><p align="center">[2]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TGQ</p></td>
+		<td><p align="center">Glitch</p></td>
+		<td><p align="center">ANY &rarr; Q</p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDCQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TGQB</p></td>
+		<td><p align="center">Glitch</p></td>
+		<td><p align="center">ANY &rarr; !Q</p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDCQB</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+</tbody></table>
+<br/>
+<table class="LXTable" cellspacing="0" width="64.731%">
+	<colgroup><col style="width: 20.254%;"/>
+	<col style="width: 16.424%;"/>
+	<col style="width: 39.11%;"/>
+	<col style="width: 13.305%;"/>
+	<col style="width: 10.81%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">INIT</p></td>
+		<td><p align="center">Initialisation</p></td>
+		<td><p align="center">Initial state of Q, !Q</p></td>
+		<td><p align="center">1</p></td>
+		<td><p align="center">[3]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 24px;">
+		<td><p align="center">WIDTH</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">Width of Q, !Q output pulses</p></td>
+		<td><p align="center">1</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 24px;">
+		<td><p align="center">RETRIGGER</p></td>
+		<td><p align="center">Boolean</p></td>
+		<td><p align="center">Are pulses extendible</p></td>
+		<td><p align="center">FALSE</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+</tbody></table>
+<p class="Tip"><span style="font-weight: bold;">1</span>. When a transition 
+ occurs on the CLK input, TDCQ is used as the delay before the Q output 
+ pulse commences and TDCQB is used as the delay before the !Q output pulse 
+ commences. The output pulses last WIDTH seconds and then reset without 
+ any further delay.</p>
+<p class="Tip"><span style="font-weight: bold;">2</span>. When a transition 
+ occurs at the RESET input any pulses on the Q or !Q outputs are reset 
+ after the respective delays.</p>
+<p class="Tip"><span style="font-weight: bold;">3</span>. Bit zero of this 
+ property corresponds to the Q output, bit one to the !Q output. A set 
+ bit indicates the output is active.</p>
+<p> </p>
+
+</div>
+
+</body></html>

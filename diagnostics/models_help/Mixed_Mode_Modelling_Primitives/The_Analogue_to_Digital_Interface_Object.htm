@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Analogue to Digital Interface Object</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Analogue to Digital Interface Object - ADC</h1>
+<p><span style="font-family: Arial, sans-serif;">The ADC primitive has 
+ four pins, although in common use, a two pinned variety is often used.</span></p>
+<table class="LXTable" cellspacing="0" width="58.918%">
+	<colgroup><col style="width: 16.259%;"/>
+	<col style="width: 27.858%;"/>
+	<col style="width: 55.882%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">A</p></td>
+		<td>Analogue Input </td>
+		<td>Input from analogue side of circuit.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">D</p></td>
+		<td>Digital Output </td>
+		<td>Output to digital side of circuit.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">V+</p></td>
+		<td>Analogue Input </td>
+		<td>Positive power supply.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">V-</p></td>
+		<td>Analogue Input S</td>
+		<td>Negative power supply.</td>
+	</tr>
+</tbody></table>
+<p><span style="font-family: Arial, sans-serif;">If either the V+ or V- 
+ pins are omitted, they will be assumed to connect to VCC/VDD and GND/VSS 
+ respectively. If the no VCC/VDD net exists, then the ADC will assume that 
+ it is operating on a +5V supply unless the VOLTAGE property is specified.</span></p>
+<p><span style="font-family: Arial, sans-serif;">The ADC primitive supports 
+ the following properties:</span></p>
+<table class="LXTable" cellspacing="0" width="58.774%">
+	<colgroup><col style="width: 16.473%;"/>
+	<col style="width: 14.139%;"/>
+	<col style="width: 69.387%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">VOLTAGE</p></td>
+		<td><p align="center">5V</p></td>
+		<td>Determines the  voltage for ADC’s that do not have power 
+		 rails. </td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">VTL</p></td>
+		<td><p align="center">30%</p></td>
+		<td>Logic low Voltage Threshold.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">VLH</p></td>
+		<td><p align="center">10%</p></td>
+		<td>Low-&gt;high hysteresis value.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">VTH</p></td>
+		<td><p align="center">70%</p></td>
+		<td>Logic high Voltage Threshold.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">VHH</p></td>
+		<td><p align="center">10%</p></td>
+		<td>High-&gt;low hysteresis value off.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TTOL</p></td>
+		<td><p align="center">&lt;TTOL&gt;</p></td>
+		<td>Timing tolerance. This defaults to the global mixed mode timing 
+		 tolerance if not specified.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">RPOS</p></td>
+		<td><p align="center">&infin;</p></td>
+		<td>Resistance from A  to V+ pins</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">RNEG</p></td>
+		<td><p align="center">&infin;</p></td>
+		<td>Resistance to A to V- pins</td>
+	</tr>
+</tbody></table>
+<p><span style="font-family: Arial, sans-serif;">The VTL and VTH properties 
+ can be specified either as percentages of the power supply, or as absolute 
+ values. For example:</span></p>
+<p class="Courier" style="margin-left: 18pt; font-family: &#39;Courier New&#39;, monospace;">VTL=40%</p>
+<p class="Courier" style="margin-left: 18pt; font-family: &#39;Courier New&#39;, monospace;">VTH=60%</p>
+<p><span style="font-family: Arial, sans-serif;">and</span></p>
+<p class="Courier" style="margin-left: 18pt; font-family: &#39;Courier New&#39;, monospace;">VTL=2.0</p>
+<p class="Courier" style="margin-left: 18pt; font-family: &#39;Courier New&#39;, monospace;">VTH=3.0</p>
+<p><span style="font-family: Arial, sans-serif;">are equivalent for a 5V 
+ supply.</span></p>
+<p><span style="font-family: Arial, sans-serif;">The hysteresis properties 
+ determine the levels at switch the ADC switches from undefined to low 
+ and undefined to high as opposed to low to undefined and high to undefined. 
+ If VTL, VTH are specified as percentages then VHL, VHH must be percentages 
+ too. Likewise, if VTL,VTH are given as absolute levels then VHL, VHH should 
+ also be given as levels.</span></p>
+<p><span style="font-family: Arial, sans-serif;">Setting VHL and VHH to 
+ zero tends to  cause convergence problems in some circuits.</span></p>
+<p>The <span style="font-weight: bold;">TTOL</span> property determines 
+ the accuracy with which PROSPICE will determine the time of the switching 
+ points. In other words, if <span style="font-weight: bold;">TTOL</span> 
+ is set to 1us, this means that successive two analogue simulation timepoints 
+ must occur no more than 1us either side of any point at which the ADC 
+ registers a state change on its output. This property is normally defaulted 
+ to the global mixed mode timing tolerance, as set under the DSIM tab of 
+ the <span style="font-style: italic;">Simulation Options</span> dialogue 
+ form.</p>
+<p>An ADC object drives the digital net to which its output connects at 
+ <span style="font-style: italic;">Weak</span> strength.</p>
+<p class="ExampleTitle">See Also:</p>
+<p><a href="The_Digital_to_Analogue_Interface_Object.htm">DAC Interface 
+ Object Model</a></p>
+<p><a href="The_Dual_Mode_Switch_Model.htm">Dual Mode Switch Model</a></p>
+
+</div>
+
+</body></html>

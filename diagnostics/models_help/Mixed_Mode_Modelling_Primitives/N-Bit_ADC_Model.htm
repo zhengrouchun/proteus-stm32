@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>N-Bit ADC Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>N-Bit ADC Model - ADC_#1</h1>
+<h3>Description</h3>
+<p>The N-Bit ADC is a building block for use in creating schematic models 
+ of real world analogue to digital converters. The data width and resolution 
+ is determined by the part name, so an ADC_8 represents an 8 bit converter.</p>
+<table class="LXTable" cellspacing="0" width="58.918%">
+	<colgroup><col style="width: 16.259%;"/>
+	<col style="width: 27.858%;"/>
+	<col style="width: 55.882%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">VIN</p></td>
+		<td><p align="center">Analogue Input </p></td>
+		<td><p>Analogue voltage input.</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">VREF+</p></td>
+		<td><p align="center">Analogue Input </p></td>
+		<td>Positive reference voltage.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">VREF-</p></td>
+		<td><p align="center">Analogue Input </p></td>
+		<td>Negative reference voltage</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">HOLD</p></td>
+		<td><p align="center">Analogue Input S</p></td>
+		<td>Positive edge transition causes sampling of analogue voltage 
+		 input.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">CLK</p></td>
+		<td><p align="center">Digital Input </p></td>
+		<td>Positive edge transition causes update of digital output.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">OE</p></td>
+		<td><p align="center">Digital Input </p></td>
+		<td>Output enable for D# output pins.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">D#</p></td>
+		<td><p align="center">Digital Output </p></td>
+		<td>Tri-state output bus</td>
+	</tr>
+</tbody></table>
+<p>The output value is determined by VIN, VREF+ and VREF- with the reference 
+ pins setting a valid range for the input voltage. The input voltage is 
+ sampled on a positive edge transition of the HOLD input, and transferred 
+ to the digital output register on a positive edge transition of the CLK 
+ input. Both edges may occur simultaneously, if required. The output bus 
+ is tri-state and drives data whenever the OE pin is active.</p>
+<p>You can use the <span style="font-weight: bold;">INVERT</span> property 
+ to make any of the digital inputs active low.</p>
+<h3>Properties</h3>
+<p>The ADC model supports the following properties:</p>
+<table class="LXTable" width="86.166%" cellspacing="0">
+	<colgroup><col style="width: 10.307%;"/>
+	<col style="width: 14.57%;"/>
+	<col style="width: 75.123%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">MODE</p></td>
+		<td><p align="center">UNSIGNED</p></td>
+		<td>Specifies the numerical format of the digital output. Possible 
+		 values for MODE are UNSIGNED, SIGNMAGNITUDE or TWOSCOMPLEMENT.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDLHCD</p></td>
+		<td><p align="center">0</p></td>
+		<td>Specifies the delay between CLK and D# for a low to high transition 
+		 on D#.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDHLCD</p></td>
+		<td><p align="center">0</p></td>
+		<td>Specifies the delay between CLK and D# for a high to low transition 
+		 on D#.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDZLOE</p></td>
+		<td><p align="center">0</p></td>
+		<td>Specifies the delay between OE and D# for a high-Z to low transition 
+		 on D#.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDZHOE</p></td>
+		<td><p align="center">0</p></td>
+		<td>Specifies the delay between OE and D# for a high-Z to high 
+		 transition on D#.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDLZOD</p></td>
+		<td><p align="center">0</p></td>
+		<td>Specifies the delay between OE and D# for a low to high-Z transition 
+		 on D#.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDHZOD</p></td>
+		<td><p align="center">0</p></td>
+		<td>Specifies the delay between OE and D# for a high to high-Z 
+		 transition on D#.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TG</p></td>
+		<td><p align="center">TDxxCD</p></td>
+		<td>Specifies the minimum pulse width possible on D#.</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p> </p>
+
+</div>
+
+</body></html>

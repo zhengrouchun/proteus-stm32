@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Matrix Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Matrix Model - MATRIX_#1_#2</h1>
+<p>The MATRIX primitive model implements the functional behaviour of the 
+ AND fuse matrix found in most PLD devices, as shown below:</p>
+<p class="Diagram"><img src="../assets/images/PLD_Modelling_Primitives/Fuse_matrix.gif" alt="" style="border: none;" width="322" height="255" border="0"/></p>
+<p>The matrix consists of a set of inputs and a set of outputs. Each output 
+ is driven by a product line line which, in the default state is connected 
+ to all the input lines by fuse links. The JEDEC file specifies which fuses 
+ should remain intact (input connected to output product line) or blown 
+ (input open-circuit to output product line). A given output is said to 
+ be active when all the inputs connected to its product line are also active; 
+ if any input is inactive, the output is also inactive. Thus, the output 
+ implements the logical-AND (i.e. the product term) of all its inputs. 
+ </p>
+<p>In the above diagram, there are twelve data inputs (D0 through D11) 
+ and eight data outputs (Q0 through Q7). The output Q1 has a product line 
+ whose fuse numbers are 12 (input D0) through to 23 (input D11). If the 
+ JEDEC file specified the fuses for this line as 010101110111, this would 
+ evaluate to Q1=D0 AND D2 AND D4 AND D8.</p>
+<p>Most PLD devices have an AND matrix fed by both the true and the complement 
+ of the input data, so allowing the output product terms to include the 
+ equivalent of a logical-NOT. In general, such devices have a matrix with 
+ twice the number of inputs as there are physical pins; the even matrix 
+ inputs then consist of the true data and the odd inputs of the inverted 
+ data.  For such devices, the internal input data word is twice the 
+ width of the <span style="font-style: italic;">external</span> data word. 
+ </p>
+<p>You can model such PLD devices most simply by creating a MATRIX primitive 
+ with the number of inputs equal to twice the number of physical pins, 
+ and then driving the MATRIX with both true and complementary data. However, 
+ as nearly all PLDs require both true and complementary data, and as the 
+ inversion of data externally (using separate INVERTOR primitives on each 
+ data input) is non-optimum, the MATRIX primitive provides a means of producing 
+ internal data words that are twice the width of the number of model inputs 
+ and which contain both true and complementary data. This model function 
+ is controlled by the <span style="font-weight: bold;">INVPINS</span> property, 
+ as shown in the following two diagrams which relate typical PLD input 
+ stages to the property&#39;s usage within the MATRIX primitive model:</p>
+<p class="Diagram"><img src="../assets/images/PLD_Modelling_Primitives/Matrix_primitive_model.gif" alt="" style="border: none;" width="452" height="114" border="0"/></p>
+<p>Thus, in a PLD where the even product line offsets (0, 2, etc.) are 
+ the true data and the odd product line offsets the complementary data 
+ (shown above left), you need to create a MATRIX model with the same number 
+ of inputs as there are physical pins and to specify the <span style="font-weight: bold;">INVPINS</span>=+ 
+ property. Similarly, in a PLD where the even product line offsets (0, 
+ 2, etc.) are the complementary data and the odd product line offsets the 
+ true data (shown above right), you need to create a MATRIX model with 
+ the same number of inputs as there are physical pins and to specify the 
+ <span style="font-weight: bold;">INVPINS</span>=- property. The former 
+ is by far the most common. Note that specifying the <span style="font-weight: bold;">INVPINS</span> 
+ property results in the internal data width of the MATRIX primitive being 
+ twice the width of the external (i.e. number of D# inputs) width: this 
+ must be accounted for when specifying fuse numbers (see below).</p>
+<p>The MATRIX primitive requires fuse numbers to be specified for the first 
+ fuse in each matrix outputs product line. You can specify these fuse numbers 
+ in one of two ways. If the PLDs AND matrix has irregular fuse numbering 
+ you can use the alternative properties <span style="font-weight: bold;">FUSE0, 
+ FUSE1, FUSE2</span>, etc. to specify the number of the first fuse in the 
+ Q0, Q1 and Q2 outputs&#39; respective product lines. For the example above, 
+ we would thus need eight property assignments, as follows:</p>
+<p class="Courier" style="margin-left: 18pt;">FUSE0=0</p>
+<p class="Courier" style="margin-left: 18pt;">FUSE1=12</p>
+<p class="Courier" style="margin-left: 18pt;">...</p>
+<p class="Courier" style="margin-left: 18pt;">FUSE7=84</p>
+<p>Alternatively, if the product line first fuse numbers are all a fixed 
+ number apart, you can use the <span style="font-weight: bold;">FUSEBASE</span> 
+ property to specify the first product line&#39;s first fuse number and the 
+ <span style="font-weight: bold;">FUSEINCR</span> property to specify the 
+ increment to the next product line&#39;s first fuse number. For the example 
+ above, we would thus only need two property assignments, as follows:</p>
+<p class="Courier" style="margin-left: 18pt;">FUSEBASE=0</p>
+<p class="Courier" style="margin-left: 18pt;">FUSEINCR=12</p>
+<p>In general, for most PLDs, the <span style="font-weight: bold;">FUSEINCR</span> 
+ property would be assigned a value equal to the width of the model&#39;s internal 
+ input data word - this will be the same as the number of D# model inputs 
+ if the <span style="font-weight: bold;">INVPINS</span> property is not 
+ specified and twice the number of D# model inputs if the <span style="font-weight: bold;">INVPINS</span> 
+ property is specified. </p>
+<p>Note that if you specify the <span style="font-weight: bold;">FUSEINCR</span> 
+ property, then it (and the <span style="font-weight: bold;">FUSEBASE</span> 
+ property) will be used in preference to any <span style="font-weight: bold;">FUSEn</span> 
+ assignments. Further, both methods only allow you to specify the number 
+ of the first fuse for each product line: the MATRIX primitive model automatically 
+ numbers the remainder of the fuses in the product term from left to right 
+ according to the <span style="font-style: italic;">internal</span> data 
+ width.</p>
+<table class="LXTable" cellspacing="0" width="41.355%">
+	<colgroup><col style="width: 23.507%;"/>
+	<col style="width: 25.955%;"/>
+	<col style="width: 21.555%;"/>
+	<col style="width: 28.983%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">D#</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td><p align="center">Data Inputs</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">Q#</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">#2</p></td>
+		<td><p align="center">Data Outputs</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="70.031%">
+	<colgroup><col style="width: 20.95%;"/>
+	<col style="width: 14.223%;"/>
+	<col style="width: 36.044%;"/>
+	<col style="width: 18.118%;"/>
+	<col style="width: 10.665%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row">
+		<td>FILE</td>
+		<td>Text</td>
+		<td>Name of JEDEC file.</td>
+		<td>See Note</td>
+		<td>[1]</td>
+	</tr>
+	<tr class="t1Row">
+		<td>INVPINS</td>
+		<td>Text</td>
+		<td>Generate Inverted inputs</td>
+		<td>See Note</td>
+		<td>[2]</td>
+	</tr>
+	<tr class="t2Row">
+		<td>FUSEBASE</td>
+		<td>Numeric</td>
+		<td>Fuse Number of 1st P.Line.</td>
+		<td>0</td>
+		<td>[3]</td>
+	</tr>
+	<tr class="t1Row">
+		<td>FUSEINCR</td>
+		<td>Numeric</td>
+		<td>Increment For Next P. Line.</td>
+		<td>See Note</td>
+		<td>[3]</td>
+	</tr>
+	<tr class="t2Row">
+		<td>FUSEn</td>
+		<td>Numeric</td>
+		<td>Number for nth P.Line.</td>
+		<td>0</td>
+		<td>[3]</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p class="Tip"><span style="font-weight: bold;">1</span>. The FILE property 
+ specifies the path and filename of the JEDEC file to be used for fuse 
+ values. This property must be specified - there is no default.</p>
+<p class="Tip"><span style="font-weight: bold;">2</span>. If specified, 
+ the INVPINS property causes the model to create an internal data word 
+ containing both the input data word at the D# inputs and its complement. 
+ </p>
+<p class="Tip"><span style="font-weight: bold;">3</span>. If FUSEINCR is 
+ assigned, then the FUSEBASE and FUSEINCR properties will be used to specify 
+ the first fuse numbers of each outputs product line. If <span style="text-decoration: underline; ">not</span> 
+ specified, then FUSEn properties will be expected instead.</p>
+<p class="ExampleTitle">See Also:</p>
+<p><a href="The_Fuse_Expression_Model.htm">Fuse Expression Model</a></p>
+<p><a href="The_Fused_1-of-N_Selector_Model.htm">Fused 1-of-N Selector 
+ Model</a></p>
+<p><a href="The_Macro-Cell_Model.htm">Macro Cell Model</a></p>
+
+</div>
+
+</body></html>

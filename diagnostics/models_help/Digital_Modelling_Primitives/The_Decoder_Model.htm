@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Decoder Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Decoder Model - DECODER_#1_#2</h1>
+<p>The DECODER primitive models a input-to-output data decoder. The input 
+ data is translated in to output data according to the type of decoder 
+ specified the <span style="font-weight: bold; font-family: &#39;Cordia New&#39;;">TYPE</span> 
+ property, as follows:</p>
+<table cellspacing="0" width="100%">
+	<colgroup><col style="width: 10.491%;"/>
+	<col style="width: 2.745%;"/>
+	<col style="width: 86.764%;"/>
+	</colgroup><tbody><tr>
+		<td><p style="font-size: 10pt; font-weight: bold; font-family: &#39;Cordia New&#39;;" align="center">BINARY</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace;" align="center">-</p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">A 
+		 single output corresponding to the binary value at the input is 
+		 asserted</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-size: 10pt; font-weight: bold; font-family: &#39;Cordia New&#39;;" align="center">BCD</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace;" align="center">-</p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">A 
+		 single output corresponding to the BCD value at the input is asserted.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-size: 10pt; font-weight: bold; font-family: &#39;Cordia New&#39;;" align="center">7A </p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace;" align="center">-</p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">The 
+		 first seven output bits are set in order to drive a seven-segment 
+		 LED with the binary input value, higher value outputs remain inactive. 
+		 The output is compatible with the TTL 74LS247 seven-segment driver 
+		 (the numbers 6 and 9 have tails), and is illustrated below. Q0 
+		 corresponds to the segment &#39;a&#39; and Q6 to segment &#39;g&#39;.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-size: 10pt; font-weight: bold; font-family: &#39;Cordia New&#39;;" align="center">7B</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace;" align="center">-</p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">The 
+		 first seven output bits are set in order to drive a seven-segment 
+		 LED with the binary input value, higher value outputs remain inactive. 
+		 The output is compatible with the TTL 74LS47 seven-segment driver 
+		 (the numbers 6 and 9 do not have tails), and is illustrated below.</span> 
+		 
+		<span style="font-family: Arial, sans-serif; 
+								 font-size: 10pt;"><img src="../assets/images/Digital_Modelling_Primitives/Decoder_model.gif" alt="" style="border: none;" width="359" height="152" border="0"/></span></td>
+	</tr>
+	<tr>
+		<td><p style="font-size: 10pt; font-weight: bold; font-family: &#39;Cordia New&#39;;" align="center">TABLE</p></td>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace;" align="center">-</p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">The 
+		 input data is translated via a user-defined table look-up. The 
+		 LENGTH property indicates the size of the table, whilst table 
+		 entries are defined by the properties with names TABLE0, TABLE1, 
+		 TABLE2, etc. A table entry not defined is set to the value specified 
+		 by the DEFAULT property, which itself defaults to zero. The WARN 
+		 property, if TRUE, causes a warning to be issued (in the simulation 
+		 log) for any defaulted table entry. </span></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p> The EN input has higher priority to the ALL input, and the ALL 
+ input has higher priority to the D inputs. Thus:</p>
+<ul type="disc">
+	<li>When the EN enable input is inactive, all Q outputs are forced 
+	 inactive.</li>
+</ul>
+<ul type="disc">
+	<li>When the EN and ALL inputs are active then all outputs are forced 
+	 active.</li>
+</ul>
+<ul type="disc">
+	<li>When the EN input is active and the ALL input is inactive, the 
+	 data value on the D inputs is decoded and the Q outputs driven with 
+	 the decoded value. Only input values between zero and the value of 
+	 the LENGTH property inclusive are decoded; values outside this range 
+	 are ignored and all Q outputs will be set inactive. </li>
+</ul>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="49.931%">
+	<colgroup><col style="width: 17.382%;"/>
+	<col style="width: 16.687%;"/>
+	<col style="width: 19.089%;"/>
+	<col style="width: 46.842%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">EN</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Enable input.</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">ALL</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>All outputs active, input.</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">D#</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td>Data input to be decoded.</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">Q#</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">#2</p></td>
+		<td>Data input to be decoded.</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="61.301%">
+	<colgroup><col style="width: 16.444%;"/>
+	<col style="width: 13.744%;"/>
+	<col style="width: 25.134%;"/>
+	<col style="width: 14.07%;"/>
+	<col style="width: 15.304%;"/>
+	<col style="width: 15.304%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td>TDLHDQ </td>
+		<td><p align="center">Delay</p></td>
+		<td> D#, ALL &rarr; Q#</td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td>TDHLDQ </td>
+		<td><p align="center">Delay</p></td>
+		<td> D#, ALL &rarr; Q#</td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td>TDLHEQ </td>
+		<td><p align="center">Delay</p></td>
+		<td>EN &rarr; Q#</td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td>TDLHDQ </td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td>TDHLEQ </td>
+		<td><p align="center">Delay</p></td>
+		<td>EN &rarr; Q#</td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td>TDHLDQ </td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td>TDLHAQ </td>
+		<td><p align="center">Delay</p></td>
+		<td> ALL &rarr; Q#</td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td>TDLHDQ </td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td>TDHLAQ </td>
+		<td><p align="center">Delay</p></td>
+		<td>ALL &rarr; Q#</td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td>TDHLDQ </td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td>TGQ</td>
+		<td><p align="center">Glitch</p></td>
+		<td><p>ANY &rarr; Q# </p></td>
+		<td><p align="center">Pulse</p></td>
+		<td>TDxxCQ</td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="61.027%">
+	<colgroup><col style="width: 16.866%;"/>
+	<col style="width: 16.999%;"/>
+	<col style="width: 36.339%;"/>
+	<col style="width: 15.324%;"/>
+	<col style="width: 14.61%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">TYPE </p></td>
+		<td><p align="center">Text</p></td>
+		<td><p>Type of decoder.  </p></td>
+		<td><p align="center">BINARY</p></td>
+		<td><p align="center">[2]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 24px;">
+		<td><p align="center">LENGTH  </p></td>
+		<td><p align="center">Numeric</p></td>
+		<td><p>Table length.  </p></td>
+		<td><p align="center">16/0</p></td>
+		<td><p align="center">[3]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 24px;">
+		<td><p align="center">DEFAULT </p></td>
+		<td><p align="center">Numeric</p></td>
+		<td><p>Default table entry value.</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[4]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 24px;">
+		<td><p align="center">WARN </p></td>
+		<td><p align="center">Boolean </p></td>
+		<td><p>Warn of defaulted entries. </p></td>
+		<td><p align="center">FALSE</p></td>
+		<td><p align="center">[5]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 24px;">
+		<td><p align="center">TABLEn </p></td>
+		<td><p align="center">Numeric</p></td>
+		<td><p>Value of table entry nn. </p></td>
+		<td><p align="center">DEFAULT</p></td>
+		<td><p align="center">[6]</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p class="Tip">1. The Q outputs have a propagation delay (in order of descending 
+ priority) of <span style="font-weight: bold;">TDLHEQ/TDHLEQ</span> when 
+ there is a transition at the EN input, <span style="font-weight: bold;">TDLHAQ/TDHLAQ</span> 
+ when there is transition at the ALL input, and <span style="font-weight: bold;">TDLHDQ/TDHLDQ</span> 
+ for all input transitions.</p>
+<p class="Tip">2. The <span style="font-weight: bold;">TYPE</span> property 
+ should be assigned one of the following keywords:</p>
+<p style="margin-left: 19px;"> </p>
+<table cellspacing="0" width="60.166%">
+	<colgroup><col style="width: 22.462%;"/>
+	<col style="width: 77.538%;"/>
+	</colgroup><tbody><tr>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-weight: bold;">BINARY</p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Binary 
+		 input to single output decoder. </span></td>
+	</tr>
+	<tr>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-weight: bold;">BCD</p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">BCD 
+		 input to single output decoder.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-weight: bold;">7A</p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Binary 
+		 input to 7-segment LED output decoder, Type A.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-weight: bold;">7B</p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;"> Binary 
+		 input to 7-segment LED output decoder, Type B.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-family: &#39;Courier New&#39;, monospace; font-weight: bold;">TABLE</p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Table 
+		 decoder.</span></td>
+	</tr>
+</tbody></table>
+<p style="margin-left: 1px;"> </p>
+<p class="Tip">3. Where <span style="font-weight: bold;">TYPE</span> is 
+ assigned TABLE, 7A or 7B, this specifies the number of entries in the 
+ table and the default property value is 0, 16 and 16 respectively. Input 
+ values that are greater than the value of the <span style="font-weight: bold;">LENGTH</span> 
+ property are ignored and all outputs will be set inactive.</p>
+<p class="Tip">4. For a TABLE type decoder, table entries not explicitly 
+ specified by a TABLEnn property are initialised to the value of this property. 
+ See also notes [5] and [6].</p>
+<p class="Tip">5. For a TABLE type decoder, if set TRUE, a warning is entered 
+ in to the simulation log for any table entries defaulted to the <span style="font-weight: bold;">DEFAULT</span> property value. See also 
+ notes [4] and [6].</p>
+<p class="Tip">6. For a TABLE type decoder, the table entries are specified 
+ via properties with the names <span style="font-weight: bold;">TABLE0, 
+ TABLE1, TABLE2</span>, etc. The highest <span style="font-weight: bold;">TABLEn</span> 
+ property should be equal to the value of the LENGTH property. Any table 
+ entry not specified is set to the value of the <span style="font-weight: bold;">DEFAULT</span> 
+ property, which itself defaults to zero. See also notes [4] and [5]. </p>
+<p> </p>
+
+</div>
+
+</body></html>

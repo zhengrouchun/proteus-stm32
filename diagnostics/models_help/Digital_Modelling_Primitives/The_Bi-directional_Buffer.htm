@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Bi-directional Buffer</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Bi-directional Buffer Model - BIBUFFER</h1>
+<p>The BIBUFFER primitive models the behaviour of a bi-directional tristate 
+ buffer. The model has two I/O data words, A and B. When the direction 
+ control input ATOB is asserted the A pins are seen as inputs and the B 
+ pins as outputs; when the control input is not asserted, the B pins are 
+ seen as inputs and the A pins as outputs. A separate output-enable pin 
+ (OE) is provided; when asserted, the current output data pins are driven 
+ into a </p>
+<table class="LXTable" cellspacing="0" width="54.91%">
+	<colgroup><col style="width: 23.87%;"/>
+	<col style="width: 19.9%;"/>
+	<col style="width: 21.886%;"/>
+	<col style="width: 34.344%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td>D</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>Data Inputs</td>
+	</tr>
+	<tr class="t1Row">
+		<td>QE</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>Output-Enable Input</td>
+	</tr>
+	<tr class="t2Row">
+		<td>Q</td>
+		<td>Output</td>
+		<td>-</td>
+		<td>Data Output</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="64.869%">
+	<colgroup><col style="width: 20.512%;"/>
+	<col style="width: 16.886%;"/>
+	<col style="width: 18.806%;"/>
+	<col style="width: 20.938%;"/>
+	<col style="width: 22.858%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+	</tr>
+	<tr class="t2Row">
+		<td>TDLHDQ </td>
+		<td>Delay</td>
+		<td>A# &rarr; B#</td>
+		<td>L &rarr; H</td>
+		<td>0</td>
+	</tr>
+	<tr class="t1Row">
+		<td>TDHLDQ </td>
+		<td>Delay</td>
+		<td>A# &rarr; B#</td>
+		<td>H &rarr; L</td>
+		<td>0</td>
+	</tr>
+	<tr class="t2Row">
+		<td>TDLZOQ</td>
+		<td>Delay</td>
+		<td>OE &rarr; Q</td>
+		<td>L &rarr; Z</td>
+		<td>TDLHDQ</td>
+	</tr>
+	<tr class="t1Row">
+		<td>TDHZOQ </td>
+		<td>Delay</td>
+		<td>OE &rarr; Q</td>
+		<td>H &rarr; Z</td>
+		<td>TDHLDQ</td>
+	</tr>
+	<tr class="t2Row">
+		<td>TDZLOQ </td>
+		<td>Delay</td>
+		<td>OE &rarr; Q</td>
+		<td>Z &rarr; L</td>
+		<td>TDHLDQ</td>
+	</tr>
+	<tr class="t1Row">
+		<td>TDZHOQ </td>
+		<td>Delay</td>
+		<td>OE &rarr; Q</td>
+		<td>Z &rarr; H</td>
+		<td>TDLHDQ</td>
+	</tr>
+	<tr class="t2Row">
+		<td>TGQ </td>
+		<td>Glitch</td>
+		<td>Any &rarr; Q </td>
+		<td>Pulse</td>
+		<td>TDxxDQ</td>
+	</tr>
+</tbody></table>
+<p> </p>
+
+</div>
+
+</body></html>

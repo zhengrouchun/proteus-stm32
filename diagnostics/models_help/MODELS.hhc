@@ -1,0 +1,158 @@
+<html>
+    <!-- Sitemap 1.0 -->
+    <object type="text/site properties">
+      <param name="SiteType" value="toc">
+      <param name="Image Width" value="16">
+      <param name="Window Styles" value="0x800027">
+      <param name="ExWindow Styles" value="0x100">
+    </object>
+    
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="SIMULATOR PRIMITIVE REFERENCE"/><param name="ImageNumber" value="5"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="Introduction.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Analogue Modelling Primitives"/><param name="ImageNumber" value="5"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Capacitor Model"/><param name="local" value="Analogue_Modelling_Primirtives/Capacitor_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Current Source Model"/><param name="local" value="Analogue_Modelling_Primirtives/Current_Source_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Lossless Delay Line Model"/><param name="local" value="Analogue_Modelling_Primirtives/The_Lossless_Delay_Line_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Lossy Delay Line Model"/><param name="local" value="Analogue_Modelling_Primirtives/The_Lossy_Delay_Line_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Uniform RC Transmission Line Model"/><param name="local" value="Analogue_Modelling_Primirtives/Uniform_RC_Transmission_Line_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Inductor Model"/><param name="local" value="Analogue_Modelling_Primirtives/The_Inductor_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Analogue Resistor Model"/><param name="local" value="Analogue_Modelling_Primirtives/The_Analogue_Resistor_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Voltage-Controlled Voltage Source Model"/><param name="local" value="Analogue_Modelling_Primirtives/The_Voltage-Controlled_Voltage_Source_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Voltage-Controlled Current Source Model"/><param name="local" value="Analogue_Modelling_Primirtives/The_Voltage-Controlled_Current_Source_Model_.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Current-Controlled Voltage Source Model"/><param name="local" value="Analogue_Modelling_Primirtives/The_Current-Controlled_Voltage_Source_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Current-Controlled Current Source Model"/><param name="local" value="Analogue_Modelling_Primirtives/The_Current-Controlled_Current_Source_Model_.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Arbitrary Controlled Source Models"/><param name="local" value="Analogue_Modelling_Primirtives/The_Arbitrary_Controlled_Source_Models.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Analogue Diode Model"/><param name="local" value="Analogue_Modelling_Primirtives/The_Analogue_Diode_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Bipolar Transistor Models"/><param name="local" value="Analogue_Modelling_Primirtives/The_Bipolar_Transistor_Models.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The JFET Transistor Models"/><param name="local" value="Analogue_Modelling_Primirtives/The_JFET_Transistor_Models.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The MOSFET Transistor Models"/><param name="local" value="Analogue_Modelling_Primirtives/The_MOSFET_Transistor_Models.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The MESFET Transistor Models"/><param name="local" value="Analogue_Modelling_Primirtives/The_MESFET_Transistor_Models.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Non-Linear Voltage Controlled Current Source"/><param name="local" value="Analogue_Modelling_Primirtives/The_Non-Linear_Voltage_Controlled_Current_Source.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Non-Linear Current Controlled Current Source"/><param name="local" value="Analogue_Modelling_Primirtives/The_Non-Linear_Current_Controlled_Current_Source.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Voltage Controlled Switch"/><param name="local" value="Analogue_Modelling_Primirtives/The_Voltage_Controlled_Switch.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Voltage Controlled Resistor"/><param name="local" value="Analogue_Modelling_Primirtives/The_Voltage_Controlled_Resistor.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Current Controlled Switch"/><param name="local" value="Analogue_Modelling_Primirtives/The_Current_Controlled_Switch.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Current Controlled Resistor"/><param name="local" value="Analogue_Modelling_Primirtives/The_Current_Controlled_Resistor.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Current Probe Model"/><param name="local" value="Analogue_Modelling_Primirtives/The_Current_Probe_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Digital Modelling Primitives"/><param name="ImageNumber" value="5"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="The Standard Gate Models"/><param name="local" value="Digital_Modelling_Primitives/The_Standard_Gate_Models.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Boolean (Programmable) Gate"/><param name="local" value="Digital_Modelling_Primitives/The_Boolean_(Programmable)_Gate.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Delay/Buffer"/><param name="local" value="Digital_Modelling_Primitives/The_Delay_Buffer.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Tristate Buffer"/><param name="local" value="Digital_Modelling_Primitives/The_Tristate_Buffer.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Bi-directional Buffer"/><param name="local" value="Digital_Modelling_Primitives/The_Bi-directional_Buffer.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The J-K Model"/><param name="local" value="Digital_Modelling_Primitives/The_J-K_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Pulse Generator Model"/><param name="local" value="Digital_Modelling_Primitives/The_Pulse_Generator_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The A or B Selector Model"/><param name="local" value="Digital_Modelling_Primitives/The_A_or_B_Selector_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Bistable Model"/><param name="local" value="Digital_Modelling_Primitives/The_Bistable_Model_.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The D-Type Flip-Flop Model"/><param name="local" value="Digital_Modelling_Primitives/The_D-Type_Flip-Flop_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Counter Model"/><param name="local" value="Digital_Modelling_Primitives/The_Counter_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Divide by N Model"/><param name="local" value="Digital_Modelling_Primitives/The_Divide_by_N_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Latch Model"/><param name="local" value="Digital_Modelling_Primitives/The_Latch_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Shift Register Model"/><param name="local" value="Digital_Modelling_Primitives/The_Shift_Register_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Decoder Model"/><param name="local" value="Digital_Modelling_Primitives/The_Decoder_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Priority Encoder Model"/><param name="local" value="Digital_Modelling_Primitives/The_Priority_Encoder_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The One-of-N Selector Model"/><param name="local" value="Digital_Modelling_Primitives/The_One-of-N_Selector_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The ALU Function Model"/><param name="local" value="Digital_Modelling_Primitives/The_ALU_Function_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Magnitude Comparator Model"/><param name="local" value="Digital_Modelling_Primitives/The_Magnitude_Comparator_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Memory Model"/><param name="local" value="Digital_Modelling_Primitives/The_Memory_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Digital Resistor Model"/><param name="local" value="Digital_Modelling_Primitives/The_Digital_Resistor_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Digital Diode Model"/><param name="local" value="Digital_Modelling_Primitives/The_Digital_Diode_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="PLD Modelling Primitives"/><param name="ImageNumber" value="5"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="The Matrix Model"/><param name="local" value="PLD_Modelling_Primitives/The_Matrix_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Fuse Expression Model"/><param name="local" value="PLD_Modelling_Primitives/The_Fuse_Expression_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Fused 1-of-N Selector Model"/><param name="local" value="PLD_Modelling_Primitives/The_Fused_1-of-N_Selector_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Macro-Cell Model"/><param name="local" value="PLD_Modelling_Primitives/The_Macro-Cell_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Mixed Mode Modelling Primitives"/><param name="ImageNumber" value="5"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="The Analogue to Digital Interface Object"/><param name="local" value="Mixed_Mode_Modelling_Primitives/The_Analogue_to_Digital_Interface_Object.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Digital to Analogue Interface Object"/><param name="local" value="Mixed_Mode_Modelling_Primitives/The_Digital_to_Analogue_Interface_Object.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Dual Mode Switch Model"/><param name="local" value="Mixed_Mode_Modelling_Primitives/The_Dual_Mode_Switch_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="N-Bit ADC Model"/><param name="local" value="Mixed_Mode_Modelling_Primitives/N-Bit_ADC_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="N-Bit DAC Model"/><param name="local" value="Mixed_Mode_Modelling_Primitives/N-Bit_DAC_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Real Time Digital Probe"/><param name="ImageNumber" value="5"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="The Real Time Digital Probe"/><param name="local" value="Real_Time_Digital_Probe/The_Real_Time_Digital_Probe.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Real Time Current Probe"/><param name="local" value="Real_Time_Digital_Probe/The_Real_Time_Current_Probe.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Real Time Voltage Probe"/><param name="local" value="Real_Time_Digital_Probe/The_Real_Time_Voltage_Probe.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Real Time Digital State Model"/><param name="local" value="Real_Time_Digital_Probe/The_Real_Time_Digital_State_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Real Time Switch Model"/><param name="local" value="Real_Time_Digital_Probe/The_Real_Time_Switch_Model.htm"/><param name="ImageNumber" value="11"/></object></li>
+	</ul></li>
+	</ul></li>
+	</ul>
+    </html>

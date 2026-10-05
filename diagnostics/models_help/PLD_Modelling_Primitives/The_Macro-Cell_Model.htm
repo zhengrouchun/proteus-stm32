@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Macro-Cell Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Macro-Cell Model - MCELL</h1>
+<p>The MCELL primitive models implements most of the functions provided 
+ by PLD output cells. These output cells are often referred to as Macro 
+ cells due to the wide variety of functions they implement.</p>
+<p>The MCELL macro-cell model can be used to model register, transparent 
+ latch and combinatorial output stages. The cell type is defined in the 
+ following order</p>
+<p style="margin-left: 18pt;">1. If the REG property is assigned a fuse 
+ expression and the expression evaluates TRUE, then a registered macro-cell 
+ type is defined. </p>
+<p style="margin-left: 18pt;">2. If the LATCH property is assigned a fuse 
+ expression and the expression evaluates TRUE, then a latched macro-cell 
+ type is defined.</p>
+<p style="margin-left: 18pt;">3. If neither the REG or LATCH properties 
+ are assigned, or if they are their expression(s) evaluate FALSE, then 
+ a combinatorial macro-cell type is defined.</p>
+<p>The following truth tables define, for each macro-cell type, the model 
+ behaviour when pre-loaded, clocked, asynchronously preset and/or reset, 
+ and finally, when synchronously preset and/or reset. Pin states shown 
+ in terms of positive clock edge (<span style="font-weight: bold;">&ShortUpArrow;</span>), 
+  negative clock edge (&darr;), active (A), inactive (I), and don&#39;t care 
+ (X) states.</p>
+<h4 align="center">Registered Macro-cell</h4>
+<div align="center">
+<table class="LXTable" cellspacing="0" width="71.233%">
+	<colgroup><col style="width: 28.737%;"/>
+	<col style="width: 11.263%;"/>
+	<col style="width: 10.68%;"/>
+	<col style="width: 10.291%;"/>
+	<col style="width: 10.655%;"/>
+	<col style="width: 14.23%;"/>
+	<col style="width: 14.174%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Operation</td>
+		<td>PL</td>
+		<td>CLK</td>
+		<td>RESET</td>
+		<td>SET</td>
+		<td>Q</td>
+		<td>!Q</td>
+	</tr>
+	<tr class="t2Row">
+		<td>Preload Start</td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">PD</p></td>
+		<td><p align="center">!PD</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td>Preload End</td>
+		<td><p align="center">&darr;</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">PD</p></td>
+		<td><p align="center">!PD</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td>Async. reset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td>Async. preset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">|</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td>Async. preset and reset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">QSANDR</p></td>
+		<td><p align="center">QBSANDR</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td>Sync. reset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">&ShortUpArrow;</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td>Sync. preset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">&ShortUpArrow;</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">|</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td>Sync. preset and reset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">&ShortUpArrow;</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">QSANDR</p></td>
+		<td><p align="center">QBSANDR</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td>Clock</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">&ShortUpArrow;</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">D</p></td>
+		<td><p align="center">!D</p></td>
+	</tr>
+</tbody></table>
+</div>
+<h4 align="center"> </h4>
+<h4 align="center">Latched Macro-cell</h4>
+<div align="center">
+<table class="LXTable" cellspacing="0" width="71.233%">
+	<colgroup><col style="width: 28.737%;"/>
+	<col style="width: 11.263%;"/>
+	<col style="width: 10.68%;"/>
+	<col style="width: 10.291%;"/>
+	<col style="width: 10.655%;"/>
+	<col style="width: 14.23%;"/>
+	<col style="width: 14.174%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Operation</td>
+		<td>PL</td>
+		<td>CLK</td>
+		<td>RESET</td>
+		<td>SET</td>
+		<td>Q</td>
+		<td>!Q</td>
+	</tr>
+	<tr class="t2Row">
+		<td>Preload Start</td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">PD</p></td>
+		<td><p align="center">!PD</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td>Preload End</td>
+		<td><p align="center">&darr;</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">PD</p></td>
+		<td><p align="center">!PD</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td>Async. reset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td>Async. preset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">|</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td>Async. preset and reset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">QSANDR</p></td>
+		<td><p align="center">QBSANDR</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td>Sync. reset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td>Sync. preset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">|</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td>Sync. preset and reset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">QSANDR</p></td>
+		<td><p align="center">QBSANDR</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td>Clock</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">D</p></td>
+		<td><p align="center">!D</p></td>
+	</tr>
+</tbody></table>
+</div>
+<p> </p>
+<h4 align="center">Combinatorial Macro-cell</h4>
+<div align="center">
+<table class="LXTable" cellspacing="0" width="71.233%">
+	<colgroup><col style="width: 28.737%;"/>
+	<col style="width: 11.263%;"/>
+	<col style="width: 10.68%;"/>
+	<col style="width: 10.291%;"/>
+	<col style="width: 10.655%;"/>
+	<col style="width: 14.23%;"/>
+	<col style="width: 14.174%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Operation</td>
+		<td>PL</td>
+		<td>CLK</td>
+		<td>RESET</td>
+		<td>SET</td>
+		<td>Q</td>
+		<td>!Q</td>
+	</tr>
+	<tr class="t2Row">
+		<td>Preload Start</td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">PD</p></td>
+		<td><p align="center">!PD</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td>Preload End</td>
+		<td><p align="center">&darr;</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">D</p></td>
+		<td><p align="center">!D</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td>Sync/Async. reset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td>Sync/Async. preset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">|</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td>Sync/Async.set and reset</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">A</p></td>
+		<td><p align="center">QSANDR</p></td>
+		<td><p align="center">QBSANDR</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td>Clock</td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">X</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">|</p></td>
+		<td><p align="center">D</p></td>
+		<td><p align="center">!D</p></td>
+	</tr>
+</tbody></table>
+</div>
+<p> </p>
+<p>For all types, the preload operation has highest precedence. Whilst 
+ the preload input is active the macro-cell outputs are forced to and follow 
+ the state of the preload data input. When the preload input returns to 
+ inactive, for register- and latch-type macro-cells the preload data state 
+ is latched at the outputs and for combinatorial-type macro-cells the outputs 
+ return to following the data (D) input. </p>
+<p>Given no preload operation the macro-cell can be preset or reset via 
+ the preset (SET) and reset (RESET) inputs. Both these pins have independent 
+ enable (<span style="font-weight: bold;">ESET</span> and <span style="font-weight: bold;">ERESET</span>) 
+ and asynchronous (<span style="font-weight: bold;">ASET</span> and <span style="font-weight: bold;">ARESET</span></p>
+<p>) properties that control whether or not the input pin is used and whether 
+ or not its operation is synchronous or asynchronous with respect to the 
+ clock input (CLK). Both pins are enabled by default but can be disabled 
+ by assigning the relevant <span style="font-weight: bold;">ESET</span> 
+ or <span style="font-weight: bold;">ERESET</span> property a fuse expression 
+ that evaluates to FALSE. Similarly, both pins are synchronous in operation 
+ by default but can be made asynchronous by assigning the relevant <span style="font-weight: bold;">ASET</span> or <span style="font-weight: bold;">ARESET</span> 
+ property a fuse expression that evaluates to TRUE. If both a set and a 
+ reset operation occur simultaneously (synchronous or asynchronous) then 
+ the Q and !Q outputs are set to the Boolean states of the <span style="font-weight: bold;">QSANDR</span> 
+ and <span style="font-weight: bold;">QBSANDR</span> properties respectively.</p>
+<p>Finally given no preload, preset or  reset operations, the macro-cell 
+ can be clocked. For register-type macro-cells, the outputs Q and !Q only 
+ latch the data input (D) on a positive transition of the clock input (CLK); 
+ this is same behaviour as a D type flip-flop.  For latched-type macro-cells, 
+ the outputs Q and !Q follow the data input (D) whilst the clock input 
+ (CLK) is active and latch it on the active-to-inactive transition; this 
+ is the same behaviour as a transparent latch. For combinatorial-type macro-cells, 
+ the Q and !Q outputs always follow the data input (D) regardless of the 
+ state of the clock input (CLK).</p>
+<p>Although input/output pin states can be inverted by the standard DSIM 
+ <span style="font-weight: bold;">INVERT</span> property, the MCELL primitive 
+ model supports inversion of most of its pins via a fuse expression - see 
+ the table below for a list.</p>
+<table class="LXTable" cellspacing="0" width="68.188%">
+	<colgroup><col style="width: 12.531%;"/>
+	<col style="width: 16.501%;"/>
+	<col style="width: 12.589%;"/>
+	<col style="width: 58.379%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">CLK</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Register clock/latch enable input</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">D</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Data input</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">RESET</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Reset input (synchronous and asynchronous)</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">SET</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Preset input (synchronous and asynchronous)</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">PL</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Preload enable input</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">PD</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Preload data input</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">Q</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>True latch/register/data output</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">!Q</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>Inverted latch/register/data output</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="67.825%">
+	<colgroup><col style="width: 19.147%;"/>
+	<col style="width: 21.267%;"/>
+	<col style="width: 33.46%;"/>
+	<col style="width: 14.463%;"/>
+	<col style="width: 11.663%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">FILE</p></td>
+		<td><p align="center">Text</p></td>
+		<td>Name of JEDEC file.</td>
+		<td><p align="center">See Note</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">REG</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Defines a register-type macro-cell</td>
+		<td><p align="center">See Note</p></td>
+		<td><p align="center">[2]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">LATCH</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Defines a latch-type macro-cell</td>
+		<td><p align="center">See Note</p></td>
+		<td><p align="center">[2]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">ARESET</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Asynchronous reset?</td>
+		<td><p align="center">TRUE</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">ASET</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Asynchronous set?</td>
+		<td><p align="center">TRUE</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">ERESET</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Enable RESET input?</td>
+		<td><p align="center">See Note</p></td>
+		<td><p align="center">[3]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">ESET</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Enable SET input?</td>
+		<td><p align="center">See Note</p></td>
+		<td><p align="center">[3]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">INITQ</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Initial state of Q output</td>
+		<td><p align="center">NOT INITQ</p></td>
+		<td><p align="center">[4]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">INITQB</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Initial state of !Q output</td>
+		<td><p align="center">TRUE</p></td>
+		<td><p align="center">[4]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">QSANDR</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Q state if SET &amp; RESET asserted</td>
+		<td><p align="center">TRUE</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">QBSANDR</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>!Q state if SET &amp; RESET asserted</td>
+		<td><p align="center">FALSE</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">INVCLK</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Invert CLK input?</td>
+		<td><p align="center">FALSE</p></td>
+		<td><p align="center">[5]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">INVPL</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Invert PL input?</td>
+		<td><p align="center">FALSE</p></td>
+		<td><p align="center">[5]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">INVPD</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Invert PD input?</td>
+		<td><p align="center">FALSE</p></td>
+		<td><p align="center">[5]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">INVQ</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Invert Q output?</td>
+		<td><p align="center">FALSE</p></td>
+		<td><p align="center">[5]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">INVQB</p></td>
+		<td><p align="center">Fuse Expr.</p></td>
+		<td>Invert !Q output?</td>
+		<td><p align="center">FALSE</p></td>
+		<td><p align="center">[5]</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p class="Tip"><span style="font-weight: bold;">1</span>. The FILE property 
+ specifies the path and filename of the JEDEC file to be used for fuse 
+ values. There is no default for this property - it must be specified. 
+ If none of your fuse expressions contain a fuse number, you can avoid 
+ the need to specify a file by assigning a value of [NULL].</p>
+<p class="Tip"><span style="font-weight: bold;">2</span>. These properties 
+ define the model behaviour. If both properties evaluate TRUE, the REG 
+ property has the higher precedence. See the main description for more 
+ details.</p>
+<p class="Tip"><span style="font-weight: bold;">3</span>. The RESET/SET 
+ inputs can be enabled/disabled via these properties. For a register-type 
+ macro-cell, the default values are TRUE; for other types the default values 
+ are FALSE.</p>
+<p class="Tip"><span style="font-weight: bold;">4</span>. These properties 
+ can be used to initialise the Q and !Q outputs for latch- and register-type 
+ macro-cells; they are ignored for the combinatorial-type macro-cell. The 
+ default for QBINIT is the logical inverse of the INITQ property, which 
+ itself defaults to FALSE.</p>
+<p class="Tip"><span style="font-weight: bold;">5</span>. These properties 
+ can be used to invert the behaviour of their respective pins. The pin 
+ behaviour is inverted if the fuse expression evaluates TRUE.</p>
+<p><a href="The_Fuse_Expression_Model.htm">Fuse Expression Model</a><a href="The_Matrix_Model.htm"></a></p>
+<p><a href="The_Fused_1-of-N_Selector_Model.htm">Fused 1-of-N Selector 
+ Model</a></p>
+<p><a href="The_Matrix_Model.htm">Matrix Model</a></p>
+
+</div>
+
+</body></html>

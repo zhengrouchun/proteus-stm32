@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The ALU Function Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The ALU Function Model - FUNCTION_#1_#2</h1>
+<p>The FUNCTION model carries out a mathematical or Boolean operation on 
+ the two the input data words (A and B) and the carry input. The result 
+ is presented at the Q and COUT carry outputs. </p>
+<p>The model supports three pre-operation functions: the NEGA input when 
+ asserted causes the word at the A  inputs to be negated and similarly 
+ the NEGB input when asserted causes the word at the B  inputs to 
+ be negated. Following any negation, and prior to the operation, the SWAP 
+ input, if asserted causes the A and B words to be swapped.</p>
+<p>A particular operation is selected by asserting the relevant function 
+ input. The function operations are defined in decreasing priority as follows:</p>
+<table style="margin-left: 48px;" cellspacing="0" width="44.537%">
+	<colgroup><col style="width: 14.926%;"/>
+	<col style="width: 7.783%;"/>
+	<col style="width: 77.291%;"/>
+	</colgroup><tbody><tr>
+		<td><p style="font-size: 10pt; font-family: &#39;Courier New&#39;, monospace; 
+				 font-weight: bold;" align="center">ADD</p></td>
+		<td><p align="center">-</p></td>
+		<td><span style="font-size: 10pt; font-family: Arial, sans-serif;">A 
+		 plus B plus CIN.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-size: 10pt; font-family: &#39;Courier New&#39;, monospace; 
+				 font-weight: bold;" align="center">SUB</p></td>
+		<td><p align="center">-</p></td>
+		<td><span style="font-size: 10pt; font-family: Arial, sans-serif;">A 
+		 minus B minus CIN.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-size: 10pt; font-family: &#39;Courier New&#39;, monospace; 
+				 font-weight: bold;" align="center">MUL</p></td>
+		<td><p align="center">-</p></td>
+		<td><span style="font-size: 10pt; font-family: Arial, sans-serif;">A 
+		 multiplied by B.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-size: 10pt; font-family: &#39;Courier New&#39;, monospace; 
+				 font-weight: bold;" align="center">DIV</p></td>
+		<td><p align="center">-</p></td>
+		<td><span style="font-size: 10pt; font-family: Arial, sans-serif;">A 
+		 divided by B.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-size: 10pt; font-family: &#39;Courier New&#39;, monospace; 
+				 font-weight: bold;" align="center">AND</p></td>
+		<td><p align="center">-</p></td>
+		<td><span style="font-size: 10pt; font-family: Arial, sans-serif;">A 
+		 bitwise ANDed with B.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-size: 10pt; font-family: &#39;Courier New&#39;, monospace; 
+				 font-weight: bold;" align="center">OR</p></td>
+		<td><p align="center">-</p></td>
+		<td><span style="font-size: 10pt; font-family: Arial, sans-serif;">A 
+		 bitwise ORed with B.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-size: 10pt; font-family: &#39;Courier New&#39;, monospace; 
+				 font-weight: bold;" align="center">XOR</p></td>
+		<td><p align="center">-</p></td>
+		<td><span style="font-size: 10pt; font-family: Arial, sans-serif;">A 
+		 bitwise exclusive-ORed with B.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-size: 10pt; font-family: &#39;Courier New&#39;, monospace; 
+				 font-weight: bold;" align="center">LSH</p></td>
+		<td><p align="center">-</p></td>
+		<td><span style="font-size: 10pt; font-family: Arial, sans-serif;">A 
+		 left-shifted B places.</span></td>
+	</tr>
+	<tr>
+		<td><p style="font-size: 10pt; font-family: &#39;Courier New&#39;, monospace; 
+				 font-weight: bold;" align="center">RSH</p></td>
+		<td><p align="center">-</p></td>
+		<td><span style="font-size: 10pt; font-family: Arial, sans-serif;">A 
+		 right-shifted B places.</span></td>
+	</tr>
+</tbody></table>
+<p>Where more than one function is selected, the highest priority function 
+ takes place. The result of the operation is incremented and/or decremented 
+ if the INC or DEC inputs are asserted. </p>
+<p>Note that, because of internal data widths, the two input data words 
+ should not be greater than thirty-one bits each (i.e. the #1 field in 
+ the name should be less than or equal to thirty).</p>
+<p> </p>
+<table class="LXTable" width="53.941%" cellspacing="0">
+	<colgroup><col style="width: 15.924%;"/>
+	<col style="width: 15.287%;"/>
+	<col style="width: 17.486%;"/>
+	<col style="width: 51.303%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">A# </p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td>Input data word A</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">B# </p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td>Input data word B</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">NEGA</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Negate data word A</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">NEGB</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Negate data word B</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">SWAP </p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Swap A and B data words</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">ADD</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Add data words</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">SUB</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td><p>Subtract data words</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">MUL</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Multiply data words</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">DIV</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Divide data words</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">AND </p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Bitwise AND data words</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">OR</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Bitwise OR data words</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">XOR </p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Bitwise exclusive-OR data words</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">LSH</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Left shift data word</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">RSH</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Right shift data word</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">INC </p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Increment operation result</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">DEC</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Decrement operation result</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">CIN </p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Carry in</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">Q# </p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">#2</p></td>
+		<td>Result output</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">COUT </p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>Carry out</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="61.301%">
+	<colgroup><col style="width: 16.444%;"/>
+	<col style="width: 13.744%;"/>
+	<col style="width: 23.572%;"/>
+	<col style="width: 17.674%;"/>
+	<col style="width: 15.304%;"/>
+	<col style="width: 15.304%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHDQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">A#,B# &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLDQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">A#,B# &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHDC</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">A#,B#&rarr;COUT</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLDC</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">A#,B# &rarr;COUT</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHCQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CIN &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLCQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CIN &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHCC</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CIN &rarr; COUT</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLCC</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CIN &rarr; COUT</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHOQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">Op.  &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLOQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">Op. &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHOC</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">Op. &rarr; COUT</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLOC</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">Op. &rarr; COUT</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TGQ</p></td>
+		<td><p align="center">Glitch</p></td>
+		<td><p align="center">Any &rarr; Any</p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDxxDQ</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" width="60.059%" cellspacing="0">
+	<colgroup><col style="width: 17.688%;"/>
+	<col style="width: 17.828%;"/>
+	<col style="width: 36.455%;"/>
+	<col style="width: 14.014%;"/>
+	<col style="width: 14.014%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">INIT</p></td>
+		<td><p align="center">Initialisation</p></td>
+		<td><p align="center">Initial state of Q </p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[2]</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p class="Tip"><span style="font-weight: bold;">1</span>. The A# or B# 
+ to whatever times are used where either the A or B input words have changed. 
+ If these are unchanged, and the carry has changed, then the CIN to whatever 
+ times are used. If the A and B words and the carry input are unchanged, 
+ the Operation-to-whatever times are used. Op. indicates any of the operation 
+ inputs.</p>
+<p class="Tip"><span style="font-weight: bold;">2</span>. This value is 
+ only used if no operation is selected.</p>
+<p> </p>
+
+</div>
+
+</body></html>

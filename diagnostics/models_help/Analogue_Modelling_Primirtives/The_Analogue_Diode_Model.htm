@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Analogue Diode Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Analogue Diode Model - DIODE</h1>
+<p>The SPICE3F5 diode model is capable of modelling all types of diode 
+ including zener and varactor types. </p>
+<p>The diode model has the following parameters:</p>
+<table class="LXTable" cellspacing="0" width="51.861%">
+	<colgroup><col style="width: 20.792%;"/>
+	<col style="width: 18.317%;"/>
+	<col style="width: 60.89%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">OFF</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Initially off</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">IC</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Initial device voltage</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">TEMP</span></p></td>
+		<td><p align="center">27</p></td>
+		<td>Instance temperature</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">AREA</span></p></td>
+		<td><p align="center">1</p></td>
+		<td>Area factor</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">IS</span></p></td>
+		<td><p align="center">1e-014</p></td>
+		<td>Saturation current</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">RS</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Ohmic resistance</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">N</span></p></td>
+		<td><p align="center">1</p></td>
+		<td>Emission Coefficient</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">TT</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Transit Time</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">CJO</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Junction capacitance</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">VJ</span></p></td>
+		<td><p align="center">1</p></td>
+		<td>Junction potential</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">M</span></p></td>
+		<td><p align="center">0.5</p></td>
+		<td>Grading coefficient</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">EG</span></p></td>
+		<td><p align="center">1.11</p></td>
+		<td>Activation energy</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">XTI</span></p></td>
+		<td><p align="center">3</p></td>
+		<td>Saturation current temperature exp.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">KF</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Flicker noise coefficient</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">AF</span></p></td>
+		<td><p align="center">1</p></td>
+		<td>Flicker noise exponent</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">FC</span></p></td>
+		<td><p align="center">0.5</p></td>
+		<td>Forward bias junction fit parameter</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">BV</span></p></td>
+		<td><p style="font-size: 14pt; font-weight: normal;" align="center">&infin;</p></td>
+		<td>Reverse breakdown voltage</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">IBV</span></p></td>
+		<td><p align="center">1mA</p></td>
+		<td>Current at reverse breakdown voltage</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">TNOM</span></p></td>
+		<td><p align="center">27</p></td>
+		<td>Parameter measurement temperature</td>
+	</tr>
+</tbody></table>
+<p>The dc characteristics of the diode are determined by the parameters 
+ <span style="font-weight: bold;">IS</span> and <span style="font-weight: bold;">N</span>. 
+ An ohmic resistance, <span style="font-weight: bold;">RS</span>, is included. 
+ Charge storage effects are modelled by a transit time, <span style="font-weight: bold;">TT</span>, 
+ and a non-linear depletion layer capacitance which is determined by the 
+ parameters <span style="font-weight: bold;">CJO</span>, <span style="font-weight: bold;">VJ</span>, 
+ and <span style="font-weight: bold;">M</span>. The temperature dependence 
+ of the saturation current is defined by the parameters <span style="font-weight: bold;">EG</span>, 
+ the energy and <span style="font-weight: bold;">XTI</span>, the saturation 
+ current temperature exponent. The nominal temperature at which these parameters 
+ were measured.  Reverse breakdown (zener behaviour) is modelled by 
+ an exponential increase in the reverse diode current and is determined 
+ by the parameters <span style="font-weight: bold;">BV</span> and <span style="font-weight: bold;">IBV</span> (both of which are positive 
+ numbers).</p>
+<p><span style="font-weight: bold;">IS, RS</span> and <span style="font-weight: bold;">CJO</span> 
+ are scaled by the area factor.</p>
+<p class="ExampleTitle">See Also:</p>
+<ul type="disc">
+	<li><a href="../Digital_Modelling_Primitives/The_Digital_Diode_Model.htm">Digital 
+	 Diode Model</a></li>
+</ul>
+
+</div>
+
+</body></html>

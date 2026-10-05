@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Memory Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Memory Model - MEMORY_#1_#2</h1>
+<p>The MEMORY model provides a means of modelling mass-storage memory devices, 
+ such as FIFOs, RAMs, EPROMs, etc. </p>
+<p>A write pulse is defined as the period over which both the WR write 
+ strobe and CS chip select inputs are active; the state of the RD read 
+ strobe input is ignored. The data on the D inputs is then written to the 
+ address specified by the A address inputs on at the end of a write pulse 
+ whose duration is greater than the minimum write pulse width specified 
+ by the TWWR property.  Note that no address set-up time is modelled 
+ - any transitions of the A address inputs during the write pulse are ignored.</p>
+<p>A read pulse is defined as the period over which both the RD read strobe 
+ and CS chip select inputs are active and the WR input is inactive. The 
+ D inputs are driven with the data at the memory location specified by 
+ the A address inputs throughout a valid read pulse. When no read pulse 
+ is active, the D data inputs are in a high-impedance state.</p>
+<p>You can initialise the memory by assigning the <span style="font-weight: bold;">FILE</span> 
+ property the path and name of a disk file, followed by a comma and then 
+ the file type. For example, the assignment:</p>
+<p class="Courier" style="margin-left: 18pt;">FILE=DATA.BIN,PACKED</p>
+<p>initialised the memory with the binary data in the file DATA.BIN. If 
+ the file contains insufficient data for the memory size, then remaining 
+ memory locations will be initialised according to the presence and value 
+ of the <span style="font-weight: bold;">INIT</span> property. Currently, 
+ the file types supported by the model are:</p>
+<p> </p>
+<table style="margin-left: 18px;" cellspacing="0" width="100%">
+	<colgroup><col style="width: 13.002%;"/>
+	<col style="width: 86.998%;"/>
+	</colgroup><tbody><tr>
+		<td><p align="center"><span style="font-size: 10pt; font-weight: bold; 
+									 font-family: &#39;Courier New&#39;, monospace;">PACKED</span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">The 
+		 file contains packed (that is, non-aligned) binary data. For example, 
+		 for a six-bit wide memory, the least significant six bits of the 
+		 first byte correspond to the first memory location; the remaining 
+		 two bits and the least significant four bits of the second byte 
+		 correspond to the least significant two and most significant four 
+		 bits of the second memory location,  and so on.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-size: 10pt; font-weight: bold; 
+									 font-family: &#39;Courier New&#39;, monospace;">BINARY</span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">The 
+		 file contains binary data that is byte, word or long-word aligned. 
+		 Alignment should be in accordance with the data width of the memory. 
+		 For a memory with 1 to 8 bits byte alignment is expected; for 
+		 a memory with 9 to 16 bits, word alignment is expected, and for 
+		 a memory with 17 to 32 bits long-word alignment is expected. For 
+		 word and long-word alignment the bytes should be stored little-endian 
+		 (that is, least-significant byte first). For example, for a 9-bit 
+		 wide memory, the least significant nine bits of the each successive 
+		 word in the file corresponds the successive memory locations. 
+		  The first word consists of the first (least significant) 
+		 and second (most significant) bytes in the file, the second word 
+		 consists of the third (least significant) and fourth (most significant) 
+		 bytes in the file, and so on.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-size: 10pt; font-weight: bold; 
+									 font-family: &#39;Courier New&#39;, monospace;">ASCDEC</span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">The 
+		 file contains ASCII decimal values, separated by one or more space, 
+		 tab, or newline (carriage return and/or line feed) characters.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-size: 10pt; font-weight: bold; 
+									 font-family: &#39;Courier New&#39;, monospace;">ASCHEX</span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">The 
+		 file contains ASCII hexadecimal values, separated by one or more 
+		 space, tab, or newline (carriage return and/or line feed) characters. 
+		 The hexadecimal characters can be upper or lower case.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-size: 10pt; font-weight: bold; 
+									 font-family: &#39;Courier New&#39;, monospace;">ASCBIN</span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">The 
+		 file contains ASCII binary values, separated by one or more space, 
+		 tab, or newline (carriage return and/or line feed) characters.</span></td>
+	</tr>
+</tbody></table>
+<p>If no file type is given, the model will use the file extension to determine 
+ the file type:</p>
+<table style="margin-left: 18px;" cellspacing="0" width="100%">
+	<colgroup><col style="width: 12.69%;"/>
+	<col style="width: 87.31%;"/>
+	</colgroup><tbody><tr>
+		<td><p align="center"><span style="font-family: &#39;Courier New&#39;, monospace; 
+									 font-size: 10pt; font-weight: bold;">.BIN 
+		 </span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">The 
+		 file is assumed to be pure binary.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-family: &#39;Courier New&#39;, monospace; 
+									 font-size: 10pt; font-weight: bold;">.HEX 
+		 </span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">The 
+		 file is assumed to be Intel Hex.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-family: &#39;Courier New&#39;, monospace; 
+									 font-size: 10pt; font-weight: bold;">.S19 
+		 </span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">The 
+		 file is assumed to be Motorola Hex.</span></td>
+	</tr>
+</tbody></table>
+<p>In these cases, the <span style="font-weight: bold; font-family: &#39;Courier New&#39;, monospace;">BASE</span> 
+ and <span style="font-weight: bold; font-family: &#39;Courier New&#39;, monospace;">SHIFT</span> 
+ properties may be used to re-map addresses in the incoming file. This 
+ can be used to achieve byte splitting when  8 bit ROMs are used with 
+ 16 or 32 bit microprocessors, and also where a ROM is not at address 0 
+ in the CPU’s memory map. For example, let us suppose you are using two 
+ 2764 (8KB) ROMs with an 8086. The HEX file will contain 16KB of data with 
+ addresses running from 0x0000 thru 0x3FFF. The first ROM will hold the 
+ even bytes and the second the odd bytes. To achieve this translation, 
+ you would assign</p>
+<p class="Courier" style="margin-left: 18pt;">BASE=0</p>
+<p class="Courier" style="margin-left: 18pt;">SHIFT=1</p>
+<p>for the ‘even’ ROM, and</p>
+<p style="font-family: &#39;Courier New&#39;, monospace; margin-left: 18pt;">BASE=1</p>
+<p style="font-family: &#39;Courier New&#39;, monospace; margin-left: 18pt;">SHIFT=1</p>
+<p>for the ‘odd’ ROM. In the case of 32 bit systems, you would use BASE 
+ values of 0,1,2,3 and assign SHIFT=2</p>
+<p>.</p>
+<p>The <span style="font-weight: bold; font-family: &#39;Courier New&#39;, monospace;">INIT</span> 
+ property is used to initialise memory locations not initialised through 
+ any <span style="font-family: &#39;Courier New&#39;, monospace; font-weight: bold;">FILE</span> 
+ property assignment, or where the data file specified in such an assignment 
+ contains insufficient data. If the property is assigned the <span style="font-family: &#39;Courier New&#39;, monospace; 
+	 font-weight: bold;">RANDOM</span> keyword, then uninitialised memory 
+ locations will be initialised with random data from the global random 
+ initialisation value generator. This generator can be seeded through the 
+ <span style="font-family: &#39;Courier New&#39;, monospace; font-weight: bold;">INITSEED</span> 
+ Simulation Control Property.</p>
+<p>Memory locations are always assigned from an initialisation value least-significant 
+ bit upwards for as many bits as are required by the data width of the 
+ memory.</p>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="45.366%">
+	<colgroup><col style="width: 18.953%;"/>
+	<col style="width: 18.194%;"/>
+	<col style="width: 20.814%;"/>
+	<col style="width: 42.039%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">CS</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Chip-select enable</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">WR</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Write strobe</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">RD</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Read strobe</td>
+	</tr>
+	<tr class="t1Row" style="height: 37px;">
+		<td><p align="center">A#</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td>Address inputs</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">D#</p></td>
+		<td><p align="center">I/O</p></td>
+		<td><p align="center">#2</p></td>
+		<td>Data input or output</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="61.301%">
+	<colgroup><col style="width: 16.444%;"/>
+	<col style="width: 13.744%;"/>
+	<col style="width: 23.572%;"/>
+	<col style="width: 17.674%;"/>
+	<col style="width: 15.304%;"/>
+	<col style="width: 15.304%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHAD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">A# &rarr; D#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLAD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">A# &rarr; D#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLZCD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CS &rarr; D#</p></td>
+		<td><p align="center">L &rarr; Z</p></td>
+		<td><p align="center">TDLHAD  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHZCD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CS &rarr; D#</p></td>
+		<td><p align="center">H &rarr; Z</p></td>
+		<td><p align="center">TDHLAD  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDZLCD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CS &rarr; D#</p></td>
+		<td><p align="center">Z &rarr; L</p></td>
+		<td><p align="center">TDHLAD  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDZHCD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CS &rarr; D#</p></td>
+		<td><p align="center">Z &rarr; H</p></td>
+		<td><p align="center">TDLHAD  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLZRD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">RD &rarr; D#</p></td>
+		<td><p align="center">L &rarr; Z</p></td>
+		<td><p align="center">TDLHAD  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHZRD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">RD &rarr; D#</p></td>
+		<td><p align="center">H &rarr; Z</p></td>
+		<td><p align="center">TDHLAD  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 35px;">
+		<td><p align="center">TDZLRD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">RD &rarr; D#</p></td>
+		<td><p align="center">Z &rarr; L</p></td>
+		<td><p align="center">TDHLAD  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDZHRD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">RD &rarr; D#</p></td>
+		<td><p align="center">Z &rarr; H</p></td>
+		<td><p align="center">TDLHAD  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLZWD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">WR &rarr; D#</p></td>
+		<td><p align="center">L &rarr; Z</p></td>
+		<td><p align="center">TDLHAD  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHZWD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">WR &rarr; D#</p></td>
+		<td><p align="center">H &rarr; Z</p></td>
+		<td><p align="center">TDHLAD  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDZLWD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">WR &rarr; D#</p></td>
+		<td><p align="center">Z &rarr; L</p></td>
+		<td><p align="center">TDHLAD  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDZHWD</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">WR &rarr; D#</p></td>
+		<td><p align="center">Z &rarr; H</p></td>
+		<td><p align="center">TDLHAD  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TGQ</p></td>
+		<td><p align="center">Glitch</p></td>
+		<td><p align="center">Any &rarr; D#</p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDxxAD</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="60.059%">
+	<colgroup><col style="width: 17.688%;"/>
+	<col style="width: 17.828%;"/>
+	<col style="width: 36.455%;"/>
+	<col style="width: 14.014%;"/>
+	<col style="width: 14.014%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">TWWR</p></td>
+		<td><p align="center">Delay</p></td>
+		<td>Minimum write pulse width.</td>
+		<td><p align="center">100n</p></td>
+		<td><p align="center">[2]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 20px;">
+		<td><p align="center">FILE</p></td>
+		<td><p align="center">Text</p></td>
+		<td>Source filename for init.</td>
+		<td><p align="center">See Note</p></td>
+		<td><p align="center">[3]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">BASE</p></td>
+		<td><p align="center">Hex Value</p></td>
+		<td>Base address in data file</td>
+		<td><p align="center">0</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row" style="height: 20px;">
+		<td><p align="center">SHIFT</p></td>
+		<td><p align="center">Integer</p></td>
+		<td>No. of bits to shift file addresses.</td>
+		<td><p align="center">0</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">INIT</p></td>
+		<td><p align="center">Initialisation</p></td>
+		<td>Initial value for memory. </td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[3]</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p class="Tip"><span style="font-weight: bold;">1</span>. These delays 
+ apply for the D# outputs when a read-pulse commences or terminates; a 
+ read pulse being defined as RD and CS active with WR inactive. For coincident 
+ changes on these or the A# inputs, the priority is (in descending order) 
+ <span style="font-weight: bold;">TDxxCD</span>, <span style="font-weight: bold;">TDxxRD, 
+ TDxxAD</span> and <span style="font-weight: bold;">TDxxAD</span>. For 
+ example: if CS is already active and RD goes active simultaneously with 
+ WR going inactive, the D# outputs will be set with a propagation delay 
+ of <span style="font-weight: bold;">TDxxRD</span> since this has a higher 
+ priority to <span style="font-weight: bold;">TDxxWD</span>. The delay 
+ <span style="font-weight: bold;">TDxxAD</span> is used when a read pulse 
+ exists and the address bus (A#) inputs change mid-pulse.</p>
+<p class="Tip"><span style="font-weight: bold;">2</span>. A memory write 
+ only occurs given a write pulse of width greater than <span style="font-weight: bold;">TWWR</span>.</p>
+<p class="Tip"><span style="font-weight: bold;">3</span>. If assigned, 
+ the FILE and INIT properties are used to initialise the MEMORY models 
+ memory. There is no default for the FILE property - if it is not assigned 
+ then no file-based memory initialisation takes place and the memory is 
+ initialised according to the INIT property. </p>
+<p> </p>
+
+</div>
+
+</body></html>

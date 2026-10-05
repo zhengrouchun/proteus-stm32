@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Uniform RC Transmission Line Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Uniform RC Transmission Line Model - URCLINE</h1>
+<p>The URC model is derived from a model proposed by L. Gertzberrg in 1974. 
+ The model is accomplished by a subcircuit type expansion of the URC line 
+ into a network of lumped RC segments with internally generated nodes. 
+ The RC segments are in a geometric progression, increasing toward the 
+ middle of the URC line, with K as a proportionality constant. The number 
+ of lumped segments used, if not specified for the URC line device, is 
+ determined by the following formula:</p>
+<p class="Diagram"><img src="../assets/images/Analogue_Modelling_Primirtives/Formular_URCLINE.gif" alt="" style="border: none;" width="238" height="80" border="0"/></p>
+<p>The URC line is made up strictly of resistor and capacitor segments 
+ unless the ISPERL parameter is given a non-zero value, in which case the 
+ capacitors are replaced with reverse biased diodes with a zero-bias junction 
+ capacitance equivalent to the capacitance replaced, and with a saturation 
+ current of ISPERL amps per meter of transmission line and an optional 
+ series resistance equivalent to RSPERL ohms per meter. </p>
+<p>The URCLINE model has the following properties and defaults:</p>
+<table class="LXTable" cellspacing="0" width="47.24%">
+	<colgroup><col style="width: 20.924%;"/>
+	<col style="width: 26.087%;"/>
+	<col style="width: 52.989%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row" style="height: 24px;">
+		<td><p style="font-weight: bold;" align="center">L</p></td>
+		<td><p align="center">-</p></td>
+		<td>Length of transmission line</td>
+	</tr>
+	<tr class="t1Row" style="height: 24px;">
+		<td><p style="font-weight: bold;" align="center">N</p></td>
+		<td><p align="center">See Above</p></td>
+		<td>Number of lumps</td>
+	</tr>
+	<tr class="t2Row" style="height: 21px;">
+		<td><p style="font-weight: bold;" align="center">K</p></td>
+		<td><p align="center">1.5</p></td>
+		<td>Propagation constant</td>
+	</tr>
+	<tr class="t1Row" style="height: 24px;">
+		<td><p style="font-weight: bold;" align="center">FMAX</p></td>
+		<td><p align="center">1e+009</p></td>
+		<td>Maximum frequency of interest</td>
+	</tr>
+	<tr class="t2Row" style="height: 24px;">
+		<td><p style="font-weight: bold;" align="center">RPERL</p></td>
+		<td><p align="center">1000</p></td>
+		<td>Resistance per unit length</td>
+	</tr>
+	<tr class="t1Row" style="height: 24px;">
+		<td><p style="font-weight: bold;" align="center">CPERL </p></td>
+		<td><p align="center">1e-012</p></td>
+		<td>Capacitance per unit length</td>
+	</tr>
+	<tr class="t2Row" style="height: 24px;">
+		<td><p style="font-weight: bold;" align="center">ISPERL </p></td>
+		<td><p align="center">0</p></td>
+		<td>Saturation current per length</td>
+	</tr>
+	<tr class="t1Row" style="height: 24px;">
+		<td><p style="font-weight: bold;" align="center">RSPERL </p></td>
+		<td><p align="center">0</p></td>
+		<td>Diode resistance per length</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p class="ExampleTitle">See Also:</p>
+<ul type="disc">
+	<li><a href="The_Lossless_Delay_Line_Model.htm">Lossyless Delay Line 
+	 Model</a></li>
+	<li><a href="The_Lossy_Delay_Line_Model.htm">Lossy Delay Line Model</a></li>
+</ul>
+
+</div>
+
+</body></html>

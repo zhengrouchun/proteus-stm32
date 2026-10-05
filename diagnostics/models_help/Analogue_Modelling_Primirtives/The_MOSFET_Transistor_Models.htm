@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The MOSFET Transistor Models</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The MOSFET Transistor Models - NMOSFET, PMOSFET</h1>
+<p> </p>
+<h3>SPICE3F5 implements some 7 different MOSFET models</h3>
+<p>As follows:</p>
+<table class="LXTable" width="59.059%" cellspacing="0">
+	<colgroup><col style="width: 17.642%;"/>
+	<col style="width: 22.795%;"/>
+	<col style="width: 59.563%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Level</td>
+		<td>Name</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">1</p></td>
+		<td><p align="center">MOS1</p></td>
+		<td>Shichman-Hodges</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">2</p></td>
+		<td><p align="center">MOS2</p></td>
+		<td>Vladimirescu and Liu (Berkeley MOS2)</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">3</p></td>
+		<td><p align="center">MOS3</p></td>
+		<td>Vladimirescu and Liu (Berkeley MOS3)</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">4</p></td>
+		<td><p align="center">BSIM1</p></td>
+		<td>Original BSIM model</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">5</p></td>
+		<td><p align="center">BSIM2</p></td>
+		<td>New BSIM model</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">6</p></td>
+		<td><p align="center">MOS6</p></td>
+		<td>Sakurai and Newton</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">7</p></td>
+		<td><p align="center">BSIM3</p></td>
+		<td>Latest BSIM 3.3. model</td>
+	</tr>
+</tbody></table>
+<p>These models can be called up explicitly using the PRIMITIVE property 
+ or using the LEVEL property with a generic model. For example</p>
+<p class="Courier" style="margin-left: 18pt;">PRIMITIVE=ANALOG,NMOSFET</p>
+<p class="Courier" style="margin-left: 18pt;">LEVEL=5</p>
+<p>and</p>
+<p class="Courier" style="margin-left: 18pt;">PRIMITIVE=ANALOG,NBSIM2</p>
+<p>both call up an N type BSIM2 model. PMOS devices would be selected by 
+ referring to PMOSFET or PBSIM2.</p>
+<p>Why two schemes? This is essentially to retain backward compatibility 
+ with native SPICE input files. Levels 1-3 date back to SPICE2, and all 
+ modern variants of SPICE should support them. Levels 4-6 are part of the 
+ ‘standard’ SPICE3F5 package from Berkeley, and we and some others have 
+ added the latest BSIM3 model as level 7. </p>
+<p>Unfortunately, P-SPICE™ allocates different models to the levels above 
+ 4, so complete incompatibility will result if you try to use such models 
+ with PROSPICE. The only work-around is to manually check the SPICE .MODEL 
+ scripts to see if MOSFET levels above 3 are  used. In practice, this 
+ will be relatively uncommon as the later models are intended exclusively 
+ for IC design work.</p>
+<p>When entering your own models for PROSPICE, we strongly suggest that 
+ you specify the primitive type explicitly.</p>
+<p>The MOSFET models are designed to operate with four connections - Drain 
+ (D), Gate, (G) Source (S) and Bulk Substrate (B). If the substrate pin 
+ is omitted, PROSPICE will automatically connect the source and substrate 
+ together.</p>
+<p>All SPICE the MOSFET models are focused towards IC design, and for this 
+ reason many of the model properties are specified in terms of the physical 
+ dimensions of the drain, gate, source etc. The idea is that the same model 
+ can be used if the manufacturing geometries are changed globally. In particular, 
+ the <span style="font-weight: bold;">L, W, AD</span>, and <span style="font-weight: bold;">AS</span> 
+ properties will follow the simulator control properties <span style="font-weight: bold;">DEFL, 
+ DEFW, DEFAD</span> and <span style="font-weight: bold;">DEFAS</span> if 
+ not specified on the device. None of this is terribly helpful if you are 
+ just wanting to model discrete MOSFETs, but we have to stick with this 
+ scheme in order to retain compatibility with native SPICE models.</p>
+<p>The temperature specification is ONLY valid for level 1, 2, 3, and 6 
+ MOSFETs, not for level 4 , 5 or 7 (BSIM) devices.</p>
+<h3>MOSFET models</h3>
+<p>The MOSFET models MOS1, MOS2, MOS3 and MOS6 have the following properties:</p>
+<table class="LXTable" style="margin-left: 4.65pt;" cellspacing="0" width="553">
+	<tbody><tr class="t1st" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal;">Property</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center">Default</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;">Description</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">L</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">DEFL</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Length</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">W</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">DEFW</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Width</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">AD</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">DEFAD</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Drain diffusion area</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">AS</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">DEFAS</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Source diffusion area</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">PD</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Drain perimeter</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">PS</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Source perimeter</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">NRD</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">1</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Drain squares</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">NRS</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">1</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Source squares</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">OFF</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">-</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Device initially off</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">ICVDS</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">-</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Initial D-S voltage</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">ICVGS</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">-</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Initial G-S voltage</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">ICVBS</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">-</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Initial B-S voltage</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">TEMP</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">27</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Instance operating temperature</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">LEVEL</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">1</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Model Index</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">VTO</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Threshold voltage</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">KP</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">2.00E-05</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Transconductance</span> <span style="color: #000000;">parameter</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">GAMMA</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Bulk threshold parameter</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">PHI</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0.6</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Surface potential</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">LAMBDA</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Channel-length modulation (MOS1 &amp; 
+		 MOS2 only)</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">IS</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">1.00E-14</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Bulk junction saturation current</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">RD</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Drain ohmic resistance</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">RS</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Source ohmic resistance</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">CBD</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Zero bias B-D junction capacitance</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">CBS</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Zero bias B-S junction capacitance</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">PB</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0.8</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Bulk junction potential</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">CGSO</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Gate-source overlap capacitance per meter 
+		 channel width.</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">CGSO</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Gate-drain overlap capacitance per meter 
+		 channel width.</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">CGBO</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Gate-bulk overlap capacitance per meter 
+		 channel length.</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">KF</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Flicker noise coefficient</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">AF</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">1</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Flicker noise exponent</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">RSH</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Sheet resistance</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">CJ</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Bottom junction cap per sq. meter of junction 
+		 area</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">MJ</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0.5</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Bottom grading coefficient</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">CJSW</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Side junction cap per meter of junction 
+		 perimeter</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">MJSW</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0.33</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Side grading coefficient</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">JS</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Bulk junction. saturation current per 
+		 sq. meter of junction area</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">TOX</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0.1um</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Oxide thickness</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">LD</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Lateral diffusion</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">UO</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">600cm2/Vs</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Surface mobility</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">UCRIT</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">10000V/cm</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Critical field for mobility degradation 
+		 (MOS2 only)</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">UEXP</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Critical field exponent in mobility degradation 
+		 (MOS2 only)</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">VMAX</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Maximum carrier drift velocity</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">NEFF</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">1</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Total channel charge coefficient.</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">FC</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0.5</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Coefficient for forward bias depletion 
+		 capacitance formula</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">NSUB</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Substrate doping</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">NSS</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Surface state density</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">NFS</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Fast surface state density</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">TPG</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;">Gate 
+		 type:  0=Al Gate, </p>
+		<p style="margin-bottom: .0001pt; line-height: normal;">               +1=opp 
+		 to substrate</p>
+		<p style="margin-bottom: .0001pt; line-height: normal;">                -1=same 
+		 as substrate</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">XJ</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Metallurgical Junction depth</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">XD</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Depletion layer width</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">ALPHA</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Alpha</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">ETA</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Vds</span> <span style="color: #000000;">dependence 
+		 of threshold voltage (MOS3 only)</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">DELTA</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Width effect on threshold voltage (MOS2 
+		 and MOS3 only)</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">THETA</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Vgs</span> <span style="color: #000000;">dependence 
+		 on mobility</span></p></td>
+	</tr>
+	<tr class="t2Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">KAPPA</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">0.2</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Kappa (MOS3 only)</span></p></td>
+	</tr>
+	<tr class="t1Row" style="height: 15pt;">
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="133"><p style="margin-bottom: .0001pt; line-height: normal; 
+							 font-weight: bold;" align="center">TNOM</p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="17"><p style="margin-bottom: .0001pt; line-height: normal;" align="center"><span style="color: #000000;">27</span></p></td>
+		<td nowrap="nowrap" style="vertical-align: bottom; padding: 0cm 5.4pt 0cm 5.4pt; 
+			 padding-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px;" width="403"><p style="margin-bottom: .0001pt; line-height: normal;"><span style="color: #000000;">Parameter measurement temperature</span></p></td>
+	</tr>
+</tbody></table>
+<p><span style="font-weight: bold;">L</span> and <span style="font-weight: bold;">W</span> 
+ are the channel length and width, in meters. <span style="font-weight: bold;">AD</span> 
+ and <span style="font-weight: bold;">AS</span> are the areas of the drain 
+ and source diffusions, in square meters. Note that the suffix U specifies 
+ microns (1e-6 m) and P square microns (1e-12m2 ). If any of <span style="font-weight: bold;">L, 
+ W, AD</span>, or <span style="font-weight: bold;">AS</span> are not specified, 
+ default values are used, as discussed above. <span style="font-weight: bold;">PD</span> 
+ and <span style="font-weight: bold;">PS</span> are the perimeters of the 
+ drain and source junctions, in meters. <span style="font-weight: bold;">NRD</span> 
+ and <span style="font-weight: bold;">NRS</span> designate the equivalent 
+ number of squares of the drain and source diffusions; these values multiply 
+ the sheet resistance <span style="font-weight: bold;">RSH</span> for an 
+ accurate representation of the parasitic series drain and source resistance 
+ of each transistor. <span style="font-weight: bold;">PD</span> and <span style="font-weight: bold;">PS</span> default to 0.0 while <span style="font-weight: bold;">NRD</span> 
+ and <span style="font-weight: bold;">NRS</span> to 1.0. OFF indicates 
+ an (optional) initial condition on the device for dc analysis. </p>
+<p>The dc characteristics of the MOSFETs are defined by the device parameters 
+ <span style="font-weight: bold;">VTO</span>, <span style="font-weight: bold;">KP</span>, 
+ <span style="font-weight: bold;">LAMBDA</span>, <span style="font-weight: bold;">PHI</span> 
+ and <span style="font-weight: bold;">GAMMA</span>. These parameters are 
+ computed by SPICE if process parameters (<span style="font-weight: bold;">NSUB, 
+ TOX</span>, ...) are given, but user-specified values always override. 
+ <span style="font-weight: bold;">VTO</span> is positive (negative) for 
+ enhancement mode and negative (positive) for depletion mode N-channel 
+ (P-channel) devices. Charge storage is modelled by three constant capacitors, 
+ <span style="font-weight: bold;">CGSO, CGDO</span>, and <span style="font-weight: bold;">CGBO</span> 
+ which represent overlap capacitances, by the non-linear thin-oxide capacitance 
+ which is distributed among the gate, source, drain, and bulk regions, 
+ and by the non-linear depletion-layer capacitances for both substrate 
+ junctions divided into bottom and periphery, which vary as the <span style="font-weight: bold;">MJ</span> 
+ and <span style="font-weight: bold;">MJSW</span> power of junction voltage 
+ respectively, and are determined by the parameters <span style="font-weight: bold;">CBD, 
+ CBS, CJ, CJSW, MJ, MJSW</span> and <span style="font-weight: bold;">PB</span>. 
+ Charge storage effects are modelled by the piecewise linear voltages-dependent 
+ capacitance model proposed by Meyer. The thin-oxide charge-storage effects 
+ are treated slightly different for the LEVEL=1 model. These voltage-dependent 
+ capacitances are included only if <span style="font-weight: bold;">TOX</span> 
+ is specified in the input description and they are represented using Meyer’s 
+ formulation.</p>
+<p>There is some overlap among the parameters describing the junctions, 
+ e.g. the reverse current can be input either as <span style="font-weight: bold;">IS</span> 
+ (in A) or as <span style="font-weight: bold;">JS</span> (in A/m2 ). Whereas 
+ the first is an absolute value the second is multiplied by <span style="font-weight: bold;">AD</span> 
+ and <span style="font-weight: bold;">AS</span> to give the reverse current 
+ of the drain and source junctions respectively. This methodology has been 
+ chosen since there is no sense in relating always junction characteristics 
+ with <span style="font-weight: bold;">AD</span> and <span style="font-weight: bold;">AS</span> 
+ entered on the device line; the areas can be defaulted. The same idea 
+ applies also to the zero-bias junction capacitances <span style="font-weight: bold;">CBD</span> 
+ and <span style="font-weight: bold;">CBS</span> (in F) on one hand, and 
+ <span style="font-weight: bold;">CJ</span> (in F/m 2 ) on the other. The 
+ parasitic drain and source series resistance can be expressed as either 
+ <span style="font-weight: bold;">RD</span> and <span style="font-weight: bold;">RS</span> 
+ (in ohms) or <span style="font-weight: bold;">RSH</span> (in ohms/sq.), 
+ the latter being multiplied by the number of squares <span style="font-weight: bold;">NRD</span> 
+ and <span style="font-weight: bold;">NRS</span> input on the device line.</p>
+<p>A discontinuity in the MOS level 3 model with respect to the <span style="font-weight: bold;">KAPPA</span> 
+ parameter has been detected and fixed in SPICE versions 3F2 and later. 
+ Since this fix may affect parameter fitting, the simulator control option 
+  &quot;BADMOS3&quot; may be set to use the old implementation.</p>
+<h3>BSIM models</h3>
+<p>The BSIM models stem from separate Berkeley research group from the 
+ one that created SPICE, although the two projects are closely related. 
+ The idea behind BSIM was to create a MOSFET model that could be generated 
+ automatically from information related to the manufacturing processes 
+ for a particular IC type. As such the lists of parameters are both long 
+ and extremely obscure - even by the standards of the above documentation!. 
+ Therefore, we have taken the view that there is no point listing them 
+ out here.</p>
+<p>More information about the BSIM project including full documentation 
+ may be found at</p>
+<p style="margin-left: 18pt;"><a href="http://www-device.eecs.berkeley.edu/~bsim3">http://www-device.eecs.berkeley.edu/~bsim3</a> 
+ </p>
+<p>or in the specialist literature related to SPICE3.</p>
+<p>BSIM3 is developed by the Device Research Group of the Department of 
+ of Electrical Engineering and Computer Science, University of California, 
+ Berkeley and copyrighted by the University of California.</p>
+<p> </p>
+<p> </p>
+
+</div>
+
+</body></html>

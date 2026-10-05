@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Shift Register Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Shift Register Model - SHIFTREG_#1</h1>
+<p>The SHIFTREG primitive model implements the functionality of a parallel/serial-in 
+ parallel/serial-out shift register. The model features:</p>
+<ul type="disc">
+	<li>Shift up/down control via a CLK input and the shift direction control 
+	 UP input.</li>
+	<li>Register initialisation via the INIT property.</li>
+	<li>Loading of the register&#39;s Q outputs from the D data inputs via 
+	 the LOAD input pin. A synchronous or asynchronous load operation is 
+	 definable via the ALOAD property.</li>
+	<li>Resetting of the register&#39;s Q outputs via the RESET input pin. 
+	 Synchronous or asynchronous reset is definable via the ARESET property.</li>
+	<li>Shift enable/disable control via the HOLD input pin.</li>
+	<li>Output-enable control via the OE input pin.</li>
+	<li>Serial data inputs, DL and DU. When a shift up operation occurs, 
+	 the less significant bits are moved one place up into the next more 
+	 significant bit and the least-significant bit is loaded from the DL 
+	 input. When a shift down operation occurs, the more significant bits 
+	 are moved one place down into the next less significant bit and the 
+	 most-significant bit is loaded from the DU input. </li>
+</ul>
+<p>Serial data outputs, QL and QU. The QL output is the same as the least 
+ significant bit of the parallel output data, the QU output is the same 
+ as the most significant bit of the parallel output data. Unlike the parallel 
+ data outputs, the QL and QU are not affected by the OE output-enable input 
+ and remain active whilst the parallel outputs are tristate.</p>
+<p>The OE output-enable input only affects the output state of the model&#39;s 
+ parallel data output. The OE input does not have to be asserted to perform 
+ reset, load or shift operations, and does not affect the output states 
+ of the QU and QL outputs. </p>
+<p>In the case of more than one function being selected simultaneously, 
+ the reset operation has the highest priority, followed by the parallel 
+ load operation; given no reset or load operation and the HOLD input not 
+ being asserted, a shift operation will be performed in the direction indicated 
+ by the UP shift direction input. </p>
+<table class="LXTable" cellspacing="0" width="44.813%">
+	<colgroup><col style="width: 19.584%;"/>
+	<col style="width: 18.8%;"/>
+	<col style="width: 21.506%;"/>
+	<col style="width: 40.11%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">CLK</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Clock</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">RESET</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Data Reset</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">LOAD</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Data load</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">HOLD</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Shift-hold</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">UP</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Direction control</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">DL</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>New lower data</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">DU</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>New upper data</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">D#</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td>Parallel load data</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">Q#</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">#1</p></td>
+		<td>Data output</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">QL</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>Lower Q output</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">QU</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>Upper Q output</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="61.301%">
+	<colgroup><col style="width: 16.444%;"/>
+	<col style="width: 13.744%;"/>
+	<col style="width: 18.334%;"/>
+	<col style="width: 20.869%;"/>
+	<col style="width: 15.304%;"/>
+	<col style="width: 15.304%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHCQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CLK &rarr; Q</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLCQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CLK &rarr; Q</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHLQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">LOAD  &rarr; Q </p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLLQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">LOAD  &rarr; Q </p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLCQ </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDHLDQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D#  &rarr; Q </p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLCQ </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDLHDQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D# &rarr; Q</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHCQ </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLZOQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE  &rarr; Q </p></td>
+		<td><p align="center">L &rarr; Z</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHZOQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; Q</p></td>
+		<td><p align="center">H &rarr; Z</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDZLOQ D</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE  &rarr; Q </p></td>
+		<td><p align="center">Z &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDZHOQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; Q</p></td>
+		<td><p align="center">Z &rarr; H</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDRQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">RESET  &rarr; Q </p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TGQ </p></td>
+		<td><p align="center">Glitch</p></td>
+		<td><p align="center">ANY &rarr; Q</p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDxxCQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="51.642%">
+	<colgroup><col style="width: 20.571%;"/>
+	<col style="width: 20.734%;"/>
+	<col style="width: 42.397%;"/>
+	<col style="width: 16.298%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">INIT</p></td>
+		<td><p align="center">Initialisation</p></td>
+		<td><p align="center">Initial register contents </p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 24px;">
+		<td><p align="center">ARESET </p></td>
+		<td><p align="center">Boolean</p></td>
+		<td><p align="center">Asynchronous RESET? </p></td>
+		<td><p align="center">FALSE</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 24px;">
+		<td><p align="center">ALOAD </p></td>
+		<td><p align="center">Boolean </p></td>
+		<td><p align="center">Asynchronous LOAD? </p></td>
+		<td><p align="center">FALSE</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p class="Tip">1. The LOAD to Q time is used on LOAD going active (with 
+ a clock edge for a synchronous load); the D to Q time is used for a change 
+ in the input data whilst LOAD is already active.</p>
+<p> </p>
+
+</div>
+
+</body></html>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Arbitrary Controlled Source Models</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Arbitrary Controlled Source Models - AVS, ACS</h1>
+<p>The arbitrary controlled voltage and current source models provide an 
+ extremely powerful modelling facility. The output of these devices is 
+ determined by a symbolic expression which can act upon any number of input 
+ voltages and currents. </p>
+<p>The following devices in ASIMMDLS.LIB are based on these models:</p>
+<p class="Courier" style="font-weight: bold;" align="center">AVCVS, AVCCS, 
+ ACCVS, ACCCS, SUMMER, MULTIPLIER.</p>
+<p>The expression is entered into the value field of the device, or if 
+ more characters are required, you can use an explicit assignment to the 
+ VALUE property. </p>
+<p>Voltage input values are referred to as <span style="font-weight: bold;">V(A), 
+ V(B), V(C) </span>etc. within the expression, these values referring to 
+ the voltages at pins named A, B, C. The form <span style="font-weight: bold;">V(A,B)</span> 
+ is also supported, this meaning the differential voltage between pins 
+ A and B.</p>
+<p>Current input values are referred to as <span style="font-weight: bold;">I(A,B)</span> 
+ where this value represents the current flowing into pin A and out of 
+ pin B. Once a pair of pins are used for current measurement, they will 
+ have zero resistance between them.</p>
+<p>The expression evaluation supports the following mathematical functions: 
+ </p>
+<p class="Courier" style="margin-left: 144pt; font-weight: bold;">abs   acos 
+   acosh   asin   asinh   atan 
+   atanh   cos</p>
+<p class="Courier" style="margin-left: 144pt; font-weight: bold;">cosh 
+  exp    limit   ln     log 
+     pwr    pwrs    sgn</p>
+<p class="Courier" style="margin-left: 144pt;"><span style="font-weight: bold;">sin 
+   sinh   sqrt    stp    tan 
+      u     uramp</span> </p>
+<p>The limit function takes three arguments and returns y for x&lt;y, z 
+ for x&gt;z and x otherwise. The <span style="font-weight: bold;">pwr</span> 
+ function takes two parameters and evaluates to |x | raised to the power 
+ of y whilst <span style="font-weight: bold;">pwrs</span> returns |x|^y 
+ for x &gt;= 0 and -|x|^y for x &lt; 0. These two functions are extensions 
+ to standard SPICE3F5 which we have added for better compatibility with 
+ PSPICE™.</p>
+<p>The <span style="font-weight: bold;">u</span> or <span style="font-weight: bold;">stp</span> 
+ function is the unit step function, with a value of one for arguments 
+ greater than one and a value of zero for arguments less than zero. The 
+ function <span style="font-weight: bold;">uramp</span> is the integral 
+ of the unit step; <span style="font-weight: bold;">uramp(x)</span> returns 
+ a value of zero for x &lt; 0 and x for x &gt; 0. These functions can be 
+ used to synthesize piece-wise non-linear transfer functions, although 
+ convergence problems may arise at the switching points.</p>
+<p>The following standard operators are supported:</p>
+<p align="center"><span style="font-weight: bold; font-size: 18pt;">+    - 
+    *    /    ^</span> </p>
+<p>The expression x^y raises x to the power of y and is an alternative 
+ to the <span style="font-weight: bold;">pwr</span> function.</p>
+<p>If the argument to <span style="font-weight: bold;">log</span>, <span style="font-weight: bold;">ln</span> or <span style="font-weight: bold;">sqrt</span> 
+ becomes negative, the absolute value of the argument is used. If a divisor 
+ or argument to ln or log becomes zero, this is an error and the simulation 
+ will fail..</p>
+<p>A value for time can be created by connecting a current source in parallel 
+ with a capacitor, and setting the initial condition to zero.</p>
+<p class="Diagram"><img src="../assets/images/Analogue_Modelling_Primirtives/Formular_ARBITARY.gif" alt="" style="border: none;" width="240" height="169" border="0"/></p>
+<p>This ramp voltage can then be used inside <span style="font-weight: bold;">sin, 
+ cos</span> etc. to create FM generators, VCOs and many other functional 
+ models.</p>
+<p>Note that the arbitrary controlled source primitives do not, of themselves, 
+ implement timestep control. This can lead to the simulator missing rapid 
+ ‘transitions’ of the output function. Two work-arounds exist:</p>
+<ul type="disc">
+	<li>Set the maximum timestep option <span style="font-weight: bold;">TMAX</span>, 
+	 to a sufficiently small value.</li>
+	<li>Connect two diodes back to back in series across the generator 
+	 outputs. This (bizarre) approach introduces timestep control via the 
+	 diodes without changing the circuit behaviour.</li>
+</ul>
+<p>We hope to implement proper timestep control for arbitrary sources in 
+ a future release, although these models use Berkeley’s code so it will 
+ be tricky modification to implement!</p>
+<p class="ExampleTitle">See Also</p>
+<ul type="disc">
+	<li><a href="The_Current-Controlled_Current_Source_Model_.htm">The 
+	 Current-Controlled Current Source Model</a></li>
+	<li><a href="The_Current-Controlled_Voltage_Source_Model.htm">The Current-Controlled 
+	 Voltage Source Model</a></li>
+	<li><a href="Current_Source_Model.htm">Current Source Model</a></li>
+	<li><a href="The_Non-Linear_Current_Controlled_Current_Source.htm">Non-Linear 
+	 Current Controlled Source</a></li>
+	<li><a href="The_Non-Linear_Voltage_Controlled_Current_Source.htm">Non-Linear 
+	 Voltage Controlled Current Source</a></li>
+	<li><a href="The_Voltage-Controlled_Current_Source_Model_.htm">Voltage 
+	 Controlled Current Source Model</a></li>
+	<li><a href="The_Voltage-Controlled_Voltage_Source_Model.htm">Voltage 
+	 Controlled Voltage Source Model</a></li>
+</ul>
+<p> </p>
+<p> </p>
+
+</div>
+
+</body></html>

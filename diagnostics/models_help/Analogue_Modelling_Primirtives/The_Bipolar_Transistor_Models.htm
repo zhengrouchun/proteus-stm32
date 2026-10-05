@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Bipolar Transistor Models</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Bipolar Transistor Models - NPN, PNP</h1>
+<p>The NPN and PNP transistors can operate with 3 or 4 pins, depending 
+ on whether a substrate connection is used - PROSPICE detects automatically 
+ how many pins have been drawn.</p>
+<p>The bipolar junction transistor model in SPICE is an adaptation of the 
+ integral charge control model of Gummel and Poon. This modified Gummel-Poon 
+ model extends the original model to include several effects at high bias 
+ levels. The model automatically simplifies to the simpler Ebers-Moll model 
+ when certain parameters are not specified. The parameter names used in 
+ the modified Gummel-Poon model have been chosen to be more easily understood 
+ by the program user, and to reflect better both physical and circuit design 
+ thinking.</p>
+<p>The bipolar transistor models have the following properties:</p>
+<table class="LXTable" width="57.953%" cellspacing="0">
+	<colgroup><col style="width: 17.502%;"/>
+	<col style="width: 22.038%;"/>
+	<col style="width: 60.46%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">OFF</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Device initially off</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">ICVBE</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Initial B-E voltage</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">ICVCE</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Initial C-E voltage</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">AREA</span></p></td>
+		<td><p align="center">1</p></td>
+		<td>Area factor</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">TEMP</span></p></td>
+		<td><p align="center">27</p></td>
+		<td>instance temperature</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">IS</span></p></td>
+		<td><p align="center">1e-016</p></td>
+		<td>Saturation Current</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">BF</span></p></td>
+		<td><p align="center">100</p></td>
+		<td> Ideal forward beta</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">BR</span></p></td>
+		<td><p align="center">1</p></td>
+		<td> Ideal reverse beta</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">IKF</span></p></td>
+		<td><p align="center">&infin;</p></td>
+		<td>Forward beta roll-off corner current</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">IKR</span></p></td>
+		<td><p align="center">&infin;</p></td>
+		<td>reverse beta roll-off corner current</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">NF</span></p></td>
+		<td><p align="center">1</p></td>
+		<td>Forward emission coefficient</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">NR </span></p></td>
+		<td><p align="center">1</p></td>
+		<td>Reverse emission coefficient</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">ISE</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>B-E leakage saturation current</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">ISC</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>B-C leakage saturation current</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">NE</span></p></td>
+		<td><p align="center">1.5</p></td>
+		<td>B-E leakage emission coefficient</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">NC</span></p></td>
+		<td><p align="center">2</p></td>
+		<td><span>B-C leakage emission coefficient</span></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">RE</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Emitter resistance</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">RC</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Collector resistance</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">RB</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Zero bias base resistance</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">RBM</span></p></td>
+		<td><p align="center">RB</p></td>
+		<td>Minimum base resistance at high currents</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">IRB</span></p></td>
+		<td><p align="center">&infin;</p></td>
+		<td>Current for base resistance=(rb+rbm)/2</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">VAF</span></p></td>
+		<td><p align="center">&infin;</p></td>
+		<td>Forward Early voltage</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">VAR</span></p></td>
+		<td><p align="center">&infin;</p></td>
+		<td>Reverse Early voltage</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">VJE</span></p></td>
+		<td><p align="center">0.75</p></td>
+		<td>B-E built in potential</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">VJC</span></p></td>
+		<td><p align="center">0.75</p></td>
+		<td>B-C built in potential</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">VJS</span></p></td>
+		<td><p align="center">0.33</p></td>
+		<td>Substrate junction built in potential</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">MJC</span></p></td>
+		<td><p align="center">0.33</p></td>
+		<td>B-C junction grading coefficient</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">MJE</span></p></td>
+		<td><p align="center">0.33</p></td>
+		<td>B-E junction grading coefficient</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">MJS</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Substrate junction grading coefficient</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">CJC</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Zero bias B-C depletion capacitance</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">CJE</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Zero bias B-E depletion capacitance</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">CJS</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Zero bias C-S capacitance</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">TF</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Ideal forward transit time</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">TR</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Ideal reverse transit time</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">XTF</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Coefficient for bias dependence of TF</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">VTF</span></p></td>
+		<td><p align="center">&infin;</p></td>
+		<td>Voltage giving VBC dependence of TF</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">ITF</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>High current dependence of TF</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">PTF</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Excess phase</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">XCJC</span></p></td>
+		<td><p align="center">1</p></td>
+		<td>Fraction of B-C cap to internal base</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">XTB</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Forward and reverse beta temp. exp.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">EG</span></p></td>
+		<td><p align="center">1.11</p></td>
+		<td>Energy gap for IS temp. dependency</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">XTI</span></p></td>
+		<td><p align="center">3</p></td>
+		<td>Temp. exponent for IS</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">FC</span></p></td>
+		<td><p align="center">0.5</p></td>
+		<td>Forward bias junction fit parameter</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">KF</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Flicker Noise Coefficient</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">AF</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Flicker Noise Exponent</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">TNOM</span></p></td>
+		<td><p align="center">27</p></td>
+		<td>Parameter measurement temperature</td>
+	</tr>
+</tbody></table>
+<p>The dc model is defined by the parameters <span style="font-weight: bold;">IS, 
+ BF, NF, ISE, IKF</span>, and <span style="font-weight: bold;">NE</span> 
+ which determine the forward current gain characteristics, <span style="font-weight: bold;">IS, 
+ BR, NR, ISC, IKR</span>, and <span style="font-weight: bold;">NC</span> 
+ which determine the reverse current gain characteristics, and <span style="font-weight: bold;">VAF</span> 
+ and <span style="font-weight: bold;">VAR</span> which determine the output 
+ conductance for forward and reverse regions. Three ohmic resistances <span style="font-weight: bold;">RB, RC</span>, and <span style="font-weight: bold;">RE</span> 
+ are included, where <span style="font-weight: bold;">RB</span> can be 
+ high current dependent.</p>
+<p>Base charge storage is modelled by forward and reverse transit times, 
+ <span style="font-weight: bold;">TF</span> and <span style="font-weight: bold;">TR</span>, 
+ the forward transit time <span style="font-weight: bold;">TF</span> being 
+ bias dependent if desired, and non-linear depletion layer capacitances 
+ which are determined by <span style="font-weight: bold;">CJE, VJE</span>, 
+ and <span style="font-weight: bold;">MJE</span> for the B-E junction,<span style="font-weight: bold;"> CJC, VJC</span>, and <span style="font-weight: bold;">MJC</span> 
+ for the B-C junction and <span style="font-weight: bold;">CJS, VJS</span>, 
+ and <span style="font-weight: bold;">MJS</span> for the C-S (Collector-Substrate) 
+ junction. The temperature dependence of the saturation current, <span style="font-weight: bold;">IS</span>, is determined by the energy-gap, 
+ <span style="font-weight: bold;">EG</span>, and the saturation current 
+ temperature exponent, <span style="font-weight: bold;">XTI</span>. Additionally 
+ base current temperature dependence is modelled by the beta temperature 
+ exponent <span style="font-weight: bold;">XTB</span> in the new model.</p>
+<p>The values specified are assumed to have been measured at the temperature 
+ <span style="font-weight: bold;">TNOM</span>.</p>
+<p> </p>
+
+</div>
+
+</body></html>

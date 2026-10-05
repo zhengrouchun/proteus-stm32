@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Priority Encoder Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Priority Encoder Model - ENCODER_#1_#2</h1>
+<p>The ENCODER primitive models a n-input priority encoder. When the encoder 
+ input enable EI is asserted, the Q output is assigned the binary value 
+ of the highest D input asserted; if none of the D inputs are asserted, 
+ the Q output is set to zero and the enable output EO is asserted.</p>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="49.931%">
+	<colgroup><col style="width: 17.382%;"/>
+	<col style="width: 16.687%;"/>
+	<col style="width: 19.089%;"/>
+	<col style="width: 46.842%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">EI</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Enable input.</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">D#</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td>Data input lines</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">Q#</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#2</p></td>
+		<td>Binary output.</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">EO</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>Enable output</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" width="45.972%" cellspacing="0">
+	<colgroup><col style="width: 21.81%;"/>
+	<col style="width: 18.229%;"/>
+	<col style="width: 22.506%;"/>
+	<col style="width: 18.06%;"/>
+	<col style="width: 19.395%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHDQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center"> D# &rarr; Q</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLDQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center"> D# &rarr; Q</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHEQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">EI &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ </p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLEQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">EI &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ </p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHDE </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center"> D# &rarr; EO</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ </p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLDE </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center"> D# &rarr; EO</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ </p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TGQ</p></td>
+		<td><p align="center">Glitch</p></td>
+		<td><p align="center">ANY &rarr; Q </p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDxxDQ</p></td>
+	</tr>
+</tbody></table>
+
+</div>
+
+</body></html>

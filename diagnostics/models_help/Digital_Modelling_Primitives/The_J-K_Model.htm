@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The J-K Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The J-K Model - JK</h1>
+<p>The JK primitive model sets its unlatched Q output according to the 
+ current state of its J and K select inputs. The output can be either active, 
+ inactive, the current state of its D input, or the inverse of the current 
+ state of its D input, as follows:</p>
+<p style="font-weight: bold; margin-left: 18pt;">J        K 
+        Q</p>
+<p style="margin-left: 18pt;">F        F 
+        D input</p>
+<p style="margin-left: 18pt;">F        T 
+        FALSE</p>
+<p style="margin-left: 18pt;">T         F 
+       TRUE    </p>
+<p>T T Inverted D input</p>
+<p>Note that different behaviour can be achieved by using the INVERT property 
+ to invert the activity state of either the J and/or K inputs. A primitive 
+ device based on the model can be used when modelling larger devices that 
+ have separate J and K data inputs rather than a conventional single data 
+ input.</p>
+<table class="LXTable" cellspacing="0" width="54.91%">
+	<colgroup><col style="width: 23.87%;"/>
+	<col style="width: 19.9%;"/>
+	<col style="width: 21.886%;"/>
+	<col style="width: 34.344%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td>J</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>J selector</td>
+	</tr>
+	<tr class="t1Row">
+		<td>K</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>K selector</td>
+	</tr>
+	<tr class="t2Row">
+		<td>D</td>
+		<td>input</td>
+		<td>-</td>
+		<td>Data input</td>
+	</tr>
+	<tr class="t1Row">
+		<td>Q</td>
+		<td>Output</td>
+		<td>-</td>
+		<td>Data output</td>
+	</tr>
+</tbody></table>
+<p>The JK primitive has no propagation delay or other properties.</p>
+<p> </p>
+
+</div>
+
+</body></html>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Standard Gate Models</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Standard Gate Models-BUFFER, INVERTER, AND, NAND, OR, NOR, XOR, 
+ XNOR</h1>
+<p>The following list gives the names and actions of the standard gate 
+ types supported by PROSPICE.</p>
+<table cellspacing="0" width="93.835%">
+	<colgroup><col style="width: 23.359%;"/>
+	<col style="width: 76.641%;"/>
+	</colgroup><tbody><tr>
+		<td><p align="center"><span style="font-family: Arial, sans-serif; 
+									 font-size: 10pt; font-weight: bold;">BUFFER</span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Asserts 
+		 its Q output  whenever its D input is asserted.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-family: Arial, sans-serif; 
+									 font-size: 10pt; font-weight: bold;">INVERTER</span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Asserts 
+		 its Q output whenever its D input is not asserted.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-family: Arial, sans-serif; 
+									 font-size: 10pt; font-weight: bold;">AND_#1</span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Asserts 
+		 its Q output only when all its D inputs are asserted.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-family: Arial, sans-serif; 
+									 font-size: 10pt; font-weight: bold;">NAND_#1</span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Asserts 
+		 its Q output when any of its D inputs is not asserted.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-family: Arial, sans-serif; 
+									 font-size: 10pt; font-weight: bold;">OR_#1</span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Asserts 
+		 its Q output when any one of its D inputs is asserted.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-family: Arial, sans-serif; 
+									 font-size: 10pt; font-weight: bold;">NOR_#1</span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Asserts 
+		 its Q output when none of its D inputs are asserted.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-family: Arial, sans-serif; 
+									 font-size: 10pt; font-weight: bold;">XOR_#1 
+		 </span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Asserts 
+		 its Q output when the number of asserted D inputs is odd. Thus 
+		 for a two input gate, the model performs a normal XOR operation; 
+		 for gates with more than two inputs it performs a parity-check 
+		 operation.</span></td>
+	</tr>
+	<tr>
+		<td><p align="center"><span style="font-family: Arial, sans-serif; 
+									 font-size: 10pt; font-weight: bold;">XNOR_#1</span></p></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Asserts 
+		 its Q output when the number of asserted D inputs is even. Thus 
+		 for a two input gate, the model performs a normal XNOR operation; 
+		 for gates with more than two inputs it performs a parity-check 
+		 operation.</span></td>
+	</tr>
+</tbody></table>
+<p>All gate models support the <span style="font-weight: bold;">NIPS</span> 
+ (Number of Inputs) property. This property can be used to specify a different 
+ number of input pins that are physically present. For example, a AND_4 
+ primitive device with a <span style="font-weight: bold;">NIPS</span>=2 
+ property assignment only ANDs together its first two input pin states 
+ - the pins D2 and D3 are ignored. </p>
+<p>The main use of the <span style="font-weight: bold;">NIPS</span> property 
+ is where a gate is in the common output circuits of a Programmable Logic 
+ Device (PLD); if each output has a different number of product lines, 
+ the <span style="font-weight: bold;">NIPS</span> property can be used 
+ to specify the number. </p>
+<table class="LXTable" cellspacing="0" width="49.793%">
+	<colgroup><col style="width: 26.737%;"/>
+	<col style="width: 22.291%;"/>
+	<col style="width: 24.514%;"/>
+	<col style="width: 26.458%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">D#</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td><p align="center">Data Inputs</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">Q</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td><p align="center">Output</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="64.869%">
+	<colgroup><col style="width: 20.512%;"/>
+	<col style="width: 16.886%;"/>
+	<col style="width: 18.806%;"/>
+	<col style="width: 20.938%;"/>
+	<col style="width: 22.858%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHDQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D &rarr;Q</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLDQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D#  &rarr; Q </p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TGQ </p></td>
+		<td><p align="center">Glitch</p></td>
+		<td><p align="center">Any &rarr; Q </p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDxxDQ</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="64.731%">
+	<colgroup><col style="width: 20.254%;"/>
+	<col style="width: 16.424%;"/>
+	<col style="width: 27.739%;"/>
+	<col style="width: 17.686%;"/>
+	<col style="width: 17.897%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row">
+		<td>NIPS</td>
+		<td>Numeric</td>
+		<td>Number of input pins</td>
+		<td>See Note</td>
+		<td>[1]</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p class="Tip"><span style="font-weight: bold;">1.</span> The default for 
+ this property is taken from the model name. </p>
+<p> </p>
+
+</div>
+
+</body></html>

@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Counter Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Counter Model - COUNTER_#1</h1>
+<p>The COUNTER primitive model provides a full-function model of an n-bit 
+ up/down counter. The model supports:</p>
+<ul type="disc">
+	<li>Up/down counting by either separate up and down clocks or by a 
+	 single clock and a separate count-direction input.<br/>
+	</li>
+	<li>A dual-clock counter can be achieved by connecting the UCLK clock-up 
+	 input to the up clock, the DCLK clock-down input to the down clock, 
+	 and setting the <span style="font-weight: bold;">USEDIR</span> property 
+	 FALSE. A single clock counter with direction control can be achieved 
+	 by connecting both the UCLK clock-up and DCLK clock-down inputs to 
+	 the clock,  connecting the CNTUP count-direction input to the 
+	 direction control and setting the<span style="font-weight: bold;"> 
+	 USEDIR</span> property TRUE.<br/>
+	</li>
+	<li>Counter initialisation via the INIT property.<br/>
+	</li>
+	<li>Definable count range via the <span style="font-weight: bold;">LOWER</span> 
+	 and <span style="font-weight: bold;">UPPER</span> properties - these 
+	 define the lowest and highest count outputs respectively. The counter 
+	 counts between the <span style="font-weight: bold;">LOWER</span> and 
+	 <span style="font-weight: bold;">UPPER</span> values inclusively. 
+	 Note that the INIT property is not limited by these values.<br/>
+	</li>
+	<li>Definable reset value via the <span style="font-weight: bold;">RESET</span> 
+	 property. When the counter is reset via the RESET input pin, the Q 
+	 outputs are set to the value of the <span style="font-weight: bold;">RESET</span> 
+	 property.<br/>
+	</li>
+	<li>Loading of the counter&#39;s Q outputs from the D data inputs via the 
+	 LOAD input pin. A synchronous or asynchronous load operation is definable 
+	 via the <span style="font-weight: bold;">ALOAD</span> property.<br/>
+	</li>
+	<li>Resetting of the counter&#39;s Q outputs via the RESET input pin. Synchronous 
+	 or asynchronous reset is definable via the <span style="font-weight: bold;">ARESET</span> 
+	 property.<br/>
+	</li>
+	<li>Count enable/disable control via the CE input pin.<br/>
+	</li>
+	<li>Output-enable control via the OE input pin.<br/>
+	</li>
+	<li>Minimum count, maximum count, and ripple-carry outputs. <br/>
+	</li>
+	<li>The minimum count (MIN) and maximum count (MAX) outputs are asserted 
+	 when the counter output is at its minimum or maximum values respectively. 
+	 If the <span style="font-weight: bold;">USEDIR</span> property is 
+	 TRUE then the MIN output is only asserted when counting down (the 
+	 CNTUP direction-control input is not asserted) and the MAX output 
+	 is only asserted when counting up (the CNTUP direction-control input 
+	 is asserted).<br/>
+	</li>
+	<li>The ripple-carry output (RCO) is asserted when either of the above 
+	 MIN or MAX outputs are asserted and the count-enable (CE) input is 
+	 asserted.</li>
+</ul>
+<p>The OE output-enable input only affects the output state of the model. 
+ The OE input does not have to be asserted to perform reset, load or count 
+ operations. </p>
+<p>In the case of more than one function being selected simultaneously, 
+ the reset operation has the highest priority, followed by the load operation; 
+ given no reset or load operation and the CE input being asserted, a count 
+ operation will be performed.</p>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="59.889%">
+	<colgroup><col style="width: 21.683%;"/>
+	<col style="width: 18.077%;"/>
+	<col style="width: 19.88%;"/>
+	<col style="width: 40.361%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td>UCLK</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>Count-up clock input</td>
+	</tr>
+	<tr class="t1Row">
+		<td>DCLK</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>Count-down clock input</td>
+	</tr>
+	<tr class="t2Row">
+		<td>CNTUP</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>Count up/down direction control</td>
+	</tr>
+	<tr class="t1Row">
+		<td>CE</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>Count enable</td>
+	</tr>
+	<tr class="t2Row">
+		<td>LOAD</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>Load input</td>
+	</tr>
+	<tr class="t1Row">
+		<td>RESET</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>Reset input</td>
+	</tr>
+	<tr class="t2Row">
+		<td>D#</td>
+		<td>Input</td>
+		<td>#1</td>
+		<td>Load data input</td>
+	</tr>
+	<tr class="t1Row">
+		<td>Q#</td>
+		<td>Output</td>
+		<td>#1</td>
+		<td>Count output</td>
+	</tr>
+	<tr class="t2Row">
+		<td>MIN</td>
+		<td>Output</td>
+		<td>-</td>
+		<td>Minimum count output</td>
+	</tr>
+	<tr class="t1Row">
+		<td>MAX</td>
+		<td>Output</td>
+		<td>-</td>
+		<td>Maximum count output</td>
+	</tr>
+	<tr class="t2Row">
+		<td>RCO</td>
+		<td>Output</td>
+		<td>-</td>
+		<td>Ripple-carry output</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="61.301%">
+	<colgroup><col style="width: 16.217%;"/>
+	<col style="width: 13.971%;"/>
+	<col style="width: 25.491%;"/>
+	<col style="width: 13.712%;"/>
+	<col style="width: 15.304%;"/>
+	<col style="width: 15.304%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+		<td>NOTES</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHCQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CLK &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLCQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CLK &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHXR</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">ANY &rarr; RCO </p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLXR</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">ANY &rarr; RCO</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHER</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CE &rarr; RCO</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHXR</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLER</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CE &rarr; RCO</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLXR </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHDR</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CNTUP &rarr; RCO</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHXR </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLDR</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CNTUP &rarr; RCO</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLXR</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHXF</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">ANY &rarr; FLAGS</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+		<td><p align="center">[2]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLXF</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">ANY &rarr; FLAGS</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+		<td><p align="center">[2]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHDF</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D &rarr; FLAGS</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHXF</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLDF</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D &rarr; FLAGS</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLXF</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHRQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">RESET &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+		<td><p align="center">[3]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLRQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">RESET &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+		<td><p align="center">[3]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHLQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">LOAD &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHCQ </p></td>
+		<td><p align="center">[3]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLLQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">LOAD &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+		<td><p align="center">[3]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHDQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D# &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHLQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLDQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D# &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLLQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLZOQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHZOQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDZLOQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; Q#</p></td>
+		<td><p align="center">Z &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDZHOQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; Q#</p></td>
+		<td><p align="center">Z &rarr; H</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TGQ</p></td>
+		<td><p align="center">Glitch</p></td>
+		<td><p align="center">ANY&rarr; ANY</p></td>
+		<td><p align="center">PULSE</p></td>
+		<td><p align="center">TDxxCQ</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="61.549%">
+	<colgroup><col style="width: 21.153%;"/>
+	<col style="width: 11.643%;"/>
+	<col style="width: 34.478%;"/>
+	<col style="width: 8.689%;"/>
+	<col style="width: 14.257%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">ARESET </p></td>
+		<td><p align="center">Boolean</p></td>
+		<td>Asynchronous RESET? </td>
+		<td><p align="center">FALSE</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t1Row" style="height: 20px;">
+		<td><p align="center">ARESET </p></td>
+		<td><p align="center">Boolean</p></td>
+		<td>Asynchronous LOAD?  </td>
+		<td><p align="center">FALSE</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">USEDIR </p></td>
+		<td><p align="center">Boolean</p></td>
+		<td>Use CNTUP input?</td>
+		<td><p align="center">FALSE</p></td>
+		<td><p align="center">[4]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 20px;">
+		<td><p align="center">INIT </p></td>
+		<td><p align="center">Initialisation </p></td>
+		<td>Initial count value </td>
+		<td><p align="center">0</p></td>
+		<td><p align="center"> </p></td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">LOWER</p></td>
+		<td><p align="center">Numeric </p></td>
+		<td>Minimum count value</td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[5]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 20px;">
+		<td><p align="center">UPPER </p></td>
+		<td><p align="center">Numeric </p></td>
+		<td>Maximum count value</td>
+		<td><p align="center">2n-1</p></td>
+		<td><p align="center">[5]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">RESET </p></td>
+		<td><p align="center">Numeric </p></td>
+		<td>Reset output value </td>
+		<td><p align="center">LOWER</p></td>
+		<td><p align="center">[6]</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p class="Tip">1. The RCO output has a propagation delay of TDLHDR/TDHLDR 
+ when CNTUP count direction is changed and the USEDIR property is set, 
+ TDLHER/TDHLER when the CE enable input is changed, and TDLHXR/TDHLXR for 
+ all other changes. See also note [4].</p>
+<p class="Tip">2. The MIN/MAX outputs have a propagation delay of TDLHDF/TDHLDF 
+ when CNTUP count direction is changed and the USEDIR property is set, 
+ and TDLHXF/TDHLXF for all other changes. See also note [4].</p>
+<p class="Tip">3. The LOAD to Q time is used on LOAD going active (with 
+ a clock edge for a synchronous load); the D to Q time is used for a change 
+ in the input data whilst LOAD is already active.</p>
+<p class="Tip">4. When the USEDIR property is set TRUE the up/down clock 
+ edges are gated with the state of the CNTUP pin to determine whether the 
+ counter is clocked or not, and the MIN/MAX outputs are also gated such 
+ that MIN is active only when counting down, and MAX when counting up.</p>
+<p class="Tip">5. Counter outputs are LOWER to UPPER inclusive. The default 
+ value for the UPPER is set at 2n-1, where n is the number of D inputs 
+ and Q outputs defined in the device name.</p>
+<p class="Tip">6. When the counter is reset via its RESET pin, the outputs 
+ are set to the value of the RESET property. This value defaults to the 
+ value of the LOWER property, which itself defaults to zero.</p>
+<p> </p>
+
+</div>
+
+</body></html>

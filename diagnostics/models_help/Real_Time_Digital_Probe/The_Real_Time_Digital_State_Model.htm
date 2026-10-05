@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Real Time Digital State Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Real Time Digital State Model - RTDSTATE</h1>
+<p>This model represents a multi-bit digital state selector in which the 
+ bitwise output is determined by the value of the STATE property. The output 
+ pins of the ISIS device should be named Q0, Q1, Q2 etc as necessary. Two 
+ modes of operation are supported:</p>
+<h3>Bitwise Mode</h3>
+<p>In this mode, the bitwise output is determined directly by the binary 
+ value of the <span style="font-weight: bold;">STATE</span> property. For 
+ example, a 4 bit device with STATE=10 will output Q3=1, Q2=0, Q1=1, Q0=0.</p>
+<h3>Table Mode</h3>
+<p>In this mode, the value for each state is specified by a property S(&lt;N&gt;). 
+ The values of these properties can be either hexadecimal values, or named 
+ logic states. If hex values are given, then these are used as bitwise 
+ values to set the output pins. If named states are given then all outputs 
+ are set to that state. The recognized named values are as follows:</p>
+<p> </p>
+<table cellspacing="0" width="34.855%">
+	<colgroup><col style="width: 46.23%;"/>
+	<col style="width: 53.77%;"/>
+	</colgroup><tbody><tr>
+		<td><span style="font-weight: bold; font-family: Arial, sans-serif; 
+					 font-size: 10pt;">SLO or 0 or F</span></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Strong 
+		 low</span></td>
+	</tr>
+	<tr>
+		<td><span style="font-weight: bold; font-family: Arial, sans-serif; 
+					 font-size: 10pt;">SHI or 1 or T</span></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Strong 
+		 high</span></td>
+	</tr>
+	<tr>
+		<td><span style="font-weight: bold; font-family: Arial, sans-serif; 
+					 font-size: 10pt;">WLO</span></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Weak 
+		 low</span></td>
+	</tr>
+	<tr>
+		<td><span style="font-weight: bold; font-family: Arial, sans-serif; 
+					 font-size: 10pt;">WHI</span></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Weak 
+		 high</span></td>
+	</tr>
+	<tr>
+		<td><span style="font-weight: bold; font-family: Arial, sans-serif; 
+					 font-size: 10pt;">FLT</span></td>
+		<td><span style="font-family: Arial, sans-serif; font-size: 10pt;">Floating</span></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+
+</div>
+
+</body></html>

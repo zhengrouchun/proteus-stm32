@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Lossy Delay Line Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Lossy Delay Line Model - LOSSYLINE</h1>
+<p>The uniform RLC/RC/LC/RG transmission line model (referred to as the 
+ LOSSYLINE model henceforth) models a uniform constant-parameter distributed 
+ transmission line. The RC and LC cases may also be modelled using the 
+ TRANLINE and URCLINE models; however, the newer LOSSYLINE model is usually 
+ faster and more accurate than the others. The operation of this mode model 
+ is based on the convolution of the transmission line’s impulse responses 
+ with its inputs.</p>
+<p>The lossy delay line model has the following properties and defaults:</p>
+<table class="LXTable" cellspacing="0" width="84.232%">
+	<colgroup><col style="width: 21.484%;"/>
+	<col style="width: 17.37%;"/>
+	<col style="width: 61.145%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">V1</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Initial voltage at end 1</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">V2</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Initial voltage at end 2</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">I1</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Initial voltage at end 1</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">I2</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Initial voltage at end 2</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">R</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Resistance per metre</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">L</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Inductance per metre</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">G</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Conductance per metre</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">C</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Capacitance per metre</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">LEN</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>length of line</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">REL</span></p></td>
+		<td><p align="center">1.0</p></td>
+		<td>Relative rate of change of derivative for breakpoint.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">ABS </span></p></td>
+		<td><p align="center">1.0</p></td>
+		<td>Absolute rate of change of derivative for breakpoint.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">NOCONTROL 
+		 </span></p></td>
+		<td><p align="center">TRUE</p></td>
+		<td>No timestep control</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">STEPLIMIT 
+		 </span></p></td>
+		<td><p align="center">TRUE</p></td>
+		<td>Always limit timestep to 0.8*(delay of line)</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">NOSTEPLIMIT</span></p></td>
+		<td><p align="center">TRUE</p></td>
+		<td>Don&#39;t always limit timestep to 0.8*(delay of line)</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">LININTERP</span></p></td>
+		<td><p align="center">TRUE</p></td>
+		<td>Use linear interpolation</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">QUADINTERP</span></p></td>
+		<td><p align="center">TRUE</p></td>
+		<td>Use quadratic interpolation</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">MIXEDINTERP</span></p></td>
+		<td><p align="center">TRUE</p></td>
+		<td>Use linear interpolation if quadratic results look unacceptable</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">TRUNCNR</span></p></td>
+		<td><p align="center">FALSE</p></td>
+		<td>Use N-R iterations for step calculation</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">TRUNCDONTCUT</span></p></td>
+		<td><p align="center">FALSE</p></td>
+		<td>don&#39;t limit timestep to keep impulse response errors low</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">COMPACTREL</span></p></td>
+		<td><p align="center">RELTOL</p></td>
+		<td>special reltol for straight line checking</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">COMPACTABS 
+		 </span></p></td>
+		<td><p align="center">ABSTOL</p></td>
+		<td>special abstol for straight line checking</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p>The following types of lines have been implemented so far: RLC (uniform 
+ transmission line with series loss only), RC (uniform RC line), LC (lossless 
+ transmission line), and RG (distributed series resistance and parallel 
+ conductance only). Any other combination will yield erroneous results 
+ and should not be tried. The length <span style="font-weight: bold;">LEN</span> 
+ of the line must be specified.</p>
+<p><span style="font-weight: bold;">NOSTEPLIMIT</span> is a flag that will 
+ remove the default restriction of limiting time-steps to less than the 
+ line delay in the RLC case. <span style="font-weight: bold;">NOCONTROL</span> 
+ is a flag that prevents the default limiting of the time-step based on 
+ convolution error criteria in the RLC and RC cases. This speeds up simulation 
+ but may in some cases reduce the accuracy of results.  <span style="font-weight: bold;">LININTERP</span> 
+ is a flag that, when specified, will use linear interpolation instead 
+ of the default quadratic interpolation for calculating delayed signals. 
+  <span style="font-weight: bold;">MIXEDINTERP</span> is a flag that, 
+ when specified, uses a metric for judging whether quadratic interpolation 
+ is not applicable and if so uses linear interpolation; otherwise it uses 
+ the default quadratic interpolation. <span style="font-weight: bold;">TRUNCDONTCUT</span> 
+ is a flag that removes the default cutting of the time-step to limit errors 
+ in the actual calculation of impulse-response related quantities. <span style="font-weight: bold;">COMPACTREL</span> and <span style="font-weight: bold;">COMPACTABS</span> 
+ are quantities that control the compaction of the past history of values 
+ stored for convolution. Larger values of these lower accuracy but usually 
+ increase simulation speed. These are to be used with the <span style="font-weight: bold;">TRYTOCOMPACT</span> 
+ simulator option. <span style="font-weight: bold;">TRUNCNR</span> is a 
+ flag that turns on the use of Newton-Raphson iterations to determine an 
+ appropriate timestep in the timestep control routines. The default is 
+ a trial and error procedure by cutting the previous timestep in half. 
+ <span style="font-weight: bold;">REL</span> and <span style="font-weight: bold;">ABS</span> 
+ are quantities that control the setting of breakpoints.</p>
+<p>The option most worth experimenting with for increasing the speed of 
+ simulation is <span style="font-weight: bold;">REL</span>. The default 
+ value of 1 is usually safe from the point of view of accuracy but occasionally 
+ increases computation time. A value greater than 2 eliminates all breakpoints 
+ and may be worth trying depending on the nature of the rest of the circuit, 
+ keeping in mind that it might not be safe from the viewpoint of accuracy. 
+ Break-points may usually be entirely eliminated if it is expected the 
+ circuit will not display sharp discontinuities. Values between 0 and 1 
+ are usually not required but may be used for setting many breakpoints.</p>
+<p><span style="font-weight: bold;">COMPACTREL</span> may also be experimented 
+ with when the option <span style="font-weight: bold;">TRYTOCOMPACT</span> 
+ is specified as a simulator control option. The legal range is between 
+ 0 and 1. Larger values usually decrease the accuracy of the simulation 
+ but in some cases improve speed. If <span style="font-weight: bold;">TRYTOCOMPACT</span> 
+ is not specified, history compaction is not attempted and accuracy is 
+ high. <span style="font-weight: bold;">NOCONTROL,</span> <span style="font-weight: bold;">TRUNCDONTCUT</span> 
+ and <span style="font-weight: bold;">NOSTEPLIMIT</span> also tend to increase 
+ speed at the expense of accuracy.</p>
+<p> </p>
+<p class="ExampleTitle">See Also:</p>
+<ul type="disc">
+	<li><a href="The_Lossless_Delay_Line_Model.htm">Lossyless Delay Line 
+	 Model</a></li>
+	<li><a href="Uniform_RC_Transmission_Line_Model.htm">Uniform RC Transmition 
+	 Line Model</a></li>
+</ul>
+<p> </p>
+
+</div>
+
+</body></html>

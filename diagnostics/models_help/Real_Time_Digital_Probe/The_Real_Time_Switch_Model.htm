@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Real Time Switch Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Real Time Switch Model - RTSWITCH</h1>
+<p>This model represents an N-state variable resistor for which a different 
+ resistance can be specified for each state using properties <span style="font-weight: bold;">R(0), 
+ R(1), R(2)</span> etc. A further parameter <span style="font-weight: bold;">TSWITCH</span> 
+ determines the switching time from one state to another, thus avoiding 
+ discontinuities that could otherwise cause convergence problems within 
+ the SPICE simulation. </p>
+<p>The RTSWITCH is a dual mode primitive, meaning that PROSPICE will use 
+ either an analogue model or a digital model depending on analysis of what 
+ the switch connects to. If either net the switch connects is deemed to 
+ be analogue, then the analogue model is used, otherwise the digital model 
+ is used. The digital model is open circuit for any value of <span style="font-weight: bold;">R(&lt;N&gt;)</span> 
+ greater than 1k and closed circuit otherwise.</p>
+<p>The advantage of this dual mode behaviour is that active switches based 
+ around the RTSWITCH primitive can be used in either analogue or digital 
+ simulations without compromising the performance of the latter by introducing 
+ unnecessary mixed mode interfacing primitives. At the same time, the user 
+ is saved from the confusing notion of having to use specifically analogue 
+ and digital switches in order to gain optimum performance.</p>
+<p>The model supports the following properties:</p>
+<table class="LXTable" width="97.096%" cellspacing="0">
+	<colgroup><col style="width: 9.933%;"/>
+	<col style="width: 22.559%;"/>
+	<col style="width: 7.714%;"/>
+	<col style="width: 59.794%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row">
+		<td><span style="font-weight: bold;">R</span>(&lt;N&gt;) </td>
+		<td>Resistance for state &lt;N&gt;</td>
+		<td>-</td>
+		<td>The value “OFF” may be used to indicate a true open circuit, 
+		 but beware than convergence problems may arise.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><span style="font-weight: bold;">TSWITCH</span></td>
+		<td>Switching Time </td>
+		<td>1ms</td>
+		<td> </td>
+	</tr>
+</tbody></table>
+<p> </p>
+
+</div>
+
+</body></html>

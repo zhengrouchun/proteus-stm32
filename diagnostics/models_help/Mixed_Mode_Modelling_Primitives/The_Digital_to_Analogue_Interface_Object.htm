@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Digital to Analogue Interface Object</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Digital to Analogue Interface Object - DAC</h1>
+<p>The DAC primitive has four pins, although in common use, a two pinned 
+ variety is often used.</p>
+<table class="LXTable" cellspacing="0" width="58.918%">
+	<colgroup><col style="width: 16.259%;"/>
+	<col style="width: 27.858%;"/>
+	<col style="width: 55.882%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">D</p></td>
+		<td>Digital Input </td>
+		<td>Input from Digital side of circuit.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">A</p></td>
+		<td>Analogue Output </td>
+		<td>Output to Analogue side of circuit.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">V+</p></td>
+		<td>Analogue Input </td>
+		<td>Positive power supply.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">V-</p></td>
+		<td>Analogue Input S</td>
+		<td>Negative power supply.</td>
+	</tr>
+</tbody></table>
+<p>If either the V+ or V- pins are omitted, they will be assumed to connect 
+ to VCC/VDD and GND/VSS respectively. If the no VCC/VDD net exists, then 
+ the DAC will become self powering - current will flow from the output 
+ round to the V- pin, or to GND if no V- pin was drawn.</p>
+<p>The DAC primitive supports the following properties:</p>
+<table class="LXTable" cellspacing="0" width="58.774%">
+	<colgroup><col style="width: 16.473%;"/>
+	<col style="width: 14.139%;"/>
+	<col style="width: 69.387%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">VOLTAGE</p></td>
+		<td><p align="center">5V</p></td>
+		<td>Determines the operating voltage for DACs that do not have 
+		 power rails. </td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">VLO</p></td>
+		<td><p align="center">0%</p></td>
+		<td>Voltage level for high logic states - SHI, WHI. </td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">VHI </p></td>
+		<td><p align="center">100%</p></td>
+		<td>Voltage level for low logic states - SLO, WLO.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">VUD </p></td>
+		<td><p align="center">50%</p></td>
+		<td>Voltage level for undefined logic states - FLT, WUD, CON.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">RLO </p></td>
+		<td><p align="center">1W</p></td>
+		<td>Output resistance for logic low states.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">RHI </p></td>
+		<td><p align="center">1W</p></td>
+		<td>Output resistance for logic high states.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">RUD</p></td>
+		<td><p align="center">(RLO+RHI)/2</p></td>
+		<td>Output resistance for undefined logic states.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">RTS</p></td>
+		<td><p align="center">100MW</p></td>
+		<td>Output resistance for floating logic state.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TRISE</p></td>
+		<td><p align="center">1ns</p></td>
+		<td>Output rise time.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TFALL</p></td>
+		<td><p align="center">TRISE</p></td>
+		<td>Output fall time</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TFALL</p></td>
+		<td><p align="center">(TRISE+TFALL)/2</p></td>
+		<td>Output time to go tri-state.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">RAMP</p></td>
+		<td><p align="center">Linear</p></td>
+		<td>Determines the shape of the rise/fall curves.</td>
+	</tr>
+</tbody></table>
+<p><span style="font-weight: bold;">VLO, VHI, and VUD</span> can all be 
+ given as either percentages of the power supply or as absolute voltages, 
+ so</p>
+<p class="Courier" style="margin-left: 18pt;">VLO=40%</p>
+<p class="Courier" style="margin-left: 18pt;">VHI=60%</p>
+<p>and</p>
+<p class="Courier" style="margin-left: 18pt;">VLO=2.0</p>
+<p class="Courier" style="margin-left: 18pt;">VHI=3.0</p>
+<p>are equivalent for a 5V supply. The DAC actually represents its output 
+ as a current source and a resistor in parallel between the output pin 
+ at the V- pin or GND, so it is not necessary for their to be a V+ pin 
+ or a VCC net in order for DACs to output a given voltage.</p>
+<p>To select exponential (i.e. R/C) output curves, you can specify</p>
+<p class="Courier" style="margin-left: 18pt;">RAMP=EXP</p>
+<p>on a DAC. The output will then reach approximately 0.63 of its destination 
+ value in the specified rise or fall times. This nicely models the effect 
+ of capacitor loading of the output.</p>
+<p>The output rise and fall waveforms are only guaranteed to be simulated 
+ accurately if the global mixed mode timing tolerance (TTOL) is smaller 
+ than <span style="font-weight: bold;">TRISE</span> and <span style="font-weight: bold;">TFALL</span>. 
+ TTOL can be set on the <span style="font-style: italic;">DSIM</span> tab 
+ of the <span style="font-style: italic;">Simulation Options</span> dialogue 
+ form.</p>
+<p><a href="The_Analogue_to_Digital_Interface_Object.htm">ADC Interface 
+ Object Model</a></p>
+<p><a href="The_Dual_Mode_Switch_Model.htm">Dual Mode Switch Model</a></p>
+
+</div>
+
+</body></html>

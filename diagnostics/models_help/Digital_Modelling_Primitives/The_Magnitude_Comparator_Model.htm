@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Magnitude Comparator Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Magnitude Comparator Model - COMPARATOR_#1</h1>
+<p>The COMPARATOR primitive model sets its output flags in accordance with 
+ the magnitudes of its two input data words, A and B. </p>
+<p>If the A and B input words are equal, the output flags are set according 
+ to which input flags are asserted. If the A=B input flag is asserted the 
+ two words are assumed equal, regardless of the other input flags. If the 
+ A=B is not asserted and only one of the A&lt;B and A&gt;B is asserted 
+ then the A word is assumed less than or greater than the B word respectively. 
+ If A&lt;B and A&gt;B inputs are both asserted or neither is asserted the 
+ ambiguity is resolved by the FBADT and FBADF properties respectively.</p>
+<table class="LXTable" cellspacing="0" width="60.027%">
+	<colgroup><col style="width: 14.39%;"/>
+	<col style="width: 13.814%;"/>
+	<col style="width: 15.803%;"/>
+	<col style="width: 55.993%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td>A&lt;B</td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>A less than B input flag.</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td>A=B</td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>A equal to B input flag.</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td>A&gt;B</td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>A greater than B input flag.</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td>A#</td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td>A input data word.</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td>B#</td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td>B input data word.</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td>QA&lt;B</td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>A less than B output flag.</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td>QA&lt;=B</td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>A less than or equal to B output flag.</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td>QA=B</td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>A equal to B output flag.</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td>QA&gt;=B</td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>A greater than or equal to B output flag.</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td>QA&gt;B</td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>A greater than B output flag.</td>
+	</tr>
+</tbody></table>
+<br/>
+
+<table class="LXTable" cellspacing="0" width="61.301%">
+	<colgroup><col style="width: 16.444%;"/>
+	<col style="width: 13.744%;"/>
+	<col style="width: 23.572%;"/>
+	<col style="width: 17.674%;"/>
+	<col style="width: 15.304%;"/>
+	<col style="width: 15.304%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHDQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">A#,B# &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLDQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">A#,B# &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHDC</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">A#,B#&rarr;COUT</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLDC</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">A#,B# &rarr;COUT</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHCQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CIN &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLCQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CIN &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHCC</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CIN &rarr; COUT</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLCC</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CIN &rarr; COUT</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHOQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">Op.  &rarr; Q#</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLOQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">Op. &rarr; Q#</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHOC</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">Op. &rarr; COUT</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLOC</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">Op. &rarr; COUT</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ  </p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TGQ</p></td>
+		<td><p align="center">Glitch</p></td>
+		<td><p align="center">Any &rarr; Any</p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDxxDQ</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="60.059%">
+	<colgroup><col style="width: 17.688%;"/>
+	<col style="width: 17.828%;"/>
+	<col style="width: 36.455%;"/>
+	<col style="width: 14.014%;"/>
+	<col style="width: 14.014%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">FBADF</p></td>
+		<td><p align="center">Numeric</p></td>
+		<td><p>Output flags if A&lt;B and A&gt;B both FALSE </p></td>
+		<td><p align="center">5</p></td>
+		<td><p align="center">[2]</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 20px;">
+		<td><p align="center">FBADT </p></td>
+		<td><p align="center">Numeric</p></td>
+		<td>Output flags if A&lt;B and A&gt;B both TRUE</td>
+		<td><p align="center">0</p></td>
+		<td><p align="center">[2]</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+
+</div>
+
+</body></html>

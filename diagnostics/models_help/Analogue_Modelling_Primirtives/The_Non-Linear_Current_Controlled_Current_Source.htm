@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Non-Linear Current Controlled Current Source</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Non-Linear Current Controlled Current Source - ICISOURCE</h1>
+<p>This is similar to the <a href="The_Non-Linear_Voltage_Controlled_Current_Source.htm">NLVCIS</a>, 
+ but the output is controlled by one or more current probes, or batteries. 
+ Each probe must be specified by the property <span style="font-weight: bold;">PROBEx</span>, 
+ where x is the letter used in the coefficient expressions as above. For 
+ example:</p>
+<p class="Courier" style="margin-left: 18pt;">POLY=2</p>
+<p class="Courier" style="margin-left: 18pt;">PROBEA=IPR1</p>
+<p class="Courier" style="margin-left: 18pt;">PROBEB=IPR2</p>
+<p class="Courier" style="margin-left: 18pt;">CAB=1</p>
+<p>specifies a current source whose output is the product of the currents 
+ flowing in current probes <span style="font-weight: bold;">IPR1</span> 
+ and <span style="font-weight: bold;">IPR2</span>. Note that only <span style="font-weight: bold;">BATTERY</span> or <span style="font-weight: bold;">IPROBE</span> 
+ primitives may be specified in <span style="font-weight: bold;">PROBEx</span> 
+ properties.</p>
+<p>Current controlled current sources have the following properties:</p>
+<table class="LXTable" cellspacing="0" width="68.741%">
+	<colgroup><col style="width: 17.371%;"/>
+	<col style="width: 10.866%;"/>
+	<col style="width: 71.763%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">POLY</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Polynomial Order (number of controlling inputs)</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">RPARA</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Parallel output resistor</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">Cxx</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>Coefficient (as described above)</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">VALUE</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>The DC coefficient</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">PROBEx</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>The required current probe, where x is the appropriate letter</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">PROBE</span></p></td>
+		<td><p align="center">-</p></td>
+		<td>This is synonymous with <span style="font-weight: bold;">PROBEA</span></td>
+	</tr>
+</tbody></table>
+<p>See Also:</p>
+<ul type="disc">
+	<li><a href="The_Arbitrary_Controlled_Source_Models.htm">The Arbitrary 
+	 Controlled Source Models</a></li>
+	<li><a href="The_Current-Controlled_Current_Source_Model_.htm">The 
+	 Current-Controlled Current Source Model</a></li>
+	<li><a href="Current_Source_Model.htm">Current Source Model</a></li>
+	<li><a href="The_Non-Linear_Voltage_Controlled_Current_Source.htm">The 
+	 Non-Linear Voltage Controlled Current Source</a></li>
+	<li><a href="The_Voltage-Controlled_Current_Source_Model_.htm">The 
+	 Voltage Controlled Current Source Model</a></li>
+</ul>
+<p> </p>
+
+</div>
+
+</body></html>

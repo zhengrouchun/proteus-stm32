@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Divide by N Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Divide by N Model - DIVIDER</h1>
+<p>The DIVIDER primitive models a divide by N frequency divider. The division 
+ ratio (N) is defined as a component property and the Q output changes 
+ state on every N&#39;th clock edge unless the reset (RST) is active. In this 
+ case, Q is force to the inactive state.</p>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="59.889%">
+	<colgroup><col style="width: 21.683%;"/>
+	<col style="width: 18.077%;"/>
+	<col style="width: 19.88%;"/>
+	<col style="width: 40.361%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td>CLK</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>Clock Input</td>
+	</tr>
+	<tr class="t1Row">
+		<td>RST</td>
+		<td>Input</td>
+		<td>-</td>
+		<td>Asynchronous reset input</td>
+	</tr>
+	<tr class="t2Row">
+		<td>Q</td>
+		<td>Output</td>
+		<td>-</td>
+		<td>Normal output</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" width="51.919%" cellspacing="0">
+	<colgroup><col style="width: 19.147%;"/>
+	<col style="width: 16.495%;"/>
+	<col style="width: 30.097%;"/>
+	<col style="width: 16.19%;"/>
+	<col style="width: 18.069%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+	</tr>
+	<tr class="t2Row">
+		<td>TDCQ </td>
+		<td>Delay</td>
+		<td>CLK &rarr; Q</td>
+		<td>Both</td>
+		<td>0</td>
+	</tr>
+	<tr class="t1Row">
+		<td>TDRQ </td>
+		<td>Delay</td>
+		<td>RST &rarr; Q#</td>
+		<td>Both</td>
+		<td>0</td>
+	</tr>
+	<tr class="t2Row">
+		<td>TGQ </td>
+		<td>Glitch</td>
+		<td>ANY &rarr; Q </td>
+		<td>Pulse</td>
+		<td>0</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" width="43.47%" cellspacing="0">
+	<colgroup><col style="width: 29.841%;"/>
+	<col style="width: 13.828%;"/>
+	<col style="width: 34.841%;"/>
+	<col style="width: 17.182%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">RATIO </p></td>
+		<td><p align="center">Numeric</p></td>
+		<td><p align="center">Division Ratio</p></td>
+		<td><p align="center">2</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+
+</div>
+
+</body></html>

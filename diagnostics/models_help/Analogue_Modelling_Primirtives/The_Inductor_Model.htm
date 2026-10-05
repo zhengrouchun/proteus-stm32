@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Inductor Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Inductor Model - INDUCTOR</h1>
+<p>This is a pure device. Lead resistance, non-linearity and saturation 
+ are not modelled. Mutual inductance is handled by property assignment 
+ and naming. A set of mutual inductors is treated in the same way as a 
+ multi-part device in ISIS. The set is all given the same name, with a 
+ colon and letter following the name (like L1:A and L1:B for example). 
+ To specify the value of the mutual inductance, the property <span style="font-weight: bold;">MUTUAL_elem</span> 
+ is added to one of the pair. Elem  should be the element designation 
+ letter from the other inductor, and the value specifies the coupling coefficient 
+ between them. For example:</p>
+<p class="Courier" style="margin-left: 18pt;">L1:A, MUTUAL_B=0.5</p>
+<p class="Courier" style="margin-left: 18pt;">L1:B</p>
+<p>specifies two inductors with a coupling coefficient of 0.5. The coupling 
+ coefficient must be between 0 and 1.</p>
+<p>The samples files MUTUAL1.DSN and MUTUAL2.DSN demonstrate this further.</p>
+<p>You cannot connect two inductors in parallel, or an ideal voltage source 
+ directly across an inductor - the inductor has zero resistance so infinite 
+ current would flow, or in practice the simulator will report a singular 
+ matrix.</p>
+<p>The inductor model has the following properties:</p>
+<p><span style="color: #0000ff;">IC</span> - Initial current through the 
+ inductor. This property only has effect when the initial DC solution is 
+ not computed.</p>
+<p><span style="color: #0000ff;">MUTUAL_elem</span> - The coupling coefficient 
+ between this and the referenced inductor</p>
+<p> </p>
+
+</div>
+
+</body></html>

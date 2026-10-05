@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Real Time Current Probe</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Real Time Current Probe - RTIPROBE</h1>
+<p>The RTIPROBE model is used to set the state of an indicator from a circuit 
+ current. It outputs a state value determined by the following formula:</p>
+<p class="Diagram"><img src="../assets/images/Real_Time_Digital_Probe/RTIPROBE.gif" style="border: none;" alt="" width="319" height="43" border="0"/></p>
+<p>where <span style="font-weight: bold;">MIN</span> and <span style="font-weight: bold;">MAX</span> 
+ are properties of the RTIPROBE object, and NUMSTATES is determined by 
+ the parent indicator. If the input voltage is less then <span style="font-weight: bold;">MIN</span>, 
+ then the output state is 0, and if the input voltage is greater than <span style="font-weight: bold;">MAX</span></p>
+<p> it is limited to NUMSTATES-1.</p>
+<p>Fractional values are rounded to the nearest integer.</p>
+<p>The model supports the following properties:</p>
+<table class="LXTable" cellspacing="0" width="100%">
+	<colgroup><col style="width: 9.709%;"/>
+	<col style="width: 32.524%;"/>
+	<col style="width: 7.49%;"/>
+	<col style="width: 50.277%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Name</td>
+		<td>Description</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">MIN</p></td>
+		<td><p align="center">Value of input voltage for state 0</p></td>
+		<td><p align="center">0</p></td>
+		<td> </td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">MAX</p></td>
+		<td><p align="center">Value of input voltage for FSD</p></td>
+		<td><p align="center">1</p></td>
+		<td> </td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">ELEMENT</p></td>
+		<td><p align="center">Target element within bitwise parent indicator.</p></td>
+		<td><p align="center">-</p></td>
+		<td>bitwise parent indicator. - This property is used when the 
+		 RTIPROBE is part of schematic model controlling a BITWISE indicator. 
+		 </td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p> </p>
+
+</div>
+
+</body></html>

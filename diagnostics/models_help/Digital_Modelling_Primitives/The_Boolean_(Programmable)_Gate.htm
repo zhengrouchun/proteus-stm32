@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Boolean (Programmable) Gate</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Boolean (Programmable) Gate Model - BOOL_#1</h1>
+<p>The programmable gate uses a Boolean expression to determine its output. 
+ The expression consists of a values combined by Boolean operators. Values 
+ are either sub-expressions (enclosed in parentheses) or the letters A 
+ through to Z which represent the input pins (A represents D0, B represents 
+ D1, and so on). </p>
+<p>By default, an input pin value evaluates TRUE if the respective pin 
+ is currently active. However input pin values may optionally be followed 
+ by a postfix operator, as follows:</p>
+<p style="margin-left: 54pt;"><span style="font-size: 12pt; font-weight: bold;">+</span> 
+  -  The value is TRUE for a positive edge at the respective 
+ pin.</p>
+<p style="margin-left: 54pt;"><span style="font-weight: bold; font-size: 12pt;">-</span> 
+   -  The value is TRUE for a negative edge at the respective 
+ pin.</p>
+<p style="margin-left: 54pt;"><span style="font-size: 12pt; font-weight: bold;">&#39;</span> 
+   - The value is TRUE if the respective pin was previously active.</p>
+<p>Note that the terms positive edge, negative edge, active and inactive 
+ imply independence from the polarity of the respective pin. If a pin is 
+ active low (by virtue of being assigned to the standard DSIM INVERT property) 
+ then active implies the input is low whilst negative edge implies a low-to-high 
+ transition.</p>
+<p>The following operators are supported:</p>
+<p style="margin-left: 54pt;"><span style="font-weight: bold; font-size: 12pt;">!</span> 
+     -  The following term is logically-inverted.</p>
+<p style="margin-left: 54pt;"><span style="font-size: 12pt; font-weight: bold;">&amp;</span> 
+   -  The left and right terms are ANDed.</p>
+<p style="margin-left: 54pt;"><span style="font-size: 12pt; font-weight: bold;">|</span> 
+    -  The left and right terms are ORed.</p>
+<p style="margin-left: 54pt;"><span style="font-size: 12pt; font-weight: bold;">^</span> 
+    -  The left and right terms are Exclusive-ORed 
+ (XORed).</p>
+<p>Operator precedence is logical-inversion, AND, OR/XOR and evaluation 
+ takes placed from left to right. Parentheses may be used to override this 
+ as required.</p>
+<p>For example, the expression: <span style="font-weight: bold;">(A|B)&amp;C</span>- 
+ evaluates as TRUE only if either input pin D0 or input D1 is active and 
+ there is a negative edge at the D2 input pin.</p>
+<p>The expression itself should be put in the gate&#39;s <span style="font-weight: bold;">VALUE</span> 
+ field. If the expression is too long to fit the actual label or you wish 
+ to hide it, you can use a property assignment of the form <span style="font-weight: bold;">EXPR</span>=expr 
+ in the component&#39;s property block - this overrides any expression in the 
+ <span style="font-weight: bold;">VALUE</span> field.</p>
+<p>The <span style="font-weight: bold;">BOOL</span> model is slower than 
+ the standard gate models, so you should use one of those for standard 
+ Boolean operations.</p>
+<br/>
+<table class="LXTable" cellspacing="0" width="49.793%">
+	<colgroup><col style="width: 26.737%;"/>
+	<col style="width: 22.291%;"/>
+	<col style="width: 24.514%;"/>
+	<col style="width: 26.458%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">D#</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td><p align="center">Data Inputs</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">Q</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td><p align="center">Output</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="64.869%">
+	<colgroup><col style="width: 20.512%;"/>
+	<col style="width: 16.886%;"/>
+	<col style="width: 18.806%;"/>
+	<col style="width: 20.938%;"/>
+	<col style="width: 22.858%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td> 
+		Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+	</tr>
+	<tr class="t2Row">
+		<td>TDLHDQ </td>
+		<td>Delay</td>
+		<td>D &rarr;Q</td>
+		<td>L &rarr; H</td>
+		<td>0</td>
+	</tr>
+	<tr class="t1Row">
+		<td>TDHLDQ </td>
+		<td>Delay</td>
+		<td>D#  &rarr; Q </td>
+		<td>H &rarr; L</td>
+		<td>0</td>
+	</tr>
+	<tr class="t2Row">
+		<td>TGQ </td>
+		<td>Glitch</td>
+		<td>Any &rarr; Q </td>
+		<td>Pulse</td>
+		<td>TDxxDQ</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="64.731%">
+	<colgroup><col style="width: 20.254%;"/>
+	<col style="width: 16.424%;"/>
+	<col style="width: 33.837%;"/>
+	<col style="width: 15.451%;"/>
+	<col style="width: 14.034%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row">
+		<td>EXPR</td>
+		<td>Text</td>
+		<td>The Boolean Expression</td>
+		<td>See Note</td>
+		<td>[1]</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p> </p>
+
+</div>
+
+</body></html>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The JK Flip-Flop Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The JK Flip-Flop Model - JKFF</h1>
+<p>The JKFF primitive models the behaviour of a JK-type flip flop. The 
+ complementary data outputs Q and !Q are set on the positive edge of the 
+ CLK input according to the current states of the J and K data inputs, 
+ as follows:</p>
+<p style="margin-left: 18pt;"><span style="font-weight: bold;">J    K 
+    Q</span> </p>
+<p style="margin-left: 18pt;">F    F    No 
+ change </p>
+<p style="margin-left: 18pt;">F    T    FALSE</p>
+<p style="margin-left: 18pt;">T    F    TRUE</p>
+<p style="margin-left: 18pt;">T    T    Toggled</p>
+<p>The model also has asynchronous overriding SET and RESET inputs that 
+ force the outputs to their respective states as long as the input is asserted. 
+ If both SET and RESET are asserted, the Q and !Q outputs are set according 
+ to the bit-encoded value of the QSANDR property.</p>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="59.889%">
+	<colgroup><col style="width: 21.683%;"/>
+	<col style="width: 18.077%;"/>
+	<col style="width: 19.88%;"/>
+	<col style="width: 40.361%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">J</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>J Function select input</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">K</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>K Function Select Input</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">CLK</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Clock Input</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">SET</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Asynchronous Preset Input</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">RESET</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Asynchronous reset input</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">Q</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>True output</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">!Q</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td>Inverted output</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="51.919%">
+	<colgroup><col style="width: 19.147%;"/>
+	<col style="width: 16.496%;"/>
+	<col style="width: 25.812%;"/>
+	<col style="width: 20.475%;"/>
+	<col style="width: 18.07%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHCQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CLK &rarr; Q</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLCQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CLK &rarr; Q</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDSQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">SET &rarr; Q </p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDRQ</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">RESET &rarr; <span style="text-align: center;">Q 
+		 </span></p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHCQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CLK &rarr; !Q</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLCQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">CLK &rarr; !Q</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDSQB </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">SET &rarr; !Q </p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDRQB</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">RESET &rarr; <span>!Q</span></p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TGQ</p></td>
+		<td><p align="center">Glitch</p></td>
+		<td><p align="center">Any &rarr; Q</p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDxxCQ</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TGQB</p></td>
+		<td><p align="center">Glitch</p></td>
+		<td><p align="center">Any &rarr; !Q</p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDxxCQB</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="64.731%">
+	<colgroup><col style="width: 20.254%;"/>
+	<col style="width: 16.424%;"/>
+	<col style="width: 39.109%;"/>
+	<col style="width: 13.305%;"/>
+	<col style="width: 10.81%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row" style="height: 20px;">
+		<td><p align="center">INIT</p></td>
+		<td>Initialisation</td>
+		<td>Initial state of Q, !Q</td>
+		<td>0</td>
+		<td>[1]</td>
+	</tr>
+	<tr class="t1Row" style="height: 20px;">
+		<td><p align="center">QSANDR</p></td>
+		<td>Numeric</td>
+		<td>Q and !Q states for both SET and RESET asserted</td>
+		<td>3</td>
+		<td>[2]</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p class="Tip">1. INIT specifies the initial state of the Q and !Q outputs: 
+ a zero value sets Q low and !Q high, a non-zero value sets Q high and 
+ !Q low.</p>
+<p class="Tip">2. Bit zero of this property corresponds to the Q output, 
+ bit one to the !Q output. A set bit indicates the respective output is 
+ high and a reset bit indicates the respective output is low.</p>
+<p> </p>
+
+</div>
+
+</body></html>

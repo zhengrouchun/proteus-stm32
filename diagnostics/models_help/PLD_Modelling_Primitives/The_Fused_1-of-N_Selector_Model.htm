@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Fused 1-of-N Selector Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Fused 1-of-N Selector Model - FSEL_#1</h1>
+<p>The FSEL primitive models implements a 1-of-n selector where the selected 
+ input is determined according to one or more fuses. </p>
+<p>The selector has two or more data inputs (D) and a single output (Q) 
+ - data at the selected input is transferred to the Q output without delay. 
+ </p>
+<p>The number of D inputs in the primitive device must be a power of two 
+ (i.e. 2, 4, 8, 16, 32, etc.). The input selected is determined according 
+ to the combined binary value of one or more fuse expressions specified 
+ by the Sn properties (the S0 property forms the least significant bit 
+ and the Sn property the most significant bit); the number of Sn properties 
+ is thus log2 the number of inputs. The JEDEC file the fuse values are 
+ to be found in is specified by the FILE property.  </p>
+<p>The following example shows a four input FSEL primitive being used to 
+ select between one of four clock signals. The clock signal is selected 
+ according to the two-bit value formed by the Boolean values of the fuse 
+ expressions specified by the S1 (most significant bit) and S0 (least significant 
+ bit) properties. Note in particular that the S0 property is set to be 
+ the inverse of fuse 1023.</p>
+<p><img src="../assets/images/PLD_Modelling_Primitives/FSEL.gif" style="border: none;" alt="" width="449" height="121" border="0"/></p>
+<table class="LXTable" cellspacing="0" width="43.706%">
+	<colgroup><col style="width: 22.094%;"/>
+	<col style="width: 24.394%;"/>
+	<col style="width: 20.259%;"/>
+	<col style="width: 33.253%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">D#</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td><p align="center">Data Inputs</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">Q</p></td>
+		<td><p align="center">Output</p></td>
+		<td><p align="center">-</p></td>
+		<td><p align="center">Selected inputs</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" cellspacing="0" width="67.403%">
+	<colgroup><col style="width: 14.904%;"/>
+	<col style="width: 21.067%;"/>
+	<col style="width: 33.186%;"/>
+	<col style="width: 16.275%;"/>
+	<col style="width: 14.568%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Type</td>
+		<td>Meaning</td>
+		<td>Default</td>
+		<td>Notes</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">FILE</p></td>
+		<td><p align="center">Text  </p></td>
+		<td>Name of JEDEC file.</td>
+		<td><p align="center">See Note</p></td>
+		<td><p align="center">[1]</p></td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">INVQ </p></td>
+		<td><p align="center">Fuse Expr. </p></td>
+		<td>Invert Q output?</td>
+		<td><p align="center">FALSE</p></td>
+		<td><p align="center">[2]</p></td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">S<span style="font-style: italic;">n</span> 
+		 </p></td>
+		<td><p align="center">Fuse Expr. </p></td>
+		<td>Input selected value, Bit n. </td>
+		<td><p align="center">See Note</p></td>
+		<td><p align="center">[3]</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p class="Tip"><span style="font-weight: bold;">1</span>. The FILE property 
+ specifies the path and filename of the JEDEC file to be used for fuse 
+ values. There is no default for this property - it must be specified. 
+ If none of your fuse expressions contain a fuse number, you can avoid 
+ the need to specify a file by assigning a value of [NULL].</p>
+<p class="Tip"><span style="font-weight: bold;">2</span>. The Q output 
+ is inverted if the expression assigned to this property evaluates TRUE. 
+  The expression cannot include references to input pins. </p>
+<p class="Tip"><span style="font-weight: bold;">3</span>. See main description 
+ for an explanation of these properties.</p>
+<p class="ExampleTitle">See Also:</p>
+<p><a href="The_Fuse_Expression_Model.htm">Fuse Expression Model</a></p>
+<p><a href="The_Macro-Cell_Model.htm">Macro Cell Model</a></p>
+<p><a href="The_Matrix_Model.htm">Matrix Model</a></p>
+
+</div>
+
+</body></html>

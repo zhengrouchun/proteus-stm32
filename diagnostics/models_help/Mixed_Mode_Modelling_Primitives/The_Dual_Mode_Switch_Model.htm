@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Dual Mode Switch Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Dual Mode Switch Model - DSWITCH</h1>
+<p>The DSWITCH primitive has three pins (EN, A and B), comprising a digital 
+ control input and the two terminals of the switch itself. The primitive 
+ model is dual mode in the sense that if it finds itself in a purely digital 
+ circuit it will behave as a purely digital model, but if either of the 
+ switch terminals is connected to other analogue components then the device 
+ will adopt mixed mode behaviour.</p>
+<p>The DSWITCH primitive supports the following properties when operating 
+ as a mixed mode device.</p>
+<table class="LXTable" cellspacing="0" width="43.427%">
+	<colgroup><col style="width: 21.955%;"/>
+	<col style="width: 19.145%;"/>
+	<col style="width: 58.9%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">RON</p></td>
+		<td><p align="center">1</p></td>
+		<td>Switch resistance when on. </td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">ROFF</p></td>
+		<td><p align="center">&infin;</p></td>
+		<td>Switch resistance when off. </td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TON</p></td>
+		<td><p align="center">0</p></td>
+		<td>Time to switch on.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TOFF</p></td>
+		<td><p align="center">0</p></td>
+		<td>Time to switch off.</td>
+	</tr>
+</tbody></table>
+<p>When operating as a digital device, the DSWITCH will translate logic 
+ strength from strong to weak passing through it. It supports the following 
+ advanced properties which take precedence over the timing defined by <span style="font-weight: bold;">TON</span> and <span style="font-weight: bold;">TOFF</span>.</p>
+<table class="LXTable" cellspacing="0" width="53.524%">
+	<colgroup><col style="width: 17.643%;"/>
+	<col style="width: 15.385%;"/>
+	<col style="width: 66.972%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLHQQ </p></td>
+		<td><p align="center">0</p></td>
+		<td>Time delay low to high through the switch.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHLQQ </p></td>
+		<td><p align="center">0</p></td>
+		<td>Time delay high to low through the switch.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDZLEQ </p></td>
+		<td><p align="center">0</p></td>
+		<td>Time for output to go low from hi-z on enable.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDZHEQ </p></td>
+		<td><p align="center">0</p></td>
+		<td>Time for output to go high from hi-z on enable.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TDLZEQ </p></td>
+		<td><p align="center">0</p></td>
+		<td>Time for output to go hi-z from low on disable.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDHZEQ </p></td>
+		<td><p align="center">0</p></td>
+		<td>Time for output to go hi-z from high on disable.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">TGQ </p></td>
+		<td><p align="center">-</p></td>
+		<td>Glitch suppression time.</td>
+	</tr>
+</tbody></table>
+<p class="ExampleTitle">See Also:</p>
+<p><a href="The_Analogue_to_Digital_Interface_Object.htm">ADC Interface 
+ Object Model.</a></p>
+<p><a href="The_Digital_to_Analogue_Interface_Object.htm">DAC Interface 
+ Object Model.</a></p>
+<p> </p>
+
+</div>
+
+</body></html>

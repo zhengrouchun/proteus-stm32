@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>N-Bit DAC Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>N-Bit DAC Model - DAC_#1</h1>
+<h3>Description</h3>
+<p>The N-Bit DAC is a building block for use in creating schematic models 
+ of real world digital to analogue converters. The data width and resolution 
+ is determined by the part name, so a DAC_8 represents an 8 bit converter.</p>
+<table class="LXTable" width="79.25%" cellspacing="0">
+	<colgroup><col style="width: 12.031%;"/>
+	<col style="width: 20.614%;"/>
+	<col style="width: 67.355%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">D# </p></td>
+		<td><p align="center">Digital Inputs </p></td>
+		<td>Digital input bus.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">LE </p></td>
+		<td><p align="center">Digital Input</p></td>
+		<td>A logic high on this pin allows the digital inputs to write 
+		 the data register. When this pin returns low, the data is latched.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">VREF+ </p></td>
+		<td><p align="center">Analogue Input </p></td>
+		<td>Positive reference voltage.</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">VREF-</p></td>
+		<td><p align="center">Analogue Input </p></td>
+		<td>Negative reference voltage.</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">VOUT </p></td>
+		<td><p align="center">Analogue Output </p></td>
+		<td>Analogue voltage output.</td>
+	</tr>
+</tbody></table>
+<p>The output voltage range is determined by VREF-, VREF+, with VOUT taking 
+ a value between the two in proportion to the value written to the data 
+ register. A level triggered data latch is provided via the LE pin; if 
+ LE is held high then transitions on the digital inputs will write straight 
+ through to the analogue output.</p>
+<p>You can use the <span style="font-weight: bold;">INVERT</span> property 
+ to make any of the digital inputs active low.</p>
+<h3>Properties</h3>
+<p>The DAC model supports the following properties:</p>
+<table class="LXTable" width="79.112%" cellspacing="0">
+	<colgroup><col style="width: 17.643%;"/>
+	<col style="width: 15.385%;"/>
+	<col style="width: 72.551%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">MODE </p></td>
+		<td><p align="center">UNSIGNED </p></td>
+		<td>Specifies the numerical format of the digital output. Possible 
+		 values for MODE are UNSIGNED, SIGNMAGNITUDE or TWOSCOMPLEMENT</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center">TDDA  </p></td>
+		<td><p align="center">0</p></td>
+		<td>Specifies the digital-&gt;analogue delay time. The analogue 
+		 output value will start changing after this time and head for 
+		 its new value at a rate determined by SLEWRATE. </td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center">SLEWRATE  </p></td>
+		<td><p align="center">1E6 </p></td>
+		<td>Determines the rate in V/s at which the analogue output changes 
+		 to a new value.</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p> </p>
+
+</div>
+
+</body></html>

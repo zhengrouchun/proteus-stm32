@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The Voltage Controlled Switch</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The Voltage Controlled Switch Model - VSWITCH</h1>
+<p>This primitive models a relay with hysteresis. When the input voltage 
+ is less than VT-VH/2, the contact resistance is ROFF - when the voltage 
+ is greater than VT+VH/2, the contact resistance is RON. Not surprisingly, 
+ this primitive may cause convergence problems in some situations.  </p>
+<p>The voltage controlled switch has the following properties:</p>
+<table class="LXTable" width="50.622%" cellspacing="0">
+	<colgroup><col style="width: 20.31%;"/>
+	<col style="width: 20.856%;"/>
+	<col style="width: 58.834%;"/>
+	</colgroup><tbody><tr class="t1st">
+		<td>Property</td>
+		<td>Default</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">ON</span></p></td>
+		<td><p align="center">FALSE</p></td>
+		<td>Switch initially on</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">OFF</span></p></td>
+		<td><p align="center">FALSE</p></td>
+		<td>Switch initially off</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">VT</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Threshold Voltage</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">VH</span></p></td>
+		<td><p align="center">0</p></td>
+		<td>Hysteresis Voltage</td>
+	</tr>
+	<tr class="t2Row">
+		<td><p align="center"><span style="font-weight: bold;">RON</span></p></td>
+		<td><p align="center">1</p></td>
+		<td>Resistance of the switch when on</td>
+	</tr>
+	<tr class="t1Row">
+		<td><p align="center"><span style="font-weight: bold;">ROFF</span></p></td>
+		<td><p align="center">1M</p></td>
+		<td>Resistance of the switch when off</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<p> </p>
+
+</div>
+
+</body></html>

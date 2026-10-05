@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="stylesheet" type="text/css" href="../assets/css/lx.css"/>
+<meta name="template" content="../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>The One-of-N Selector Model</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>The One-of-N Selector Model - SELECTOR_#1</h1>
+<p>The SELECTOR primitive models a one-of-n selector. When the EN enable 
+ input and the OE output enable are asserted, data on the D input selected 
+ by the binary value on the S input is routed to the complementary Q and 
+ !Q outputs. When the output enable input is not asserted the Q and !Q 
+ outputs are driven into the high-impedance state; when the enable input 
+ is not asserted the Q and !Q are held in their inactive states.</p>
+<p> </p>
+<table class="LXTable" width="48.686%" cellspacing="0">
+	<colgroup><col style="width: 14.328%;"/>
+	<col style="width: 11.913%;"/>
+	<col style="width: 20.329%;"/>
+	<col style="width: 53.43%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Pin</td>
+		<td>Type</td>
+		<td>Pin Set</td>
+		<td>Description</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">EN</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Selector enable</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">OE</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Output enable</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">S#</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">#1</p></td>
+		<td>Data input select value</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">D#</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Data inputs</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">Q</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>True selected data output</td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">!Q</p></td>
+		<td><p align="center">Input</p></td>
+		<td><p align="center">-</p></td>
+		<td>Inverted selected data output</td>
+	</tr>
+</tbody></table>
+<p> </p>
+<table class="LXTable" width="51.919%" cellspacing="0">
+	<colgroup><col style="width: 19.415%;"/>
+	<col style="width: 16.227%;"/>
+	<col style="width: 26.201%;"/>
+	<col style="width: 20.087%;"/>
+	<col style="width: 18.069%;"/>
+	</colgroup><tbody><tr class="t1st" style="height: 24px;">
+		<td>Time</td>
+		<td>Type</td>
+		<td>From/To</td>
+		<td>Edge</td>
+		<td>Default</td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHDQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D#  &rarr; Q</p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLDQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D#  &rarr; Q</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHEQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">EN  &rarr; Q </p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLEQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">EN  &rarr; Q </p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHSQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">S#  &rarr; Q </p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQ</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLSQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">S# &rarr; Q</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQ</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHDQB </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D#  &rarr; !Q </p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLDQB </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">D# &rarr; !Q</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">0</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHEQB </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">EN  &rarr; !Q </p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQB</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLEQB</p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">EN &rarr; !Q</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQB</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLHSQB </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">S#  &rarr; !Q </p></td>
+		<td><p align="center">L &rarr; H</p></td>
+		<td><p align="center">TDLHDQB</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHLSQB </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">S# &rarr; !Q</p></td>
+		<td><p align="center">H &rarr; L</p></td>
+		<td><p align="center">TDHLDQB</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLZOQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; Q</p></td>
+		<td><p align="center">L &rarr; Z</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHZOQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; Q</p></td>
+		<td><p align="center">H &rarr; Z</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDZLOQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; Q</p></td>
+		<td><p align="center">Z &rarr; L</p></td>
+		<td><p align="center">TDHLCQ</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDZHOQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; Q</p></td>
+		<td><p align="center">Z &rarr; H</p></td>
+		<td><p align="center">TDLHCQ</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDLZOQB </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; !Q</p></td>
+		<td><p align="center">L &rarr; Z</p></td>
+		<td><p align="center">TDLHOQ</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDHZOQB </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; !Q</p></td>
+		<td><p align="center">H &rarr; Z</p></td>
+		<td><p align="center">TDHLOQ</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TDZLOQB </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; !Q</p></td>
+		<td><p align="center">Z &rarr; L</p></td>
+		<td><p align="center">TDHLOQ</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TDZHOQB </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">OE &rarr; !Q</p></td>
+		<td><p align="center">Z &rarr; H</p></td>
+		<td><p align="center">TDLHOQ</p></td>
+	</tr>
+	<tr class="t2Row" style="height: 32px;">
+		<td><p align="center">TGQ </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">ANY &rarr; Q</p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDxxCQ</p></td>
+	</tr>
+	<tr class="t1Row" style="height: 32px;">
+		<td><p align="center">TGQB </p></td>
+		<td><p align="center">Delay</p></td>
+		<td><p align="center">ANY &rarr; !Q</p></td>
+		<td><p align="center">Pulse</p></td>
+		<td><p align="center">TDxxCQB</p></td>
+	</tr>
+</tbody></table>
+<p> </p>
+
+</div>
+
+</body></html>
