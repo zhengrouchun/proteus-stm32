@@ -82,6 +82,9 @@ void SystemClock_Config(void);
 uint8_t Timer_Elapsed(uint32_t *last_time, uint32_t interval_ms);//检查指定时间到了没有。
 void LED_Run(void);
 void Display_Scan(void);
+void display(uint16_t shu);
+void display_clear(void);
+void bitsel(uint16_t wei);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -120,7 +123,8 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-HAL_TIM_Base_Start_IT(&htim2);//启动定时器，原因前面的GPIO 和 TIM2 都初始化完成了，才能正式启动 TIM2 中断。
+  HAL_TIM_Base_Start_IT(&htim2);//启动定时器，原因前面的GPIO 和 TIM2 都初始化完成了，才能正式启动 TIM2 中断。
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -172,7 +176,7 @@ HAL_TIM_Base_Start_IT(&htim2);//启动定时器，原因前面的GPIO 和 TIM2 �
 //    HAL_Delay(500);
 
 
- /* ---------- 500ms流水灯任务 ---------- */
+/* ---------- 500ms流水灯任务 ---------- */
     if (led_update_flag)
     {
         led_update_flag = 0;
@@ -279,6 +283,7 @@ led_update_flag = 1;
         }
     }
 }
+
 void LED_Run(void)
 {
     /* 先关闭全部LED */

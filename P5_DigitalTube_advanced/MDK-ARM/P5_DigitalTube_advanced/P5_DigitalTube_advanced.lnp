@@ -1,0 +1,25 @@
+--cpu Cortex-M3
+"p5_digitaltube_advanced\startup_stm32f103xb.o"
+"p5_digitaltube_advanced\main.o"
+"p5_digitaltube_advanced\gpio.o"
+"p5_digitaltube_advanced\tim.o"
+"p5_digitaltube_advanced\stm32f1xx_it.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_msp.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_gpio_ex.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_tim.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_tim_ex.o"
+"p5_digitaltube_advanced\stm32f1xx_hal.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_rcc.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_rcc_ex.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_gpio.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_dma.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_cortex.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_pwr.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_flash.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_flash_ex.o"
+"p5_digitaltube_advanced\stm32f1xx_hal_exti.o"
+"p5_digitaltube_advanced\system_stm32f1xx.o"
+--strict --scatter "P5_DigitalTube_advanced\P5_DigitalTube_advanced.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "P5_DigitalTube_advanced.map" -o P5_DigitalTube_advanced\P5_DigitalTube_advanced.axf

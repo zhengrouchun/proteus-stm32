@@ -1,0 +1,25 @@
+--cpu Cortex-M3
+"06ledcontrol\startup_stm32f103xb.o"
+"06ledcontrol\main.o"
+"06ledcontrol\gpio.o"
+"06ledcontrol\tim.o"
+"06ledcontrol\stm32f1xx_it.o"
+"06ledcontrol\stm32f1xx_hal_msp.o"
+"06ledcontrol\stm32f1xx_hal_gpio_ex.o"
+"06ledcontrol\stm32f1xx_hal_tim.o"
+"06ledcontrol\stm32f1xx_hal_tim_ex.o"
+"06ledcontrol\stm32f1xx_hal.o"
+"06ledcontrol\stm32f1xx_hal_rcc.o"
+"06ledcontrol\stm32f1xx_hal_rcc_ex.o"
+"06ledcontrol\stm32f1xx_hal_gpio.o"
+"06ledcontrol\stm32f1xx_hal_dma.o"
+"06ledcontrol\stm32f1xx_hal_cortex.o"
+"06ledcontrol\stm32f1xx_hal_pwr.o"
+"06ledcontrol\stm32f1xx_hal_flash.o"
+"06ledcontrol\stm32f1xx_hal_flash_ex.o"
+"06ledcontrol\stm32f1xx_hal_exti.o"
+"06ledcontrol\system_stm32f1xx.o"
+--strict --scatter "06Ledcontrol\06Ledcontrol.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "06Ledcontrol.map" -o 06Ledcontrol\06Ledcontrol.axf
