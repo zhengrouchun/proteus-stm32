@@ -1,0 +1,711 @@
+{
+  "version": "2.0",
+  "assumptions": {
+    "source_V": 1.0,
+    "source_tolerance": 0.01,
+    "Rs_ohm": 2000.0,
+    "Rs_tolerance": 0.01,
+    "R_tolerance": 0.05,
+    "C_tolerance": 0.1,
+    "C_normal_F": 1e-05,
+    "sample_VB_s": 0.05,
+    "sample_VA_s": 0.055,
+    "timing_jitter_s": 0.001,
+    "analog_reconstruction_error_V": 0.003,
+    "adc_reference_V": 3.3,
+    "adc_bits": 12,
+    "adc_step_mV": 0.8058608058608059,
+    "lut_total_envelope_mV": 5.0,
+    "checked_api_bits": [
+      10,
+      12
+    ],
+    "samples_per_state": 5000,
+    "seed": 20261010
+  },
+  "templates": {
+    "DIV": {
+      "states": [
+        {
+          "id": "DIV0",
+          "name": "正常",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 10000,
+          "nominal_VB_mV": 454.5454545454545,
+          "nominal_VA_mV": 909.090909090909,
+          "bounds_mV": [
+            [
+              422,
+              488
+            ],
+            [
+              889,
+              928
+            ]
+          ]
+        },
+        {
+          "id": "DIV1",
+          "name": "R1断路",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 10000,
+          "nominal_VB_mV": 0.0,
+          "nominal_VA_mV": 1000.0,
+          "bounds_mV": [
+            [
+              -5,
+              5
+            ],
+            [
+              985,
+              1015
+            ]
+          ]
+        },
+        {
+          "id": "DIV2",
+          "name": "R2断路",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 10000,
+          "nominal_VB_mV": 1000.0,
+          "nominal_VA_mV": 1000.0,
+          "bounds_mV": [
+            [
+              985,
+              1015
+            ],
+            [
+              985,
+              1015
+            ]
+          ]
+        },
+        {
+          "id": "DIV3",
+          "name": "R1短路",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 10000,
+          "nominal_VB_mV": 833.3333333333334,
+          "nominal_VA_mV": 833.3333333333334,
+          "bounds_mV": [
+            [
+              811,
+              855
+            ],
+            [
+              811,
+              855
+            ]
+          ]
+        },
+        {
+          "id": "DIV4",
+          "name": "R2短路",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 10000,
+          "nominal_VB_mV": 0.0,
+          "nominal_VA_mV": 833.3333333333334,
+          "bounds_mV": [
+            [
+              -5,
+              5
+            ],
+            [
+              811,
+              855
+            ]
+          ]
+        },
+        {
+          "id": "DIV5",
+          "name": "R1为5kΩ",
+          "x_ohm": 5000,
+          "y_ohm_or_F": 10000,
+          "nominal_VB_mV": 588.2352941176471,
+          "nominal_VA_mV": 882.3529411764706,
+          "bounds_mV": [
+            [
+              555,
+              621
+            ],
+            [
+              862,
+              903
+            ]
+          ]
+        },
+        {
+          "id": "DIV6",
+          "name": "R1为20kΩ",
+          "x_ohm": 20000,
+          "y_ohm_or_F": 10000,
+          "nominal_VB_mV": 312.5,
+          "nominal_VA_mV": 937.5,
+          "bounds_mV": [
+            [
+              284,
+              342
+            ],
+            [
+              919,
+              956
+            ]
+          ]
+        },
+        {
+          "id": "DIV7",
+          "name": "R2为5kΩ",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 5000,
+          "nominal_VB_mV": 294.11764705882354,
+          "nominal_VA_mV": 882.3529411764706,
+          "bounds_mV": [
+            [
+              267,
+              322
+            ],
+            [
+              862,
+              903
+            ]
+          ]
+        },
+        {
+          "id": "DIV8",
+          "name": "R2为20kΩ",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 20000,
+          "nominal_VB_mV": 625.0,
+          "nominal_VA_mV": 937.5,
+          "bounds_mV": [
+            [
+              591,
+              659
+            ],
+            [
+              919,
+              956
+            ]
+          ]
+        }
+      ],
+      "pairwise_rectangle_overlaps": [],
+      "minimum_pair_separation_mV": 16.0,
+      "test_counts": [
+        {
+          "id": "DIV0",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 10000
+        },
+        {
+          "id": "DIV1",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 10000
+        },
+        {
+          "id": "DIV2",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 5000
+        },
+        {
+          "id": "DIV3",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 5000
+        },
+        {
+          "id": "DIV4",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 10000
+        },
+        {
+          "id": "DIV5",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 7117
+        },
+        {
+          "id": "DIV6",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 9306
+        },
+        {
+          "id": "DIV7",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 9511
+        },
+        {
+          "id": "DIV8",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 6862
+        }
+      ],
+      "normal_threshold_sweep": [
+        {
+          "nominal_window_percent": 1,
+          "normal_false_alarm_samples": 3228,
+          "samples": 5000
+        },
+        {
+          "nominal_window_percent": 3,
+          "normal_false_alarm_samples": 813,
+          "samples": 5000
+        },
+        {
+          "nominal_window_percent": 5,
+          "normal_false_alarm_samples": 37,
+          "samples": 5000
+        },
+        {
+          "nominal_window_percent": 10,
+          "normal_false_alarm_samples": 0,
+          "samples": 5000
+        }
+      ],
+      "10bit_api_checks": [
+        {
+          "id": "DIV0",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 10000
+        },
+        {
+          "id": "DIV1",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 10000
+        },
+        {
+          "id": "DIV2",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 5000
+        },
+        {
+          "id": "DIV3",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 5000
+        },
+        {
+          "id": "DIV4",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 10000
+        },
+        {
+          "id": "DIV5",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 6820
+        },
+        {
+          "id": "DIV6",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 9092
+        },
+        {
+          "id": "DIV7",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 9610
+        },
+        {
+          "id": "DIV8",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 6722
+        }
+      ],
+      "10bit_aggregate": {
+        "samples": 45000,
+        "correct": 45000,
+        "mean_feature_reads": 1.6054222222222223,
+        "feature_read_reduction": 0.19728888888888885
+      },
+      "aggregate": {
+        "samples": 45000,
+        "correct": 45000,
+        "mean_feature_reads": 1.617688888888889,
+        "feature_read_reduction": 0.19115555555555552
+      }
+    },
+    "RC": {
+      "states": [
+        {
+          "id": "RC0",
+          "name": "正常",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 1e-05,
+          "nominal_VB_mV": 340.7593697995562,
+          "nominal_VA_mV": 894.6105563022917,
+          "bounds_mV": [
+            [
+              291,
+              399
+            ],
+            [
+              871,
+              918
+            ]
+          ]
+        },
+        {
+          "id": "RC1",
+          "name": "R断路",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 1e-05,
+          "nominal_VB_mV": 0.0,
+          "nominal_VA_mV": 1000.0,
+          "bounds_mV": [
+            [
+              -5,
+              5
+            ],
+            [
+              985,
+              1015
+            ]
+          ]
+        },
+        {
+          "id": "RC2",
+          "name": "C断路",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 1e-05,
+          "nominal_VB_mV": 1000.0,
+          "nominal_VA_mV": 1000.0,
+          "bounds_mV": [
+            [
+              985,
+              1015
+            ],
+            [
+              985,
+              1015
+            ]
+          ]
+        },
+        {
+          "id": "RC3",
+          "name": "R短路",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 1e-05,
+          "nominal_VB_mV": 917.9150013761011,
+          "nominal_VA_mV": 936.0721387932924,
+          "bounds_mV": [
+            [
+              875,
+              958
+            ],
+            [
+              897,
+              972
+            ]
+          ]
+        },
+        {
+          "id": "RC4",
+          "name": "C短路",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 1e-05,
+          "nominal_VB_mV": 0.0,
+          "nominal_VA_mV": 833.3333333333334,
+          "bounds_mV": [
+            [
+              -5,
+              5
+            ],
+            [
+              811,
+              855
+            ]
+          ]
+        },
+        {
+          "id": "RC5",
+          "name": "R为5kΩ",
+          "x_ohm": 5000,
+          "y_ohm_or_F": 1e-05,
+          "nominal_VB_mV": 510.45834044304695,
+          "nominal_VA_mV": 869.7731376205666,
+          "bounds_mV": [
+            [
+              448,
+              580
+            ],
+            [
+              841,
+              899
+            ]
+          ]
+        },
+        {
+          "id": "RC6",
+          "name": "R为20kΩ",
+          "x_ohm": 20000,
+          "y_ohm_or_F": 1e-05,
+          "nominal_VB_mV": 203.29653010653837,
+          "nominal_VA_mV": 929.1999288116905,
+          "bounds_mV": [
+            [
+              169,
+              245
+            ],
+            [
+              909,
+              949
+            ]
+          ]
+        },
+        {
+          "id": "RC7",
+          "name": "C为5μF",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 5e-06,
+          "nominal_VB_mV": 565.4017914929217,
+          "nominal_VA_mV": 933.3583909425255,
+          "bounds_mV": [
+            [
+              499,
+              639
+            ],
+            [
+              910,
+              957
+            ]
+          ]
+        },
+        {
+          "id": "RC8",
+          "name": "C为20μF",
+          "x_ohm": 10000,
+          "y_ohm_or_F": 2e-05,
+          "nominal_VB_mV": 188.06365384936495,
+          "nominal_VA_mV": 867.4673350341458,
+          "bounds_mV": [
+            [
+              156,
+              226
+            ],
+            [
+              844,
+              891
+            ]
+          ]
+        }
+      ],
+      "pairwise_rectangle_overlaps": [],
+      "minimum_pair_separation_mV": 11.0,
+      "test_counts": [
+        {
+          "id": "RC0",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 10000
+        },
+        {
+          "id": "RC1",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 10000
+        },
+        {
+          "id": "RC2",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 5000
+        },
+        {
+          "id": "RC3",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 5000
+        },
+        {
+          "id": "RC4",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 10000
+        },
+        {
+          "id": "RC5",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 8400
+        },
+        {
+          "id": "RC6",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 9867
+        },
+        {
+          "id": "RC7",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 8562
+        },
+        {
+          "id": "RC8",
+          "samples": 5000,
+          "correct": 5000,
+          "wrong": 0,
+          "unknown_or_ambiguous": 0,
+          "feature_reads": 9905
+        }
+      ],
+      "normal_threshold_sweep": [
+        {
+          "nominal_window_percent": 1,
+          "normal_false_alarm_samples": 4365,
+          "samples": 5000
+        },
+        {
+          "nominal_window_percent": 3,
+          "normal_false_alarm_samples": 3185,
+          "samples": 5000
+        },
+        {
+          "nominal_window_percent": 5,
+          "normal_false_alarm_samples": 1984,
+          "samples": 5000
+        },
+        {
+          "nominal_window_percent": 10,
+          "normal_false_alarm_samples": 187,
+          "samples": 5000
+        }
+      ],
+      "10bit_api_checks": [
+        {
+          "id": "RC0",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 10000
+        },
+        {
+          "id": "RC1",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 10000
+        },
+        {
+          "id": "RC2",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 5000
+        },
+        {
+          "id": "RC3",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 5000
+        },
+        {
+          "id": "RC4",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 10000
+        },
+        {
+          "id": "RC5",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 8403
+        },
+        {
+          "id": "RC6",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 9882
+        },
+        {
+          "id": "RC7",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 8457
+        },
+        {
+          "id": "RC8",
+          "samples": 5000,
+          "correct": 5000,
+          "feature_reads": 9888
+        }
+      ],
+      "10bit_aggregate": {
+        "samples": 45000,
+        "correct": 45000,
+        "mean_feature_reads": 1.702888888888889,
+        "feature_read_reduction": 0.14855555555555555
+      },
+      "aggregate": {
+        "samples": 45000,
+        "correct": 45000,
+        "mean_feature_reads": 1.7052,
+        "feature_read_reduction": 0.14739999999999998
+      }
+    }
+  },
+  "out_of_library_examples": [
+    {
+      "R1_ohm": 12000.0,
+      "R2_ohm": 12000.0,
+      "VB_mV": 462,
+      "VA_mV": 923,
+      "prediction": 0,
+      "feature_reads": 2
+    },
+    {
+      "R1_ohm": 20000.0,
+      "R2_ohm": 20000.0,
+      "VB_mV": 476,
+      "VA_mV": 952,
+      "prediction": -1,
+      "feature_reads": 2
+    }
+  ],
+  "scope": "只验证两个指定拓扑的预设单故障；模型外复合参数可能落入正常特征区间。"
+}

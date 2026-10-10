@@ -1,4 +1,4 @@
-/* USER CODE BEGIN Header */
+﻿/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file    gpio.c
@@ -75,9 +75,18 @@ void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : KEY1_Pin KEY2_Pin */
   GPIO_InitStruct.Pin = KEY1_Pin|KEY2_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING; /* 按下和松开都产生中断，用于识别按下并过滤松手弹跳。 */
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* 为 PB3/KEY1 的按键中断设置优先级。 */
+  HAL_NVIC_SetPriority(EXTI3_IRQn, 5, 0);
+  /* 允许 EXTI3 中断进入处理函数。 */
+  HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+  /* 为 PB4/KEY2 的按键中断设置优先级。 */
+  HAL_NVIC_SetPriority(EXTI4_IRQn, 5, 0);
+  /* 允许 EXTI4 中断进入处理函数。 */
+  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
 
 }
 

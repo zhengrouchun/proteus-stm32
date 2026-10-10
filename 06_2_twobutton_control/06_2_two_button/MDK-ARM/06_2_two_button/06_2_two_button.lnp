@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+"06_2_two_button\startup_stm32f103xb.o"
+"06_2_two_button\main.o"
+"06_2_two_button\display.o"
+"06_2_two_button\button.o"
+"06_2_two_button\gpio.o"
+"06_2_two_button\tim.o"
+"06_2_two_button\stm32f1xx_it.o"
+"06_2_two_button\stm32f1xx_hal_msp.o"
+"06_2_two_button\stm32f1xx_hal_gpio_ex.o"
+"06_2_two_button\stm32f1xx_hal_tim.o"
+"06_2_two_button\stm32f1xx_hal_tim_ex.o"
+"06_2_two_button\stm32f1xx_hal.o"
+"06_2_two_button\stm32f1xx_hal_rcc.o"
+"06_2_two_button\stm32f1xx_hal_rcc_ex.o"
+"06_2_two_button\stm32f1xx_hal_gpio.o"
+"06_2_two_button\stm32f1xx_hal_dma.o"
+"06_2_two_button\stm32f1xx_hal_cortex.o"
+"06_2_two_button\stm32f1xx_hal_pwr.o"
+"06_2_two_button\stm32f1xx_hal_flash.o"
+"06_2_two_button\stm32f1xx_hal_flash_ex.o"
+"06_2_two_button\stm32f1xx_hal_exti.o"
+"06_2_two_button\system_stm32f1xx.o"
+--strict --scatter "06_2_two_button\06_2_two_button.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "06_2_two_button.map" -o 06_2_two_button\06_2_two_button.axf
