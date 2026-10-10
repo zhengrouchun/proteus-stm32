@@ -3,11 +3,11 @@
 #include <stdio.h>                 /* 引入 snprintf 格式化函数。 */
 #include <string.h>                /* 引入 strlen 字符串长度函数。 */
 
-#define ADC_REFERENCE_MILLIVOLTS 3300u  /* 将 VDDA=3.3 V 表示为 3300 mV。 */
-#define ADC_MAXIMUM_CODE 4095u          /* 12 位 ADC 的最大读数。 */
-#define ADC_TIMEOUT_MILLISECONDS 20u   /* 最多等待一次 ADC 转换 20 ms。 */
-#define UART_TIMEOUT_MILLISECONDS 100u /* 最多等待串口发送 100 ms。 */
-#define REPORT_PERIOD_MILLISECONDS 500u/* 每隔 500 ms 报告一次。 */
+#define ADC_REFERENCE_MILLIVOLTS 3300  /* 将 VDDA=3.3 V 表示为 3300 mV。 */
+#define ADC_MAXIMUM_CODE 4095          /* 12 位 ADC 的最大读数。 */
+#define ADC_TIMEOUT_MILLISECONDS 20   /* 最多等待一次 ADC 转换 20 ms。 */
+#define UART_TIMEOUT_MILLISECONDS 100 /* 最多等待串口发送 100 ms。 */
+#define REPORT_PERIOD_MILLISECONDS 500/* 每隔 500 ms 报告一次。 */
 
 static ADC_HandleTypeDef adc1;   /* 保存 ADC1 的配置和运行状态。 */
 static UART_HandleTypeDef uart1; /* 保存 USART1 的配置和运行状态。 */

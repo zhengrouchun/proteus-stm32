@@ -1,0 +1,50 @@
+{
+  "existing_source_config_files_checked": 849,
+  "modified_existing_source_config": [
+    "ADC_CubeMX_Keil.ioc",
+    "Src/main.c"
+  ],
+  "source_proteus_unchanged": true,
+  "files": [
+    {
+      "path": "D:\\Proteus\\project\\fix_missing_cubemx_adc_hex\\ADC_CubeMX_Keil\\Src\\main.c",
+      "bytes": 20663,
+      "sha256": "f7a6d468c826c98f8f1fdf6952995fc3a3671f26aea1331d9c90b57269587448"
+    },
+    {
+      "path": "D:\\Proteus\\project\\fix_missing_cubemx_adc_hex\\ADC_CubeMX_Keil\\Inc\\div_diagnosis.h",
+      "bytes": 3268,
+      "sha256": "9614ac8bbf82f5420d9db80eb76c12e191833767cd16868fe2d4b37730abc2f4"
+    },
+    {
+      "path": "D:\\Proteus\\project\\fix_missing_cubemx_adc_hex\\ADC_CubeMX_Keil\\ADC_CubeMX_Keil.ioc",
+      "bytes": 4439,
+      "sha256": "1e90502cd3db19cb17c320e274c0c12e23a3bb85120f9ed1fa7aed57d27b24a9"
+    },
+    {
+      "path": "D:\\Proteus\\project\\fix_missing_cubemx_adc_hex\\ADC_CubeMX_Keil\\MDK-ARM\\ADC_CubeMX_Keil.uvprojx",
+      "bytes": 18791,
+      "sha256": "1f44142a0db8f6d0c2221242457c4d48dab66edbd71ff43e7dbdd30805abd9d8"
+    },
+    {
+      "path": "D:\\Proteus\\project\\fix_missing_cubemx_adc_hex\\ADC_CubeMX_Keil\\MDK-ARM\\ADC_CubeMX_Keil\\ADC_CubeMX_Keil.hex",
+      "bytes": 23173,
+      "sha256": "50a9f7faf4379ee2e7a6280b059ae953fe1d27fb743245f16259b3130cdcc5dd"
+    },
+    {
+      "path": "D:\\Proteus\\project\\fix_missing_cubemx_adc_hex\\ADC_CubeMX_Keil\\MDK-ARM\\ADC_CubeMX_Keil\\ADC_CubeMX_Keil.axf",
+      "bytes": 537184,
+      "sha256": "c6c585df0a5bd025e7455b28a7d1645d2600f597210a9d1925c17632cef1528c"
+    },
+    {
+      "path": "D:\\Proteus\\project\\解决DIV九工况判别与ADC验证_20261011\\Proteus工程副本\\解决隐藏VDD误接5V_DIVject.pdsprj",
+      "bytes": 21811,
+      "sha256": "0632e2b8b2be3540a33582d5138655f0b3416ddc06bc6b963e5eef2e8ba415a9"
+    },
+    {
+      "path": "D:\\Proteus\\project\\解决DIV九工况判别与ADC验证_20261011\\实测记录\\仿真记录_18工况.csv",
+      "bytes": 1168,
+      "sha256": "5b383f02197b8d4612eae0af463297f120ee7c936e2e6aba2e2bcb622cded35f"
+    }
+  ]
+}

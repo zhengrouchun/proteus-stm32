@@ -1,0 +1,7 @@
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.20
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+测试真实应用逻辑.c
+  正在创建库 D:\Proteus\project\解决DIV九工况判别与ADC验证_20261011\验证日志\PC逻辑测试\div_logic_test.lib 和对象 D:\Proteus\project\解决DIV九工况判别与ADC验证_20261011\验证日志\PC逻辑测试\div_logic_test.exp

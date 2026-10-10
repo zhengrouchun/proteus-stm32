@@ -1,0 +1,22 @@
+--cpu Cortex-M3
+"adc_u1_hex_fix\startup_stm32f103xb.o"
+"adc_u1_hex_fix\main.o"
+"adc_u1_hex_fix\stm32f1xx_hal_gpio_ex.o"
+"adc_u1_hex_fix\stm32f1xx_hal.o"
+"adc_u1_hex_fix\stm32f1xx_hal_rcc.o"
+"adc_u1_hex_fix\stm32f1xx_hal_rcc_ex.o"
+"adc_u1_hex_fix\stm32f1xx_hal_gpio.o"
+"adc_u1_hex_fix\stm32f1xx_hal_dma.o"
+"adc_u1_hex_fix\stm32f1xx_hal_cortex.o"
+"adc_u1_hex_fix\stm32f1xx_hal_pwr.o"
+"adc_u1_hex_fix\stm32f1xx_hal_flash.o"
+"adc_u1_hex_fix\stm32f1xx_hal_flash_ex.o"
+"adc_u1_hex_fix\stm32f1xx_hal_exti.o"
+"adc_u1_hex_fix\stm32f1xx_hal_adc.o"
+"adc_u1_hex_fix\stm32f1xx_hal_adc_ex.o"
+"adc_u1_hex_fix\stm32f1xx_hal_uart.o"
+"adc_u1_hex_fix\system_stm32f1xx.o"
+--strict --scatter "ADC_U1_HEX_FIX\ADC_U1_HEX_FIX.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "ADC_U1_HEX_FIX.map" -o ADC_U1_HEX_FIX\ADC_U1_HEX_FIX.axf
