@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Hidden Power Pins</title>
+  
+  <meta name="rh-index-keywords" content="Hidden Pins:And Connectivity"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">HIDDEN POWER PINS</h1>
+  <h3>Introduction</h3>
+  <p>Many of the integrated circuits in the Device Libraries have hidden power pins. When the netlist generator encounters these, it creates a new net and assigns the name of the hidden pin to it. A 7400 gate will thus generate two power nets - VCC carrying pin 14 and GND carrying pin 7. Since all like-named nets are merged, all like-named pins will get connected together.</p>
+  <p class="Diagram"><img alt="" border="0" height="220" src="../assets/images/NETLIST_GENERATION/7805_power_pins.png" style="border: none;" width="244"/></p>
+  <h3>Connecting to Hidden Power Pins</h3>
+  <p>You can make further connections to these nets by placing name-donor objects (e.g. Logical Terminals) with the same name and then connecting off them. For example, to connect a resistor to VCC, you would place an unnamed Power Terminal (which automatically takes the name VCC) and then wire from that to the appropriate end of the resistor.</p>
+  <h3>Connecting Hidden Pins to Different Nets</h3>
+  <p>In some cases, you may want hidden power pins to connect to different nets from the pin name. This can be achieved by adding appropriately named user properties to the parts which carry the hidden power pin. For example, if attached to a 7400, the property</p>
+  <p class="Courier">VCC = VCC1</p>
+  <p>would force pin 14 to be connected to VCC1. Note that in the case of a multi-element part such as a 7400, you must add the property to all the gates.</p>
+  <p>You can view and edit the net names assigned to the hidden pins of a component by clicking the Hidden Pins button on the Edit Component dialogue form.</p>
+  <p class="Tip">Note that if you place several pins with the same name, and only some of them are hidden, then they will all be connected together, but not net name will be generated. Instead, they will be connected to the wiring attached to the visible pin(s).</p>
+  <h3>Determining what Power Nets have been Created</h3>
+  <p>Where your design contains components which have hidden power pins, it may not be immediately obvious what power nets have been created, and more importantly, whether these nets have been connected to the actual power supply rails within your design.</p>
+  <p>Fortunately, Proteus will detect any power nets which have not been connected to a power rail and report any such unbound power nets as an error during netlist compilation. You can then use the Power Rail Configuration dialogue form to specify appropriate bindings.</p>
+  <p class="Reference">See <a href="Power_Rail_Configuration.htm">Power Rail Configuration</a> for more information.</p>
+
+</div>
+<p> </p>
+
+</body></html>

@@ -1,0 +1,782 @@
+<html>
+    <!-- Sitemap 1.0 -->
+    <object type="text/site properties">
+      <param name="SiteType" value="toc">
+      <param name="Image Width" value="16">
+      <param name="Window Styles" value="0x800027">
+      <param name="ExWindow Styles" value="0x100">
+    </object>
+    
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="INTRODUCTION"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Overview"/><param name="local" value="INTRODUCTION/Introduction.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="System Requirements"/><param name="local" value="INTRODUCTION/Introduction.htm#System_Requirements"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="ISIS &amp; ARES"/><param name="local" value="INTRODUCTION/Introduction.htm#ISIS___ARES"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="ISIS &amp; Simulation"/><param name="local" value="INTRODUCTION/Introduction.htm#ISIS___Simulation"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="ISIS &amp; Networks"/><param name="local" value="INTRODUCTION/Introduction.htm#ISIS___Networks"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="How to Use this Documentation"/><param name="local" value="INTRODUCTION/Introduction.htm#How_to_Use_this_Documentation"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="GENERAL CONCEPTS"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Screen Layout"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="The Menu Bar"/><param name="local" value="GENERAL_CONCEPTS/Screen_Layout.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Toolbars"/><param name="local" value="GENERAL_CONCEPTS/Screen_Layout.htm#The_Toolbars"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Editing Window"/><param name="local" value="GENERAL_CONCEPTS/Screen_Layout.htm#The_Editing_Window"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Overview Window"/><param name="local" value="GENERAL_CONCEPTS/Screen_Layout.htm#The_Overview_Window"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Object Selector"/><param name="local" value="GENERAL_CONCEPTS/Screen_Layout.htm#The_Object_Selector___Parts_Bin"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Co-ordinate Display"/><param name="local" value="GENERAL_CONCEPTS/Screen_Layout.htm#Co-ordinate_Display"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Co-ordinate Display"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Overview"/><param name="local" value="GENERAL_CONCEPTS/Co-ordinate_Display.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="False Origin"/><param name="local" value="GENERAL_CONCEPTS/Co-ordinate_Display.htm#False_Origin"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Grid"/><param name="local" value="GENERAL_CONCEPTS/Co-ordinate_Display.htm#The_Dot_Grid"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Snapping to a Grid"/><param name="local" value="GENERAL_CONCEPTS/Co-ordinate_Display.htm#Snapping_to_a_Grid"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Real Time Snap"/><param name="local" value="GENERAL_CONCEPTS/Co-ordinate_Display.htm#Real_Time_Snap"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Filing Commands"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="GENERAL_CONCEPTS/Filing_Commands.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Starting a New Project"/><param name="local" value="GENERAL_CONCEPTS/Filing_Commands.htm#Starting_a_New_Project"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Loading an Existing Project"/><param name="local" value="GENERAL_CONCEPTS/Filing_Commands.htm#Loading_an_Existing_Project"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Importing a Legacy Project"/><param name="local" value="GENERAL_CONCEPTS/Filing_Commands.htm#Importing_a_Legacy_Project"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Saving the Project"/><param name="local" value="GENERAL_CONCEPTS/Filing_Commands.htm#Saving_the_Project"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Import/Export Section"/><param name="local" value="GENERAL_CONCEPTS/Filing_Commands.htm#Import___Export_Section"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Quitting Proteus"/><param name="local" value="GENERAL_CONCEPTS/Filing_Commands.htm#Quitting_Proteus"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="General Editing Facilities"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Object Placement"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Object_Placement"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Tagging an Object"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Tagging_an_Object"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Deleting an Object"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Deleting_an_Object"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Dragging an Object"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Dragging_an_Object"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Dragging an Object Label"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Dragging_an_Object_Label"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Resizing an Object"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Resizing_an_Object"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Reorienting and Object"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Reorienting_an_Object"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Editing an Object"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Editing_an_Object"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Editing an Object Label"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Editing_An_Object_Label"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Copying all Tagged Objects"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Copying_all_Tagged_Objects"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Moving all Tagged Objects"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Moving_all_Tagged_Objects"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Deleting all Tagged Objects"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Deleting_all_Tagged_Objects"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Rotating all Tagged Objects"/><param name="local" value="GENERAL_CONCEPTS/General_Editing_Facilities.htm#Rotating_all_Tagged_Objects"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Wiring Up"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Wire Placement"/><param name="local" value="GENERAL_CONCEPTS/Wiring_Up.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Connect by Touch"/><param name="local" value="GENERAL_CONCEPTS/Wiring_Up.htm#Connectivity_by_Touch"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Wire Auto-Router"/><param name="local" value="GENERAL_CONCEPTS/Wiring_Up.htm#The_Wire_Auto-Router"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Wire Repeat"/><param name="local" value="GENERAL_CONCEPTS/Wiring_Up.htm#Wire_Repeat"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Dragging Wires"/><param name="local" value="GENERAL_CONCEPTS/Wiring_Up.htm#Dragging_Wires"/></object></li>
+	</ul></li>
+	</ul>
+	<object type="text/sitemap">
+		<param name="Name" value="DXP.chm::/DXP.hhc"/>
+		<param name="Merge" value="DXP.chm::/DXP.hhc"/>
+	</object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Miscellaneous"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="The Sheet Border"/><param name="local" value="GENERAL_CONCEPTS/Miscellaneous.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Header Block"/><param name="local" value="GENERAL_CONCEPTS/Miscellaneous.htm#The_Header_Block"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Send to Back /Bring to Front"/><param name="local" value="GENERAL_CONCEPTS/Miscellaneous.htm#Send_to_Back_Bring_to_Front"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Global Annotator"/><param name="local" value="GENERAL_CONCEPTS/Miscellaneous.htm#Automatic_Annotator"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Keyboard Configuration"/><param name="local" value="GENERAL_CONCEPTS/Miscellaneous.htm#Keyboard_Configuration"/></object></li>
+	</ul></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="TEMPLATES"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Overview"/><param name="local" value="TEMPLATES/Overview.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Master Sheet"/><param name="local" value="TEMPLATES/The_Master_Sheet.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Tutorial"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Overview"/><param name="local" value="TEMPLATES/Tutorial.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Editing Global Styles"/><param name="local" value="TEMPLATES/Tutorial.htm#Editing_Global_Styles"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Editing Local Styles"/><param name="local" value="TEMPLATES/Tutorial.htm#Editing_Local_Styles"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Editing the Master Sheet"/><param name="local" value="TEMPLATES/Tutorial.htm#Editing_the_Master_Sheet"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Saving the Design Template"/><param name="local" value="TEMPLATES/Tutorial.htm#Saving_the_Design_Template"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Using a Design Template in a Project"/><param name="local" value="TEMPLATES/Tutorial.htm#Using_a_Design_Template_in_a_Project"/></object></li>
+	</ul></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="PROPERTIES"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Object Properties"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="PROPERTIES/Object_Properties.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="System Properties"/><param name="local" value="PROPERTIES/Object_Properties.htm#System_Properties"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="User Properties"/><param name="local" value="PROPERTIES/Object_Properties.htm#User_Properties"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Property Definitions"/><param name="local" value="PROPERTIES/Object_Properties.htm#Property_Definitions__PROPDEFS_"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Sheet Properties"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="PROPERTIES/Sheet_Properties.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Defining Sheet Properties"/><param name="local" value="PROPERTIES/Sheet_Properties.htm#Defining_Sheet_Properties"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Scope Rules for Sheet Properties"/><param name="local" value="PROPERTIES/Sheet_Properties.htm#Scope_Rules_for_Sheet_Properties"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Design Properties"/><param name="local" value="PROPERTIES/Sheet_Properties.htm#Design_Properties"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Parameterized Circuits"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="PROPERTIES/Parameterized_Circuits.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="An Example"/><param name="local" value="PROPERTIES/Parameterized_Circuits.htm#Example"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Property Substitution"/><param name="local" value="PROPERTIES/Parameterized_Circuits.htm#Property_Substitution"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Property Expression Evaluation"/><param name="local" value="PROPERTIES/Parameterized_Circuits.htm#Property_Expression_Evaluation"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Rounding Functions"/><param name="local" value="PROPERTIES/Parameterized_Circuits.htm#The_Rounding_Functions_E12____E24__"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Property Assignment Tool"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="The PAT Dialogue Form"/><param name="local" value="PROPERTIES/Property_Assignment_Tool.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="PAT Actions"/><param name="local" value="PROPERTIES/Property_Assignment_Tool.htm#PAT_Actions"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="PAT Application Modes"/><param name="local" value="PROPERTIES/Property_Assignment_Tool.htm#PAT_Application_Modes"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Search &amp; Tag Command"/><param name="local" value="PROPERTIES/Property_Assignment_Tool.htm#The_Search___Tag_Command"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Examples"/><param name="local" value="PROPERTIES/Property_Assignment_Tool.htm#Examples"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Property Definitions"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Creating Property Definitions"/><param name="local" value="PROPERTIES/Property_Definitions.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Default Property Definitions"/><param name="local" value="PROPERTIES/Property_Definitions.htm#Default_Property_Definitions"/></object></li>
+	</ul></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="OBJECT SPECIFICS"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Components"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="OBJECT_SPECIFICS/Components.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Selecting Components"/><param name="local" value="OBJECT_SPECIFICS/Components.htm#Selecting_Components_from_the_Device_Libraries"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Placing Components"/><param name="local" value="OBJECT_SPECIFICS/Components.htm#Placing_Components"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Replacing Components"/><param name="local" value="OBJECT_SPECIFICS/Components.htm#Replacing_Components"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Editing Components"/><param name="local" value="OBJECT_SPECIFICS/Components.htm#Editing_Components"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Gateswapping Components"/><param name="local" value="OBJECT_SPECIFICS/Components.htm#Gateswapping_Components"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Component Properties"/><param name="local" value="OBJECT_SPECIFICS/Components.htm#Component_Properties"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Hidden Power Pins"/><param name="local" value="OBJECT_SPECIFICS/Components.htm#Hidden_Power_Pins"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Junction Dots"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="OBJECT_SPECIFICS/Dots.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Placing Dots"/><param name="local" value="OBJECT_SPECIFICS/Dots.htm#Placing_Junction_Dots"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Auto-Dot Placement"/><param name="local" value="OBJECT_SPECIFICS/Dots.htm#Auto_Dot_Placement"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Auto-Dot Removal"/><param name="local" value="OBJECT_SPECIFICS/Dots.htm#Auto_Dot_Removal"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Wire Labels"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="OBJECT_SPECIFICS/Wire_Labels.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Placing and Editing"/><param name="local" value="OBJECT_SPECIFICS/Wire_Labels.htm#Placing_and_Editing_Wire_Labels"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Deleting Wire Labels"/><param name="local" value="OBJECT_SPECIFICS/Wire_Labels.htm#Deleting_Wire_Labels"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Assigning a Net Name"/><param name="local" value="OBJECT_SPECIFICS/Wire_Labels.htm#Using_a_Wire_Label_to_Assign_a_Net_Name"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Assigning a Net Property"/><param name="local" value="OBJECT_SPECIFICS/Wire_Labels.htm#Using_a_Wire_Label_to_Assign_a_Net_Property"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Wire Label Properties"/><param name="local" value="OBJECT_SPECIFICS/Wire_Labels.htm#Wire_Label_Properties"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Scripts"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="OBJECT_SPECIFICS/Scripts.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Placing and Editing"/><param name="local" value="OBJECT_SPECIFICS/Scripts.htm#Placing_and_Editing_Scripts"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Script Block Types"/><param name="local" value="OBJECT_SPECIFICS/Scripts.htm#Script_Block_Types"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Part Property Assignments"/><param name="local" value="OBJECT_SPECIFICS/Scripts.htm#Part_Property_Assignments___FIELD_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Sheet Global Net Property Assignments"/><param name="local" value="OBJECT_SPECIFICS/Scripts.htm#Sheet_Global_Net_Property_Assignments___NETPROP_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Sheet Property Assignments"/><param name="local" value="OBJECT_SPECIFICS/Scripts.htm#Sheet_Property_Definitions___DEFINE_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Parameter Mapping Table"/><param name="local" value="OBJECT_SPECIFICS/Scripts.htm#Parameter_Mapping_Tables___MAP_ON_varname_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Model Definition Tables"/><param name="local" value="OBJECT_SPECIFICS/Scripts.htm#Model_Definition_Tables___MODELS_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Named Scripts"/><param name="local" value="OBJECT_SPECIFICS/Scripts.htm#Named_Scripts___SCRIPT_scripttype_scriptname_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="SPICE Model Script"/><param name="local" value="OBJECT_SPECIFICS/Scripts.htm#SPICE_Model_Script___SPICE_"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Buses"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="OBJECT_SPECIFICS/Buses.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Placing Buses"/><param name="local" value="OBJECT_SPECIFICS/Buses.htm#Placing_Buses"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Bus Labels"/><param name="local" value="OBJECT_SPECIFICS/Buses.htm#Bus_Labels"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Wire/Bus Junctions"/><param name="local" value="OBJECT_SPECIFICS/Buses.htm#Wire_and_Bus_Junctions"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Bus Properties"/><param name="local" value="OBJECT_SPECIFICS/Buses.htm#Bus_Properties"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Sub-circuits"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="OBJECT_SPECIFICS/Sub-circuits.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Placing Sub-Circuits"/><param name="local" value="OBJECT_SPECIFICS/Sub-circuits.htm#Placing_Sub-Circuits"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Editing Sub-Circuits"/><param name="local" value="OBJECT_SPECIFICS/Sub-circuits.htm#Editing_Sub-Circuits"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Sub-Circuit Properties"/><param name="local" value="OBJECT_SPECIFICS/Sub-circuits.htm#Sub-Circuit_Properties"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Terminals"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="OBJECT_SPECIFICS/Terminals.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Logical Terminals"/><param name="local" value="OBJECT_SPECIFICS/Terminals.htm#Logical_Terminals"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Physical Terminals"/><param name="local" value="OBJECT_SPECIFICS/Terminals.htm#Physical_Terminals"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Placing Terminals"/><param name="local" value="OBJECT_SPECIFICS/Terminals.htm#Placing_Terminals"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Editing Terminals"/><param name="local" value="OBJECT_SPECIFICS/Terminals.htm#Editing_Terminals"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Terminal Properties"/><param name="local" value="OBJECT_SPECIFICS/Terminals.htm#Terminal_Properties"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Pins"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="OBJECT_SPECIFICS/Pin_Objects.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Placing Pin Objects"/><param name="local" value="OBJECT_SPECIFICS/Pin_Objects.htm#Placing_Pin_Objects"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Editing Pin Objects"/><param name="local" value="OBJECT_SPECIFICS/Pin_Objects.htm#Editing_Pin_Objects"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Pin Object Properties"/><param name="local" value="OBJECT_SPECIFICS/Pin_Objects.htm#Pin_Object_Properties"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="2D Graphics"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="OBJECT_SPECIFICS/2D_Graphics.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Placing 2D Graphics"/><param name="local" value="OBJECT_SPECIFICS/2D_Graphics.htm#Placing_2D_Graphics"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Re-sizing 2D Graphics"/><param name="local" value="OBJECT_SPECIFICS/2D_Graphics.htm#Resizing_2D_Graphics"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Editing 2D Graphics"/><param name="local" value="OBJECT_SPECIFICS/2D_Graphics.htm#Editing_2D_Graphics"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Markers"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Marker Types"/><param name="local" value="OBJECT_SPECIFICS/Markers.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Placing Markers"/><param name="local" value="OBJECT_SPECIFICS/Markers.htm#Placing_Markers"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Simulator Gadgets"/><param name="local" value="OBJECT_SPECIFICS/Simulator_Gadgets.htm"/></object></li>
+	</ul></li>
+	</ul>
+	<object type="text/sitemap">
+		<param name="Name" value="IMPORTER.chm::/IMPORTER.hhc"/>
+		<param name="Merge" value="IMPORTER.chm::/IMPORTER.hhc"/>
+	</object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="LIBRARY FACILITIES"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="General Points"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Library Discipline"/><param name="local" value="LIBRARY_FACILITIES/General_Points.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Library Browser"/><param name="local" value="LIBRARY_FACILITIES/General_Points.htm#The_Library_Browser"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Updating the Schematic from Libraries"/><param name="local" value="LIBRARY_FACILITIES/General_Points.htm#Updating_the_Schematic_from_the_Libraries"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Symbol Libraries"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="LIBRARY_FACILITIES/Symbol_Libraries.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Graphics Symbols"/><param name="local" value="LIBRARY_FACILITIES/Symbol_Libraries.htm#Graphics_Symbols"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="User Defined Terminals"/><param name="local" value="LIBRARY_FACILITIES/Symbol_Libraries.htm#User_Defined_Terminals"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="User Defined Module Ports"/><param name="local" value="LIBRARY_FACILITIES/Symbol_Libraries.htm#User_Defined_Module_Ports"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="User Defined Device Pins"/><param name="local" value="LIBRARY_FACILITIES/Symbol_Libraries.htm#User_Defined_Device_Pins"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Editing an Existing Symbol"/><param name="local" value="LIBRARY_FACILITIES/Symbol_Libraries.htm#Editing_an_Existing_Symbol"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Hierarchical Symbol Definition"/><param name="local" value="LIBRARY_FACILITIES/Symbol_Libraries.htm#Hierarchical_Symbol_Definitions"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Device Libraries"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Making Parts"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="LIBRARY_FACILITIES/Device_Libraries.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Making a Device Element"/><param name="local" value="LIBRARY_FACILITIES/Device_Libraries.htm#Making_a_Device_Element"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Make Device Command"/><param name="local" value="LIBRARY_FACILITIES/Device_Libraries.htm#The_Make_Device_Command"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Visual Packaging Tool"/><param name="local" value="LIBRARY_FACILITIES/Device_Libraries.htm#The_Visual_Packaging_Tool"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Making a Single Element Device"/><param name="local" value="LIBRARY_FACILITIES/Device_Libraries.htm#Making_a_Single_Element_Device"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Making a Multi-Element Homogeneous Device"/><param name="local" value="LIBRARY_FACILITIES/Device_Libraries.htm#Making_a_Multi-Element_Homogenous_Device"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Making a Multi-Element Heterogeneous Device"/><param name="local" value="LIBRARY_FACILITIES/Device_Libraries.htm#Making_a_Multi-Element_Heterogeneous_Device"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Making a Device with Bus Pins"/><param name="local" value="LIBRARY_FACILITIES/Device_Libraries.htm#Making_a_Device_with_Bus_Pins"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Property Definitions"/><param name="local" value="LIBRARY_FACILITIES/Device_Libraries.htm#Property_Definitions_and_Default_Properties"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Dealing with Power Pins"/><param name="local" value="LIBRARY_FACILITIES/Device_Libraries.htm#Dealing_with_Power_Pins"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="BSDL Import"/><param name="local" value="LIBRARY_FACILITIES/BSDL_Import.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Editing an Existing Device"/><param name="local" value="LIBRARY_FACILITIES/Device_Libraries.htm#Editing_an_Existing_Device"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Indexing Libraries with ADI"/><param name="local" value="LIBRARY_FACILITIES/Device_Libraries.htm#Indexing_Libraries_with_ASCII_Data_Import__ADI_"/></object></li>
+	</ul></li>
+	</ul></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="MULTI-SHEET DESIGNS"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Flat Designs"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="MULTI_SHEET_DESIGNS/Flat_Designs.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Navigation Commands"/><param name="local" value="MULTI_SHEET_DESIGNS/Flat_Designs.htm#Design_Menu_Commands"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Hierarchical Designs"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="MULTI_SHEET_DESIGNS/Hierarchical_Designs.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Terminology"/><param name="local" value="MULTI_SHEET_DESIGNS/Hierarchical_Designs.htm#Terminology"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Sub-Circuits"/><param name="local" value="MULTI_SHEET_DESIGNS/Hierarchical_Designs.htm#Sub-Circuits"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Module Components"/><param name="local" value="MULTI_SHEET_DESIGNS/Hierarchical_Designs.htm#Module_Components"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Navigating Hierarchical Designs"/><param name="local" value="MULTI_SHEET_DESIGNS/Hierarchical_Designs.htm#Moving_About_a_Hierarchical_Design"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Design Global Annotation"/><param name="local" value="MULTI_SHEET_DESIGNS/Hierarchical_Designs.htm#Design_Global_Annotation"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Non-Physical Sheets"/><param name="local" value="MULTI_SHEET_DESIGNS/Hierarchical_Designs.htm#Non-Physical_Sheets"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Examples: Sub-Circuits in Use."/><param name="local" value="MULTI_SHEET_DESIGNS/Multi-Sheet_Designs___Examples.htm"/></object></li>
+	</ul></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="NETLIST GENERATION"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="NETLIST_GENERATION/Introduction.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Net Names"/><param name="local" value="NETLIST_GENERATION/Net_Names.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Duplicate Pin Names"/><param name="local" value="NETLIST_GENERATION/Duplicate_Pin_Names.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Hidden Power Pins"/><param name="local" value="NETLIST_GENERATION/Hidden_Power_Pins.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Design Walk / Net Follow"/><param name="local" value="NETLIST_GENERATION/Design_Walk.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Special Net Name Syntaxes"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Global Nets"/><param name="local" value="NETLIST_GENERATION/Net_Name_Syntax.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Inter-Element Connectivity"/><param name="local" value="NETLIST_GENERATION/Net_Name_Syntax.htm#Inter-Element_Connections_for_Multi-Element_Parts"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Bus Connectivity Rules"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="The Base Alignment Rule"/><param name="local" value="NETLIST_GENERATION/Bus_Connectivity_Rules.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Using Bus Labels"/><param name="local" value="NETLIST_GENERATION/Bus_Connectivity_Rules.htm#Using_Bus_Labels_to_Change_the_Connectivity_Rule"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Using Bus Terminals"/><param name="local" value="NETLIST_GENERATION/Bus_Connectivity_Rules.htm#Using_Bus_Terminals_to_Interconnect_Buses"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Connections to Individual Bits"/><param name="local" value="NETLIST_GENERATION/Bus_Connectivity_Rules.htm#Connections_to_Individual_Bits"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Tapping a Large Bus"/><param name="local" value="NETLIST_GENERATION/Bus_Connectivity_Rules.htm#Tapping_a_Large_Bus"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Some Examples"/><param name="local" value="NETLIST_GENERATION/Bus_Connectivity_Rules.htm#Some_Simple_Examples"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="General Comment &amp; Warning"/><param name="local" value="NETLIST_GENERATION/Bus_Connectivity_Rules.htm#General_Comment_and_Warning"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Power Rail Configuration"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="NETLIST_GENERATION/Power_Rail_Configuration.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Dialogue Form"/><param name="local" value="NETLIST_GENERATION/Power_Rail_Configuration.htm#Dialogue_Form"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Default Power Rail Configuration"/><param name="local" value="NETLIST_GENERATION/Power_Rail_Configuration.htm#Default_Power_Rail_Configuration"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="On Schematic Power Rails and Bindings"/><param name="local" value="NETLIST_GENERATION/Power_Rail_Configuration.htm#On_Schematic_Power_Rails_and_Bindings"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Legacy Designs"/><param name="local" value="NETLIST_GENERATION/Power_Rail_Configuration.htm#Legacy_Designs"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Generating a Netlist"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="NETLIST_GENERATION/Netlist_Generation.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Format"/><param name="local" value="NETLIST_GENERATION/Netlist_Generation.htm#Format"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Logical/Physical/Transfer"/><param name="local" value="NETLIST_GENERATION/Netlist_Generation.htm#Logical_Physical_Transfer"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Scope"/><param name="local" value="NETLIST_GENERATION/Netlist_Generation.htm#Scope"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Depth"/><param name="local" value="NETLIST_GENERATION/Netlist_Generation.htm#Depth"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Errors"/><param name="local" value="NETLIST_GENERATION/Netlist_Generation.htm#Errors"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Netlist Formats"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="SDF"/><param name="local" value="NETLIST_GENERATION/Netlist_Formats.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="BOARDMAKER"/><param name="local" value="NETLIST_GENERATION/Netlist_Formats.htm#BOARDMAKER"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="EEDESIGNER"/><param name="local" value="NETLIST_GENERATION/Netlist_Formats.htm#EEDESIGNER"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="FUTURENET"/><param name="local" value="NETLIST_GENERATION/Netlist_Formats.htm#FUTURENET"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="MULTIWIRE"/><param name="local" value="NETLIST_GENERATION/Netlist_Formats.htm#MULTIWIRE"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="RACAL"/><param name="local" value="NETLIST_GENERATION/Netlist_Formats.htm#RACAL"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="SPICE"/><param name="local" value="NETLIST_GENERATION/Netlist_Formats.htm#SPICE"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="SPICE-AGE FOR DOS"/><param name="local" value="NETLIST_GENERATION/Netlist_Formats.htm#SPICE-AGE_FOR_DOS"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="TANGO"/><param name="local" value="NETLIST_GENERATION/Netlist_Formats.htm#TANGO"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="VALID"/><param name="local" value="NETLIST_GENERATION/Netlist_Formats.htm#VALID"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="VUTRAX"/><param name="local" value="NETLIST_GENERATION/Netlist_Formats.htm#VUTRAX"/></object></li>
+	</ul></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="REPORT GENERATION"/></object>
+	<object type="text/sitemap">
+		<param name="Name" value="BOM.chm::/BOM.hhc"/>
+		<param name="Merge" value="BOM.chm::/BOM.hhc"/>
+	</object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="ASCII Data Import"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="REPORT_GENERATION/ASCII_Data_Import.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The IF..END Command"/><param name="local" value="REPORT_GENERATION/ASCII_Data_Import.htm#The_IF...END_Command_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The DATA...END Command"/><param name="local" value="REPORT_GENERATION/ASCII_Data_Import.htm#The_DATA...END_Command_"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Electrical Rules Check"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="REPORT_GENERATION/Electrical_Rules_Check.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Generating the Report"/><param name="local" value="REPORT_GENERATION/Electrical_Rules_Check.htm#Generating_the_Report"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="ERC Error Messages"/><param name="local" value="REPORT_GENERATION/Electrical_Rules_Check.htm#ERC_Error_Messages"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Component Placement Report"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Component Placement Report"/><param name="local" value="REPORT_GENERATION/Component_Placement_Report.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Placing Grid Markers"/><param name="local" value="REPORT_GENERATION/Component_Placement_Report.htm#Grid_Markers"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Generating the Report"/><param name="local" value="REPORT_GENERATION/Component_Placement_Report.htm#Generating_the_Report"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Variant Comparison Report"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="REPORT_GENERATION/Variant_Comparison_Report.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Report Data"/><param name="local" value="REPORT_GENERATION/Variant_Comparison_Report.htm#Report_Data"/></object></li>
+	</ul></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="HARD COPY GENERATION"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Printer and Plotter Output"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Printer Output"/><param name="local" value="HARD_COPY_GENERATION/Printer_Output.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Plotter Output"/><param name="local" value="HARD_COPY_GENERATION/Printer_Output.htm"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Clipboard &amp; Graphics File Generation"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="HARD_COPY_GENERATION/Graphics_Output.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Bitmap Generation"/><param name="local" value="HARD_COPY_GENERATION/Graphics_Output.htm#Bitmap_Generation"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Metafile Generation"/><param name="local" value="HARD_COPY_GENERATION/Graphics_Output.htm#Metafile_Generation"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="SVG Generation"/><param name="local" value="HARD_COPY_GENERATION/Graphics_Output.htm#SVG_Output"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="DXF File Generation"/><param name="local" value="HARD_COPY_GENERATION/Graphics_Output.htm#DXF_File_Generation_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="EPS File Generation"/><param name="local" value="HARD_COPY_GENERATION/Graphics_Output.htm#EPS_File_Generation"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="PDF File Generation"/><param name="local" value="HARD_COPY_GENERATION/Graphics_Output.htm#PDF_Output"/></object></li>
+	</ul></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="SCHEMATIC &amp; LAYOUT"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="ISIS_AND_ARES/Introduction.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Routing Classes"/><param name="local" value="ISIS_AND_ARES/Routing_Classes.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Packaging"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="ISIS_AND_ARES/Packaging.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Default Packaging"/><param name="local" value="ISIS_AND_ARES/Packaging.htm#Default_Packaging"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="NC Pins"/><param name="local" value="ISIS_AND_ARES/Packaging.htm#Not_Connected_Pins__NC_Pins_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Manual Packaging in ISIS"/><param name="local" value="ISIS_AND_ARES/Packaging.htm#Manual_Packaging_in_ISIS"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Manual Packaging in ARES"/><param name="local" value="ISIS_AND_ARES/Packaging.htm#Manual_Packaging_in_ARES"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Automatic Packaging"/><param name="local" value="ISIS_AND_ARES/Packaging.htm#Automatic_Packaging_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Using the Design Explorer to Verify Packaging"/><param name="local" value="ISIS_AND_ARES/Packaging.htm#Using_the_Design_Explorer_to_Verify_Packaging"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Package Verifier"/><param name="local" value="ISIS_AND_ARES/Packaging.htm#The_Package_Verifier"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Design Iteration"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="ISIS_AND_ARES/Design_Iteration.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Adding New Components"/><param name="local" value="ISIS_AND_ARES/Design_Iteration.htm#Adding_New_Components_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Removing Existing Components"/><param name="local" value="ISIS_AND_ARES/Design_Iteration.htm#Removing_Existing_Components_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Changing the Connectivity"/><param name="local" value="ISIS_AND_ARES/Design_Iteration.htm#Changing_the_connectivity_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Re-Annotating Components"/><param name="local" value="ISIS_AND_ARES/Design_Iteration.htm#Re-Annotating_Components__and_Re-Packaging_Gates_"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Back Annotation from Layout"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Manual Re-Annotation"/><param name="local" value="ISIS_AND_ARES/Re-Annotation.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Automatic Re-Annotation"/><param name="local" value="ISIS_AND_ARES/Re-Annotation.htm#Automatic_Re-annotation"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Cross Probing with Layout"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="ISIS_AND_ARES/Cross_Probing.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Automatic Cross Probing Mode"/><param name="local" value="ISIS_AND_ARES/Cross_Probing.htm#Automatic_Cross-Probing_Mode"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Cross Probing to a Footprint"/><param name="local" value="ISIS_AND_ARES/Cross_Probing.htm#Cross_Probing_to_a_Footprint"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Cross Probing to a Net"/><param name="local" value="ISIS_AND_ARES/Cross_Probing.htm#Cross_Probing_to_a_Net"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Project Clips / Design Re-Use"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Overview"/><param name="local" value="ISIS_AND_ARES/Project_Clips.htm#Overview"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Schematic and Layout Project Clips"/><param name="local" value="ISIS_AND_ARES/Project_Clips.htm#Schematic_and_Layout_Snippets"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Schematic Only Project Clips"/><param name="local" value="ISIS_AND_ARES/Project_Clips.htm#Schematic_Only_Snippets"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Layout Only Project Clips"/><param name="local" value="ISIS_AND_ARES/Project_Clips.htm#Layout_Only_Snippets"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Rules for Project Clips"/><param name="local" value="ISIS_AND_ARES/Project_Clips.htm#Rules_for_Snippets"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Assembly Variants"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="ISIS_AND_ARES/Assembly_Variants.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="How it Works"/><param name="local" value="ISIS_AND_ARES/Assembly_Variants.htm#How_it_Works"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Variants &amp; Output Files"/><param name="local" value="ISIS_AND_ARES/Assembly_Variants.htm#Assembly_Variants___Output_Files_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Variant Comparison Report"/><param name="local" value="ISIS_AND_ARES/Assembly_Variants.htm#Variant_Comparison_Report"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Pin-Swap/Gate-Swap"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="ISIS_AND_ARES/Pinswap_Gateswap.htm"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Pin-Swaps in Single Element Devices"/><param name="local" value="ISIS_AND_ARES/Pinswap_Gateswap.htm#Specifying_Pin-Swaps_in_Single_Element_Devices"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Pin-Swaps in Multi-Element Devices"/><param name="local" value="ISIS_AND_ARES/Pinswap_Gateswap.htm#Specifying_Pin-Swaps_in_Multi-Element_Devices_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Gate-Swaps in Multi-Element Devices"/><param name="local" value="ISIS_AND_ARES/Pinswap_Gateswap.htm#Specifying_Gate-Swaps_in_Multi-Element_Devices_"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Performing manual Pin-Swap/Gate-Swap"/><param name="local" value="ISIS_AND_ARES/Pinswap_Gateswap.htm#Performing_Manual_Pin-Swaps_and_Gate-Swaps_in_ARES"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="The Gate-Swap Optimiser"/><param name="local" value="ISIS_AND_ARES/Pinswap_Gateswap.htm#The_Gate-Swap_Optimiser"/></object></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Multi-Board Projects"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Introduction"/><param name="local" value="ISIS_AND_ARES/Multi_Board_Projects.htm#Introduction"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Setup"/><param name="local" value="ISIS_AND_ARES/Multi_Board_Projects.htm#Setup"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Navigation"/><param name="local" value="ISIS_AND_ARES/Multi_Board_Projects.htm#Navigation"/></object></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="Development"/><param name="local" value="ISIS_AND_ARES/Multi_Board_Projects.htm#Development"/></object></li>
+	</ul></li>
+	</ul></li>
+	<li><object type="text/sitemap">
+		<param name="Name" value="ICON REFERENCE CHART"/></object>
+	<ul>
+		<li><object type="text/sitemap">
+		<param name="Name" value="Icon Reference Chart"/><param name="local" value="ICON_REFERENCE_CHART/Icon_Reference_Chart.htm"/></object></li>
+	</ul></li>
+	</ul>
+    </html>

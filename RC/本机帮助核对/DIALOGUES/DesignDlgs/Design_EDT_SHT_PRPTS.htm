@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Edit Sheet Properties</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Edit Sheet Properties</h1>
+<h3>Overview</h3>
+<p>This dialogue allows you to specify various properties relevant to the 
+ current sheet.</p>
+<h3>Options</h3>
+<h4>Module Name</h4>
+<p>The module name is the name of the current hierarchy level on the schematic 
+ design. For a single board project the root level of the schematic design 
+ is called ROOT and for a multi-board project it will be BOARD1, BOARD2 
+ etc at the root level. Root level module names are not editable but modules 
+ names for other modules further down the sheet hierarchy (e.g. sub-circuits) 
+ can be changed.</p>
+<h4>Sheet Title</h4>
+<p>Specify the title of the sheet. The title is displayed on the Design 
+ Menu and other tools and can be changed to reflect the contents of the 
+ sheet.</p>
+<h4>Sheet Ordinal</h4>
+<p>The sheet ordinal serves only to determine the presentation order of 
+ the child sheets of a module. Only root modules can have multiple child 
+ sheets.</p>
+<h4>Annotator Init</h4>
+<p>Specify the annotation offset for the sheet. This value is used by the 
+ automatic annotator to determine the starting value for component references 
+ on the sheet and, in conjunction with the replicate command in ARES, can 
+ allow you to duplicate identical blocks of circuitry on the layout.</p>
+<h4><br/>
+Board Local Part ID&#39;s</h4>
+<p>This option is relevant only for multi-board projects. The question 
+ here is whether the annotation should be global to the project or global 
+ to the board. The default is global to the board rather than the project 
+ but you can change this by unchecking this option. You would only need 
+ to do this for one sheet per board but if you choose to work with project 
+ global annotation it&#39;s really important that you do uncheck this option 
+ for every board otherwise you will end up with an annotation muddle.</p>
+<p class="Tip">In practise, we&#39;d recommend board local annotation since 
+ it makes documentation like the BOM and Assembly Drawings more easily 
+ understood. </p>
+<h4>Non-physical sheet?</h4>
+<p>Specify whether or not the components on the sheet are to be included 
+ a a netlist for PCB layout. Check the checkbox for any sheet which is 
+ a simulator model as opposed to a physical part of the design.</p>
+<h4><br/>
+Synchronise Siblings</h4>
+<p>It is possible in Proteus to have identical <a href="../../MULTI_SHEET_DESIGNS/Hierarchical_Designs.htm#Sub-Circuits">sub-circuits</a> 
+ by providing the same circuit name to each sub-circuit. Then, whatever 
+ you place and wire on one sub-circuit is mirrored onto all others with 
+ the same name (E.g. left and right channels of an amplifier). By default, 
+ the property values on sub-circuits will also be maintained / kept the 
+ same (this option selected). For example, if you change a resistor to 
+ 470Ohm on one sheet the equivalent resistor on the other mirrored sheets 
+ will also change to 470Ohm. If you want to customize different sub-circuits 
+ and allow the parts on to have different properties on different sheets 
+ you need to uncheck this box.<br/> </p>
+<h4>External .MOD file?</h4>
+<p>Specify whether or not you want the sheet to be linked to an external 
+ .MOD file. This allows child circuits to be shared between designs. External 
+ MOD files are kept in the MODELS directory. Recommended for advanced users 
+ only.</p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

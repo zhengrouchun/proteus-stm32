@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+<meta name="template" content="../assets/masterpages/LX Master.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>BSDL Import</title>
+
+<meta name="rh-index-keywords" content="Library Parts (Import BSDL),Import Library Parts (BSDL),BSDL (Import)"/><meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body page-style="x-size: Letter;">
+<div>
+<h1 position="fixed">BSDL IMPORT</h1>
+<h3><a id="BSDL_Intro"></a>Introduction</h3>
+<p>The boundary scan description language (BSDL) is a description language 
+ for electronics testing using JTAG. It has been added to the IEEE Std. 
+ 1149.1, and BSDL files are increasingly well supported by JTAG tools for 
+ boundary scan applications, and by test case generators.</p>
+<p>BSDL is a VHDL subset. Each BSDL file describes one version of an IC 
+ and has many package pin maps as are available for a particular die. This 
+ is necessary because, for example, two different BGA packages will have 
+ different balls; even if the ball has the same name it may be bonded to 
+ a different signal on the other package.</p>
+<p>From a schematic and PCB perspective there are two main benefits in 
+ this file format:</p>
+<p>1) The part name, number of pins, electrical type and pin names are 
+ all part of the file. This means we can automatically create a basic schematic 
+ component for the part.</p>
+<p>2) The binding between each pin name on the schematic and  the 
+ pad name of the footprint is included. This means that we can provide 
+ an assisted/automatic packaging for the schematic component.</p>
+<p>The mechanism for importing a BSDL file into Proteus is fully explained 
+ <a href="IMPORTER.chm::/Examples.htm#Import_BSDL_File">here</a></p>
+<p class="Warning">Be aware that while BSDL files are commonly used in 
+ ECAD to help create schematic components and bind them to PCB footprints, 
+ their original function was for electronics testing. It is possible therefore 
+ that component pins not relevant to testing are excluded from the BSDL 
+ file, even though they are required for a correct schematic component. 
+ Manual inspection of imported parts is therefore critical.</p>
+<p class="Diagram"> </p>
+
+</div>
+<p> </p>
+
+</body></html>

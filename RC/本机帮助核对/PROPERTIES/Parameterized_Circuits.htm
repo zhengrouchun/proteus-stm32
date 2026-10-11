@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Parameterized Circuits</title>
+  
+  <meta name="rh-index-keywords" content="Parameterized Circuits"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">PARAMETERIZED CIRCUITS</h1>
+  <h3>Introduction</h3>
+  <p>Proteus has a unique and tremendously powerful feature which combines sheet properties, object properties and hierarchical design to facilitate parameterized circuits. A parameterized circuit is one in which some of the component values (or other properties) are given as formulae rather than as constant values. Naturally, the formulae contain variables or parameters and the values for these are taken from the sheet properties defined for that particular instance of the circuit. It then follows that, in the context of a hierarchical design, different instances of the circuit can have different parameters and therefore different component values.</p>
+  <p class="Reference">For more information about hierarchical design see <a href="../MULTI_SHEET_DESIGNS/Hierarchical_Designs.htm">Hierarchical Designs</a>. If you have no idea what a hierarchical design is, we suggest you skip this section entirely for the time being!</p>
+  <h3><a id="Example"></a>Example</h3>
+  <p>Parameterized circuits are best illustrated by an example design which you can load from the samples browser (Open Sample on the Proteus home page) under Graph Based Simulation, Low Pass Filter.</p>
+  <p><img alt="" border="0" height="404" src="../assets/images/TEMPLATES/Low_pass_filter.png" style="border: none;" width="729"/></p>
+  <p>The root sheet of this design is shown below:</p>
+  <p class="Diagram"><img alt="" border="0" height="305" src="../assets/images/PROPERTIES/LPF_DSN.png" style="border: none;" width="390"/></p>
+  <p>It consists of a single sub-circuit which has two user properties defining the desired frequency and impedance for the filter. The module attached to the sub-circuit is the actual parameterized circuit (Use either the design explorer or the Next Sheet command to navigate to this sheet).</p>
+  <p class="Reference"><a href="DXP.chm::/Introduction.htm">More information on the Design Explorer can be found here</a>.</p>
+  <p class="Diagram"><img alt="" border="0" height="242" src="../assets/images/PROPERTIES/Subcircuit.png" style="border: none;" width="485"/></p>
+  <p class="DiagramText">The Sub-circuit sheet of the LPF sample</p>
+  <p>There are several points to note about it:</p>
+  <ul type="disc">
+    <li>The DEFINE block defines one sheet property: PI. This serves as a constant in the property expression for the capacitor value.</li>
+    <li>The resistor&#39;s value field contains the string &lt;IMP&gt;. This syntax with the chevrons (&lt;&gt;) causes the netlist compiler to substitute the &lt;IMP&gt; with value of the IMP sheet property, that is 33k. In this case, no expression evaluation is performed - the substitution is purely literal.</li>
+    <li>The capacitor has a user property assignment (in its property block) which specifies its value as an expression. The E12 function specifies both that the expression should be evaluated by the netlist compiler, and also that it should be rounded to the nearest E12 value. The other options are EVAL (no rounding) and E24 (round to E24 value).</li>
+  </ul>
+  <p>PI, IMP and FREQ are all sheet properties. PI comes from the DEFINE block whilst IMP and FREQ come from the parent sub-circuit.</p>
+  <p>If we generate an HTML Bill of Materials, you will see the following :</p>
+  <p class="Diagram"><img alt="" border="0" height="664" src="../assets/images/PROPERTIES/Bom.png" style="border: none;" width="614"/></p>
+  <p class="DiagramText">The HTML Bill of Materials for the LPF Sample Design</p>
+  <p>Proteus has evaluated <span style="font-family: &#39;Courier New&#39;, monospace;">1/(2*3.142*33000*10000))</span> to get approximately <span style="font-family: &#39;Courier New&#39;, monospace;">0.000000000482</span> and then rounded this to the nearest <span style="font-family: &#39;Courier New&#39;, monospace;">E12</span> value <span style="font-family: &#39;Courier New&#39;, monospace;">- 470p</span>.</p>
+  <p>There are in fact two distinct processes going on in the above example:- property substitution and property expression evaluation. Both have their advantages and disadvantages and the following sections discuss each in more detail.</p>
+  <h3><a id="Property_Substitution"></a>Property Substitution</h3>
+  <p>This is the mechanism that is used for the resistor value and will operate whenever the netlist compiler encounters a property value containing a property keyword enclosed in chevrons (&lt;&gt;). If the keyword matches a sheet property, then the expression in chevrons is replaced with the value of the sheet property. If no sheet property exists, then a netlist warning is generated and the property is removed from object.</p>
+  <p>There are two main cases where property substitution is useful:</p>
+  <ul type="disc">
+    <li>You can use it in a parameterized circuit in which the parameters are not numeric. Packages for PCB design are perhaps the most common example of this - it is all very well getting Proteus to compute that a 470pF capacitor is to be used, but you may still need to package it for PCB design. If you attach to the capacitor the user property:<br/>
+      <br/>
+      <span style="font-family: &#39;Courier New&#39;, monospace;">PACKAGE=&lt;C1_PACKAGE&gt;</span><br/>
+      <br/>
+      then you can add the property:<br/>
+      <br/>
+      <span style="font-family: &#39;Courier New&#39;, monospace;">C1_PACKAGE=CAP10</span><br/>
+      <br/>
+      to the sub-circuit. When netlisted, the C1 will appear with the property<br/>
+      <br/>
+      <span style="font-family: &#39;Courier New&#39;, monospace;">PACKAGE=CAP10</span><br/>
+      <br/>
+      Property expression evaluation cannot be used for this, because CAP10 will not evaluate as a number.
+    </li>
+    <li>The other major use for property substitution is for setting up sweep analyses with Proteus VSM. In this case, you want the simulator to evaluate the expressions, not the schematic module and it may then be appropriate to build up component properties using property substitution rather than property expression evaluation. Further discussion of this is given in the VSM manual.</li>
+  </ul>
+  <h3><a id="Property_Expression_Evaluation"></a>Property Expression Evaluation</h3>
+  <p>In contrast to property substitution which is a purely textual process, property expression evaluation involves Proteus in numerically evaluating a property value that is in the form of a formula, and replacing it with its value. In addition, Proteus can also round the resulting number to an E12 or E24 series value.</p>
+  <p>There are three forms of syntax:</p>
+  <p class="Courier">EVAL (...)</p>
+  <p class="Courier">E12 (...)</p>
+  <p class="Courier">E24 (...)</p>
+  <p>In all cases, the parentheses should contain a mathematical expression which may include the operators plus (+), minus (-), times (*) and divide (/) and values. Values can be constant numbers, or the names of sheet properties. Multiplication and division have higher precedence but further levels of parentheses may be used to override this as required.</p>
+  <p>Some example expressions are shown below:</p>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 23.482%;"/>
+      <col style="width: 76.518%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Expression</td>
+        <td>Description</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">EVAL(1/(A+B))</span></p>
+        </td>
+        <td> A and B are sheet properties.</td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">E12(20k+2*F*PI) </span></p>
+        </td>
+        <td>20k automatically treated as 20000.</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">E24(3+4*5)</span></p>
+        </td>
+        <td>Evaluates to 24.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Although in some ways more powerful than property substitution, there are some limitations:</p>
+  <ul type="disc">
+    <li>The evaluator can only handle numeric values - expressions involving strings are not allowed.</li>
+    <li>You can only reference sheet properties in the formula - you cannot access other object properties or the values of other components.</li>
+    <li>There is no support for mathematical functions (e.g. sin, cosine, square-root) etc.</li>
+  </ul>
+  <h3><a id="The_Rounding_Functions_E12____E24__"></a>The Rounding Functions E12(), E24()</h3>
+  <p>The property expression evaluation mechanism supports the ability to round the resulting value to the nearest E12 or E24 value. This prevents parameterized circuits ending up with non-available or multi-digit floating point values.</p>
+  <p>You should note:</p>
+  <ul type="disc">
+    <li>Rounding will be disabled for expressions that yield zero or negative values. This is unlikely to be a problem as negative valued resistors and capacitors are hard to come by anyway.</li>
+    <li>The rounding is done on a geometric rather than an arithmetical basis so the mid-point between 3k3 and 4k7 is taken to be approximately 3.94. This, we feel, is in keeping with the thinking behind the E12 and E24 series themselves.</li>
+    <li>Bear in mind that if a parameterized circuit contains several rounded values, there is no mechanism to round them all in the optimum directions, taking into account the way they may interact. This means that for critical filter designs and such like, you may be better computing the values manually (considering the various possible mixes of values) and using parameter substitution to load your chosen values directly into the circuit.</li>
+  </ul>
+  <p>Of course, if you have Proteus VSM, you can run a simulation and see how the values Proteus has chosen affect the circuit performance.</p>
+  <p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

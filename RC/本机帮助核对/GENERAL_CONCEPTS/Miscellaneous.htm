@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Miscellaneous</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">MISCELLANEOUS</h1>
+  <h3><a id="Sheets:Sheet_Sizes_(Specifying)" data-indexterm="Sheets:Sheet Sizes (Specifying)"></a><a id="The_Sheet_Border"></a>The Sheet Border</h3>
+  <p>When a new sheet is created either as the first sheet of a new design, or by using the New Sheet command, it starts off at the size currently specified via the Set Sheet Sizes command. The extent of the sheet is shown by a dark blue sheet outline but this in itself will not actually appear on hard copy.</p>
+  <p>If a sheet border is required on the final output, you must place a graphics box (or whatever) over the sheet outline or use one of the pre-supplied templates.</p>
+  <p>The Set Sheet Sizes command is worthy of further discussion since it serves two distinct purposes:</p>
+  <ul type="disc">
+    <li>To change the paper size for the current sheet, you simply invoke the command and click on the button for the required sheet size.</li>
+    <li>To re-define the dimensions of a paper size, highlight the appropriate data entry field(s) and key in the new dimension(s). If you change the dimensions of the current sheet size, this will affect the current sheet immediately but not any other sheets in the design. To affect these, you must invoke Set Sheet Sizes and click OK for each sheet in turn.</li>
+  </ul>
+  <p>The Set Sheet Sizes dialogue form allows you to define the sizes of five standard sheet sizes (A4 through to A0) as well as a non-standard size and to select which one is the size if the current sheet.</p>
+  <p class="Diagram"><img alt="" border="0" height="201" src="../assets/images/GENERAL_CONCEPTS/Sheet_size_dialog.png" style="border: none;" width="317"/></p>
+  <p class="DiagramText">The Set Sheets Sizes dialogue form</p>
+  <p>For each sheet size (A4-A0 and user) there are two edit fields. The left field defines the width (x-dimension) and the right side defines the height (y-dimension). Whenever the schematic loads a sheet that does not match any of the standard (A4-A0) sheet sizes it places the dimensions of the sheet into the User field and sets that to be the default sheet size for the loaded sheet.</p>
+  <p>The default values for the standard sheet sizes should work for most printers but please note that all printers have ‘margins’ in which they cannot print - if you attempt to print something that impinges on the margins it will most likely not be drawn. The size of the margin where a printer cannot print varies between printers and the best way to determine it is to draw a sample design with a box that surrounds your chosen sheet size and then printing it. If one or more edges of the box do not appear on the printed output then your sheet size extends into the printers margins and you should reduce it.</p>
+  <p>There is one more point to note about sheet sizes: Every sheet in a design carries its actual dimensions with it in the design file. If a design is loaded into a the schematic editor with a different sheet size configuration, this will not have any effect unless and until the Set Sheet Sizes command is used.</p>
+  <p class="Tip">It is recommended that you either use an existing template or customise the size of a blank schematic and save it as a template. This is then re-usable for all future designs.</p>
+  <p class="Tip">In order to use the component placement report you should either use one of our pre-defined templates or set the smart grid markers on a sheet border of your own making. More information <a href="../REPORT_GENERATION/Component_Placement_Report.htm">here</a>.</p>
+  <h3><a id="Design_Header" data-indexterm="Design Header"></a><a id="Header_(for_design)" data-indexterm="Header (for design)"></a><a id="@_commands_(Header_Block)" data-indexterm="@ commands (Header Block)"></a><a id="The_Header_Block"></a>The Header Block</h3>
+  <p>It is common practice to have on each sheet of a drawing a header block which shows details such as the design and sheet titles, the document, revision  and page numbers, and the design&#39;s author.</p>
+  <p>In order that you have full control over how this information is presented, the header block is defined as a symbol library entry called HEADER. This was made in the usual way by placing graphics objects, tagging them and invoking the Make Symbol command. The significant thing is where, for example, the current design title is required, a text object with the string @DTITLE was placed and this is automatically replaced with the actual design title at display/print time.</p>
+  <p>The complete list of such keywords is shown below :</p>
+  <table cellspacing="0" class="LXTable" width="91.463%">
+    <colgroup>
+      <col style="width: 6.565%;"/>
+      <col style="width: 76.458%;"/>
+      <col style="width: 7.197%;"/>
+      <col style="width: 7.461%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Keyword</td>
+        <td>Description</td>
+        <td>SCHEMATIC</td>
+        <td>PCB</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@DTITLE</span></p>
+        </td>
+        <td>The design title taken from the Edit Design Properties command on the Design Menu.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="13" src="../assets/images/GENERAL_CONCEPTS/Cross.png" style="border: none;" width="13"/></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace;">@BOARD</p>
+        </td>
+        <td>The current board name, taken from the name supplied. Relevant only for <a href="../ISIS_AND_ARES/Multi_Board_Projects.htm">multi-board projects.</a></td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@STITLE</span></p>
+        </td>
+        <td>The sheet title taken from the Edit Sheet Properties command on the Design Menu.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="13" src="../assets/images/GENERAL_CONCEPTS/Cross.png" style="border: none;" width="13"/></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@DOCNO</span></p>
+        </td>
+        <td>The design document number taken from the Edit Design Properties command on the Design Menu.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="13" src="../assets/images/GENERAL_CONCEPTS/Cross.png" style="border: none;" width="13"/></p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@REV</span></p>
+        </td>
+        <td>The design revision number taken from the Edit Design Properties command on the Design Menu.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="13" src="../assets/images/GENERAL_CONCEPTS/Cross.png" style="border: none;" width="13"/></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@AUTHOR</span></p>
+        </td>
+        <td>The design author  taken from the Edit Design Properties command on the Design Menu.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="13" src="../assets/images/GENERAL_CONCEPTS/Cross.png" style="border: none;" width="13"/></p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@CDATE</span></p>
+        </td>
+        <td>The design creation date - generated automatically in a fixed format.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@MDATE</span></p>
+        </td>
+        <td>The design modification date - generated automatically in a fixed format.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@WS_CDATE</span></p>
+        </td>
+        <td>The design creation date - generated automatically and formatted according to the Windows short format.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@WL_CDATE</span></p>
+        </td>
+        <td>The design creation date - generation automatically and formatted according to the Windows long format.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@WS_MDATE</span></p>
+        </td>
+        <td>The design modification date - generated automatically and formatted according to the Windows short format.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@WL_MDATE</span></p>
+        </td>
+        <td>The design modification date - generated automatically and formatted according to the Windows long format.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@CTIME</span></p>
+        </td>
+        <td>The design creation time - generated automatically and formatted according to the Windows time format.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@MTIME</span></p>
+        </td>
+        <td>The design modification time - generated automatically and formatted according to the windows time format.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@PAGENUM</span></p>
+        </td>
+        <td>The current sheet page number within the design.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="13" src="../assets/images/GENERAL_CONCEPTS/Cross.png" style="border: none;" width="13"/></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@PAGECOUNT</span></p>
+        </td>
+        <td>The total number of sheets in the design.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="13" src="../assets/images/GENERAL_CONCEPTS/Cross.png" style="border: none;" width="13"/></p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@PAGE</span></p>
+        </td>
+        <td>The sheet number within the design expressed as X/Y where X is the sheet page number and Y is the total number of sheets in the design.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="13" src="../assets/images/GENERAL_CONCEPTS/Cross.png" style="border: none;" width="13"/></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@FILENAME</span></p>
+        </td>
+        <td>The current designs filename.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">@PATHNAME</span></p>
+        </td>
+        <td>The full path and filename of the current design file.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace;">@PAGESIZE</p>
+        </td>
+        <td>The page / sheet size as set in the System Menu &gt; Set Sheet Size.</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="13" src="../assets/images/GENERAL_CONCEPTS/Cross.png" style="border: none;" width="13"/></p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace;">@VARIANT</p>
+        </td>
+        <td>The name of the currently <a href="DXP.chm::/Assembly_Variants.htm">active assembly variant</a>. Can be used both on schematic (e.g. Header block) and on layout (e.g. Silkscreen text).</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace;">@Board</p>
+        </td>
+        <td>The name of the Board that you are currently working on</td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+        <td>
+          <p align="center"><img alt="" border="0" height="15" src="../assets/images/GENERAL_CONCEPTS/Tick.png" style="border: none;" width="19"/></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The Windows long and short date formats and Windows time formats are set using the Regional Settings or International applets in Windows Control Panel.</p>
+  <p>Note that the above keywords must appear at the start of a 2D text string and that the string should not contain additional text. For example, do not place strings of the form:</p>
+  <p class="Courier">AUTHORED BY @AUTHOR ON @WS_MDATE</p>
+  <p>as these will not work! To achieve the above you need to place four strings along side each other (AUTHORED BY, @AUTHOR, ON and @WS_MDATE).</p>
+  <p>By use of the import bitmap facility, 2D graphics objects and such special text objects it is possible to define any kind of header block you want. In particular, you can incorporate your company logo into the header. Once defined, the header can be placed onto each sheet of the drawing like any other graphics symbol.</p>
+  <p class="Tip">We strongly advise you, having created your header block, to place one on <a href="../TEMPLATES/The_Master_Sheet.htm">the Master Sheet</a> and save as a design template. Please see the help documentation on templates for more information or run through <a href="../TEMPLATES/Tutorial.htm">the Tutorial</a>.</p>
+  <h3><a id="Send_to_Back_Bring_to_Front"></a>Send to Back/Bring to Front</h3>
+  <p>Sometimes several objects (especially Graphics) overlap and it becomes difficult to point at the one you want. By default, Proteus takes the most recently placed object, but you can re-arrange the order using the Send to Back and Bring to Front commands. Each command operates on the currently tagged objects.</p>
+  <p>You can also use these commands to order the draw order when creating new devices. For example, if you are creating a new op-amp symbol, you may need to send the op-amp body (the triangle graphic) ‘to the back’ in order to ensure it’s fill pattern doesn’t obscure the ‘+’ and ‘-’ input symbols, which of course, need to be ‘in front’.</p>
+  <h3><a id="Global_Annotator_(Schematic)" data-indexterm="Global Annotator (Schematic)"></a><a id="Annotation:Global_Annotator_(Schematic)" data-indexterm="Annotation:Global Annotator (Schematic)"></a><a id="Automatic_Annotator"></a>Global Annotation</h3>
+  <p>Proteus can automatically chose component references for all or some of the components in a design - this process is called Auto-Annotation.</p>
+  <p>The process is initiated using the Global Annotator command on the Tools Menu.</p>
+  <p class="Diagram"><img alt="" border="0" height="241" src="../assets/images/GENERAL_CONCEPTS/Global_annotator.png" style="border: none;" width="261"/></p>
+  <p class="DiagramText">The Global Annotator dialogue form</p>
+  <p>The scope options allow you to annotate either the whole design, the current branch of the design (from the sheet you are on downwards in the hierarchy) or on the current sheet only.</p>
+  <p>The initial annotation option will define the base annotation for the current sheet and will set this property for the current sheet. If you are operating in branch or design mode then any <a href="../MULTI_SHEET_DESIGNS/Flat_Designs.htm#Design_Menu_Commands">specified sheet offsets</a> on other sheets will be honoured.</p>
+  <p>The mode options specify whether all parts should be re-annotated (total mode) or only un-annotated parts (incremental mode).</p>
+  <p class="Tip">As with all dialogues in Proteus, comprehensive context sensitive help is provided for all the fields on the form. Use the question mark at the top right of the dialogue form to &#39;point and shoot&#39; at a field for more information.</p>
+  <h3><a id="Keyboard_Shortcuts" data-indexterm="Keyboard Shortcuts"></a><a id="Shortcut_Keys" data-indexterm="Shortcut Keys"></a><a id="Keyboard_Configuration"></a>Keyboard Configuration</h3>
+  <p>Proteus provides an interface for you to map the keyboard to a command set. This allows you to ‘bring out’ the functionality you commonly use according to personal preference. The configuration dialogue, accessible via the Set Keyboard Mapping command is shown below (context sensitive help is available for all fields within the dialogue itself):</p>
+  <p class="Diagram"><img alt="" border="0" height="455" src="../assets/images/GENERAL_CONCEPTS/Set_keyboard_mapping.png" style="border: none;" width="395"/></p>
+  <p class="DiagramText">The Keyboard Configuration dialogue form</p>
+  <p>Notes :</p>
+  <ul type="disc">
+    <li>Accelerators can use any combination of CTRL, SHIFT and ALT keys. For example, CTRL+X, CTRL+ALT+T, SHIFT+CTRL+1, etc.</li>
+    <li>A Reset option is provided to reload all Proteus standard shortcuts. This will clear any customs configurations.</li>
+    <li>Some European keyboards have an ALT GR key (normally found directly to the right of the space bar). Where present this translates to be CTRL+SHIFT for the purposes of assigning keyboard shortcuts.</li>
+    <li>If you assign an ALT accelerator that is used as a menu accelerator then you will no longer be able to accelerate the menu from the shortcut. For example, ALT+T by default expands the Tools Menu. If you assign ALT+T to the Tidy command then you would have to have to access the Tools Menu using the mouse.</li>
+    <li>Some commands have keyboard assignments that cannot be changed (this is particularly true of those on Maximised Graphs). Note that an assignment for these commands cannot be re-assigned to another command.</li>
+    <li>If you assign a keyboard shortcut (e.g.CTRL+K) in the Application and then assign the same shortcut in a simulation popup window then the functionality executed by the shortcut is dependant on the focus at the time you use the accelerator. To avoid confusion we recommend you avoid multiple assignations of the same accelerator combination.</li>
+    <li>When the NUM LOCK is on the keys 0-9 on the numeric keypad are distinct from the 0-9 keys on the main keyboard. For example, you could assign CTRL+0 up to CTRL+9 on the main keyboard as shortcuts to the Most Recently Used file list (MRU list) and on the numeric keypad you can assign CTRL+NUM-0 up to CTRL+NUM-9 to Goto Sheet 0-9.</li>
+    <li>When the NUM LOCK is off keys 0-9 on the numeric keypad action their secondary functions and these functions are considered identical to those on the main keypad. The key for the number 5 on the numeric keypad has no secondary function when NUM LOCK is off.</li>
+    <li>You can save your custom keyboard configuration via the ‘Export Keyboard Map’ command on the Options tab. This allows you, for example, to port your keyboard configuration to another computer. Similarly, the ‘Import Keyboard Map’ command allows you to reload a custom keyboard configuration that has previously been saved.</li>
+  </ul>
+
+</div>
+<p> </p>
+
+</body></html>

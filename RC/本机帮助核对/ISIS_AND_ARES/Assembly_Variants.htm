@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+<meta name="template" content="../assets/masterpages/LX Master.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Assembly Variants</title>
+
+<meta name="rh-index-keywords" content="Fitted Status (variants),Assembly Variants,Variants"/><meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body page-style="x-size: Letter;">
+<div>
+<h1 position="fixed">ASSEMBLY VARIANTS</h1>
+<h3><a id="Introduction"></a>Introduction</h3>
+<p>Assembly Variants, sometimes called design variants, cater for situations 
+ where components that exist on the schematic are not to be installed/fitted 
+ on the final PCB in certain situations. For example:</p>
+<ul type="disc">
+	<li>You may have a design in which functionality is removed from a 
+	 basic or intermediate version of the product.</li>
+	<li>You may want to test two prototypes of similar but not identical 
+	 circuitry to evaluate performance,noise,efficiency, etc.</li>
+	<li>You may use pull-up and pull-down resistors to indicate the PCB/hardware 
+	 revision to the microprocessor.</li>
+</ul>
+<p>It is important to note that the bareboard PCB itself is unchanged between 
+ different assembly variants. Proteus will enable you to change the fitted 
+ status of components in a given configuration and will then automate the 
+ effects of this on the reporting and output systems to ensure consistency. 
+ You can also switch in alternative parts between variants provided that 
+ they have the same footprint (i.e. the board doesn&#39;t change).</p>
+<h4>Golden Rule</h4>
+<h5>Always work in Base Design on the Schematic.</h5>
+<p>Base Design is the master or superset of all of the variants. This means 
+ you should <span style="font-weight: bold;">always </span>design the product 
+ in base design. This holds true even with things like debug headers that 
+ won&#39;t be present on the production PCB. You <span style="font-weight: bold;">can&#39;t 
+ exclude items from base design</span> so in this case  you would 
+ most likely create two variants called TEST and PRODUCTION.</p>
+<h3><a id="Alternate_parts_(variants)" data-indexterm="Alternate parts (variants)"></a><a id="How_it_Works"></a>How it Works</h3>
+<p>It&#39;s really important to understand that an Assembly Variants is just 
+ a deviation from the Base Design. The Base Design must contain all of 
+ the elements and wiring and so you should always work on the schematic 
+ in Base Design. Assembly Variants are then created from the Design Explorer 
+ module in Proteus.</p>
+<p class="Diagram"><img src="../assets/images/ISIS_AND_ARES/Create_variant.png" alt="" style="border: none;" width="885" height="155" border="0"/></p>
+<p class="Tip">Where you have several variants you can choose to initialise 
+ a new one from an existing variant rather than from base design. This 
+ can be done from the copy existing variant checkbox in the dialogue form 
+ above. Always remember though that you can never have a part in a variant 
+ that doesn&#39;t exist in base design. All development must take place in 
+ base design.</p>
+<p>Once created, a variant will be listed in a new column in the Design 
+ Explorer and each component in the design will have either a tick or cross 
+ to indicate whether the part is fitted or not fitted in that variant.</p>
+<p class="Diagram"><img src="../assets/images/ISIS_AND_ARES/Variant_column.png" alt="" style="border: none;" width="225" height="187" border="0"/> </p>
+<p>The variant that you have created will be available for selection in 
+ the variant toolbar. This combo-box is <span style="font-weight: bold;">system 
+ global</span> so switching to a different variant will affect various 
+ parts of the software (schematic, 3D Viewer, BOM, etc.)</p>
+<p class="Diagram"><img src="../assets/images/ISIS_AND_ARES/Assembley_layers_toolbar.png" alt="" style="border: none;" width="121" height="37" border="0"/></p>
+<p>You can quickly manage variants for a group of parts by first drawing 
+ a selection box on the schematic and then filtering the search tab in 
+ the design explorer to the result set from the tagbox.</p>
+<p class="Diagram"><img src="../assets/images/ISIS_AND_ARES/searchVariantSelected.png" alt="" style="border: none;" width="1085" height="257" border="0"/></p>
+<p>You can remove a part from a particular variant by either :</p>
+<p>1) Clicking on it&#39;s entry in the variant column of design explorer to 
+ change to a cross.</p>
+<p class="Diagram"><img src="../assets/images/ISIS_AND_ARES/removing_component_from_variant.png" alt="" style="border: none;" width="220" height="213" border="0"/></p>
+<p>2) Switching to the variant in the variant toolbar and then editing 
+ the part on the schematic and selecting the &#39;Remove from Active Variant&#39; 
+ checkbox.</p>
+<p class="Diagram"><img src="../assets/images/ISIS_AND_ARES/Edit_component_exclude_variant.png" alt="" style="border: none;" width="886" height="214" border="0"/></p>
+<p class="Tip">You cannot remove a part from the base design.</p>
+<p>If you then want to add a part back into a variant simply repeat the 
+ process in reverse. </p>
+<p>Parts that are not present in the active variant are indicated with 
+ a cross in the column in design explorer and their part reference is greyed 
+ out on the schematic.</p>
+<p class="Diagram"><img src="../assets/images/ISIS_AND_ARES/excluded_from_variant.png" alt="" style="border: none;" width="936" height="147" border="0"/></p>
+<p class="Tip">Remember that the schematic is a reflection of the Active 
+ Variant for the system as selected from the variant combo box, but that 
+ you can see a components status on all variants at the same time in design 
+ explorer.</p>
+<p>You can add an alternative part for a passive (with the same footprint) 
+ in a variant by editing the value property.</p>
+<p class="Diagram"><img src="../assets/images/ISIS_AND_ARES/editingValue.png" alt="" style="border: none;" width="346" height="124" border="0"/></p>
+<p>If you need to change other properties such as stock code or supplier 
+ you do so by first adding the properties as columns and then changing 
+ their values in the current variant.</p>
+<p class="Diagram"><img src="../assets/images/ISIS_AND_ARES/addingStockcode.png" alt="" style="border: none;" width="416" height="276" border="0"/></p>
+<p>Finally, you can delete or rename a variant from the Variant menu in 
+ the Design Explorer module. </p>
+<p class="Diagram"><img src="../assets/images/ISIS_AND_ARES/Remove_variant.png" alt="" style="border: none;" width="630" height="155" border="0"/></p>
+<p class="ExampleTitle">See Also:</p>
+<p class="Reference"><a href="DXP.chm::/Assembly_Variants.htm">Design Explorer 
+ Manual : Assembly Variants</a></p>
+<p> </p>
+<p>Design Explorer includes several visual cues to help you with variants:</p>
+<p>1) The active variant column header will appear in blue. If base design 
+ is selected all the variant column titles will be in black.</p>
+<p><img src="../assets/images/ISIS_AND_ARES/dxpHeaderBlue.png" alt="" style="border: none;" width="130" height="122" border="0"/></p>
+<p>2) Properties that have been changed in the active variant will be in 
+ blue when the active variant is selected.</p>
+<p><img src="../assets/images/ISIS_AND_ARES/valueBlue.png" alt="" style="border: none;" width="325" height="81" border="0"/></p>
+<p>3) Components that are different in different variants will have their 
+ name in bold regardless of the selected variant.</p>
+<p><img src="../assets/images/ISIS_AND_ARES/nameBold.png" alt="" style="border: none;" width="325" height="81" border="0"/></p>
+<h3><a id="Outputs" data-indexterm="Outputs"></a><a id="Assembly_Variants___Output_Files_"></a>Assembly Variants &amp; 
+ Output Files </h3>
+<p>The selection of a variant in the combo-box will affect the following 
+ files, views and reports:</p>
+<h4>Schematic Capture</h4>
+<p>The state of a component in the active variant is indicated by a dimmed 
+ part reference.</p>
+<p class="Diagram"><img src="../assets/images/ISIS_AND_ARES/Dimmed_reference.png" alt="" style="border: none;" width="385" height="218" border="0"/></p>
+<p>You can add the @VARIANT keyword to the Header Block in order to identify 
+ the variant during hard copy printing or simply for clarity.</p>
+<p class="Diagram"><img src="%40Variant_Schematic.png" alt="" style="border: none;" width="1060" height="184" border="0"/></p>
+<p class="ExampleTitle">See Also:</p>
+<p class="Reference"><a href="../GENERAL_CONCEPTS/Miscellaneous.htm#The_Header_Block">The 
+ Header Block</a></p>
+<h4>Bill of Materials</h4>
+<p>If an assembly variant is selected in the combo-box then a row with 
+ the variant name is added to the header block at the top of the BOM. All 
+ parts excluded from this variant are also excluded in the BOM report.</p>
+<p><img src="../assets/images/ISIS_AND_ARES/BOM_variant_name.png" alt="" style="border: none;" width="349" height="217" border="0"/></p>
+<p>If &#39;base design&#39; is selected from the combo-box then the header block 
+ will not have an extra row inserted.</p>
+<p><img src="../assets/images/ISIS_AND_ARES/BOM_variant_name_base_design.png" alt="" style="border: none;" width="327" height="198" border="0"/></p>
+<h4>PCB Layout Module</h4>
+<p>Assembly variants have no effect on the 2D Layout by default, although 
+ the Assembly drawings generated will obviously reflect the status of the 
+ current variant.</p>
+<p>We do support fabrication variants in so far as you can use the @VARIANT 
+ keyword in silkscreen text to allow you to identify the current variant 
+ on the layout. It does mean that in such cases you will then need to carefully 
+ manage the export of the manufacturing data files. </p>
+<p class="Diagram"><img src="%40Variant.png" alt="" style="border: none;" width="599" height="365" border="0"/></p>
+<p class="ExampleTitle">See Also:</p>
+<p class="Reference"><a href="ARES.chm::/OUTPUT_FOR_MANUFACTURE/Assembly_Drawings.htm">PCB 
+ Manual: Assembly Layers</a></p>
+<h4>3D Visualisation</h4>
+<p class="Warning">If you have turned off live netlisting in the Layout 
+ module (Tools Menu) then the 3D Viewer will not receive notifications 
+ when you switch the active variant..</p>
+<p>Parts excluded from the active variant will not appear in the 3D Viewer 
+ because they are not to be fitted in this variant. All output filesets 
+ designed for MCAD such as STEP, IGES and IDF will also have such parts 
+ excluded.</p>
+<p class="Diagram"><img src="../assets/images/ISIS_AND_ARES/3D_variant.png" alt="" style="border: none;" width="503" height="270" border="0"/></p>
+<h4>Pick and Place Files</h4>
+<p class="Warning">If you have turned off live netlisting in the Layout 
+ module (Tools Menu) then you may not have the latest netlist information 
+ and the Pick and Place output may not match the active variant.</p>
+<p>Pick and place files will not include any parts excluded from the active 
+ variant.</p>
+<h4><a id="Variant_Report" data-indexterm="Variant Report"></a><a id="Report:Variant_Comparison" data-indexterm="Report:Variant Comparison"></a><a id="Variant_Comparison_Report"></a>Reporting</h4>
+<p>Using the Project Notes module you can automatically generate a report 
+ detailing all of the differences between each product variant and the 
+ base design.</p>
+<p class="ExampleTitle">See Also:</p>
+<p class="Reference"><a href="../REPORT_GENERATION/Variant_Comparison_Report.htm">Variant 
+ Comparison Report</a></p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

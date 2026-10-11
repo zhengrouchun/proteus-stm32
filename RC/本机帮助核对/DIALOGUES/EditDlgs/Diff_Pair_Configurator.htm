@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Diff Pair Configurator</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Diff Pair Configurator</h1>
+<p>On the schematic there are two tasks required for a diff pair, namely 
+ to identify the differential pair pins and then to name the diff pair 
+ itself. Both of these are done with the diff pair configurator tool which 
+ is launched from the right click context menu on one of the two diff pair 
+ wires. </p>
+<p class="Diagram"><img src="../../assets/images/DIALOGUES/EditDlgs/configurator.png" alt="" style="border: none;" width="612" height="201" border="0"/></p>
+<p class="DiagramText">The differential Pair Configurator when opened.</p>
+<h5>1. Diff Pair Class.</h5>
+<p>Name of the diff pair class. This is used when setting clearances and 
+ separations for the diff pair. Can use an existing one if , for example, 
+ you have multiple channels.</p>
+<h5>2. Start Component.</h5>
+<p>The start component and the two diff pair pins on the start component.</p>
+<h5>3. Signal Path Indicator</h5>
+<p>Shows whether the diff pair signal path is completely specified from 
+ source to destination.</p>
+<p class="Diagram"><img src="../../assets/images/DIALOGUES/EditDlgs/signalPathIndicators.png" alt="" style="border: none;" width="756" height="242" border="0"/></p>
+<p class="DiagramText">Examples of how the Signal Path Graphics inform 
+ you of configuration progress.</p>
+<h5>4. End Component.</h5>
+<p>The end component and the two diff pair pins on that component.</p>
+<h5>5. Manage Pass through components.</h5>
+<p>Manually specify pass through components if the heuristic fails to do 
+ it correctly. A deduced pass through will be suffixed with a question 
+ mark. If correct save will commit, if incorrect specify manually via the 
+ Manage Passthroughs button.</p>
+<p>A pass through has 2 pins on at least one of the diff pair lines. A 
+ tap, branch or shunt is not a pass through component and will be ignored 
+ by the configurator. The goal of managing the passthroughs is to specify 
+ the two pins of the component that are on the line - a simple task for 
+ a two pin passive but possibly needs manually specifying for a 4-pin part 
+ spanning both lines.</p>
+<h5>6. Component pin count.</h5>
+<p>Since the start and end component are unlikely to be 2 pin devices this 
+ setting serves only to remove the clutter from the component pin listings.</p>
+<p class="ExampleTitle">See Also:</p>
+<p class="Reference"><a href="ARES.chm::/HIGH_SPEED_ROUTING/Differential_Pair_Setup.htm">Schematic 
+ Setup Workflow and Examples</a></p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

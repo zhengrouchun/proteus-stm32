@@ -1,0 +1,24 @@
+--cpu Cortex-M3
+"div_power_control\startup_stm32f103xb.o"
+"div_power_control\main.o"
+"div_power_control\stm32f1xx_it.o"
+"div_power_control\stm32f1xx_hal_msp.o"
+"div_power_control\stm32f1xx_hal_gpio_ex.o"
+"div_power_control\stm32f1xx_hal_adc.o"
+"div_power_control\stm32f1xx_hal_adc_ex.o"
+"div_power_control\stm32f1xx_hal.o"
+"div_power_control\stm32f1xx_hal_rcc.o"
+"div_power_control\stm32f1xx_hal_rcc_ex.o"
+"div_power_control\stm32f1xx_hal_gpio.o"
+"div_power_control\stm32f1xx_hal_dma.o"
+"div_power_control\stm32f1xx_hal_cortex.o"
+"div_power_control\stm32f1xx_hal_pwr.o"
+"div_power_control\stm32f1xx_hal_flash.o"
+"div_power_control\stm32f1xx_hal_flash_ex.o"
+"div_power_control\stm32f1xx_hal_exti.o"
+"div_power_control\stm32f1xx_hal_uart.o"
+"div_power_control\system_stm32f1xx.o"
+--strict --scatter "DIV_Power_Control\DIV_Power_Control.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "DIV_Power_Control.map" -o DIV_Power_Control\DIV_Power_Control.axf

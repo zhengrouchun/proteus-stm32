@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+<meta name="template" content="../assets/masterpages/LX Master.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Sheet Properties</title>
+
+<meta name="rh-index-keywords" content="Sheets:Properties,Properties:Sheet Properties"/><meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body page-style="x-size: Letter;">
+<div>
+<h1 position="fixed">SHEET PROPERTIES</h1>
+<h3>Introduction</h3>
+<p>Each sheet of a schematic can hold a set of property assignments. These 
+ may be considered as defining constants (either numeric or textual) which 
+ may be used within object property assignments on the particular sheet. 
+ In themselves they are not terribly useful, but their real power comes 
+ to light when they are used in the context of object property expressions.</p>
+<p>For example, if a sheet property is defined in a block such as:</p>
+<p class="Courier">*DEFINE PI=3.142</p>
+<p>you could then define a resistor as having the value:</p>
+<p class="Courier">VAL=EVAL(500/PI)</p>
+<p>At netlist time, this syntax causes the netlist compiler to evaluate 
+ the property, and the resistor&#39;s value will appear in the netlist or bill 
+ of materials appear as 159.134.</p>
+<p class="Reference">For further information about property expressions 
+ see Property Expression Evaluation </p>
+<h3><a id="Defining_Sheet_Properties"></a>Defining Sheet Properties</h3>
+<p>Sheet properties can be defined in the following ways:</p>
+<ul type="disc">
+	<li>Directly, using a <span style="font-family: &#39;Courier New&#39;, monospace;">DEFINE</span> 
+	 script block. You can use this to define constants for use in expressions, 
+	 as in the above example.</li>
+	<li>As a result of parameter mapping using a MAP ON script block. In 
+	 this case, the value of the parent property specified by the MAP ON 
+	 statement is used to select a set of sheet property definitions from 
+	 a table. This is most commonly used for creating universal simulation 
+	 models, in which several similar devices are modelling using the same 
+	 circuit but with different sets of sheet properties for each device 
+	 type. Further discussion of this is given in the Proteus VSM manual.</li>
+	<li>By inheriting the properties of a parent object. In other words, 
+	 if the parent object has the object property assignment:<br/>
+	<span style="font-family: &#39;Courier New&#39;, monospace;">R3=10k</span><br/>
+	then the child sheet will automatically acquire this as a sheet property. 
+	 This provides the basis for parameterized circuits in which several 
+	 instances of a given hierarchy module can be assigned different component 
+	 values.</li>
+</ul>
+<p>If the same property is defined both on a child sheet in a DEFINE or 
+ MAP ON block and in the parent object property block, the value from the 
+ parent will be used. This provides the means to provide default values 
+ for sheet properties which can be overridden as required.</p>
+<h3><a id="Scope_Rules_for_Sheet_Properties"></a>Scope Rules for Sheet 
+ Properties</h3>
+<p>It is important to realise that sheet properties may only be referenced 
+ on the sheet for which they are defined. In particular, the sheet properties 
+ on a parent sheet are not accessible by any of its children unless they 
+ are passed though the parent object property block. If you do need to 
+ access a  property in this manner, you can add a line such as:</p>
+<p class="Courier">TDHL=&lt;TDHL&gt;</p>
+<p>to the appropriate parent object(s). If TDHL is defined as a sheet property 
+ on the parent sheet, it will then become an object property of the parent 
+ object, and thus be defined as a sheet property for the child sheet, where 
+ it can in turn appear in further object property expressions.</p>
+<p>This arrangement is analogous to passing parameters in a C computer 
+ program.</p>
+<p class="Diagram"><img src="../assets/images/PROPERTIES/7400_and_NAND2.png" style="border: none;" alt="" width="653" height="217" border="0"/></p>
+<p class="DiagramText">The parent sheet and child sheet with parameter 
+ passing</p>
+<h3><a id="Design_Properties"></a>Design Properties</h3>
+<p>The design properties for a given schematic are determined by accumulating 
+ all the sheet properties that are declared on the root sheets of the design. 
+ Since root sheets cannot have parents, it follows that design properties 
+ can only be declared using DEFINE script blocks on the root sheets.</p>
+<p>For SDF netlist output, the design properties appear in the PROPERTIES 
+ block of the netlist, and may be interpreted by whatever application is 
+ reading the netlist. In the case of Proteus VSM, design properties are 
+ used to define simulator options such as the number of steps, the operating 
+ temperature and so forth. The specifics of this are given in the Proteus 
+ VSM manual.</p>
+<p class="ExampleTitle">To create a list of design properties:</p>
+<ol type="1" class="Numbers">
+	<li class="Numbers">Go to the root sheet of your design by selecting 
+	 the root sheet from the Design menu.</li>
+	<li class="Numbers">Selecting the root sheet via the Design Menu.<br/>
+	<br/>
+	<img src="../assets/images/PROPERTIES/Root_sheet.png" style="border: none;" alt="" width="287" height="309" border="0"/></li>
+	<li class="Numbers">Select the Script icon from the Mode Selector toolbar.</li>
+	<li class="Numbers">Point where you want the property definition block 
+	 to appear and click left.</li>
+	<li class="Numbers">Type in the first line of the script as *DEFINE 
+	 and then type in the property assignments as required.<br/>
+	<br/>
+	<img src="../assets/images/PROPERTIES/Script_block.png" style="border: none;" alt="" width="150" height="152" border="0"/><br/>
+	</li>
+</ol>
+
+</div>
+<p> </p>
+
+</body></html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+ <meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Set Animation Options</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+<body>
+<div>
+<h1>Set Animation Options</h1>
+<h3>Overview</h3>
+<p>This dialogue allows you to configure various simulation parameters for use in interactive/animated simulation.</p>
+<h3>Options</h3>
+<h4>Simulation Speed</h4>
+<p>Use these options to configure simulation speed. Each option has its own context sensitive help associated with it.</p>
+<ul type="disc">
+<li><span style="font-weight: bold;">Frames per second</span> - Specify how many animation frames are shown every second. The range for this option is 1 to 50. The lower the value the slower the animation will run. The higher the value the faster the animation will run. On Windows 95/98 there is no benefit in setting it higher than 20.</li>
+<li><span style="font-weight: bold;">Timestep per frame</span> - Specify by how much the simulation times advances for each frame. It follows that if you change the frame rate, you must also change the timestep per frame if you wish to maintain real time simulation. Alternatively, you can set a smaller timestep per frame if you wish to slow down the rate of progress of the simulation. This value represents the desired timestep which will only be achieved if there is sufficient CPU power for the speed of operation and complexity of the circuit.</li>
+<li><span style="font-weight: bold;">Single Step Time</span> - This is used in conjunction with the STEP button and determines the time advanced for each single step. In logic circuits it is often useful to set this to half of the clock period so that the effect of  each clock transition can be observed.</li>
+<li><span style="font-weight: bold;">Max SPICE Timestep</span> - This setting clamps the simulation to a maximum timestep. The higher this value the faster the simulation at the expense of accuracy.</li>
+<li><span style="font-weight: bold;">Step Animation Rate</span> - This is the rate at which the automatic single step debugging will progress. At default value 4, the system will step over four instructions per second when automated stepping is enabled.</li>
+</ul>
+<h4>Animation Options</h4>
+<p>Use these options to configure general animation options. for interactive simulation. Each option has its own context sensitive help associated with it.</p>
+<ul type="disc">
+<li><span style="font-weight: bold;">Show Voltage and Current on Probes?</span> - When checked this option will enable a small live readout of voltage / current beside a probe on the schematic during animation where the readout is determined by the type of probe used on the schematic.</li>
+<li><span style="font-weight: bold;">Show Logic state of pins?</span> - If checked, then coloured blobs are drawn next to the pins of all logic devices in order to indicate their logic state. This option imposes an extra but modest computational burden on the simulator.</li>
+<li><span style="font-weight: bold;">Show wire voltage by colour?</span> - If checked, then the voltage of analog nets is displayed by colouring the wires. The scaling for this is determined by the value given in the Maximum Voltage field, above.</li>
+<li><span style="font-weight: bold;">Show wire current with arrows?</span> - If checked, then current flow within wires on analog nets is displayed using small arrows. An arrow is drawn for any current flow greater or equal to the value given in the Current Threshold field, above. This option can impose a major computational burden on the simulator, because each wire is replaced by a 1mÙ resistor, thus substantially increasing the number of components and circuit nodes. In digital simulation, the presence of the resistors causes a doubling of the number of events to be processed.</li>
+<li><span style="font-weight: bold;">SPICE options</span> - This button launches the SPICE simulation options dialogue, allowing advanced users to further configure simulation tolerances etc.</li>
+</ul>
+<h4>Voltage/Current Ranges</h4>
+<p>Use these options to configure voltage and current ranges for interactive simulation. Each option has its own context sensitive help associated with it.</p>
+<ul type="disc">
+<li><span style="font-weight: bold;">Maximum Voltage</span> - Specify  the scaling for the active wire colours. You would normally set it to the highest voltage occurring in your circuit.</li>
+<li><span style="font-weight: bold;">Current Threshold</span> - Specify the minimum value of current flow within a wire for which an arrow will be displayed. Occasionally it may be useful (for educational clarity) to increase this value so that the circuit behavior will appear idealized, not withstanding the use of real world models. For example, you may wish to have an op-amp appear to draw no input current when in fact a given SPICE model may draw a few microamps from its inputs.</li>
+</ul>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

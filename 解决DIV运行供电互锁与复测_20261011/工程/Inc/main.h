@@ -53,6 +53,7 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
+void DivEmergencyStop(void); /* 无延时地锁存停止并关闭两路电源，供异常中断使用。 */
 
 /* USER CODE END EFP */
 

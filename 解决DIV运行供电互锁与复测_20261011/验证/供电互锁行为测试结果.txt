@@ -1,0 +1,16 @@
+PASS DIV0: correct classification, interlock and no automatic resample
+PASS DIV1: correct classification, interlock and no automatic resample
+PASS DIV2: correct classification, interlock and no automatic resample
+PASS DIV3: correct classification, interlock and no automatic resample
+PASS DIV4: correct classification, interlock and no automatic resample
+PASS DIV5: correct classification, interlock and no automatic resample
+PASS DIV6: correct classification, interlock and no automatic resample
+PASS DIV7: correct classification, interlock and no automatic resample
+PASS DIV8: correct classification, interlock and no automatic resample
+PASS unknown input keeps both power switches off
+PASS 10 ADC error paths keep both power switches off
+PASS stop injection at 33 time boundaries
+PASS held STOP at boot, latched stop, and explicit retest recovery
+PASS run-to-fault retest, debounce and held-button single trigger
+PASS emergency stop before GPIO initialization
+ALL BEHAVIOR TESTS PASSED; HOST HAL MOCKS, NOT PROTEUS MEASUREMENTS

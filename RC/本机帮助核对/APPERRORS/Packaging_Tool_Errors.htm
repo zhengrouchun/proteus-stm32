@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+<meta name="template" content="../assets/masterpages/LX Master.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Packaging Tool Errors</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body page-style="x-size: Letter;">
+<div>
+<h1 position="fixed">PACKAGING TOOL ERRORS</h1>
+<h3><a id="Pkgtool_mixed_device_types"></a>Packaging Errors with Mixed 
+ Device Types</h3>
+<p>This error occurs because you are trying to package a number of elements 
+ of which one or more elements are homogeneous and one or more are heterogeneous. 
+ </p>
+<h4>Solution</h4>
+<p>First of all, check that the only devices highlighted on the schematic 
+ are those which you want to package. This normally happens if, for example, 
+ you are trying to package a simple, single element device (such as a resistor) 
+ but another element elsewhere on the schematic is highlighted.</p>
+<p>Should this not be the case and you are trying to package a multi-element 
+ device, follow the instructions below according to the type of device 
+ you want to package.</p>
+<p class="ExampleTitle">Packaging Multi Element Homogeneous Parts:</p>
+<ol type="1" class="Numbers">
+	<li class="Numbers">Highlight a single element.</li>
+	<li class="Numbers">Click on the Make Device icon. <img src="../assets/images/ICON_REFERENCE_CHART/Make_device.gif" style="border: none;" alt="" width="16" height="16" border="0"/></li>
+	<li class="Numbers">Launch the Visual Packaging Tool from the Packaging 
+	 screen on the Make Device wizard. </li>
+	<li class="Numbers">Specify the number of elements via the No. of Gates 
+	 field as shown below.<br/>
+	<br/>
+	<img src="../assets/images/APPERRORS/Number_of_gates.gif" style="border: none;" alt="" width="489" height="189" border="0"/></li>
+</ol>
+<p class="ExampleTitle"> </p>
+<p class="ExampleTitle">Packaging Multi Element Heterogeneous Parts:</p>
+<ol type="1" class="Numbers">
+	<li class="Numbers">Place all the elements that make up the device 
+	 ensuring that all elements are annotated correctly with a sequential 
+	 sequence of element Ids (U1:A, U1:B, etc.) as is shown in the example 
+	 below.<br/>
+	<br/>
+	<img src="../assets/images/APPERRORS/Relay.gif" style="border: none;" alt="" width="327" height="160" border="0"/></li>
+	<li class="Numbers">Highlight all the elements of the device ensuring 
+	 no other components are tagged.</li>
+	<li class="Numbers">Click on the Visual Packaging Tool icon. <img src="../assets/images/ICON_REFERENCE_CHART/Packaging_tool.gif" style="border: none;" alt="" width="16" height="16" border="0"/></li>
+	<li class="Numbers">Proceed with packaging in the normal way.</li>
+</ol>
+<p><span style="font-style: italic; font-weight: bold;">See Also:</span> 
+ </p>
+<p class="Reference"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#Making_a_Device_Element">Making 
+ a Device Element</a>.</p>
+<p class="Reference"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#Making_a_Multi-Element_Homogenous_Device">Making 
+ a Multi Element Homogeneous Device</a>.</p>
+<p class="Reference" style="font-style: normal;"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#Making_a_Multi-Element_Heterogeneous_Device">Making 
+ a Multi Element Heterogeneous Device.</a></p>
+<p class="Reference"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#The_Visual_Packaging_Tool">The 
+ Visual Packaging Tool.</a></p>
+<p class="Reference"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#The_Make_Device_Command">The 
+ Make Device Command.</a></p>
+<h3><a id="Pkgtool_Illegal_Heterogeneous_Devices"></a>Packaging Heterogeneous 
+ Devices</h3>
+<p>The Visual Packaging Tool has encountered problems while trying to package 
+ a multi-element heterogeneous device. The correct techniques for packaging 
+ this type of device are covered in detail in the following help topics:</p>
+<p class="Reference"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#Making_a_Device_Element">Making 
+ a Device Element</a>.</p>
+<p class="Reference" style="font-style: normal;"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#Making_a_Multi-Element_Heterogeneous_Device">Making 
+ a Multi Element Heterogeneous Device.</a></p>
+<p class="Reference"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#The_Visual_Packaging_Tool">The 
+ Visual Packaging Tool.</a></p>
+<p class="Reference"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#The_Make_Device_Command">The 
+ Make Device Command.</a></p>
+<p>A listing of the possible error messages and a summary of the solutions 
+ is given below. Please refer to the help topics for more detailed information.</p>
+<h4>Error : A tagged component with a reference containing element ID &#39;x&#39; 
+ was expected but not found.</h4>
+<p>Where ‘x’ is the element ID (A, B, C, etc.) that was expected but not 
+ found.</p>
+<h5>Cause</h5>
+<p>This means that the heterogeneous elements are incorrectly annotated. 
+ An example is shown below where the elements are annotated RL1:A, RL1:C 
+ but there is no RL1:B element.</p>
+<p class="Diagram"><img src="../assets/images/APPERRORS/Relay_tagged.gif" style="border: none;" alt="" width="402" height="220" border="0"/></p>
+<h5>Solution</h5>
+<p>Re-annotate the elements such that each element is annotated sequentially. 
+ In the above example, the correct annotation is shown below.</p>
+<p class="Diagram"><img src="../assets/images/APPERRORS/Relay_correct.gif" style="border: none;" alt="" width="337" height="168" border="0"/></p>
+<h4>Error: Expected component element &#39;x&#39; to be an instance of &#39;y&#39; or a 
+ later device element.</h4>
+<p>Where ‘x’ is the element ID (A, B, C, etc.) that is in error and ‘y’ 
+ is the device name (library part name) that was expected.</p>
+<h5>Cause:</h5>
+<p>An element of a multi-element heterogeneous device is placed (i.e. is 
+ an instance of) a device that is not the same device or a later device 
+ to that used in the previous element. </p>
+<p>Consider the generic case of a multi-element heterogeneous device consisting 
+ of elements U1:A, U1:B, U1:C, U1:D, etc. where each element is an instance 
+ of a device DEVICE:A, DEVICE:B, DEVICE:C and so on. It is a requirement 
+ that if, for example, U1:A is an instance of DEVICE:A, then U1:B (the 
+ next element) must either also be an instance of DEVICE:A or a later device 
+ (i.e. DEVICE:B, DEVICE:C, etc.). The same applies to U1:C in regard to 
+ U1:B, and so on. </p>
+<h5>Solution:</h5>
+<p>Re-annotate the elements such that moving through the elements (U1:A, 
+ U1:B, etc.) each element is the same or a later device to the device in 
+ the previous element.</p>
+<h4>Error: A tagged component with a reference &#39;x&#39; (i.e. element &#39;y&#39;) was 
+ found but not expected.</h4>
+<p>Where ‘x’ is the component reference of the element that was found and 
+ ‘y’ is the actual element ID.</p>
+<h5>Cause:</h5>
+<p>This error occurs where the annotation of elements in a multi-element 
+ heterogeneous part are not sequential. In the example below, this error 
+ would occur for element ‘C’ ; given that only two elements are highlighted, 
+ an element ‘C’ is unexpected.</p>
+<p class="Diagram"> <img src="../assets/images/APPERRORS/Relay_wrong_order.gif" style="border: none;" alt="" width="365" height="117" border="0"/></p>
+<h5>Solution:</h5>
+<p>Re-annotate the elements such that the annotation is sequential and 
+ consistent with the number of elements. In the example above , having 
+ two elements highlighted they should be annotated as RL1:A and RL1:B as 
+ shown below.</p>
+<p class="Diagram"> <img src="../assets/images/APPERRORS/Relay_correct2.gif" style="border: none;" alt="" width="368" height="114" border="0"/></p>
+<h4>Error: For a multi-element heterogeneous device with N elements there 
+ should be N tagged components with element ID&#39;s A,B,C, etc. in the correct 
+ sequence with no omissions and no extra elements.</h4>
+<h5>Cause: </h5>
+<p>This is a postscript and is applied to any the bottom of any of the 
+ previously discussed errors. It is intended as a reminder to how to correctly 
+ annotate the elements of a multi-element heterogeneous device. </p>
+<h5>Solution:</h5>
+<p>Review the help on the actual error messages to determine how to correct 
+ the error.</p>
+<h3><a id="Pkgtool_Errors_with_Pins"></a>Packaging Errors with Pins</h3>
+<p>The Visual Packaging Tool has encountered problems with the pins on 
+ the device you are trying to package. Below is a listing of possible error 
+ messages and the steps you should take to correct the error.</p>
+<h4>Error: There are two more pins with the same name (‘x’) in legacy device 
+ ‘y’.The device cannot be packaged until it is re-made via the Make Device 
+ command (you do not need to rename the pins)</h4>
+<p>Where ‘x’ is the pin name that is duplicated and ‘y’ is the name of 
+ the device (library part) containing the duplicate pins.</p>
+<h5>Cause:</h5>
+<p>You have a device (created in an earlier version of the software ) in 
+ which more that one pin has the same name.</p>
+<h5>Solution:</h5>
+<p>Edit the pin names on the device (you may first have to decompose the 
+ part) such that each device pin has a unique name.</p>
+<p class="Tip">With Proteus it is possible to have more than one pin with 
+ the same pin name on a device and these pins are considered internally 
+ connected. This is useful if, for example, you want to want to wire ‘through’ 
+ a device and so would place one pin on either side of the device body. 
+ You must, however, remake the device in Proteus to avoid any possible 
+ legacy issues with older library parts. </p>
+<p class="Warning">We consider this functionality to be for advanced users 
+ of the software and should not be attempted if you are unsure of the consequences.</p>
+<h4>Error: Pin &#39;x’ found in two different heterogeneous devices (y and 
+ z). This is not allowed.</h4>
+<p>Where ‘x’ is the name of the pin and ‘y’ and ‘z’ are the two devices 
+ (library parts) that contain the pin.</p>
+<h5>Cause:</h5>
+<p>You are attempting to package a multi-element heterogeneous device where 
+ two or more different devices (library parts) that make up the overall 
+ device contain a pin with the same name. </p>
+<p>Note that this error does not occur where you are making a multi-element 
+ heterogeneous device where two or more elements are instances of the same 
+ library part – for example, a relay consisting of a coil (an instance 
+ of RELAY:A) and two sets of contacts (two instances of RELAY:B). In this 
+ case the two contact elements will, by definition, have like pins, but 
+ since both elements are the same device, this is legal. However, if the 
+ coil (RELAY:A) and contacts (RELAY:B) both contained a pin with the same 
+ pin name, this would be an error.</p>
+<h5>Solution:</h5>
+<p>Re-make one or more of the devices that make up the multi-element device 
+ such that its pin names are unique (i.e. decompose the device, reannotate 
+ the pins and re-make the device). Ensure you say ‘yes’ to update the existing 
+ devices in the schematic when prompted before re-starting the Visual Packaging 
+ Tool.</p>
+<h3><a id="Pkgtooll_Warning_Messages"></a>Packaging Tool Warning Messages</h3>
+<p>The Visual Packaging Tool has encountered one or more warnings while 
+ packaging the device. The possible warning messages along with explanations 
+ are listed below:</p>
+<h4>Warning : Bus pin ‘x’ of device ‘y’ has no range.</h4>
+<p>Where ‘x’ is the name of the bus pin and ‘ y’ is the name of the device.</p>
+<h5>Cause:</h5>
+<p>You have used a bus pin for which there is no range specified. Each 
+ bus pin must have a range specified in order that you can tap off the 
+ bus and that you can correctly package the device.</p>
+<h5>Solution:</h5>
+<p>Edit the bus pin (you may first have to decompose the part) and specify 
+ a range for the bus. The example below shows the Edit Pin dialogue form 
+ for a bus pin and the syntax for a standard eight pin bus. Note that you 
+ can choose to have the bus range hidden on the schematic if you prefer 
+ it but you must specify a range.</p>
+<p class="Diagram"> <img src="../assets/images/APPERRORS/Bus_pin.gif" style="border: none;" alt="" width="337" height="323" border="0"/></p>
+<p style="font-style: italic; font-weight: bold;">See Also:</p>
+<p class="Reference"><a href="../OBJECT_SPECIFICS/Buses.htm">Buses.</a></p>
+<p class="Reference"><a href="../OBJECT_SPECIFICS/Buses.htm#Bus_Labels">Labelling 
+ a Bus.</a></p>
+<p class="Reference"><a href="../OBJECT_SPECIFICS/Buses.htm#Bus_Properties">Bus 
+ Properties.</a></p>
+<h4>Warning: Packaging ‘x’ specified in &#39;y’ is different to packaging specified 
+ in &#39;z’</h4>
+<p>Where ‘x’ is the name of a packaging and ‘y’ and ‘z’ are two devices.</p>
+<h5>Cause:</h5>
+<p>This occurs only with legacy devices only and means that you are packaging 
+ a multi-element device where different elements specify the same package 
+ name (e.g. DIL40) but the pinouts (which specify the pin numbering) for 
+ each element is different. This is ambiguous and only one of the pinouts 
+ (sets of numbering) will be used. </p>
+<h5>Solution:</h5>
+<p>You can safely continue from this warning but be sure to double check 
+ that the pin numbering for the named packaging is correct in the Visual 
+ Packaging Tool.</p>
+<h4>Warning: Device &#39;x’ was not found in any library.</h4>
+<p>Where x is the name of a device that was not found.</p>
+<h5>Cause:  </h5>
+<p>The device you are trying to package cannot be found in any of the ISIS 
+ libraries. This may be because you have not created the part (i.e. the 
+ schematic has been passed to you from another user who has created the 
+ part in his libraries) or that the location of the library containing 
+ the part is not included in your system path.</p>
+<h5>Solution:</h5>
+<p>This warning can in general, be safely ignored. Its purpose is to indicate 
+ that if you subsequently bring in to play the original library containing 
+ the original device, you will have two instances of the same device in 
+ two different libraries. It is good library discipline to ensure that 
+ a device only occurs in one library.</p>
+<h4>Warning: Device &#39;x&#39; was found in a read-only library &#39;y&#39;.</h4>
+<p>Where ‘x’ is the name of the device you are packaging and ‘y’ is the 
+ name of a device library that is set as read-only.</p>
+<h5>Cause:</h5>
+<p>The device for which you are trying to assign packages exists in a library 
+ that is read-only. This is either because it is in a library supplied 
+ with the software, because you have specified one of your own libraries 
+ to be read-only, or because your user permissions prevent you from writing 
+ to the library.</p>
+<h5>Solution:</h5>
+<p>The purpose of this warning is to indicate that if you now store the 
+ part in a writable library, the same named device will be in two different 
+ libraries and this will may lead to ambiguities later on. </p>
+<p>At the stage of getting the warning message it is probably best to immediately 
+ store the newly packaged device in any suitable writable library and then 
+ resolve the issue as follows:</p>
+<ul type="disc">
+	<li>If the original part exists in one of  the system libraries 
+	 (i.e. a library supplied with the software) then use the Library Manager 
+	 (launched from the Library menu) to change the name of the newly packaged 
+	 device such that its name is unique.</li>
+	<li>If the part exists in one of your own user libraries which is set 
+	 to read-only then use the Library Manager (launched from the Library 
+	 menu) to temporarily remove the read-only setting on the library and 
+	 to then move the part from the library you saved it in to your own 
+	 library and then restore the read-only setting.</li>
+	<li>If your access permissions prevent you from writing to the library 
+	 you will need to contact your Network Administrator to resolve the 
+	 issue.</li>
+</ul>
+<p>Bear in mind that it is important to maintain Library Discipline to 
+ avoid future complications.</p>
+<p class="Tip">You should always avoid having the same named library part 
+ in two or more libraries to avoid ambiguities. </p>
+<p class="Tip">You should never update parts in the system libraries (those 
+ supplied with the software as these may be overwritten by a future update 
+ of the software.</p>
+<h4>Warning: Device &#39;x&#39; was found in a different library (y) to other tagged 
+ devices.</h4>
+<p>Where ‘x’ is the name of the device you are packaging and ‘y’ is the 
+ name of a library.</p>
+<h5>Cause:</h5>
+<p>You are attempting to package a multi-element heterogeneous device where 
+ not all the devices that make up the heterogeneus device exist in the 
+ same library. For example, if you are packaging a relay, where the coil 
+ exists in one library and the contacts are in another, then you will get 
+ this warning message.</p>
+<h5>Solution:</h5>
+<p>Use the Library Manager (selectable from the Library menu) to move the 
+ element(s) such that all elements are in the same library and are not 
+ duplicated in any other library. You can then safely package the device.</p>
+<h4>Warning: Device &#39;x’ was found in several libraries.</h4>
+<p>Where x is the name of the device you are packaging.</p>
+<h5>Cause:</h5>
+<p>The device you are trying to package exists in more than one library. 
+ This is either because you have created the device more than once and 
+ placed it in a different library each time, or because you have altered 
+ a device that exists in the system libraries (those supplied with the 
+ software) and placed it in one of your own libraries without using a different 
+ name.</p>
+<h5>Solution:</h5>
+<ul type="disc">
+	<li>If the device exists in more than one of your own libraries you 
+	 should either delete the device from one library or, should the devices 
+	 be different in appearance or functionality, rename the devices via 
+	 the Library Manager (selectable from the Library menu).</li>
+	<li>If the device exists in one of the system libraries and also in 
+	 one of your own libraries you should rename the part in your library 
+	 such that it has a unique name.</li>
+</ul>
+<p>You can then safely package the device.</p>
+
+</div>
+<p> </p>
+
+</body></html>

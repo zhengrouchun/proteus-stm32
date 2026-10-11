@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Project Clips</title>
+  
+  <meta name="rh-index-keywords" content="Section Files (now Project Clips),Re-use (Project Clips),Design Snippets,project clips"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">PROJECT CLIPS</h1>
+  <h3><a id="Overview"></a>Overview</h3>
+  <p>Project clips (or snippets) provide a formal way to reuse parts of an existing project in future work. The basic idea is simple; select an area of schematic and/or an area of layout and then export them to disk for import into future projects. There are however some important rules and limitations which are explained below.</p>
+  <p class="Movie"> <a href="https://www.youtube.com/watch?v=9ZPok7dK5g0" target="_blank">Project Clips Practical Examples</a></p>
+  <h3><a id="Schematic_and_Layout_Snippets"></a>Schematic and Layout Project Clip</h3>
+  <p>A schematic and layout project clip is the normal scenario. You have a section of circuitry and a corresponding section of layout that you either want several copies of in a board and/or you want to re-use in future projects.</p>
+  <h4>Creating</h4>
+  <p class="ExampleTitle">To create a schematic and layout project clip</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Organise your schematic so that everything you want in the project clip is on a single sheet. Drag a selection box around the circuitry on the Schematic.<br/>
+      <br/>
+      <img alt="" border="0" height="403" src="../assets/images/ISIS_AND_ARES/Selected_clip.png" style="border: none;" width="556"/>
+    </li>
+    <li class="Numbers">The layout selection on the PCB must precisely match the schematic selection. If you are creating the project clip from a completed or existing project this will almost certainly require some surgery so save your project under a temporary name before you begin! Use the <a href="ARES.chm::/GENERAL_CONCEPTS/Object_Editing.htm#The_Selection_Filter">selection filter</a> or simply move and delete as appropriate until you can drag a selection box around the parts and tracking that you want. When you are finished drag a selection box around the area of PCB.<br/>
+      <br/>
+      <img alt="" border="0" height="387" src="../assets/images/ISIS_AND_ARES/Selected_clip_pcb.png" style="border: none;" width="565"/>
+    </li>
+    <li class="Numbers">Right click inside the selection box and select the Export Project Clip command from the context menu. By default, this will save the project clip (*.PDSCLIP) into the SNIPPETS directory of your Proteus installation.<br/>
+      <br/>
+      <img alt="" border="0" height="425" src="../assets/images/ISIS_AND_ARES/Export_clip_ctx_menu2.png" style="border: none;" width="303"/>
+    </li>
+  </ol>
+  <p class="Tip">This is an operation involving a selection box on the schematic and a second selection box on the layout. If your monitor is big enough it&#39;s useful to split the layout tab into a separate frame so that you can see both at the same time.</p>
+  <p class="Tip">You need to manually arrange the selection box on the layout as, apart from footprints, we cannot make decisions on which objects are included. Your selection box therefore tells us whether enclosed tracking, 2D Graphics, enclosed zones, etc. should form part of the project clip.</p>
+  <p class="Reference"><a href="#Rules_for_Snippets">Rules for Project Clips </a></p>
+  <h4>Importing</h4>
+  <p class="ExampleTitle">To import and place a schematic and layout project clip</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers" style="font-weight: normal;">
+      <p class="ExampleTitle" style="font-weight: normal; 
+														 text-decoration: none; ">Start from the schematic module and go to file menu and insert project clip command.<br/>
+        <br/>
+        <img alt="" border="0" height="316" src="../assets/images/ISIS_AND_ARES/Import_project_clip.png" style="border: none;" width="352"/>
+      </p>
+    </li>
+    <li class="Numbers">Place the project clip on the schematic.<br/>
+      <br/>
+      <img alt="" border="0" height="238" src="../assets/images/ISIS_AND_ARES/Placing_project_clip.png" style="border: none;" width="327"/>
+    </li>
+    <li class="Numbers">The corresponding project clip will then appear in the parts bin on the PCB, denoted by a scissors icon at the right hand side.<br/>
+      <br/>
+      <img alt="" border="0" height="418" src="../assets/images/ISIS_AND_ARES/Project_Clips_in_ares.png" style="border: none;" width="339"/>
+    </li>
+    <li class="Numbers"><span>Click on any component part of the project clip and place on the layout.</span><br/>
+      <br/>
+      <img alt="" border="0" height="287" src="../assets/images/ISIS_AND_ARES/Placing_project_clip_in_ares.png" style="border: none;" width="551"/>
+    </li>
+  </ol>
+  <h3><a id="Schematic_Only_Snippets"></a>Schematic Only Project Clips</h3>
+  <p>A schematic only project clip is an area of schematic design that you wish to re-use in future schematics but for which there is no accompanying board layout in place. For example, an Arduino shield may be created for simulation purposes and re-used in several projects.</p>
+  <h4>Creating</h4>
+  <p class="ExampleTitle">To create a schematic only project clip</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Organise your schematic so that everything you want in the project clip is on a single sheet. Drag a selection box around the circuitry.<br/>
+      <br/>
+      <img alt="" border="0" height="256" src="../assets/images/ISIS_AND_ARES/Project_clips_isis_only.png" style="border: none;" width="353"/>
+    </li>
+    <li class="Numbers">Right click inside the selection box and select the Export Project Clip command from the context menu. By default, this will save the project clip (*.PDSCLIP) into the SNIPPETS directory of your Proteus installation.<br/>
+      <br/>
+      <img alt="" border="0" height="134" src="../assets/images/ISIS_AND_ARES/Export_clip_ctx_menu_msg.png" style="border: none;" width="565"/>
+    </li>
+  </ol>
+  <h4>Importing</h4>
+  <p class="ExampleTitle">To import a schematic only project clip</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers" style="font-weight: normal;">
+      <p class="ExampleTitle" style="font-weight: normal; 
+														 text-decoration: none; ">Start from the schematic module and go to file menu and insert project clip command.<br/>
+        <br/>
+        <img alt="" border="0" height="316" src="../assets/images/ISIS_AND_ARES/Import_project_clip.png" style="border: none;" width="352"/><br/>
+         
+      </p>
+    </li>
+    <li class="Numbers">Place the project clip on the schematic.<br/>
+      <br/>
+      <img alt="" border="0" height="238" src="../assets/images/ISIS_AND_ARES/Placing_project_clip.png" style="border: none;" title="pla" width="327"/>
+    </li>
+  </ol>
+  <p> </p>
+  <p class="Tip">A schematic only project clip replaces the old Proteus 7.xx Section file technology. You can import existing section files via the Import Project Clip command and change the file type selector to section files. You should then create a project clip from the imported data.</p>
+  <h3><a id="Layout_Only_Snippets"></a>Layout Only Project Clip</h3>
+  <p>A layout only project clip is an area of PCB layout that you wish to re-use in future boards that does not have a direct schematic equivalent. This is both extremely unusual and potentially unsafe (annotation clashes) but is included here for completeness.</p>
+  <h4>Creating</h4>
+  <p class="ExampleTitle">To create a layout only project clip</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Organise your layout so that everything you want in the project clip is on a single sheet. Drag a selection box around the circuitry on the layout and use the selection filter to define selected object types.</li>
+    <li class="Numbers">Right click inside the selection box and select the Export Project Clip command from the context menu. By default, this will save the project clip (*.PDSCLIP) into the SNIPPETS directory of your Proteus installation.<br/>
+      <br/>
+      <img alt="" border="0" height="418" src="../assets/images/ISIS_AND_ARES/Layout_only_clip.png" style="border: none;" width="615"/>
+    </li>
+  </ol>
+  <h4>Importing</h4>
+  <p class="ExampleTitle">To import a layout only project clip</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers"><span>Start from the layout module, go to file menu and insert project clip command.</span></li>
+    <li class="Numbers">Place the project clip on the layout.</li>
+  </ol>
+  <p class="Warning">Importing a PCB only project clip (or indeed copy and pasting parts of a layout) when you have a schematic and live netlisting is on can have unintended consequences. If no duplicates exist, the annotation of the clip is preserved but the footprints will bind to schematic components with that annotation which may well not be what you want to do. If you are unsure then you should first clear the netlist (tools menu in ARES), then import the project clip and fix up the annotation as desired and finally turn live netlisting back on to sync.</p>
+  <p class="Tip"><span>A layout only project clip replaces the old Proteus 7.xx Region file technology. You can import existing region files via the Import Project Clip command and change the file type selector to region files. You should then create a project clip from the imported data.</span></p>
+  <h3><a id="Rules_for_Snippets"></a>Rules for Project Clips</h3>
+  <ul class="bulletblue">
+    <li class="bulletblue">A schematic and layout project clip requires that <span style="font-weight: bold; text-decoration: underline; ">exactly</span> the same parts are selected in both the schematic and the layout. You cannot have a selection on the layout that contains components with different part references than those selected on the schematic, nor can you have parts highlighted on the schematic which are not highlighted in the layout.</li>
+    <li class="bulletblue">A project clip on the schematic will operate only on the current sheet. Do not create a schematic snippet that contains a sub-circuit. Snippets do not propagate down through the schematic hierarchy and the sub-circuit contents will not be saved/imported.</li>
+    <li class="bulletblue">A schematic and layout project clip must first be imported into the schematic. This will initialise the parts such that placement on the layout is correct and there are no annotation clashes with other circuitry.</li>
+    <li class="bulletblue">If a power plane is not completely enclosed by the selection on the layout it will not be included in the project clip. The assumption is that the clip will be placed on a board where an equivalent plane is in use. If not, then clearly there will be missing connections on import.</li>
+    <li class="bulletblue">Once placed on the PCB layout the project clip is no longer a single entity. Each object (component, track, via, etc.) is moved or edited independently.</li>
+    <li class="bulletblue">If you import a project clip into a schematic sub-circuit it will replicate across circuits with the same name <span style="text-decoration: underline; ">that are already placed</span>. Subsequently adding a sub-circuit and giving it the same circuit name will not however automatically create a snippet instance. You should either import multiple snippets onto a root sheet or make very sure that you have all your sub-circuits in place before importing the snippet to one of them.</li>
+    <li class="bulletblue">If you are working with <a href="Assembly_Variants.htm">Assembly Variants</a> and are exporting a project clip then the property set of the current variant will be exported. The fitted or not fitted status is not exported because the imported project clip will also import onto the base design of the destination.</li>
+  </ul>
+
+</div>
+<p> </p>
+
+</body></html>

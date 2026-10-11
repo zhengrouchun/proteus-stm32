@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Net Name Syntax</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">SPECIAL NET NAME SYNTAXES</h1>
+  <h3>Global Nets</h3>
+  <p>Occasionally, in a hierarchical design, it is useful to be able to make a connection on a child sheet directly to another sheet (root or child) without running up and down the hierarchy. Typically, this requirement arises either when debugging a design with VSM, or else relates to signals such as clocks which are global to the design. Either way, Proteus recognises a leading exclamation mark (&#39;!&#39;) in a net name as defining a global net. Hence a terminal labelled as !CLK will be deemed connected to any other terminal labelled !CLK, as well as to any terminals labelled just CLK on the root sheets.</p>
+  <p class="Tip">It is not necessary to do this for power nets, unless you have de-selected the Global Power Nets option on the Edit Design Properties dialogue form.</p>
+  <p class="Tip">Unnamed power and ground terminals in fact donate the names !VCC and !GND and so are global unless labelled otherwise</p>
+  <h3><a id="Inter-Element_Connections_for_Multi-Element_Parts"></a>Inter-Element Connections for Multi-Element Parts</h3>
+  <p>This feature was introduced specifically to deal with an obscure problem in the creation of VSM models and is unlikely to find general use. However, we document it here for completeness.</p>
+  <p>Consider a model for a 1458 dual op-amp. Clearly two instances of this model are required and they share the same power connections. However, the 1458 device only has power pins drawn on op-amp A. How then does one specify the power connections for op-amp B?</p>
+  <p>We solve this by declaring that the terminal net name *V+ on a child sheet specifies an interconnection between the nets on all child sheets attached to the same parent part, and between those nets and any V+ pins on the parent component elements. The trigger for this mechanism is the leading asterisk (&#39;*&#39;) character</p>
+
+</div>
+<p> </p>
+
+</body></html>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+<meta name="template" content="../assets/masterpages/LX Master.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Component Placement Report</title>
+
+<meta name="rh-index-keywords" content="Report:Component Placement Report"/><meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body page-style="x-size: Letter;">
+<div>
+<h1 position="fixed">COMPONENT PLACEMENT REPORT</h1>
+<h3>Introduction</h3>
+<p>The component placement report list the grid square on the schematic 
+ sheet (e.g. A1, C3) where a component can be found. It is typically used 
+ in review sessions with schematic printouts.</p>
+<p>Create a component placement report requires two steps, namely:</p>
+<p>1) Placement of grid markers on the master sheet border.</p>
+<p>2) Generation of the report in Project Notes.</p>
+<h3><a id="Grid_Markers"></a>Grid Markers</h3>
+<p>The good news is that if you are using one of the Labcenter standard 
+ templates which come with a border grid (e.g. Landscape A4) then this 
+ step is done and there is no action required. If on the other hand you 
+ are using your own template you have a little setup work to do. Bear in 
+ mind that you only have to do this once because you can in turn save your 
+ border as a Template of your own so it&#39;s available to you in future designs.</p>
+<p class="Diagram"><img src="../assets/images/GENERAL_CONCEPTS/createSmartGrid.png" alt="" style="border: none;" width="800" height="254" border="0"/></p>
+<p class="DiagramText">Basic Procedure for creating a smart grid with a 
+ sheet border.</p>
+<p> </p>
+<p>Start by creating a border with numbers on one axis and letters on the 
+ other on the Master sheet.</p>
+<p class="Diagram"><img src="../assets/images/GENERAL_CONCEPTS/sheetBorder.png" alt="" style="border: none;" width="537" height="368" border="0"/></p>
+<p class="DiagramText">Sheet border with numbers (Y-Axis) and Letters (X-Axis) 
+ along with separators</p>
+<p class="Tip">Alternatively, just start a design based on one of our templates 
+ of the right size and then modify as normal. </p>
+<p class="Warning">Remember that the border should be created on the <a href="../TEMPLATES/The_Master_Sheet.htm">Master Sheet</a> so that 
+ it is visible on all sheets. </p>
+<p>Once the border is in place you need to place and orient grid markers 
+ along the separators.</p>
+<p class="ExampleTitle">To place a grid marker:</p>
+<p>1) Select Marker mode and then the GRID marker from the parts bin.</p>
+<p>2) Left click on the editing window to start placement.</p>
+<p>3) Use the &#39;+ and &#39;-&#39; keyboard buttons on the num keypad to orient the 
+ marker such that it aligns with the separator.</p>
+<p>4) Move the marker over the separator and left click again to place.</p>
+<p>5) Repeat for the other separators.</p>
+<p class="Diagram"><img src="../assets/images/GENERAL_CONCEPTS/placeGridMarker.png" alt="" style="border: none;" width="533" height="323" border="0"/></p>
+<p class="DiagramText">Placing a grid marker over the separator between 
+ two named cells.</p>
+<p class="Tip">If you can&#39;t rotate live just place the marker beside where 
+ you want it to go then right click on it and select one of the rotation 
+ commands to align it. Finally, right click again and select drag to pick 
+ it back up again and move it over the separator.</p>
+<p>You are aiming to place a grid marker over each separator on the Y-axis. 
+ Then you need to rotate the grid marker so that it aligns with the separators 
+ on the x-axis and place a grid marker over each separator. You don&#39;t need 
+ to place grid markers on all four sides. One horizontal size and one vertical 
+ side is enough. Proteus will extend these markers internally across the 
+ sheet to slice the sheet into sections and will then identify which components 
+ are in each section. This data, along with the section names (A4, C2, 
+ etc)  is what populates the component placement report.</p>
+<p class="Tip">You may want to save this border as a template at this stage 
+ so that you can re-use in future designs. You can do so from the Template 
+ menu.</p>
+<h3><a id="Generating_the_Report"></a>Generating the Report</h3>
+<p>To generate the report simply open the Project Notes module and select 
+ the Component Placement Report from the resulting templates.</p>
+<p class="Diagram"><img src="../assets/images/GENERAL_CONCEPTS/componentPlacementReport.png" alt="" style="border: none;" width="319" height="329" border="0"/></p>
+<p class="DiagramText">Component Placement Report selected in Project Notes 
+ module.</p>
+<p>If you already have a report open in Project Notes you can select New 
+ Note from the File menu and then select from the template list. If you 
+ want to add the information to a custom report you&#39;ll find it available 
+ in the Project Data menu for manual insertion.</p>
+<p class="Diagram"><img src="../assets/images/GENERAL_CONCEPTS/componentPlacementData.png" alt="" style="border: none;" width="211" height="235" border="0"/></p>
+<p class="DiagramText">Adding the data to a custom report.</p>
+<p>The table itself is very simple and, for each component in the design, 
+ lists the sheet and grid reference where the component can be found. This 
+ makes for quick lookup when the schematic is printed out onto sheets of 
+ paper.</p>
+<p> </p>
+<p class="Tip">Note of course that inside the Proteus software you can 
+ cross probe using design explorer or use search and tag to quickly zoom 
+ in to a part.</p>
+
+</div>
+<p> </p>
+
+</body></html>

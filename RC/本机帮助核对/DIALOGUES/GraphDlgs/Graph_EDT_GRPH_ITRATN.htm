@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Edit Graph Iteration</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Simulation Options - Iteration</h1>
+<h4>Integration Method</h4>
+<p>Specifies an integration method  (can be either Gear or Trapezoidal).</p>
+<p>Trapezoidal Integration is provided mainly for backward compatibility 
+ with previous versions of SPICE since Gear integration generally gives 
+ more accurate results for a given number of time-steps.</p>
+<p>In Gear integration, higher orders than 2 are possible; this involves 
+ SPICE using more of the past history of a time-point in predicting what 
+ happens at the next time-point.</p>
+<h4>Maximum Integration Order</h4>
+<p>Specifies the maximum level of integration for a particular integration 
+ method. This is limited to an order of 2 for the Trapezoidal Method but 
+ higher orders are permitted for the Gear Method.</p>
+<h4>Number of Source Steps</h4>
+<p>Specifies the number of steps you want in SPICE’s Source Stepping mode. 
+ This is an approach utilied by SPICE when it fails to find convergence 
+ at the operating point. All power supplies in the circuit are started 
+ at zero and are ramped up to their proper values in  a number of 
+ steps as determined by this parameter.</p>
+<h4>Number of GMIN Steps</h4>
+<p>Specifies the number of steps you want in SPICE’s GMIN Stepping mode. 
+ This is an approach utilized by SPICE when it fails to find convergence 
+ at the operating point. The GMIN parameter is increasingly reduced until 
+ convergence occurs, and then ramped back to its proper value. The number 
+ of attempts is determined by this parameter.</p>
+<h4>DC Iteration Limit</h4>
+<p>Specifies the maximum number of iterations that will be tried at the 
+ operating point.</p>
+<h4>DC transfer curve iteration limit</h4>
+<p>Specifies the maximum number of iterations that will be tried at a step 
+ in a Transfer Curve Analysis.</p>
+<h4>Upper Transient Iteration Limit</h4>
+<p>Specifies the maximum number of iterations that will be tried at a time 
+ point in a Transient Analysis.</p>
+<h4>Go directly to GMIN stepping?</h4>
+<p>Specifies whether or not you want SPICE to directly adopt the GMIN Stepping 
+ mode. SPICE uses this mode when it fails to find convergence at the operating 
+ point.</p>
+<h4>Try compaction for LTRA lines?</h4>
+<p>Specifies whether or not you want LTRA compaction performed on the simulation. 
+ This applies only for circuits incorporating lossy transmission lines 
+ (LOSSYLINE model). The idea is that near identical values in the data 
+ pipeline get discarded so that this data points are processed.</p>
+<h4>Allow bypass on unchanging elements?</h4>
+<p>Specifies whether or not you want to bypass unchanging elements in the 
+ simulation. This is a general optimization that saves SPICE from re-computing 
+ the values of semiconductor devices whose node voltages have not changed 
+ since the last evaluation.</p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

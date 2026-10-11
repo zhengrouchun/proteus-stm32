@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>General Editing Facilities</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">GENERAL EDITING FACILITIES</h1>
+  <h3><a id="Placing:an_Object" data-indexterm="Placing:an Object"></a><a id="Object_Placement"></a>Object Placement</h3>
+  <p>Proteus supports many types of object, and full details of the purpose and behaviour of each type is given in the chapter on Object Specifics. However, the basic steps for placing an object are the same for all types.</p>
+  <p class="ExampleTitle">To place an object:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select the appropriate icon from the Mode Selector toolbar for the category of object that you want to place.</li>
+    <li class="Numbers">If the object type is Component, Terminal, Pin, Graph, Symbol or Marker, select the name of the object that you want from the selector. For Components, Terminals, Pins and Symbols, this may first involve picking it from the libraries.</li>
+    <li class="Numbers">If the object is orientable, it will have appeared in the Overview Window. You should now adjust its orientation to that which you require by clicking on the Rotation and Mirror icons.</li>
+    <li class="Numbers">Finally, point on the Editing Window, click left to enter placement mode, move the mouse to the location on the schematic where you want to place the object and left click the mouse to deposit the object and exit placement mode.. The exact procedures vary for each object type but you will find it all fairly intuitive and similar to other graphics software.</li>
+  </ol>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="ISISTUT.chm::/Tutorial/Basic_Schematic_Entry.htm#Selecting_Parts_from_the_Library">Selecting Parts from the Library (Tutorial)</a></p>
+  <p class="Reference"><a href="ISISTUT.chm::/Tutorial/Basic_Schematic_Entry.htm#Placing_Objects_on_the_Schematic">Placing Objects on the Schematic (Tutorial)</a></p>
+  <h3><a id="Selecting_/_Tagging:an_Object_(generic)" data-indexterm="Selecting / Tagging:an Object (generic)"></a><a id="Tagging_an_Object"></a>Tagging an Object</h3>
+  <p>Tagging or highlighting an object can be done in several ways as detailed below :</p>
+  <ul type="disc">
+    <li>Entering selection mode and left clicking on the object.</li>
+    <li>Right clicking on the object (tags the object and presents you with that objects context menu.</li>
+    <li>Dragging a box around the object (or objects!) using the left mouse button.</li>
+    <li>Modeless selection by clicking the left mouse button on the object. This is extremely fast and works for all objects except for wires and 2D Graphic objects where one of the above methods must be used.</li>
+  </ul>
+  <p>Normal use would be to use either modeless selection or simply to right click on the object, however it is very much an area for personal preference.</p>
+  <p>Objects may be de-selected either by right clicking in free space and selecting the Clear Selection option from the context menu or simply by left clicking in free space.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="ISISTUT.chm::/Tutorial/Basic_Schematic_Entry.htm#Timesaving_Techniques___Block_Editing">Timesaving Techniques &amp; Block Editing (Tutorial).</a></p>
+  <h3><a id="Deleting_an_Object"></a>Deleting an Object</h3>
+  <p>You can delete any object by pointing at it, clicking right and selecting Delete from the resulting context menu. All wires connected to the object will also be deleted, except in the case of a dot connected to exactly 2 wires, in which case the wires will be joined.</p>
+  <p class="Tip">Note that for 2D Graphics objects you must right click on the border of the graphic to invoke the context menu - it is possible that 2D graphics may be placed around or behind another object and it is therefore necessary to ensure that the 2D graphic (as opposed to the other object) is the one you want to action on.</p>
+  <h3><a id="Dragging_an_Object"></a>Dragging an Object</h3>
+  <p>You can drag (i.e. re-position) any tagged object by pointing at it (the cursor will change to indicate that the object can be dragged)and then dragging with the left button depressed. This applies not only to whole objects, such a components, but also individually to their labels.</p>
+  <ul type="disc">
+    <li>If the Wire Auto Router is enabled and there are wires connected to it, then these will be re-routed or &#39;fixed up&#39;. This can take some time if the object has a lot of connected wires; the pointer becomes an hour glass while this is happening.</li>
+    <li>If you drag an object by mistake, and all the wiring goes horribly wrong, you can use the Undo command, key CTRL+Z to restore things to their original state.</li>
+  </ul>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="ISISTUT.chm::/Tutorial/Basic_Schematic_Entry.htm">Basic Schematic Entry (Tutorial)</a></p>
+  <p class="Reference"><a href="ISISTUT.chm::/Tutorial/Basic_Schematic_Entry.htm#Timesaving_Techniques___Block_Editing">Block Editing (Tutorial)</a></p>
+  <h3><a id="Labels:Dragging" data-indexterm="Labels:Dragging"></a><a id="Dragging_an_Object_Label"></a>Dragging an Object Label</h3>
+  <p>Many object types have one or more labels attached to them. For example, each component has a reference label and a value label. It is very easy to move these labels in order to improve the appearance of your schematics.</p>
+  <p class="ExampleTitle">To move a label:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Tag the object by one of the methods outlined above.</li>
+    <li class="Numbers">Point at the label and depress the left mouse button.</li>
+    <li class="Numbers">Drag the label to the required position. If you need to position it very finely, you can change the snap resolution using the shortcut keys (by default these are mapped to F4, F3, F2, CTRL+F1) even whilst dragging.</li>
+    <li class="Numbers">Release the mouse button to finish.</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="136" src="../assets/images/GENERAL_CONCEPTS/Dragging_label.png" style="border: none;" width="636"/></p>
+  <h3><a id="Resizing_an_Object"></a>Resizing an Object</h3>
+  <p>Sub-circuits, graphs, lines, boxes and circles may be resized. When you tag these objects, little white squares called handles will appear and the object can be re-sized by dragging the handles.</p>
+  <p class="ExampleTitle">To resize an object:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Tag the object by entering selection mode and left clicking on the object (remember to left click on the border if the object is a 2D Graphic).</li>
+    <li class="Numbers">If the object can be resized, a set of little square handles will appear on it.</li>
+    <li class="Numbers">Resize the object by pointing at a handle, pressing the left mouse button, and dragging it to a new position. The handles disappear whilst you are dragging so that they do not obscure your view of the object itself.</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="167" src="../assets/images/GENERAL_CONCEPTS/Resizing_2D_graphics.png" style="border: none;" width="630"/></p>
+  <p class="Reference">See the section on Resizing 2D Graphics for information about advanced use of handles when resizing 2D graphics path objects.</p>
+  <h3><a id="Reorienting_an_Object"></a>Reorienting an Object</h3>
+  <p>Many of the object types may be oriented - that is rotated through 0°, 90°, 270° and 360° and reflected in x and/or y. If such an object is tagged, the Rotation and Mirror icons will change colour from blue to red, and will then affect the tagged object.  </p>
+  <p class="ExampleTitle">To reorient an object:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Tag the object using one of the methods outlined here.</li>
+    <li class="Numbers">Click left on the rotation  icon to rotate it anti-clockwise, right to rotate it clockwise.</li>
+    <li class="Numbers">Click left on the Mirror icon to toggle its reflection in x, and right to toggle its reflection in y.</li>
+  </ol>
+  <p>It is worth noting that if the Rotation and Mirror icons are red, operating them will affect an object somewhere on the diagram, even if you cannot currently see it. This becomes important if, in fact, you wish to manipulate a new object which you are about to place. If the icons are red, first untag the existing object by pointing at an empty area of the design in the Editing Window and clicking left. The icons will then revert to blue, indicating that it is &#39;safe&#39; to adjust them.</p>
+  <p class="Diagram"><img alt="" border="0" height="142" src="../assets/images/GENERAL_CONCEPTS/Rotation_icons.png" style="border: none;" width="39"/></p>
+  <p class="DiagramText">Rotation Icons</p>
+  <h3><a id="Editing:An_Object" data-indexterm="Editing:An Object"></a><a id="Editing_an_Object"></a>Editing an Object</h3>
+  <p>Many of the objects have graphical and/or textual properties that may be edited through a dialogue form, and because this is a very common operation we have provided a variety of ways to achieve it.</p>
+  <p class="ExampleTitle">To edit a single object using the mouse:</p>
+  <p>Either:</p>
+  <p>Right click on the object and select Edit Properties from the resulting context menu.</p>
+  <p>Or:</p>
+  <p>Double click the left mouse button on the object.</p>
+  <p class="ExampleTitle">To edit a succession of objects using the mouse:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Enter Selection Mode.</li>
+    <li class="Numbers">Point at each object in succession and click left.</li>
+  </ol>
+  <p class="ExampleTitle">To edit an object and access special edit modes:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Point at the object.</li>
+    <li class="Numbers">Press the shortcut for ‘Edit Object Under Mouse‘ (default assignation is CTRL+&#39;E&#39;).</li>
+  </ol>
+  <p>For text scripts, this will invoke the external text editor. Also, if the mouse is not over any object, this command will edit the current graph, if any.</p>
+  <p class="ExampleTitle">To edit a component by name:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Key the shortcut for ‘Find and Edit Component’ (default assignation is ‘E’).</li>
+    <li class="Numbers">Type in the reference name (part ID) of a component.</li>
+  </ol>
+  <p>This will locate and bring up the dialogue form for any component in the design, not just those on the current sheet. After the edit, the screen is re-drawn with the component in the centre. You can thus use this command to locate a component, even if you do not actually want to edit it.</p>
+  <p>Details pertaining to the operation of the dialogue forms associated with each object type are given in the Object Specifics section of this documentation.</p>
+  <h3><a id="Editing:An_Object_Label" data-indexterm="Editing:An Object Label"></a><a id="Labels:Editing" data-indexterm="Labels:Editing"></a><a id="Editing_An_Object_Label"></a>Editing An Object Label</h3>
+  <p>Component, terminal, wire and bus labels can all be edited in much the same way as objects:</p>
+  <p class="ExampleTitle">To edit a single object label using the mouse:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Tag the object by pointing at it and clicking left.</li>
+    <li class="Numbers">Click left on the label (not the object itself).</li>
+  </ol>
+  <p class="ExampleTitle">To edit a succession of object labels using the mouse:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Enter Selection Mode.</li>
+    <li class="Numbers">Point at each label in succession and click left.</li>
+  </ol>
+  <p>Either way, a dialogue form with Label and Style tabs is displayed. The editing of local text styles is fully covered in the tutorial on graphics and text styles- see Editing Local Styles.</p>
+  <h3><a id="Block:Copying" data-indexterm="Block:Copying"></a><a id="Copying_all_Tagged_Objects"></a>Copying all Tagged Objects</h3>
+  <p class="ExampleTitle">To copy a section of circuitry:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Tag the required objects by dragging out a tag-box as described in Tagging an Object.</li>
+    <li class="Numbers">Right click within the tagbox and select the Block Copy option from the resulting context menu.</li>
+    <li class="Numbers">Move the mouse to lift the copy outline to the require position and click left to place a copy.</li>
+    <li class="Numbers">Repeat step [3] as required to place multiple copies.</li>
+    <li class="Numbers">Click right to finish.</li>
+  </ol>
+  <p>When components are copied, their references are automatically reset to the un-annotated state so as to ready them for automatic annotation, and prevent the occurrence of multiple instances of the same part IDs.</p>
+  <h3><a id="Block:Moving" data-indexterm="Block:Moving"></a><a id="Moving_all_Tagged_Objects"></a>Moving all Tagged Objects</h3>
+  <p class="ExampleTitle">To move a set of objects:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Tag the required objects by dragging out a tag-box as described in Tagging an Object.</li>
+    <li class="Numbers">Move the mouse inside the tagbox (the cursor will change to indicate that the block can be moved.</li>
+    <li class="Numbers">Depress the left mouse button, drag the outline to the required position and click left to place it.</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="230" src="../assets/images/GENERAL_CONCEPTS/Moving_2D_graphics.png" style="border: none;" width="233"/></p>
+  <p class="DiagramText">Moving a tagged object</p>
+  <p>The behaviour of wires during block move is somewhat subtle. Essentially, Proteus  will move all wires or parts of wires enclosed in the tag-box without re-routing them, and then, where wires cross the boundaries of the tag-box, it will reroute from the last point inside the tag-box to the first point outside it. It follows that you can control whether a section of wiring is preserved or re-routed according to whether you  include it in the tag-box or not.</p>
+  <h3><a id="Block:Deleting" data-indexterm="Block:Deleting"></a><a id="Deleting_all_Tagged_Objects"></a>Deleting all Tagged Objects</h3>
+  <p class="ExampleTitle">To delete a group of objects:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Tag the required objects by dragging out a tag-box as described in Tagging an Object.</li>
+    <li class="Numbers">Right click within the area encompassed by the tagbox and select the Block Delete option from the resulting context menu.</li>
+  </ol>
+  <p class="Tip">If you delete something by mistake, you can recover it using the Undo command.</p>
+  <h3><a id="Block:Rotating" data-indexterm="Block:Rotating"></a><a id="Rotating_all_Tagged_Objects"></a>Rotating all Tagged Objects</h3>
+  <p class="ExampleTitle">To rotate a group of objects:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Tag the required objects by dragging out a tag-box as described in Tagging an Object.</li>
+    <li class="Numbers">Right click within the area encompassed by the tagbox and select the Block Rotate option from the resulting context menu.</li>
+  </ol>
+  <p class="Tip">Note that you cannot Block Rotate a tagged section of circuitry if either a sub-circuit or a graph is highlighted  (these objects have a fixed orientation). Also, depending on the complexity of the design and in particular whether tagged components are wired up, this operation may take a few seconds to complete. As always, you can undo the rotation via the Undo command.</p>
+  <p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

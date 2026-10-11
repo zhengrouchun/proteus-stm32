@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Design Iteration</title>
+  
+  <meta name="rh-index-keywords" content="Forward Annotation"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">DESIGN ITERATION</h1>
+  <h3>Overview</h3>
+  <p>The term &#39;Engineering Change&#39; refers to a situation in which an existing schematic is modified, and the resulting netlist re-loaded into the PCB module. This can occur both during the development of an original design, and also at a later date where a &#39;Mark II&#39; version of the product is being produced. Proteus fully supports engineering changes, but what happens in a given situation depends largely on whether you are working with live netlisting enabled or with live netlisting disabled (batch mode).</p>
+  <ul class="bulletblue">
+    <li class="bulletblue">When live netlisting is enabled data is received whenever the PCB module is open and visible.</li>
+    <li class="bulletblue">When live netlisting is off data is received when you manually click on the padlock icon at the bottom of the layout module. The padlock icon will appear when changes to the netlist have occurred (the schematic has changed) but have not been received.</li>
+  </ul>
+  <p>Live netlisting can be turned on and off from the toggle command on the Tools menu in the layout module. We would advise that during development users should work with live netlisting switched on. The only time where live netlisting switched off may be of use is on larger layouts with multiple zones where there may be a performance penalty because all of the zone connectivity will be re-calculated on each schematic change. Note however that leaving Live Netlisting On and simply closing the layout tab or frame is just as optimal - netlist updates do not occur in the background.</p>
+  <p class="Tip">Note that live netlisting <span style="font-weight: bold; 
+												 text-decoration: underline; ">must be turned on</span> following an import from an older version to perform an initial sync.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="pds.chm::/Home_Page.htm#Importing_Existing_Projects">Importing an Version 7.xx DSN &amp; LYT Project.</a></p>
+  <h3><a id="Adding_New_Components_"></a>Adding New Components</h3>
+  <h4>Live Netlisting On</h4>
+  <p>When you place a new component on the schematic it will automatically appear for placement in the parts bin in the layout module.</p>
+  <p>Wiring up the connections on the schematic will add the connections to the live netlist.</p>
+  <ul class="bulletblue">
+    <li class="bulletblue">If the parts are placed on the layout before the connections are made on the schematic then ratsnest lines will appear on the layout as you complete wires in the schematic.</li>
+    <li class="bulletblue">If the footprints on the layout are still in the parts bin then ratsnest lines will appear as you place them on the layout.</li>
+  </ul>
+  <h4>Live Netlisting Off</h4>
+  <p>When you place a new component on the schematic, the PCB will enter a locked state indicated by a padlock on the connectivity status widget.</p>
+  <p><img alt="" border="0" height="44" src="../assets/images/ISIS_AND_ARES/Oud_of_sync.png" style="border: none;" width="140"/></p>
+  <p>When you click on the padlock to unlock the PCB the updated netlist will be sent and the part will appear in the parts bin for placement.</p>
+  <p>Wiring up connections on the schematic will similarly lock the layout. You can click the padlock to unlock at any time and the current connectivity situation will be updated on the PCB.</p>
+  <p class="Tip">More information on the above procedures with reference to the layout module can be found in the PCB Layout help documentation.</p>
+  <h3><a id="Removing_Existing_Components_"></a>Removing Existing Components</h3>
+  <h4>Live Netlisting On</h4>
+  <p>When you delete the component from the schematic the PCB will automatically enter a changes pending state and the corresponding parts and tracks on the layout will appear dimmed.</p>
+  <p class="Diagram"><img alt="" border="0" height="265" src="../assets/images/ISIS_AND_ARES/Changes_pending.png" style="border: none;" width="452"/></p>
+  <p>When you click on changes pending to accept the changes both the footprint and its tracking will be removed from the layout.</p>
+  <p class="Diagram"><img alt="" border="0" height="267" src="../assets/images/ISIS_AND_ARES/Deleted_part.png" style="border: none;" width="265"/></p>
+  <p>Alternatively, an undo operation will revert both the schematic and the layout to their previous status.</p>
+  <h4>Live Netlisting Off</h4>
+  <p>When you delete the component from the schematic the layout module will enter a locked condition.</p>
+  <p class="Diagram"><img alt="" border="0" height="44" src="../assets/images/ISIS_AND_ARES/Oud_of_sync.png" style="border: none;" width="140"/></p>
+  <p>When you click on the padlock to unlock the current connectivity is sent to the PCB layout. The deleted part and tracking will then appear dimmed and the connectivity status will indicate changes pending.</p>
+  <p class="Diagram"><img alt="" border="0" height="186" src="../assets/images/ISIS_AND_ARES/Changes_pending_netlist_off.png" style="border: none;" width="271"/></p>
+  <p>Clicking on changes pending will commit the deletion and the schematic and layout will be back in sync.</p>
+  <p class="Tip">Removing a component or wire is an operation which affects objects that the board designer has already placed on the layout. As such, it requires you to manually confirm by clicking on the changes pending button to sync the layout.</p>
+  <p class="Tip">If you find the dimmed state hard to see you can change the colour (e.g. bright yellow) from the View Menu, Layers Command in the Layout Module.</p>
+  <h3><a id="Changing_the_connectivity_"></a>Changing the Connectivity</h3>
+  <h4>Live Netlisting On</h4>
+  <p>Adding connectivity is an action which does not affect the existing tracking on the layout. A ratsnest line will appear in the PCB Module as soon as you complete the wire on the schematic and the system will automatically synchronize.</p>
+  <p>The effect of removing connections on the schematic depends on whether they have been tracked on the layout.</p>
+  <ul class="bulletblue">
+    <li class="bulletblue">If a connection is untracked on the layout (still a ratsnest line) then removing the connection on the schematic will simply remove the ratsnest line and  the software will remain in sync.</li>
+    <li class="bulletblue">If a connection is tracked on the layout then removing the connection on the schematic will put the layout into a changes pending state and the corresponding track will appear in a dimmed state. Confirming the deletion by clicking on changes pending will remove the track and the software will return to a synchronized state. You can also choose to tag changes so that you can locate and examine on the layout before confirming the delete.</li>
+  </ul>
+  <h4>Live Netlisting Off</h4>
+  <p>Any changes to connectivity will render the layout module in a locked state. When the editing is complete, clicking on the padlock icon to unlock the PCB will update the layout with the new connectivity information.</p>
+  <p>If the only changes were the addition of new connections then ratsnest lines will appear on the layout.</p>
+  <p>If connections were removed which involve existing tracking then the PCB will enter the changes pending state and the corresponding track(s) will appear in a dimmed state. Confirming the deletion by clicking on changes pending will remove the track and the software will return to a synchronized state.</p>
+  <h3><a id="Re-Annotating_Components__and_Re-Packaging_Gates_"></a>Re-Annotating Components, and Re-Packaging Gates</h3>
+  <h4>Live Netlisting On</h4>
+  <p>Re-annotating components is fully automatic. The layout will update and the system will remain in sync.</p>
+  <p>Gate-swapping <a href="../LIBRARY_FACILITIES/Device_Libraries.htm#Making_a_Multi-Element_Homogenous_Device">multi-element parts</a> from the schematic is also fully automatic. The layout will update and remain in sync.</p>
+  <p class="Tip">Use the Annotator from the Tools Menu on the schematic to automate the task on the Schematic or the Automatic Annotator from the Tools menu on the layout to automate the task according to your needs. Context sensitive help on both dialogues is available via the question mark at the top right of the dialogue form.</p>
+  <h4>Live Netlisting Off</h4>
+  <p>Re-annotating components will lock the layout. Unlocking the layout will auto-sync with the schematic.</p>
+  <p>Gate-swapping multi-element parts from the schematic will also lock the layout. Unlocking the layout will auto-sync with the schematic.</p>
+  <p>In either case above, the assumption is that you have only re-annotated or gate-swapped. Clearly, if you re-annotate, delete, add and re-wire then you will enter a changes pending state when you unlock the layout. The re-annotation changes however will be applied - confirming changes pending serves to confirm any removal operations from the layout.</p>
+
+</div>
+<p> </p>
+
+</body></html>

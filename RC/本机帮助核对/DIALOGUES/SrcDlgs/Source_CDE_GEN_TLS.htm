@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+ <meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Add/Remove Code Generation Tools</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+<body>
+<div>
+<h1>Add/Remove Code Generation Tools</h1>
+<h3>Overview</h3>
+<p>This dialogue is relevant to microprocessor simulation and allows you to configure command line interfaces to your compiler/assembler such that Proteus can invoke them and build your projects.</p>
+<p>Note that it is perfectly possible to work inside your own IDE/Compiler environment and to then simply edit the processor component on the schematic and specify the file to be simulated directly.</p>
+<h3>Options</h3>
+<h4>Code Generation Tool</h4>
+<p>Use these options to specify or change the Code Generation Tool to be used for files in the current design.</p>
+<ul type="disc">
+<li><span style="font-weight: bold;">Tool</span> - Select a Code Generation Tool from the list. You can add to the list using the New Button at the bottom of the form.</li>
+<li><span style="font-weight: bold;">Browse</span> - Search your computer to find an appropriate Code Generation Tool. Both executable (EXE) and batch (BAT) files can be selected.</li>
+<li><span style="font-weight: bold;">Path</span> - Search your computer to find an appropriate Code Generation Tool. Both executable (EXE) and batch (BAT) files can be selected.</li>
+</ul>
+<h4>Make Rules</h4>
+<p>Use these options to specify specific Make Rules for the Code Generation tool currently listed above.</p>
+<ul type="disc">
+<li><span style="font-weight: bold;">Source Extn</span> - Specify the file extension for the Source file. For example, with an Assembler as the Code Generation Tool, the Source extension would normally be &quot;ASM&quot;.</li>
+<li><span style="font-weight: bold;">Obj Extn</span> -  Specify the file extension for the Object file. For example, with an Assembler as the Code Generation Tool, the object extension would normally be &quot;HEX&quot;.</li>
+<li><span style="font-weight: bold;">Always Build</span> - When checked the project will always be compiled before the start of a simulation.</li>
+<li><span style="font-weight: bold;">Command Line</span> - Specify the arguments used on the command line to apply the Code Generation Tool to a source file. Substitute ‘%1’ for the source file and ‘%2’ for the object file.</li>
+</ul>
+<h4>Debug Data Extraction</h4>
+<p>Use these options to specify a Debug data Extraction (DDX) tool for the given tool. This is only necessary if you are using a supported assembler and should not be used if you are using a high level language tool.</p>
+<ul type="disc">
+<li><span style="font-weight: bold;">List File Extn</span> - Specify the extension of the list file generated from the Code Generation Tool. For example, with an assembler as the Code Generation Tool, the list file extension is normally &quot;LST&quot;.</li>
+<li><span style="font-weight: bold;">Browse</span> -  Browse for the location of the debug data extraction tool on your computer.</li>
+</ul>
+<h4>Other</h4>
+<ul type="disc">
+<li><span style="font-weight: bold;">Disable Automatic Build Rules</span> - This option disables any automatic building selections that you have made and applies globally to all tools configured in this dialogue.</li>
+<li><span style="font-weight: bold;">New</span> - Specify a new Code Generation Tool.</li>
+<li><span style="font-weight: bold;">Remove</span> - Remove a Code Generation Tool.</li>
+</ul>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

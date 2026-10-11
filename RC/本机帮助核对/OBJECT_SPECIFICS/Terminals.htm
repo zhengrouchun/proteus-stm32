@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Terminals</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">TERMINALS</h1>
+  <h3>Introduction</h3>
+  <p>Terminals are used for specifying the interface to a circuit - Proteus does not allow a wire to &#39;float&#39; - both ends must connect to something so all the inputs and outputs in your design will be indicated by terminals.</p>
+  <p>There are two types of terminal - Logical Terminals and Physical Terminals. The two are distinguished purely by the syntax of their labels.</p>
+  <p>You can customize the appearance of terminals by editing the TERMINAL graphics style as shown below. See Editing Global Styles for more information</p>
+  <p class="Diagram"><img alt="" border="0" height="209" src="../assets/images/OBJECT_SPECIFICS/Set_terminal_style.png" style="border: none;" width="603"/></p>
+  <p class="DiagramText">The Edit Terminal Style dialogue form</p>
+  <h3><a id="Terminals:Logical_Terminals" data-indexterm="Terminals:Logical Terminals"></a><a id="Logical_Terminals1" data-indexterm="Logical Terminals"></a><a id="Logical_Terminals"></a>Logical Terminals</h3>
+  <p>A logical terminal serves merely to donate a net name to the wire to which it connects. Groups of wires with one or more  net names in common are taken to be connected by the netlist generator. Logical Terminals thus provide a means to connect things together without using wires. In particular they provide the means make connections between the sheets in a multi-sheet design.</p>
+  <p>As with Wire Labels and Bus Entries, the net name can contain any alphanumeric characters plus the hyphen (&#39;-&#39;) and underscore (&#39;_&#39;).  Spaces can be used within PROTEUS but may cause problems for other software.</p>
+  <p>Logical terminals may also connect to buses. This provides an extremely efficient way to run buses up and down a hierarchical design.</p>
+  <p class="Reference">See <a href="../NETLIST_GENERATION/Net_Names.htm">Net Names</a> for discussion of the role of logical terminals in netlisting.</p>
+  <p class="Reference">Logical terminals are vital to connectivity in multi-sheet designs. If you are using sub-circuits or working with sizeable schematics please refer to the section on <a href="../MULTI_SHEET_DESIGNS/Hierarchical_Designs.htm">Hierarchical Designs</a> for more information.</p>
+  <p class="Reference">See <a href="../ISIS_AND_ARES/Packaging.htm#Not_Connected_Pins__NC_Pins_">Connecting NC Pins</a> for information on using NC terminals to indicate NC status on component pins.</p>
+  <h3><a id="Terminals:Physical_Terminals" data-indexterm="Terminals:Physical Terminals"></a><a id="Physical_Terminals1" data-indexterm="Physical Terminals"></a><a id="Physical_Terminals"></a>Physical Terminals</h3>
+  <p>A physical terminal represents a pin on a physical connector. For example, a terminal with the name:</p>
+  <p>J3:2</p>
+  <p>is taken to be pin 2 of connector J3. Whilst it is perfectly possible to deal with connectors in exactly the same way as all other components (i.e. define a device to represent them), using Physical Terminals has the advantage that the pins can be placed wherever it is most convenient.</p>
+  <p>Physical terminals will appear as parts in the parts bin of the layout module and are then packaged when you place them on the board.</p>
+  <p><img alt="" border="0" height="201" src="../assets/images/OBJECT_SPECIFICS/Physical_terminals.png" style="border: none;" width="722"/></p>
+  <p>Alternatively, you can specify the package type for the part via a FIELD property assignment block (see <a href="Scripts.htm#Part_Property_Assignments___FIELD_">Part Property Assignments (*FIELD)</a>) must be used as there is no actual component to edit.</p>
+  <p class="Tip">Note that a bus terminal may not be physical, as there is no means to specify the pin numbering for the individual pins.</p>
+  <h3><a id="Terminals:Placing_Terminals" data-indexterm="Terminals:Placing Terminals"></a><a id="Placing:Terminals" data-indexterm="Placing:Terminals"></a><a id="Placing_Terminals"></a>Placing Terminals</h3>
+  <p>Proteus supports an unlimited variety of terminal symbols. However, when you first select the Terminal icon, a basic set of 7 types are automatically pre-loaded into the Object Selector.</p>
+  <p class="ExampleTitle">To place a terminal:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">If the terminal type you want is not listed in the Object Selector, first pick it from the symbol library.</li>
+    <li class="Numbers">Highlight the terminal name in the Object Selector. Proteus will show a preview of the terminal in the Overview Window.</li>
+    <li class="Numbers">Use the Rotation and Mirror icons to orient the terminal appropriately.</li>
+    <li class="Numbers">Left click the mouse on the Editing Window to enter placement mode and the move the mouse to the position where you want to place the terminal.</li>
+    <li class="Numbers">Left click the mouse again at this point to commit the changes and exit placement mode.</li>
+  </ol>
+  <p>Having placed a terminal, you must then annotate it since an unannotated terminal will be ignored by the netlist compiler. There are a variety of approaches:</p>
+  <ul type="disc">
+    <li>Edit the terminal label using any of the general methods described in Editing an Object.</li>
+    <li>Select the terminal label from the drop down combo box. This list contains all the existing named nets on the current design.</li>
+    <li>Use the Property Assignment Tool to assign the NET property of one or more terminals. This is especially effective if a group of terminals have names which run in an alphanumeric sequence.</li>
+  </ul>
+  <p>It is quite legal to connect buses to terminals. In this case, the name for the terminal should generally define the range for the bus, as in D[0..7], although this is not mandatory. If no range is given, Proteus will use the range given for the bus section that connects to the port, or if that has no name or range then the width will be taken from whatever bus pins connect to the bus.</p>
+  <p class="Warning">Placing a terminal without annotating it will be reported as a netlist error since such an object has no meaning, logically or physically.  </p>
+  <h3><a id="Editing:Terminals" data-indexterm="Editing:Terminals"></a><a id="Terminals:Editing_Terminals" data-indexterm="Terminals:Editing Terminals"></a><a id="Editing_Terminals"></a>Editing Terminals</h3>
+  <p>A terminal may be edited using any of the general editing techniques (see <a href="../GENERAL_CONCEPTS/General_Editing_Facilities.htm#Editing_an_Object">Editing an Object</a>). For your convenience with logical terminals a list of existing named nets is available as a drop down combo box allowing you to easily specify the net name.</p>
+  <p class="Diagram"><img alt="" border="0" height="220" src="../assets/images/OBJECT_SPECIFICS/Edit_terminal.png" style="border: none;" width="414"/></p>
+  <p class="DiagramText">The Edit Terminal dialogue form showing a drop down list of net names</p>
+  <p>In addition, since terminals often appear in groups, the Property Assignment Tool can be put to good use for annotating and setting the electrical type of terminals.</p>
+  <h3><a id="Terminals:Properties" data-indexterm="Terminals:Properties"></a><a id="Properties:Terminal_Properties" data-indexterm="Properties:Terminal Properties"></a><a id="Terminal_Properties"></a>Terminal Properties</h3>
+  <p>Terminals have the following system properties:</p>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 20.136%;"/>
+      <col style="width: 79.864%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Property Name</td>
+        <td>Description</td>
+      </tr>
+      <tr class="t2Row">
+        <td>NET</td>
+        <td>The terminal net label.</td>
+      </tr>
+      <tr class="t1Row">
+        <td>SYMBOL</td>
+        <td>The symbol used for the terminal. This can be one of the standard terminal types, or else the name of a user defined terminal symbol.</td>
+      </tr>
+      <tr class="t2Row">
+        <td>NAME</td>
+        <td>The electrical type of the terminal. This can be any of PASSIVE, INPUT, OUTPUT, BIDIR or POWER.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

@@ -56,6 +56,7 @@ void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
 /* USER CODE BEGIN EFP */
+void EXTI9_5_IRQHandler(void); /* 声明 PA5 停止按钮所在的外部中断处理函数。 */
 
 /* USER CODE END EFP */
 

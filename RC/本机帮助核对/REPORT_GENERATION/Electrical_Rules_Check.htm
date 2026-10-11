@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Electrical Rules Check</title>
+  
+  <meta name="rh-index-keywords" content="Electrical Rules Check"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">ELECTRICAL RULES CHECK</h1>
+  <h3>Introduction</h3>
+  <p>Proteus can check for simple errors in a design by examining the various pin types connected to each net. Obvious examples of errors are outputs connected together or several input pins connected together without a driving source. Terminals are also regarded as having an electrical type - an input terminal connected to an input pin provides a driving source for it.</p>
+  <h3><a id="Generating_the_Report"></a>Generating the Report</h3>
+  <p>You can generate the ERC report by invoking the Electrical Rules Check command on the Tools menu. The results are displayed in the Text Viewer from where they can be saved or printed as required.</p>
+  <p>Do bear in mind that not all entries that appear in the report may actually be mistakes (e.g. some input pins might deliberately be left NC) and that more subtle mistakes such as wrong part values will not be detected. Nevertheless, many silly mistakes can be detected at an early stage.</p>
+  <h3><a id="Pin_Types_(ref_ERC)" data-indexterm="Pin Types (ref ERC)"></a><a id="ERC_Error_Messages"></a>ERC Error Messages</h3>
+  <p>The first part of the ERC process involves compiling the netlist, and this in itself can result in warning or error messages.</p>
+  <p>The actual ERC process itself detects two basic categories of error:</p>
+  <ul type="disc">
+    <li>Nets so wired as to be likely to result in contentions - i.e. two outputs trying to drive in different directions, resulting in a large flow of current.</li>
+    <li>Nets so wired such that there is no driving source. A net containing only INPUT pins will result in an UNDRIVEN error.</li>
+  </ul>
+  <p>The detection of the first type of error is determined by the following table:</p>
+  <p align="center"> </p>
+  <div align="center">
+    <table cellspacing="0" class="LXTable" width="82.353%">
+      <colgroup>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+        <col style="width: 7.142%;"/>
+      </colgroup>
+      <tbody>
+        <tr class="t1st">
+          <td style="border-right: Solid 2px #000000; border-left-width: 2px; 
+			 border-top-width: 2px; border-bottom-color: #000000; border-bottom-width: 2px;"> </td>
+          <td style="border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px;">
+            <p align="center">PS</p>
+          </td>
+          <td style="border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px;">
+            <p align="center">IP</p>
+          </td>
+          <td style="border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px;">
+            <p align="center">OP</p>
+          </td>
+          <td style="border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px;">
+            <p align="center">IO</p>
+          </td>
+          <td style="border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px;">
+            <p align="center">TS</p>
+          </td>
+          <td style="border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px;">
+            <p align="center">PU</p>
+          </td>
+          <td style="border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px;">
+            <p align="center">PD</p>
+          </td>
+          <td style="border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px;">
+            <p align="center">PP</p>
+          </td>
+          <td>
+            <p align="center">GT</p>
+          </td>
+          <td>
+            <p align="center">IT</p>
+          </td>
+          <td>
+            <p align="center">OT</p>
+          </td>
+          <td>
+            <p align="center">BT</p>
+          </td>
+          <td>
+            <p align="center">PR</p>
+          </td>
+        </tr>
+        <tr class="t2Row">
+          <td bgcolor="#0C42B1" style="border-left-color: #000000; border-bottom-color: #000000; 
+			 border-bottom-width: 2px; border-left-width: 2px; border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">PS</p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+        </tr>
+        <tr class="t1Row">
+          <td bgcolor="#0C42B1" style="border-bottom: Solid 2px #000000; border-left-color: #000000; 
+			 border-left-width: 2px; border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">IP</p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+        </tr>
+        <tr class="t2Row">
+          <td bgcolor="#0C42B1" style="border-left: Solid 2px #000000; border-bottom: Solid 2px #000000; 
+			 border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">OP</p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+        </tr>
+        <tr class="t1Row">
+          <td bgcolor="#0C42B1" style="border-bottom-color: #000000; border-bottom-width: 2px; 
+			 border-left-color: #000000; border-left-width: 2px; border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">IO</p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+        </tr>
+        <tr class="t2Row">
+          <td bgcolor="#0C42B1" style="border-bottom: Solid 2px #000000; border-left-color: #000000; 
+			 border-left-width: 2px; border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">TS</p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+        </tr>
+        <tr class="t1Row">
+          <td bgcolor="#0C42B1" style="border-left: Solid 2px #000000; border-bottom: Solid 2px #000000; 
+			 border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">PU</p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+        </tr>
+        <tr class="t2Row">
+          <td bgcolor="#0C42B1" style="border-left-color: #000000; border-bottom-color: #000000; 
+			 border-bottom-width: 2px; border-left-width: 2px; border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">PD</p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+        </tr>
+        <tr class="t1Row">
+          <td bgcolor="#0C42B1" style="border-left-color: #000000; border-bottom-color: #000000; 
+			 border-bottom-width: 2px; border-left-width: 2px; border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">PP</p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+        </tr>
+        <tr class="t2Row">
+          <td bgcolor="#0C42B1" style="border-bottom: Solid 2px #000000; border-left-color: #000000; 
+			 border-left-width: 2px; border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">GT</p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+        </tr>
+        <tr class="t1Row">
+          <td bgcolor="#0C42B1" style="border-left: Solid 2px #000000; border-bottom: Solid 2px #000000; 
+			 border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">IT</p>
+          </td>
+          <td>
+            <p align="center"><span style="font-weight: bold;"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></span></p>
+          </td>
+          <td>
+            <p align="center"><span style="font-weight: bold;"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></span></p>
+          </td>
+          <td>
+            <p align="center"><span style="font-weight: bold;"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></span></p>
+          </td>
+          <td>
+            <p align="center"><span style="font-weight: bold;"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></span></p>
+          </td>
+          <td>
+            <p align="center"><span style="font-weight: bold;"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></span></p>
+          </td>
+          <td>
+            <p align="center"><span style="font-weight: bold;"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></span></p>
+          </td>
+          <td>
+            <p align="center"><span style="font-weight: bold;"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></span></p>
+          </td>
+          <td>
+            <p align="center"><span style="font-weight: bold;"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></span></p>
+          </td>
+          <td>
+            <p align="center"><span style="font-weight: bold;"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></span></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><span style="font-weight: bold;"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></span></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+        </tr>
+        <tr class="t2Row">
+          <td bgcolor="#0C42B1" style="border-bottom: Solid 2px #000000; border-left-color: #000000; 
+			 border-left-width: 2px; border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">OT</p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+        </tr>
+        <tr class="t1Row">
+          <td bgcolor="#0C42B1" style="border-left: Solid 2px #000000; border-bottom: Solid 2px #000000; 
+			 border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">BT</p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+        </tr>
+        <tr class="t2Row">
+          <td bgcolor="#0C42B1" style="border-left-color: #000000; border-bottom-color: #000000; 
+			 border-left-width: 2px; border-bottom-width: 2px; border-right-width: 1px;">
+            <p align="center" style="color: #ffffff;">PR</p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+          <td>
+            <p align="center"><img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/></p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p align="center"><img alt="" border="0" height="15" src="../assets/images/REPORT_GENERATION/Tick.gif" style="border: none;" width="19"/> No Warning or Error     <img alt="" border="0" height="17" src="../assets/images/REPORT_GENERATION/Warning.gif" style="border: none;" width="16"/> Warning Issued     <img alt="" border="0" height="13" src="../assets/images/REPORT_GENERATION/Cross.gif" style="border: none;" width="13"/> Error Issued</p>
+  <p style="font-weight: bold; text-decoration: underline; ">KEY:</p>
+  <p><span style="font-weight: bold;">PS:</span> Passive Pin</p>
+  <p><span style="font-weight: bold;">IP:</span>  Input Pin</p>
+  <p><span style="font-weight: bold;">OP:</span> Output Pin</p>
+  <p><span style="font-weight: bold;">IO:</span> I/O Pin</p>
+  <p><span style="font-weight: bold;">TS:</span> Tri-State Pin</p>
+  <p><span style="font-weight: bold;">PU:</span> Pull Up Pin</p>
+  <p><span style="font-weight: bold;">PD:</span> Pull Down Pin</p>
+  <p><span style="font-weight: bold;">PP:</span> Power Pin</p>
+  <p><span style="font-weight: bold;">GT:</span> Generic Terminal</p>
+  <p><span style="font-weight: bold;">IT:</span>  Input Terminal</p>
+  <p><span style="font-weight: bold;">OT:</span> Output Terminal</p>
+  <p><span style="font-weight: bold;">BT:</span> Bi-directional Terminal</p>
+  <p><span style="font-weight: bold;">PT:</span> Passive Terminal</p>
+  <p><span style="font-weight: bold;">PR:</span> Power Rail Terminal</p>
+  <p><span style="font-weight: bold;">ok:</span> No warning or error.</p>
+  <p><span style="font-weight: bold;">wn:</span> Warning issued.</p>
+  <p><span style="font-weight: bold;">er:</span> Error issued.</p>
+
+</div>
+<p> </p>
+
+</body></html>

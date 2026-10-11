@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Power Rail Configuration</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">POWER RAIL CONFIGURATION</h1>
+  <h3>Introduction</h3>
+  <p>Proteus provides a special dialogue form for viewing and/or modifying the power supply connectivity within your designs. This allows you to create one or more power supplies and then to specify bindings between power supply nets and the actual power supplies.  This is particularly useful for handling designs in which there are ICs with hidden power pins as you can then determine exactly what power nets there are in the design and also specify interconnections between them where appropriate.</p>
+  <p>Each power supply has associated with it a Voltage which is used during simulation, and a Routing Class which determines the PCB design rules that will be used for all nets bound to the power supply.</p>
+  <h3><a id="Power_Rail_Configuration" data-indexterm="Power Rail Configuration"></a><a id="Dialogue_Form"></a>Dialogue Form</h3>
+  <p>The Power Rail Configuration dialogue form is divided into two sections. The top section labelled Power Supplies allows you to create, edit and delete named power supplies whilst the bottom section allows you to view and manipulate the power nets that are bound to each power supply. In a correctly configured design, there should be no unconnected power nets.</p>
+  <p>Context sensitive help is provided for the individual controls on the form.</p>
+  <p class="Diagram"><img alt="" border="0" height="461" src="../assets/images/NETLIST_GENERATION/PRC_dialog_form.png" style="border: none;" width="502"/></p>
+  <p class="DiagramText">Power Rail Configuration Dialogue form</p>
+  <h3><a id="Power_Rail_Bindings_and_Design_Connectivity"></a>Power Rail Bindings and Design Connectivity</h3>
+  <p style="font-weight: normal;">Where more than one net is bound to a power supply, these nets will then be treated as interconnected for both simulation and PCB layout. The Power Rail Configuration dialogue form thus provides a means to specify interconnections between power nets that have been created by the hidden power pins of TTL and CMOS logic ICs and NMOS microprocessor parts. In particular, some parts have pins VCC/GND and some have VDD/VSS and it is very common to need an interconnection between VCC/VDD and VSS/GND.</p>
+  <h4>Notes</h4>
+  <ul class="bulletblue">
+    <li class="bulletblue">If you name a net with the same name as the power supply it will bind to the power supply. For example, creating a supply called CHASSIS and then naming a net CHASSIS would automatically bind the net to the supply.</li>
+    <li class="bulletblue">A power terminal denoting a voltage (+&lt;num&gt; or - &lt;num&gt;) will automatically create a power supply with that voltage. The prefix is required to avoid ambiguity.</li>
+  </ul>
+  <h3><a id="Default_Power_Rail_Configuration"></a>Default Power Rail Configuration</h3>
+  <p>To make life really simple for new users, Proteus provides a default power rail configuration. This is specified in the file PWRRAILS.INI as follows:</p>
+  <table cellspacing="0" class="LXTable" width="57.862%">
+    <colgroup>
+      <col style="width: 27.674%;"/>
+      <col style="width: 18.5%;"/>
+      <col style="width: 23.087%;"/>
+      <col style="width: 30.738%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>POWER SUPPLY</td>
+        <td>VOLTAGE</td>
+        <td>NET BINDINGS</td>
+        <td>
+          <p>NET CLASS</p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center">VCC/VDD</p>
+        </td>
+        <td>
+          <p align="center">+5.0</p>
+        </td>
+        <td>
+          <p align="center">VCC/VDD</p>
+        </td>
+        <td>
+          <p align="center">POWER</p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center">VEE</p>
+        </td>
+        <td>
+          <p align="center">-5.0</p>
+        </td>
+        <td>
+          <p align="center">VEE</p>
+        </td>
+        <td>
+          <p align="center">POWER</p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center">GND</p>
+        </td>
+        <td>
+          <p align="center">0</p>
+        </td>
+        <td>
+          <p align="center">GND, VSS</p>
+        </td>
+        <td>
+          <p align="center">POWER</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p>When you create a new design, these rules will be applied automatically. Note also that the default power supplies and their associated bindings cannot be renamed or deleted unless you uncheck the Use Default Power Rail Connections checkbox on the Power Rail Configuration dialogue form.</p>
+  <p><img alt="" border="0" height="162" src="../assets/images/NETLIST_GENERATION/Use_default_PRC.png" style="border: none;" width="265"/></p>
+  <p class="Tip">Note that the GND power supply can never be renamed or deleted and its voltage is fixed at 0V. You can, however, edit the routing class.</p>
+  <h3><a id="On_Schematic_Power_Rails_and_Bindings"></a>On Schematic Power Rails and Bindings</h3>
+  <p class="Diagram"><img alt="" border="0" height="115" src="../assets/images/NETLIST_GENERATION/Power_rail_binding.png" style="border: none;" width="174"/></p>
+  <p class="DiagramText">Power Rails specified on the schematic</p>
+  <p>You can also specify power supplies and power rail bindings on the schematic. On-schematic power supplies are created by placing power terminals with labels such as +5V or -12V.</p>
+  <p>Power supplies created in this way cannot be renamed or deleted from the dialogue form and the voltage cannot be changed. You can, however, still edit the routing class. Note also that power terminals of this type create both a power supply and a power net so you will also see a fixed  binding between  the +5V net and the +5V supply, for example.</p>
+  <p class="Diagram"><img alt="" border="0" height="139" src="../assets/images/NETLIST_GENERATION/VCC_5v.png" style="border: none;" width="137"/></p>
+  <p class="DiagramText">On Schematic Power Rail Bindings</p>
+  <p>You can also specify on schematic net bindings. For example, if you wanted to connect VCC and VDD to +5V on the schematic you would  draw wiring that interconnected logical terminals labelled +5V, VCC and VDD. Note that, in this case, any hidden VCC and VDD pins would acquire the +5V supply as well.</p>
+  <h3><a id="Legacy_Designs"></a>Legacy Designs</h3>
+  <p>Designs created with old Proteus versions prior to 6.6 will not contain power rail configuration data and will load with the Use Default Power Rail Connections option cleared.</p>
+  <p>To enable the power rail configuration features for old designs, you should visit the Power Rail Configuration dialogue form and then click the Use Defaults checkbox. At this point, the power rail configuration features will be enabled, and you must then ensure that all power nets are bound to a power supply.</p>
+
+</div>
+<p> </p>
+
+</body></html>

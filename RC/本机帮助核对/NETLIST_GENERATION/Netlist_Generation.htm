@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Netlist Generation</title>
+  
+  <meta name="rh-index-keywords" content="Netlist Generation"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">GENERATING A NETLIST FILE</h1>
+  <h3>Introduction</h3>
+  <p>The Netlist Compiler command first presents the Netlist Compiler dialogue form and then a file selector from which you choose a filename for the netlist. In most cases, the default settings will suffice; they cause a flat, physical netlist to be generated in SDF format for all sheets in the design. The functions of the various controls are as follows:</p>
+  <h3><a id="Format"></a>Format</h3>
+  <p>A variety of netlist formats can be generated - SDF is the Labcenter Native format, the others are used for interfacing to 3rd party software. Some brief notes are provided in Netlist Formats and detailed application notes regarding some packages are available from our technical support department. Since 3rd party software is subject to changes beyond our control, it is preferable to supply up to the minute application notes rather than commit things to the printed manual.</p>
+  <h3><a id="Logical_Netlist" data-indexterm="Logical Netlist"></a><a id="Physical_Netlist" data-indexterm="Physical Netlist"></a><a id="Transfer_Netlist" data-indexterm="Transfer Netlist"></a><a id="Logical_Physical_Transfer"></a>Logical/Physical/Transfer</h3>
+  <p>A logical netlist contains pin names whereas a physical netlist contains pin numbers. A more subtle effect is that in a physical netlist, the elements of multi-element parts such as the 7400 will be grouped (appearing, for example, as U1) whereas in a logical netlist they are kept separate (appearing, for example, as U1:A, U1:B, U1:C, U1:D). A logical netlist will generally be used for simulation whilst a physical netlist is best suited to PCB design.</p>
+  <p>Transfer mode is used in specialist applications of Proteus only, for which separate documentation is provided.</p>
+  <h3><a id="Scope_(netlist)" data-indexterm="Scope (netlist)"></a><a id="Scope"></a>Scope</h3>
+  <p>The default scope is the whole design. Current scope restricts the netlist generator to just the sheet that is loaded. This is generally used when you wish to extract the netlist from a child sheet - perhaps a daughter card which is to be represented as a layout in ARES, but which is part of a larger design that needs to be simulated whole. It is also possible to create a &#39;virtual test jig&#39; by having a parent sheet which contains circuitry to simulate the components on the child sheet.</p>
+  <h3><a id="Depth_(netlist)" data-indexterm="Depth (netlist)"></a><a id="Depth"></a>Depth</h3>
+  <p>The default mode is to flatten the design. In this case objects with sub-sheets will be replaced by their implementation. If the netlist is not flattened then this replacement will not occur and objects with sub-sheets will appear as-is in the partslist and netlist.</p>
+  <p>The most common reason for not flatting a design is if some components have attached child sheets representing their simulator models, but you wish to produce a purely physical netlist for PCB design. Note that if you wish to use this approach, you cannot have a hierarchical design as well - even Proteus does not cater for selective flattening! However, with VSM, this is not an issue since you can easily link external model files to the design proper, using MODFILE properties. See the VSM manual for further details.</p>
+  <h3><a id="Errors"></a>Errors</h3>
+  <p>Various kinds of error can occur whilst a netlist is being generated. If any errors do occur, they will be displayed in the pop-up text viewer window.</p>
+  <p>Common errors include:</p>
+  <ul type="disc">
+    <li>Having more than one component with the same name - each component on the schematic must have a unique reference designator.</li>
+    <li>Conflicting property assignments on different elements of a multi-element part - for example U1:A specifies a DIL14 package but U1:B specifies an SO14.</li>
+    <li>Failure to connect power nets to a power supply - this usually arises because you have components on the schematic that have hidden power pins, and you have not specified which power supply rail then should connect to. You should use the <a href="Power_Rail_Configuration.htm">Power Rail Configuration dialogue form</a> to resolve this error.</li>
+  </ul>
+
+</div>
+<p> </p>
+
+</body></html>

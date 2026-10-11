@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Netlist Formats</title>
+  
+  <meta name="rh-index-keywords" content="Netlist Formats,Outputs"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">NETLIST FORMATS</h1>
+  <h3>SDF</h3>
+  <p>Schematic Description Format - the native Labcenter format - used by VSM, Proteus PCB layout and any future Labcenter EDA products. Also very easy to read in and process to other forms. Contains all textual/connectivity information contained in the schematic file.</p>
+  <h3><a id="BOARDMAKER"></a>BOARDMAKER</h3>
+  <p>Netlist format for Tsien Boardmaker II.</p>
+  <p>The user property PACKAGE is used for the package name if the file is generated from the Netlist Compiler dialogue form. If you want to use a different field, you must invoke the netlist generator from a script file.</p>
+  <p>Use Physical mode.</p>
+  <h3><a id="EEDESIGNER"></a>EEDESIGNER</h3>
+  <p>EE Designer III netlist format.</p>
+  <p>Comment on packaging as for Boardmaker.</p>
+  <p>Use Physical mode.</p>
+  <h3><a id="FUTURENET"></a>FUTURENET</h3>
+  <p>Netlist format used by Dash design tools. Also popular for general purpose netlist transfer.</p>
+  <p>Use Physical mode for Pin List, Logical mode for Net List.</p>
+  <h3><a id="MULTIWIRE"></a>MULTIWIRE</h3>
+  <p>Multiwire netlist format. Also used by EAGLE PCB design.</p>
+  <p>File format does not contain packaging data.</p>
+  <p>Use Physical mode.</p>
+  <h3><a id="RACAL"></a>RACAL</h3>
+  <p>RACAL netlist format. Used by RedBoard, CADSTAR etc.</p>
+  <p>Comment on packaging as for Boardmaker.</p>
+  <p>Two files are created with CPT and NET extensions.</p>
+  <p>Use Physical mode.</p>
+  <h3><a id="SPICE"></a>SPICE</h3>
+  <p>SPICE netlist format, also ideal for P-Spice.</p>
+  <p>Ground net will be node 0, unnamed nets start at 1000; numeric net will be fed straight through. The file SPICE.LXB can be re-named to SPICE.LIB to obtain a set of SPICE compatible models.</p>
+  <p>Use Logical format.</p>
+  <p>Do not use this format for creating PROSPICE models - use the normal MDF output from the Model Compiler - it is far more flexible.</p>
+  <h3><a id="SPICE-AGE_FOR_DOS"></a>SPICE-AGE FOR DOS</h3>
+  <p>SPICE-AGE netlist format for Those Engineers analogue simulator (available direct from ourselves).</p>
+  <p>The file SPICEAGE.LXB can be re-named to SPICEAGE.LIB to obtain a set of SPICE-AGE compatible models.</p>
+  <h3><a id="TANGO"></a>TANGO</h3>
+  <p>Tango netlist format, also used by Protel and others. A good general purpose format too.</p>
+  <p>Comments on packaging as for Boardmaker.</p>
+  <p>Use Physical mode.</p>
+  <h3><a id="VALID"></a>VALID</h3>
+  <p>Valid netlist format used for transfer of Proteus schematic designs to VALID Transcribe package.</p>
+  <p> Use Transfer mode.</p>
+  <h3><a id="VUTRAX"></a>VUTRAX</h3>
+  <p>Netlist format for use with VUTRAX PCB design software as used by several design bureaux</p>
+  <p>Comment on packaging as for Boardmaker.</p>
+
+</div>
+<p> </p>
+
+</body></html>

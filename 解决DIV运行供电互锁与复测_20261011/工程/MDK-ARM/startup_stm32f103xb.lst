@@ -472,12 +472,12 @@ ARM Macro Assembler    Page 8
               00000200 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
-ork --depend=adc_cubemx_keil\startup_stm32f103xb.d -oadc_cubemx_keil\startup_st
-m32f103xb.o -I.\RTE\_ADC_CubeMX_Keil -I"D:\Stu15\Documents\Keil stm32\pake\ARM\
-CMSIS\6.3.0\CMSIS\Core\Include" -I"D:\Stu15\Documents\Keil stm32\pake\Keil\STM3
-2F1xx_DFP\2.4.1\Device\Include" --predefine="__UVISION_VERSION SETA 543" --pred
-efine="STM32F10X_MD SETA 1" --predefine="_RTE_ SETA 1" --list=startup_stm32f103
-xb.lst startup_stm32f103xb.s
+ork --depend=div_power_control\startup_stm32f103xb.d -odiv_power_control\startu
+p_stm32f103xb.o -I.\RTE\_ADC_CubeMX_Keil -I"D:\Stu15\Documents\Keil stm32\pake\
+ARM\CMSIS\6.3.0\CMSIS\Core\Include" -I"D:\Stu15\Documents\Keil stm32\pake\Keil\
+STM32F1xx_DFP\2.4.1\Device\Include" --predefine="__UVISION_VERSION SETA 543" --
+predefine="STM32F10X_MD SETA 1" --predefine="_RTE_ SETA 1" --list=startup_stm32
+f103xb.lst startup_stm32f103xb.s
 
 
 

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Property Assignment Tool</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Property Assignment Tool</h1>
+<h3>Overview</h3>
+<p>This tool provides a generic and semi-automatic way of assigning properties 
+ to one or more objects on the schematic. You can use this tool for everything 
+ from labelling bus taps to changing the footprints for a group of resistors. 
+ </p>
+<p>We recommend that for changing component properties you use the Design 
+ Explorer which more easily allows for mass editing with a spreadsheet 
+ like interface to the schematic.</p>
+<p class="ExampleTitle">See Also:</p>
+<p class="Reference"><a href="DXP.chm::/Search.htm">Design Explorer</a></p>
+<h3>Options</h3>
+<h4>String</h4>
+<p>Specify the property assignment, or property keyword on which the selected 
+ action will be performed for each object.</p>
+<h4>Count</h4>
+<p>Specify the initial value for the counter. The counter is incremented 
+ on each application of the PAT. The current value of the counter may be 
+ included in the string by entering a hash (&#39;#&#39;) character.</p>
+<h4>Increment</h4>
+<p>Specify by what amount you wish to increment on each use of the Property 
+ Assignment Tool.</p>
+<h4>Action</h4>
+<p>Specify the action you wish to perform.</p>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Assign</span> - The String field 
+	 should contain a property assignment of the form: keyword=value and 
+	 this property will be assigned to the selected objects. If you want 
+	 to assign values that run in a sequence, such as D0, D1, D2 etc. then 
+	 use the hash (&#39;#&#39;) character in the value and set the initial count 
+	 as required. Both user and system properties may be assigned; assigning 
+	 system properties may cause graphical changes to your drawing.</li>
+	<li><span style="font-weight: bold;">Remove</span> - The String field 
+	 should contain a property keyword only and this property will be removed 
+	 from the selected objects. Only user properties can be removed.</li>
+	<li><span style="font-weight: bold;">Rename</span> - The String field 
+	 should contain both a property assignment of the form: current_keyword=new_keyword. 
+	 The name to the left of the assignment is the existing property name 
+	 you wish to rename; the name to the right is the new name you wish 
+	 to rename it to. Only user properties can be renamed.</li>
+	<li><span style="font-weight: bold;">Show</span> -  The String 
+	  field should contain a property keyword only and this property 
+	 will be made visible for the selected objects. All user properties 
+	 and system properties can be shown.</li>
+	<li><span style="font-weight: bold;">Hide</span> - The String field 
+	 should contain a property keyword only and this property will be made 
+	 invisible for the selected objects. All user properties and system 
+	 properties can be hidden.</li>
+	<li><span style="font-weight: bold;">Resize</span> - The String field 
+	 should contain an assignment such as REF=20,16 and the given property 
+	 will be assigned a new height and width for the selected objects. 
+	 Only textual system properties may be resized. Note that changing 
+	 a labels text size implicitly sets the Height and Width attributes 
+	 of the labels text style to be local and that, thereafter, changes 
+	 to the global text style for the label will not be reflected in these 
+	 labels.</li>
+</ul>
+<h4>Apply To</h4>
+<p>Specify in what way you wish to apply the selected action to the design.</p>
+<ul type="disc">
+	<li><span style="font-weight: bold;">On Click</span> - The diagram 
+	 editor is put into Main Mode, with the Instant Edit icon selected. 
+	 Each object on which you click left has the selected action performed 
+	 upon it. When you select a different icon, the PAT is cancelled. This 
+	 mode is the only way to apply the PAT to wires, in order to assign 
+	 wire labels. ISIS cannot perform PAT assignments on tagged wires because 
+	 there would be no way for it to know where to put the wire labels.</li>
+	<li><span style="font-weight: bold;">Local Tagged</span> - The selected 
+	 action is performed on all tagged objects on the current sheet only. 
+	 You can select the tagged objects either individually, or with the 
+	 Search &amp; Tag commands.</li>
+	<li><span style="font-weight: bold;">Global Tagged</span> - The selected 
+	 action is performed on all tagged objects across the entire design. 
+	 You can select the tagged objects either individually, or with the 
+	 Search &amp; Tag commands. ISIS is capable of remembering different 
+	 tag states for different instances of an object in a hierarchical 
+	 design, should this be an issue. However, the user property blocks 
+	 are shared between instances so you cannot change a user property 
+	 in just one instance.</li>
+	<li><span style="font-weight: bold;">All Objects</span> - The selected 
+	 action is performed on all the objects in the design.</li>
+</ul>
+<h4>Help</h4>
+<p>Provides a basic list of properties that can be manipulated for each 
+ object type.</p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

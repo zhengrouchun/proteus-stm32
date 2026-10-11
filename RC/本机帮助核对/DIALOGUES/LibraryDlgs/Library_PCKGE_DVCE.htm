@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Package Device</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Package Device</h1>
+<h3>Overview</h3>
+<p>This dialogue allows you to specify one or more packages to associate 
+ with the component. You can also specify hidden power pins and identify 
+ NC pins whilst the footprint preview gives you visual confirmation when 
+ all the pins on the schematic part are mapped onto the pads of the footprint.</p>
+<h3>Options</h3>
+<h4>Packages</h4>
+<p>Lists all available packages. To change from one existing package to 
+ another click on the down arrow to the right of this field and select 
+ the desired package. If the package you want is not in this combo box 
+ you will have to create it via the add button located directly below this 
+ field.</p>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Default Package?</span> - By checking 
+	 this box, you specify that the package currently selected in the packages 
+	 combo box is to be used as the default package for this device. This 
+	 in turn means that without intervention from yourself the component 
+	 will use this package in future designs.</li>
+	<li><span style="font-weight: bold;">Add</span> - Use this button to 
+	 add a package to the component.  Should the Use ARES Libraries 
+	 checkbox be selected a package viewer will launch from which you can 
+	 browse to the package that you want to add. If you are not using the 
+	 ARES Libraries (for example,.if you are drawing the schematic to be 
+	 exported to another PCB design package), then clicking this button 
+	 will launch a dialog box where you can enter the name of the package 
+	 you wish to associate with the library part. Note that in this case 
+	 no validation of the package is possible.</li>
+	<li><span style="font-weight: bold;">Rename</span> - This button allows 
+	 you to rename the packaging currently specified in the packages combo 
+	 box. Should the Use ARES Libraries checkbox be selected a package 
+	 viewer will launch from which you can browse to the package with the 
+	 name that you want to us. If you are not using the ARES Libraries 
+	 (for example,.if you are drawing the schematic to be exported to another 
+	 PCB design package), then clicking this button will launch a dialog 
+	 box where you can manually rename the package you wish to associate 
+	 with the library part. Note that in this case no validation of the 
+	 package is possible.</li>
+	<li><span style="font-weight: bold;">Delete</span> - This option allows 
+	 you to delete the package currently selected in the packages combo 
+	 box.</li>
+	<li><span style="font-weight: bold;">Order</span> - This option allows 
+	 you to re-order the existing packages to your preference and is disabled 
+	 if you have only one package specified for the device currently being 
+	 packaged.</li>
+</ul>
+<h4>No. of Gate</h4>
+<p> This field determines the number of pin-number columns that appear 
+ in the pin grid. For a multi-element heterogeneous part, it should represent 
+ the total number of elements. For most common devices (e.g. resistor, 
+ capacitor etc.) this field can be left in its default state (single element).</p>
+<h4><span style="font-weight: bold;">Gates can be swapped on the PCB Layout?</span></h4>
+<p>Selecting this checkbox will flag to ARES that the gate elements can 
+ be swapped.</p>
+<h4>Pin Selection Window</h4>
+<p>This is the engine of the Visual Packaging tool and where you assign 
+ pins on the schematic part to pads on the PCB footprint.  Some points 
+ of note are listed below :</p>
+<ul type="disc">
+	<li>If you have a package preview on the right hand pane and you assign 
+	 a pin number, the corresponding pad on the package will highlight 
+	 in white. This means that when you have completely packaged the device 
+	 all pads in the preview pane should be white</li>
+	<li>Again with the package preview you can set the focus in an elements 
+	 pin field ( as if to type in the pin number) and then left click the 
+	 mouse on the pad in the preview pane. This will assign the pin with 
+	 the designation of the pad you have clicked on and move the focus 
+	 to the next pin in the list. This can be a very fast and convenient 
+	 way to manually package devices.</li>
+	<li>A number of options are available to you via the context menu (right 
+	 click to access). These are mainly advanced features of the packaging 
+	 tool but, properly used, can make large or multiple packages far simpler. 
+	 See the help documentation for more details.</li>
+</ul>
+<h4>NC Pins</h4>
+<p> When packaging a large device, it may be useful to &#39;prove&#39; that 
+ all the pins have been accounted for by verifying that all the pins are 
+ highlighted in the Package View.  Since some pins may be specified 
+ as non-connected, it is useful to be able to record that they have been 
+ accounted for. This can be achieved by entering their numbers in the NC 
+ Pins field. Use commas to separate the pin numbers.</p>
+<p>Add Pin - This option allows you to create a hidden pin that is specific 
+ to a given package, and is implicitly common to all its elements.</p>
+<p>Remove Pin - This option allows you to remove a hidden pin that is specific 
+ to a given package,and as such has been created via the packaging tool.</p>
+<h4>Swappable Pins</h4>
+<p>The swappable pins section allows you to define groups of pins that 
+ are electrically interchangeable. For example, the two inputs A and B 
+ of a 7400 quad NAND gate are electrically identical can could be swapped 
+ on the PCB for convenience of wiring. You can add a swap-group to the 
+ list by highlighting the pins in the pin grid (hold the ctrl key down 
+ and click left on the pin names), and then clicking the Add button.</p>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Add</span> - This option allows 
+	 you to add a group of swappable pins. Proceed by highlighting the 
+	 pins in the pin grid (hold the CTRL key down and left click on each 
+	 pin in turn), and then click this button to assign the highlighted 
+	 pins as a swappable group.</li>
+	<li><span style="font-weight: bold;">Remove</span> - This option allows 
+	 you to remove a previously specified group of swappable pins. Simply 
+	 highlight the group in the pinswap selector to the left and click 
+	 on this control to remove the pins.</li>
+	<li><span style="font-weight: bold;">Replace</span> - This option allows 
+	 you to replace a previously specified group of swappable pins.  Highlight 
+	 the pins in the pin grid that you want to add (holding the CTRL key 
+	 down to highlight multiple pins) and then use this button to replace 
+	 the group currently selected in the pinswap selector with the group 
+	 you have just specified.</li>
+</ul>
+<h4>Use ARES Libraries</h4>
+<p>This option, selected by default, allows both package viewing and package 
+ verification. You should only disable this checkbox if you are creating 
+ the schematic for netlist to a different PCB design package.</p>
+<h4>Assign Package(s)</h4>
+<p>Commit any changes in the dialogue options and exit.</p>
+<p> </p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Buses</title>
+  
+  <meta name="rh-index-keywords" content="Buses"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">BUSES</h1>
+  <h3>Introduction</h3>
+  <p>A bus is a kind of shorthand for a large number of wires, and is commonly used on microprocessor schematics. Proteus includes an unprecedented degree of support for buses, including not only the ability to run buses between hierarchy modules but also the facility to define library parts with bus pins. Thus it is possible to connect a CPU to an array of memories and peripherals by single bus wires, rather than a complex arrangement of wires, bus entries and buses.</p>
+  <h3><a id="Placing:Buses" data-indexterm="Placing:Buses"></a><a id="Placing_Buses"></a>Placing Buses</h3>
+  <p>Buses are placed in very much the same way as ordinary wires except that they must run to and from bus connection points, rather than wire connection points. Also, unlike wires, buses may be placed in isolation from any other objects.</p>
+  <p class="ExampleTitle">To place a bus:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select the Bus icon from the Mode Selector toolbar.</li>
+    <li class="Numbers">Point the mouse where you want the bus to start. This may be a bus pin, an existing bus, or free space on the drawing.</li>
+    <li class="Numbers">Click left to start the bus, then click again at each corner of the desired bus route.</li>
+    <li class="Numbers">To finish the bus on a bus connection point (a bus pin or an existing bus) point at it (the cursor will change to indicate that you are over the connection point) and click left. To finish the bus in free space, double left click the mouse.</li>
+  </ol>
+  <h3><a id="Bus_Labels"></a>Bus Labels</h3>
+  <p>A bus may be labelled in exactly the same way as a wire. However, Proteus defines a special syntax for bus labels.</p>
+  <p class="ExampleTitle">To place a bus label :</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select the Wire label icon from the Mode Selector toolbar.</li>
+    <li class="Numbers">Point on the bus at the position where you want the label to be placed.</li>
+    <li class="Numbers">Click left to place the label. The Create Wire Label or Edit Wire Label dialogue form will be displayed.</li>
+    <li class="Numbers">Type in the required text for the wire label. This should be something like D[0..7] or A[8..15]. If you omit the range specification then the bus will take its base as zero and its width from the width of the widest bus pin connected to it. In general, however, you should always use range specification.</li>
+    <li class="Numbers">Click OK or Press ENTER.</li>
+  </ol>
+  <p class="Tip">You cannot place a wire label other than on a wire or a bus.</p>
+  <p class="Tip">You cannot place more than one wire label on one section of a bus. Attempting to do so will edit the existing wire label.</p>
+  <p class="Tip">Proteus will orient the wire label according the orientation of the wire segment on which it is placed. This can be changed on the Edit Wire Label dialogue form.</p>
+  <p class="ExampleTitle">To edit a bus label:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select the Selection icon from the Mode Selector Toolbar.</li>
+    <li class="Numbers">Left click on the bus label. Both the bus and the bus label with be selected. Care is required to actually left click on the label and not the bus itself.</li>
+    <li class="Numbers">Right click and select edit label from the resulting context menu. If this option is not available on the context menu then you have clicked on the bus and not on the bus label. Try zooming in around the bus label to ensure accuracy.</li>
+  </ol>
+  <p class="ExampleTitle">To delete a bus label:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select the Selection icon from the Mode Selector toolbar.</li>
+    <li class="Numbers">Left click on the label. Both the bus and the bus label with be selected. Care is required to actually left click on the label and not the bus itself.</li>
+    <li class="Numbers">Right click and select delete label from the resulting context menu. If this option is not available on the context menu then you have clicked on the bus and not on the bus label. Try zooming in around the bus label to ensure accuracy.</li>
+  </ol>
+  <p class="ExampleTitle">To change the appearance of a bus:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Ensure the Wire Label icon is not selected.</li>
+    <li class="Numbers">Tag the bus by pointing at it and clicking right.</li>
+    <li class="Numbers">Select the Edit Wire Style dialogue from the resulting context menu.</li>
+    <li class="Numbers">Uncheck the <span style="font-style: italic;">Follow Global?</span> checkboxes of those style attributes of the graphics style you want to change. If a style attribute and its <span style="font-style: italic;">Follow Global?</span> checkbox are both disabled it is because the style attribute is not meaningful given other attribute settings, either locally or through following the global style attribute.</li>
+    <li class="Numbers">Set the style attributes to the required settings</li>
+    <li class="Numbers">Press ENTER or click the OK button to close the dialogue form and keep the changes. Press ESC or click the CANCEL button to close the dialogue form and abandon changes.</li>
+  </ol>
+  <p class="Tip">To change the appearance of all buses on the schematic, use the Set Graphics Style command on the Template menu to edit the BUS WIRE graphics style.</p>
+  <h3><a id="Wire_and_Bus_Junctions"></a>Wire and Bus Junctions</h3>
+  <p>Sometimes, even with the provision of bus pins, it is necessary to tap off a single signal from a bus, perhaps for decoding purposes. From a purely graphical point of view this is just a matter of placing a wire that ends on the bus:</p>
+  <p class="ExampleTitle">To place a bus tap:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">If you plan to route the wire from the bus to another object, ensure that the Bus icon is not selected.</li>
+    <li class="Numbers">Place the wire in the usual way. The bus will behave like an ordinary wire in these circumstances.</li>
+  </ol>
+  <p>It may be helpful to you to understand that when you place a wire in this way, automatic dot placement will operate to give the wire and bus something to connect to. However, you will not see the dot as it adopts the same colour and width as the bus.</p>
+  <p>Having got a wire joined to a bus, you must specify which signal from the bus you are tapping.</p>
+  <p class="Tip">Double clicking a component pin to invoke <a href="../GENERAL_CONCEPTS/Wiring_Up.htm#Wire_Repeat">Wire Auto-repeat</a> is particularly useful here if you are tapping several lines from pins to bus.</p>
+  <p class="ExampleTitle">To annotate a bus tap :</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Ensure that the bus carries a bus label such as D[0..7]. This label would define eight nets called D0, D1, ... , D7</li>
+    <li class="Numbers">Place a wire label on the wire to indicate which signal it is tapping.</li>
+  </ol>
+  <p>An example of this is shown below :</p>
+  <p class="Diagram"><img alt="" border="0" height="271" src="../assets/images/OBJECT_SPECIFICS/Bus_tap.png" style="border: none;" width="284"/></p>
+  <p class="DiagramText">Bus Taps on a schematic</p>
+  <p>If the bus doesn&#39;t connect to any bus pins or bus terminals, you can omit step [1]. In these circumstances, the bus itself plays no part at all in the determining the design connectivity.</p>
+  <p class="Reference">You can also place bus taps semi-automatically via the Property Assignment Tool; refer to the <a href="../PROPERTIES/Property_Assignment_Tool.htm#Examples">PAT examples topic</a> for more information.</p>
+  <p class="Warning">Placing a bus tap without annotating it will be reported as a netlist error as it is a wholly ambiguous situation. Proteus  cannot know which signal you are trying to tap. Nor can a human reader for that matter!</p>
+  <h3><a id="Properties:Bus_Properties" data-indexterm="Properties:Bus Properties"></a><a id="Bus_Properties"></a>Bus Properties</h3>
+  <p>A bus or bus label (they are equivalent for this purpose) has the following property:</p>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 21.252%;"/>
+      <col style="width: 78.748%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Property Name</td>
+        <td>Description</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">NET</span></p>
+        </td>
+        <td>The bus label text</td>
+      </tr>
+    </tbody>
+  </table>
+  <p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

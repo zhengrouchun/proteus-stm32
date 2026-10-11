@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Net Names</title>
+  
+  <meta name="rh-index-keywords" content="Net Names"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">NET NAMES</h1>
+  <h3>Overview</h3>
+  <p>So what exactly is a netlist? A netlist is a list of nets and a net is a group of pins that are connected together. On the schematic, a pin is defined by the reference of the component to which it belongs, its type (determined when the relevant device was created) and the pin name or number.</p>
+  <p>A net can also be named and one of the jobs of the netlist compiler is to merge all nets that have been given the same name. Connections between groups of pins can thus be indicated without having to draw wires between them. This facility is useful for avoiding clutter within a sheet and essential for specifying connections between sheets in a multi-sheet design. The following cause a name to be associated with a net:</p>
+  <ul type="disc">
+    <li>Attaching a wire label to any wire in the net - the net takes a name from the wire label.<br/>
+      <br/>
+      <img alt="" border="0" height="106" src="../assets/images/NETLIST_GENERATION/Wire_label.png" style="border: none;" width="240"/>
+    </li>
+    <li>Connecting to a Logical Terminal - the net takes a name from the Terminal.<br/>
+      <br/>
+      <img alt="" border="0" height="100" src="../assets/images/NETLIST_GENERATION/Terminal_label.png" style="border: none;" width="336"/>
+    </li>
+  </ul>
+  <p>If several of the above occur with different names, the net takes on all the names and will be merged with any other nets which have any of the names. The final netlist will choose one name for the net and a precedence scheme based on the types of the various name-donors is used to choose it - specifically in order of decreasing priority the ranking is:</p>
+  <ul type="disc">
+    <li>Power Supplies (as defined in the power rail configuration)</li>
+    <li>Power Terminals &amp; Hidden Power Pins (see below)</li>
+    <li>Bi-Directional Terminals</li>
+    <li>Output Terminals</li>
+    <li>Input Terminals</li>
+    <li>Generic Terminals</li>
+    <li>Bus Entries &amp; Wire Labels</li>
+  </ul>
+  <p>As a special case, unnamed Power Terminals assume the name VCC and unnamed Ground Terminals assume the name GND.</p>
+  <p>Net names can contain any alphanumeric characters plus the minus sign (&#39;-&#39;) and the underscore (&#39;_&#39;).  Spaces can be used in the Proteus environment but may cause problems for other software. The exclamation mark (&#39;!&#39;) and asterisk (&#39;*&#39;) characters have special meanings which are documented later in this section. Net name comparison is case insensitive.</p>
+
+</div>
+<p> </p>
+
+</body></html>

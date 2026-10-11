@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Components</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">COMPONENTS</h1>
+  <h3>Introduction</h3>
+  <p>A component is an instance of a device, picked from one of the device libraries. Since some devices are multi-element it follows that in some cases, several components on the schematic may, in fact, all belong to one physical component on the PCB. In such cases, the logical components are annotated with names such as U1:A, U1:B, U1:C, U1:D to indicate that they all belong to the same physical part. This form of annotation also enables Proteus to select the correct set of pin numbers for each element.</p>
+  <p>Apart from physical terminals, components are the only objects you can place which will generate physical entities in the PCB design. Everything else you place serves either to specify connectivity, or else is present only for the purpose of human readability. This is an important point, since attempts to use other schematic objects (in particular, graphics symbols) to represent objects on the PCB will fail.</p>
+  <h3><a id="Components:Picking_from_Libraries" data-indexterm="Components:Picking from Libraries"></a><a id="Selecting_Components_from_the_Device_Libraries"></a>Selecting Components from the Device Libraries</h3>
+  <p>When you start on an empty drawing, the device selector is empty. Before you can place any components, you must first pick them from the libraries into the selector.</p>
+  <p class="ExampleTitle">To select components from the device libraries:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select the component icon from the Mode Selector toolbar.</li>
+    <li class="Numbers">Click left on the &#39;P&#39; Button on the Object Selector. This will cause the Device Library Browser to appear as shown below.<br/>
+      <br/>
+      <img alt="" border="0" height="340" src="../assets/images/OBJECT_SPECIFICS/Pick_devices_form.png" style="border: none;" width="449"/>
+    </li>
+    <li class="Numbers">Either enter one or more keywords or else navigate through the category and subcategory columns to filter down the indexing system and locate the desired library part.</li>
+    <li class="Numbers">Double click on a part in the results list in order to select it into the design.</li>
+    <li class="Numbers">When you have finished picking devices, use the ok button to close the dialogue and return to the schematic.</li>
+  </ol>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="ISISTUT.chm::/Tutorial/Basic_Schematic_Entry.htm#Selecting_Parts_from_the_Library">Picking Parts from the Library (Tutorial)</a></p>
+  <p class="Reference"><a href="ISISTUT.chm::/Tutorial/Making_New_Devices.htm">Making New Devices (Tutorial)</a></p>
+  <p class="Reference"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm">Device Libraries</a></p>
+  <h3><a id="Placing:Components" data-indexterm="Placing:Components"></a><a id="Components:Placing" data-indexterm="Components:Placing"></a><a id="Placing_Components"></a>Placing Components</h3>
+  <p>Component placement follows the general scheme outlined in <a href="../GENERAL_CONCEPTS/General_Editing_Facilities.htm#Object_Placement">Object Placement</a>.</p>
+  <p class="ExampleTitle">To place a component:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">If the device type you want is not listed in the Object Selector, first select component mode and then pick it from the libraries as described in the previous section.</li>
+    <li class="Numbers">Highlight the device name in the Object Selector. Proteus will show a preview of the device in the Overview Window.</li>
+    <li class="Numbers">Use the Rotation and Mirror icons to orient the device according to how you want to place it.</li>
+    <li class="Numbers">Click left in the Editing Window to enter placement mode. At this point a shadow outline of the component will appear.</li>
+    <li class="Numbers">Move the mouse to the point and which you want to place the component and left click again to commit and exit placement mode.</li>
+  </ol>
+  <h3><a id="Components:Replacing" data-indexterm="Components:Replacing"></a><a id="Replacing_Components"></a>Replacing Components</h3>
+  <p class="ExampleTitle">To replace a component:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Proceed up to stage four in the steps for placing a component. You should now have a shadow component following the mouse.</li>
+    <li class="Numbers">Move the shadow component over the existing component such that at least one of the pins is exactly over a pin on the existing component and the mouse itself is over the existing component.</li>
+    <li class="Numbers">Click left to replace the component on the schematic with the one you are currently placing.</li>
+  </ol>
+  <p class="Tip">You can also replace a component by using the  <a href="../PROPERTIES/Property_Assignment_Tool.htm">Property Assignment Tool</a> with the syntax &#39;<span style="font-family: &#39;Courier New&#39;, monospace;">DEVICE=&lt;component_name&gt;</span>&#39; in on-click mode. This may of course result in chaos if the part is wired !</p>
+  <h3><a id="Editing:Components" data-indexterm="Editing:Components"></a><a id="Components:Editing" data-indexterm="Components:Editing"></a><a id="BOM_(Excluding_component_from)" data-indexterm="BOM (Excluding component from)"></a><a id="Editing_Components"></a>Editing Components</h3>
+  <p>A component may be edited using any of the general editing techniques (see <a href="../GENERAL_CONCEPTS/General_Editing_Facilities.htm#Editing_an_Object">Editing an Object</a>), and also specifically by using the Edit Component command (default keyboard shortcut key &#39;E&#39;). As with most editing features in PROTEUS a dialogue form will appear with the appropriate editing fields. However, with the Edit Component dialogue form the available fields are dependant on the  given properties of the component. You will find, therefore, that this dialogue form can be radically different for different components. Context Sensitive Help is available for the dialogue form but please note that, for the reasons given above, some fields may not have a help topic associated with them.</p>
+  <p>Having said that, several specific attributes are common to components and can be found at the bottom of the dialogue form. Three in particular are used to exclude the component from various other modules and are discussed below:</p>
+  <p class="Diagram"><img alt="" border="0" height="75" src="../assets/images/TEMPLATES/Edit_component_tick_boxes.png" style="border: none;" width="381"/></p>
+  <h5>Exclude from Simulation</h5>
+  <p>When checked the component will not be included for simulation purposes. This should be used for example with connectors which have no meaning in a simulation but are relevant in PCB layout.</p>
+  <h5>Exclude from PCB Layout</h5>
+  <p>When checked the component will not be included for PCB layout purposes. Obvious examples include virtual instruments (e.g. oscilloscope) which is relevant for simulation but clearly not for layout.</p>
+  <h5>Exclude from Bill of Materials</h5>
+  <p>When checked the component will not be included in the Bill of Materials. This is useful where you want a single board fabricated that might satisfy scalable product. For example, a lower cost product might not include bluetooth connectivity but would still use the same mainboard as the more expensive variant.</p>
+  <h3><a id="Multi-element_parts_(annotating)" data-indexterm="Multi-element parts (annotating)"></a><a id="Annotation:Multi-Element_Parts" data-indexterm="Annotation:Multi-Element Parts"></a><a id="Gateswapping_Components"></a>Gate-Swapping Components</h3>
+  <p>The Edit Component dialogue form also enables gate-swap and re-annotation of <a href="../LIBRARY_FACILITIES/Device_Libraries.htm#Making_a_Multi-Element_Homogenous_Device">multi-element parts</a>. A multi-element part is a single physical parts with several contributing logical elements. The common database deals primarily with parts and it is therefore not possible for elements to supply conflicting data. This is most obviously seen with properties; unlike earlier versions, changing a property in one element will automatically change that property in all of the other elements of the part.</p>
+  <p>The annotation and swapping of gates in the Edit Component dialogue now works slightly differently. Take the following as an example:</p>
+  <p class="Diagram"><img alt="" border="0" height="203" src="../assets/images/OBJECT_SPECIFICS/Multi_element_device.png" style="border: none;" width="598"/></p>
+  <p>When placed an element reflects both it&#39;s part reference (e.g. U1) and it&#39;s element identifier (e.g. A). In the edit component dialogue these are now separated into two fields.</p>
+  <p class="Diagram"><img alt="" border="0" height="385" src="../assets/images/OBJECT_SPECIFICS/Edit_component.png" style="border: none;" width="504"/></p>
+  <h5>Part Reference</h5>
+  <p>Changing the part reference will re-annotate all of the elements. For example, changing U1 to U4 will change all of the U1 elements to U4 elements. You will get a warning if you change this annotation to one that is already in use (for example U2).</p>
+  <h5>Element</h5>
+  <p>Changing the element will swap the current element with the one selected from the combo box. Pressing the new button will change the annotation to the next available element not currently on the schematic.</p>
+  <h4>Examples</h4>
+  <p class="ExampleTitle">To re-annotate U1 to U4</p>
+  <p>Edit one of the U1 elements and change the part reference to U4</p>
+  <p class="Diagram"><img alt="" border="0" height="118" src="../assets/images/OBJECT_SPECIFICS/U1_U4.png" style="border: none;" width="705"/></p>
+  <p class="ExampleTitle">To gateswap U4:A with U4:C</p>
+  <p>Edit the U4:A element and change the element to U4:C.</p>
+  <p class="Diagram"><img alt="" border="0" height="123" src="../assets/images/OBJECT_SPECIFICS/U1_U4_elements.png" style="border: none;" width="706"/></p>
+  <p class="ExampleTitle">To annotate a heterogeneous part</p>
+  <p>If you have a multi-element heterogeneous part such as a relay with a coil and contacts the process is similar to that in previous versions. When you place the elements on the schematic they will be un-annotated as manual annotation is required for heterogeneous parts.</p>
+  <p class="Diagram"><img alt="" border="0" height="141" src="../assets/images/OBJECT_SPECIFICS/Hetrogeneous_unannotated.png" style="border: none;" width="377"/></p>
+  <p>The annotation of each element is of the form</p>
+  <p>&lt;part ref&gt; : &lt;element&gt;</p>
+  <p>and is entered in the part reference field of the dialogue. For example, the coil might be annotated as RL1:A and the contacts as RL1:B and RL1:C</p>
+  <p class="Diagram"><img alt="" border="0" height="139" src="../assets/images/OBJECT_SPECIFICS/Hetrogeneous_annotated.png" style="border: none;" width="364"/></p>
+  <p>Assuming the contacts are identical, you can subsequently gateswap them via the element field of the Edit Component dialogue.</p>
+  <p class="Diagram"><img alt="" border="0" height="169" src="../assets/images/OBJECT_SPECIFICS/Gate_swapping.png" style="border: none;" width="321"/></p>
+  <p class="Tip">The gateswap will only work if the contacts are instances of the same library part. Since they are identical, you need only one library part, regardless of how many contacts are placed on the schematic.</p>
+  <h3><a id="Properties:Component_Properties" data-indexterm="Properties:Component Properties"></a><a id="Components:Properties" data-indexterm="Components:Properties"></a><a id="Component_Properties"></a>Component Properties</h3>
+  <p>Components have the following system properties:</p>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 22.986%;"/>
+      <col style="width: 77.014%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Property Name</td>
+        <td>Description</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center">REF</p>
+        </td>
+        <td>Component Reference designator label.</td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center">VAL</p>
+        </td>
+        <td>Component value label.</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center">VALUE</p>
+        </td>
+        <td>Component value label or the VALUE user property if the assigned text is too long for the label.</td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center">DEVICE</p>
+        </td>
+        <td>Library part. If assigned, this will invoke the automatic replacement logic which will attempt to maintain connectivity.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>If any other property names (e.g. RoHS, TOLERANCE, etc.) are assigned, then these will create user properties in the component&#39;s text block.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="BOM.chm::/EXAMPLES/Properties_Examples.htm">Bill of Materials (Properties)</a></p>
+  <p class="Reference"><a href="../PROPERTIES/Property_Assignment_Tool.htm">Property Assignment Tool</a></p>
+  <p class="Reference"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#Device_Properties_Page">Make Device (Properties)</a></p>
+  <p class="Reference"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#The_Visual_Packaging_Tool">Visual Packaging Tool (Properties)</a></p>
+  <h3><a id="Hidden_Pins:Hidden_Power_Pins" data-indexterm="Hidden Pins:Hidden Power Pins"></a><a id="Power_Pins_(Hidden)" data-indexterm="Power Pins (Hidden)"></a><a id="Hidden_Power_Pins"></a>Hidden Power Pins</h3>
+  <p>If a component has been defined with hidden power pins, then the nets to which these will be connected can be viewed or edited by clicking the Hidden Pins button on the Edit Component dialogue form as shown below.</p>
+  <p class="Diagram"><img alt="" border="0" height="213" src="../assets/images/OBJECT_SPECIFICS/Hidden_pins.png" style="border: none;" width="601"/></p>
+  <p class="DiagramText">The Hidden Pins button on the Edit Component Dialogue Form</p>
+  <p>By default, hidden pins connect to a net of the same name - for example, a hidden VDD pin will connected to VDD, a hidden VSS pin to VSS and so on.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="../NETLIST_GENERATION/Power_Rail_Configuration.htm">Power Rail Configuration</a></p>
+  <p class="Reference"><a href="../NETLIST_GENERATION/Hidden_Power_Pins.htm">Hidden Pins</a></p>
+  <p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

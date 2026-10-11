@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Netlist Compiler</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Netlist Compiler</h1>
+<h3>Overview</h3>
+<p>This dialogue allows you to manually compile a netlist for the current 
+ schematic. If you are working with the ARES Layout software you should 
+ use the automatic netlisting method (Netlist to ARES command on the Tools 
+ Menu. Typically you would use this dialogue if you have designed the schematic 
+ in ISIS but are laying out the PCB in a different PCB package.</p>
+<p>Do note that it is almost certain that the name of PCB footprints will 
+ be different in a foreign PCB package to that given in the ARES Layout 
+ software. This means that you will need to manually match the PCB footprint 
+ names on import to the PCB software if you are working in this way.</p>
+<h3>Options</h3>
+<h4>Output</h4>
+<p>Specify whether you want to output the netlist to a file or to the netlist 
+ viewer.</p>
+<h4>Mode</h4>
+<p>Specify the type of netlist that you wish to generate. A logical netlist 
+ contains pin names whereas a physical netlist contains pin numbers. A 
+ more subtle effect is that in a physical netlist, the elements of multi-element 
+ parts such as the 7400 will be grouped (appearing, for example, as U1) 
+ whereas in a logical netlist they are kept separate (appearing, for example, 
+ as U1:A, U1:B, U1:C, U1:D). A logical netlist will generally be used for 
+ simulation whilst a physical netlist is best suited to PCB design. Transfer 
+ mode is used in specialist applications of ISIS only.</p>
+<h4>Scope</h4>
+<p>Specify the scope for the netlist. The default scope is the whole design. 
+ Current scope restricts the netlist generator to just the current sheet. 
+ This is generally used when you wish to extract the netlist from a child 
+ sheet - perhaps a daughter card which is to be represented as a layout 
+ in ARES, but which is part of a larger design that needs to be simulated 
+ whole. It is also possible to create a &#39;virtual test jig&#39; by having a 
+ parent sheet which contains circuitry to simulate the components on the 
+ child sheet.</p>
+<h4>Depth</h4>
+<p>Specify the depth of the netlist. The default mode is to flatten the 
+ design. In this case objects with sub-sheets will be replaced by their 
+ implementation. If the netlist is not flattened then this replacement 
+ will not occur and objects with sub-sheets will appear as-is in the partslist 
+ and netlist. The most common reason for not flatting a design is if some 
+ components have attached child sheets representing their simulator models, 
+ but you wish to produce a purely physical netlist for PCB design. Note 
+ that sheets specified as non-physical will not be flattened for PCB design, 
+ irrespective of this setting.</p>
+<h4>Format</h4>
+<p>Specify the desired netlist format. Context Sensitive help is available 
+ on each option.</p>
+<ul type="disc">
+	<li><span style="font-weight: bold;">SDF</span> - Specify the SDF netlist 
+	 format. SDF (Schematic Description Format) is  the native Labcenter 
+	 format - used by PROSPICE, ARES and any future Labcenter EDA products. 
+	 Also very easy to read in and process to other forms. Contains all 
+	 textual/connectivity information contained in the DSN file. Use Physical 
+	 mode for ARES.</li>
+	<li><span style="font-weight: bold;">Eedesigner</span> - Specify the 
+	 EE Designer III netlist format. The user property PACKAGE is used 
+	 for the package name. Use in Physical mode.</li>
+	<li><span style="font-weight: bold;">Multiwire/ Eag</span> - Specify 
+	 the Multiwire netlist format. Also used by EAGLE PCB design.File format 
+	 does not contain packaging data. Use in Physical mode.</li>
+	<li><span style="font-weight: bold;">Spice</span> - Specify the SPICE 
+	 netlist format, also ideal for P-Spice. The ground net will be node 
+	 0, unnamed nets start at 1000; numeric net will be fed straight through. 
+	 The file SPICE.LXB can be re-named to SPICE.LIB to obtain a set of 
+	 SPICE compatible models. Use in Logical mode. Do not use this format 
+	 for creating PROSPICE models – use the normal MDF output from the 
+	 Model Compiler – it is far more flexible.</li>
+	<li><span style="font-weight: bold;">Tango</span> - Specify the Tango 
+	 netlist format, also used by Protel and others. A good general purpose 
+	 format. Use in Physical mode.</li>
+	<li><span style="font-weight: bold;">Vutrax</span> - Specify the VUTRAX 
+	 netlist format.</li>
+	<li><span style="font-weight: bold;">Boardmarker</span> - Netlist format 
+	 for Tsien Boardmaker II. The user property PACKAGE is used for the 
+	 package name. Use in Physical mode.</li>
+	<li><span style="font-weight: bold;">Futurenet</span> - Netlist format 
+	 used by Dash design tools. Also popular for general purpose netlist 
+	 transfer. Use Physical mode for Pin List, Logical mode for Net List.</li>
+	<li><span style="font-weight: bold;">Racal</span> - Specify the RACAL 
+	 netlist format. Used by RedBoard, CADSTAR etc. Two files are created 
+	 with CPT and NET extensions. The user property PACKAGE is used for 
+	 the package name. Use Physical mode.</li>
+	<li><span style="font-weight: bold;">Spice - Age</span> - Specify the 
+	 SPICE-AGE netlist format for Those Engineers analogue simulator .The 
+	 file SPICEAGE.LXB can be re-named to SPICEAGE.LIB to obtain a set 
+	 of SPICE-AGE compatible models.</li>
+</ul>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

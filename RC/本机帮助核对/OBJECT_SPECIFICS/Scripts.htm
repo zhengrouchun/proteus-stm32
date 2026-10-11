@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Scripts</title>
+  
+  <meta name="rh-index-keywords" content="Scripts"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">SCRIPTS</h1>
+  <h3>Introduction</h3>
+  <p>A major feature of Proteus is its ability to support free format text scripts, and the numerous uses it puts them to. These uses include:</p>
+  <ul type="disc">
+    <li>Defining variables for use in property expressions and parameter mapping.</li>
+    <li>Defining primitive models and scripts for use with the VSM simulators.</li>
+    <li>Annotating designs with substantial quantities of text.</li>
+    <li>Storing property and packaging information when a component is decomposed.</li>
+  </ul>
+  <h3><a id="Editing:Scripts" data-indexterm="Editing:Scripts"></a><a id="Placing:Scripts" data-indexterm="Placing:Scripts"></a><a id="Scripts:Placing_and_Editing" data-indexterm="Scripts:Placing and Editing"></a><a id="Placing_and_Editing_Scripts"></a>Placing and Editing Scripts</h3>
+  <p>The procedure for placing and editing scripts are almost identical as both operations involve the edit  script block dialogue form.</p>
+  <p class="ExampleTitle">To place a script:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select the Script Icon from the Mode Selector toolbar.</li>
+    <li class="Numbers">In the Editing Window, point to where you want the top-left of the script to be and click left to launch the Edit Script Block dialogue as shown below.<br/>
+      <br/>
+      <img alt="" border="0" height="398" src="../assets/images/OBJECT_SPECIFICS/Edit_script.png" style="border: none;" width="375"/>
+    </li>
+    <li class="Numbers">Enter the text for the new script in the Text field. You can also adjust the attributes of a script at this time - see To Edit a Script below for full details of the dialogue form.</li>
+    <li class="Numbers">Close the dialogue form with the OK button to place the new script or with the CANCEL button to quit the form and cancel the script placement.</li>
+  </ol>
+  <p class="ExampleTitle">To edit a script:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Either :<br/>
+        (a) Tag the script by pointing at it and clicking right and then select edit from the resulting context menu.<br/>
+        (b) Point at the script with the mouse and use the assigned keyboard shortcut to edit it (by default this is CTRL+E).<br/>
+        (c) Entering Selection mode via the selection icon and double clicking on the script block.</li>
+    <li class="Numbers">Adjust the script attributes as required.</li>
+    <li class="Numbers">Close the Form. To close the form and save changes either click the OK button or use the CTRL+ENTER keys. To close the form and abandon changes, either click the CANCEL button or use the ESC key.</li>
+  </ol>
+  <p class="Reference">See the graphics and text style tutorial under Editing Local Styles for more details of editing local text styles.</p>
+  <p class="Tip">You can resize the Edit Script Block dialogue form to make the Text field bigger and then save the size using the Save Window Size command on the Window’s ‘system’ menu (click on the button at the far left of the title bar).</p>
+  <h3><a id="Scripts:Script_Types" data-indexterm="Scripts:Script Types"></a><a id="Script_Block_Types"></a>Script Block Types</h3>
+  <p>Proteus currently supports the following script block types:</p>
+  <table cellspacing="0" class="LXTable" width="64.465%">
+    <colgroup>
+      <col style="width: 59.748%;"/>
+      <col style="width: 40.252%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>
+          <p align="left" style="margin-left: 6pt;">Script Block Type</p>
+        </td>
+        <td>Block Header</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p style="margin-left: 6pt;">Sheet Global Net Property Assignment</p>
+        </td>
+        <td>
+          <p style="margin-left: 6pt; font-weight: bold; font-family: &#39;Courier New&#39;, monospace;">*NETPROP</p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p style="margin-left: 6pt;">Sheet Property Definition</p>
+        </td>
+        <td>
+          <p style="margin-left: 6pt; font-weight: bold; font-family: &#39;Courier New&#39;, monospace;">*DEFINE</p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p style="margin-left: 6pt;">Parameter Mapping Table</p>
+        </td>
+        <td>
+          <p style="margin-left: 6pt; font-family: &#39;Courier New&#39;, monospace;"><span style="font-weight: bold;">*MAP ON</span> <span style="font-style: italic;">varname</span></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p style="margin-left: 6pt;">Model Definition File</p>
+        </td>
+        <td>
+          <p style="margin-left: 6pt; font-weight: bold; font-family: &#39;Courier New&#39;, monospace;">*MODELS</p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p style="margin-left: 6pt;">Named Script</p>
+        </td>
+        <td>
+          <p style="margin-left: 6pt; font-family: &#39;Courier New&#39;, monospace;"><span style="font-weight: bold;">*SCRIPT</span> <span style="font-style: italic;">type name</span></p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p style="margin-left: 6pt;">SPICE Model Script</p>
+        </td>
+        <td>
+          <p style="margin-left: 6pt; font-weight: bold; font-family: &#39;Courier New&#39;, monospace;">*SPICE <span style="font-style: italic; font-weight: normal;">type name</span></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3><a id="*FIELD" data-indexterm="*FIELD"></a><a id="Part_Property_Assignments___FIELD_"></a>Part Property Assignments (*FIELD)</h3>
+  <p class="Warning">Field Blocks are deprecated for new designs in Proteus 8. Non-physical parts can be packaged directly in the layout module and properties added through the Bill of Materials property editor. The text below remains in place temporarily during transition.</p>
+  <p class="Reference">See <a href="Terminals.htm#Physical_Terminals">Physical Terminals</a> for more information on physical terminals.</p>
+  <p class="Reference">See <a href="../ISIS_AND_ARES/Packaging.htm">Schematic and Layout</a> regarding packaging considerations for PCB Design.</p>
+  <p>Field blocks are primarily intended to facilitate the assignment of properties to connectors made from physical terminals. A special means to do this is required since when physical terminals are used, there is no single entity on the schematic that represents the connector and to which properties could be directly attached.</p>
+  <p>An example block is shown below:</p>
+  <p class="Courier">*FIELD</p>
+  <p class="Courier">J1,PACKAGE=CONN-D9</p>
+  <p class="Courier">J2,PACKAGE=CONN-D25</p>
+  <p>This assigns connector J1 the PCB package for a 9 pin D connector, and J2 the package for a 25 way connector.</p>
+  <p>You can assign properties to ordinary components as well, but there is generally little point since you can add them directly to the components.</p>
+  <h3><a id="*NETPROP" data-indexterm="*NETPROP"></a><a id="Sheet_Global_Net_Property_Assignments___NETPROP_"></a>Sheet Global Net Property Assignments (*NETPROP)</h3>
+  <p>A net property is normally assigned by the placement of a wire label with the syntax:</p>
+  <p class="Courier">&lt;prop&gt;=&lt;value&gt;</p>
+  <p>However, there are occasions when you wish a large number of nets to carry the same property. Most often, the requirement is for all the circuitry on a particular sheet to be of a particular type (perhaps extra wide tracking for a power supply) and it is for this purpose that a NETPROP block may be used. For example, if the block:</p>
+  <p class="Courier">*NETPROP</p>
+  <p class="Courier">CLASS=POWER</p>
+  <p>is included on a sheet, then all nets whose wires do not carry explicitly net properties will be assigned the net property <span style="font-family: &#39;Courier New&#39;, monospace;">CLASS=POWER</span>.</p>
+  <p class="Reference">See <a href="Wire_Labels.htm#Using_a_Wire_Label_to_Assign_a_Net_Property">Using a Wire Label to Assign a Net Property</a> for more information about net properties.</p>
+  <h3><a id="*DEFINE" data-indexterm="*DEFINE"></a><a id="Sheet_Property_Definitions___DEFINE_"></a>Sheet Property Definitions (*DEFINE)</h3>
+  <p>A sheet property is essentially a variable which is defined on a given sheet and may be used in property expressions within components&#39; property lists on that sheet. Sheet properties defined on the root sheets of a design, also appear in the netlist and may be used as control parameters by software such as the VSM simulators that reads the netlist.</p>
+  <p>An example block is shown below:</p>
+  <p class="Courier">*DEFINE</p>
+  <p class="Courier">TEMP=40</p>
+  <p class="Courier">MINSTEPS=100</p>
+  <p>This defines two properties TEMP and MINSTEPS, and would be placed on the root sheet of a design such that they would be passed to VSM as simulation control parameters.</p>
+  <h3><a id="*MAPON" data-indexterm="*MAPON"></a><a id="Parameter_Mapping_Tables___MAP_ON_varname_"></a>Parameter Mapping Tables (*MAP ON varname)</h3>
+  <p>This is considered a highly advanced topic, and one which is only of great importance if you are involved in creating universal models for use with VSM. Further information on this is given in the VSM manual, but for completeness, we provide an example parameter mapping table here:</p>
+  <p class="Courier">*MAP ON VALUE</p>
+  <p class="Courier">7400   : TDLH=12n,TDHL=7n</p>
+  <p class="Courier">74LS00 : TDLH=10n,TDHL=6n</p>
+  <p class="Courier">74S00  : TDLH=5n,TDHL=3n</p>
+  <p>This table would be placed on the model schematic for a 2 input NAND gate, and would select different values for TDLH and TDHL according to the value (i.e. type) of the parent object. Also on the child sheet would be a NAND_2 primitive with the properties:</p>
+  <p class="Courier">TDLH=&lt;TDLH&gt;</p>
+  <p class="Courier">TDHL=&lt;TDHL&gt;</p>
+  <p>At netlist time, the parameter mapping table would examine the parent object&#39;s VALUE property and if, say, it were 74LS00, then the sheet properties TDLH=10n and TDHL=6n would be defined for that instance of the model. Then, on processing the NAND_2 primitive, these values would be substituted for &lt;TDLH&gt; and &lt;TDHL&gt; such that the primitive would acquire the correct timing to model a 74LS00.</p>
+  <p>A DEFAULT case is also supported.</p>
+  <h3><a id="*MODELS" data-indexterm="*MODELS"></a><a id="Model_Definition_Tables___MODELS_"></a>Model Definition Tables (*MODELS)</h3>
+  <p>These blocks are used only with the VSM simulators (currently, in fact, only with the Analogue simulator) and provide a shorthand method for managing the large numbers of properties that some of the simulator primitives use. For example, the bipolar transistor model has over 30 different properties and it would be fairly hopeless if you had to assign all of these individually for each transistor on the circuit.</p>
+  <p>Instead, you can use a MODELS block to define the properties for a particular type of transistor, and then refer to that set of properties using a model name.</p>
+  <p>An example block is shown below:</p>
+  <p class="Courier">*MODELS</p>
+  <p class="Courier">741_NPN : BETAF=80,ISAT=1E-14,RB=100,VAF=50,\</p>
+  <p class="Courier">          TAUF=0.3E-9,TAUR=6E-9, CJE=3E-12,CJC=2E-12</p>
+  <p class="Courier">741_PNP : BETAF=10,ISAT=1E-14,RB=20, VAF=50,\</p>
+  <p class="Courier">          TAUF=1E-9,  TAUR=20E-9,CJE=6E-12,CJC=4E-12</p>
+  <p>This defines the two transistor types used in a 741 IC. Individual transistors could then be given the values 741_NPN or 741_PNP and VSM would automatically give them the characteristics defined in the model table.</p>
+  <p>See the VSM manual for further discussion of primitive models.</p>
+  <h3><a id="*SCRIPT" data-indexterm="*SCRIPT"></a><a id="Named_Scripts___SCRIPT_scripttype_scriptname_"></a>Named Scripts (*SCRIPT scripttype scriptname)</h3>
+  <p>In certain circumstances it is useful to be able to export a named block of text to an external application. In particular the SPICE and SPICE-AGE netlist formatters make use of the named scripts PSPICE and SPICE-AGE to supply control information for the simulations.</p>
+  <p>A typical named script block is shown below. Note that the end of the named script is marked by an ENDSCRIPT keyword, though this is optional if there are no other blocks in the script object.</p>
+  <p class="Courier">*SCRIPT PROGRAM 7493</p>
+  <p class="Courier">// Declare linkage to pins and local variables:</p>
+  <p class="Courier">PIN CKA, CKB, RA, RB</p>
+  <p class="Courier">PIN QA,QB,QC,QD</p>
+  <p class="Courier">INT counta = 0, countb = 0</p>
+  <p class="Courier">// Handle single-bit ‘A’ counter and assign output:</p>
+  <p class="Courier">IF RA=H THEN</p>
+  <p class="Courier">   counta = 0</p>
+  <p class="Courier">ELIF CKA=HL THEN</p>
+  <p class="Courier">   counta = (counta+1) % 2</p>
+  <p class="Courier">ENDIF</p>
+  <p class="Courier">QA = counta &amp; 1</p>
+  <p class="Courier">// Handle three-bit ‘B’ counter and assign output:</p>
+  <p class="Courier">IF RB=H THEN</p>
+  <p class="Courier">   countb = 0</p>
+  <p class="Courier">ELIF CKB=HL THEN</p>
+  <p class="Courier">   countb = (countb+1) % 8</p>
+  <p class="Courier">ENDIF</p>
+  <p class="Courier">QB = countb &amp; 1</p>
+  <p class="Courier">QC = countb &amp; 2</p>
+  <p class="Courier">QD = countb &amp; 4</p>
+  <p class="Courier">*ENDSCRIPT</p>
+  <h3><a id="*SPICE" data-indexterm="*SPICE"></a><a id="SPICE_Model_Script___SPICE_"></a>SPICE Model Script (*SPICE)</h3>
+  <p>These scripts allow SPICE input cards to be typed on the schematic and loaded directly into PROSPICE at simulate time. This can be handy if you want to develop or test SPICE models in native SPICE format in the native SPICE format.</p>
+  <p class="Reference">Further Information on this is provided in the Proteus VSM manual.</p>
+
+</div>
+<p> </p>
+
+</body></html>

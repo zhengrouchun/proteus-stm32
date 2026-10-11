@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Device Datasheet &amp; Help File</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Device Datasheet &amp; Help File</h1>
+<h3>Overview</h3>
+<p>This screen allows you to associate a datasheet and a help file with 
+ the component. When configured a data and help button will appear on the 
+ edit component dialogue form.</p>
+<h3>Options</h3>
+<h4>Datasheet</h4>
+<p>Use these options to link a manufacturers datasheet to the library part. 
+ You can specify a path to an HTTP or FTP site. Each field has its own 
+ context sensitive help associated with it.</p>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Filename</span> - Specify the 
+	 filename of a manufacturer&#39;s datasheet for the component. If none 
+	 of the other fields are filled in, the data sheet is assumed to be 
+	 available from the Labcenter download site. Otherwise, you can fill 
+	 in the other fields to specify an alternative location for the file. 
+	 The extension (usually PDF) is required, and the filename may be case 
+	 sensitive for some download sites. If you specify a filename in this 
+	 field, then ISIS will add a Data button to the Edit Component dialogue 
+	 form.</li>
+	<li><span style="font-weight: bold;">Download Server</span> - Specify 
+	 the HTTP or FTP site on which the datasheet file may be found. E.g. 
+	 http://downloads.labcenter.co.uk or ftp://ftp.microchip.com If you 
+	 leave this field blank, the datasheet will have to be manually downloaded 
+	 and put in the datasheets directory within the installation directory.</li>
+	<li><span style="font-weight: bold;">Download Path</span> - Specify 
+	 the path (directory) in which the datasheet is located on the HTTP 
+	 or FTP server. This field may be case sensitive for some download 
+	 sites.</li>
+	<li><span style="font-weight: bold;">Download User ID</span> - Specify 
+	 the user id for the HTTP or FTP server login. Leave this field blank 
+	 where authorization is not required.</li>
+	<li><span style="font-weight: bold;">Download Password</span> - Specify 
+	 the password for the HTTP or FTP server login. Leave this field blank 
+	 where authorization is not required.</li>
+</ul>
+<h4>Help Topic</h4>
+<p>Use these options to link in a help project to your library part. These 
+ options tend to be used where you have a simulation model associated with 
+ the part and want to describe tolerances, properties and functionality 
+ for that model in the form of some help documentation. Each field  has 
+ its own context sensitive help associated with it.</p>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Help File</span> - Specify the 
+	 name of a Windows Help file which contains information about this 
+	 component. This is provided mainly as a means for providing usage 
+	 information about simulator models. If you specify a filename in this 
+	 field, then ISIS will add a Help button to the Edit Component dialogue 
+	 form. This facility is intended for use in documenting simulator models.</li>
+	<li><span style="font-weight: bold;">Context Number</span> - Specify 
+	 the help context ID containing information about the component. You 
+	 should cross-reference this number to a help topic ID using the MAP 
+	 section of the Windows Help project file.</li>
+</ul>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

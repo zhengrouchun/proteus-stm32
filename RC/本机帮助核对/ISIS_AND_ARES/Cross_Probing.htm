@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Cross Probing</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">CROSS PROBING</h1>
+  <h3 position="fixed">Introduction</h3>
+  <p position="fixed">Cross-probing is a powerful technique for analysing and checking both your schematic and your PCB layout simultaneously. Essentially it allows you to take a schematic component and tag/zoom to the PCB footprint on the layout corresponding to that component. The Proteus design suite also enables you to look at a net on the schematic and highlight the same net on the PCB layout, thus allowing you to easily establish and check routing strategies and completeness.</p>
+  <p>Much of the cross-probing can be actioned directly from the application module you are working in (schematic vs layout) and/or you can work from within the Design Explorer. Where appropriate, we&#39;ll discuss both methods below.</p>
+  <p class="Reference"><a href="DXP.chm::/Live_Cross-Probing.htm">See Also : Design Explorer</a></p>
+  <h3><a id="Automatic_Cross-Probing_Mode"></a>Automatic Cross-Probing Mode (Design Explorer)</h3>
+  <p>You can automate navigation to both schematic and layout modules by switching on the live cross-probing mode in the Design Explorer.</p>
+  <p class="Diagram"><img alt="" border="0" height="44" src="../assets/images/ISIS_AND_ARES/Cross_probing_icon.png" style="border: none;" width="247"/></p>
+  <p>When enabled the clicking on an component in Design Explorer automatically tags the component part on the schematic and/or the footprint on the layout.</p>
+  <p>The difference between automatic mode and those described below is that there is no switch of tabs to the schematic and/or layout in automatic mode. The most useful way to cross-probe in this way is therefore to detach the design explorer from the frame containing the schematic/layout (drag the tab and drop it). With the design explorer is a separate frame you can then click on a component and view the corresponding schematic/layout.</p>
+  <p class="Diagram"><img alt="" border="0" height="409" src="../assets/images/ISIS_AND_ARES/Cross_probing_highlighted.png" style="border: none;" width="710"/></p>
+  <h3><a id="Cross_Probing_to_Footprint" data-indexterm="Cross Probing to Footprint"></a><a id="Cross_Probing_to_a_Footprint"></a>Cross Probing to a Footprint</h3>
+  <h4>Direct from the Schematic</h4>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Locate the component part that you want to cross-probe from.</li>
+    <li class="Numbers">Right click and select &#39;Show in PCB Layout&#39; from the resulting context menu.</li>
+  </ol>
+  <p><img alt="" border="0" height="182" src="../assets/images/ISIS_AND_ARES/Show_in_pcb.png" style="border: none;" width="376"/></p>
+  <p>Proteus will switch to (or launch) the Layout tab and navigate to the footprint corresponding to the component part on the schematic. Of course, if the footprint has not yet been placed on the layout not much will happen!</p>
+  <h4>Design Explorer</h4>
+  <p class="ExampleTitle">To cross probe to a footprint on the Layout :</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Make sure that both the schematic and the layout modules are open, have the design/layout file loaded and that they are synchronised (that is, that all changes made on the schematic have been netlisted through to the layout).</li>
+    <li class="Numbers">Launch the Design Explorer.<br/>
+      <br/>
+      <img alt="" border="0" height="41" src="../assets/images/ISIS_AND_ARES/Design%20Explorer.png" style="border: none;" width="189"/>
+    </li>
+    <li class="Numbers">Make sure that you are in Physical Parts View - this is shown on the title bar of the design explorer.<br/>
+      <br/>
+      <img alt="" border="0" height="128" src="../assets/images/ISIS_AND_ARES/DXP_partslist.png" style="border: none;" width="265"/>
+    </li>
+    <li class="Numbers">The right hand pane should be displaying a listing of component parts on the current schematic sheet.<br/>
+      <br/>
+      <img alt="" border="0" height="194" src="../assets/images/ISIS_AND_ARES/DXP_RHS.png" style="border: none;" width="385"/>
+    </li>
+    <li class="Numbers">Right click on the schematic part of interest within this pane and you should get a context menu with an option to &#39;Go to PCB Part&#39;. Select this menu option and the layout module will both zoom to and highlight the footprint corresponding to the component you selected.<br/>
+      <br/>
+      <img alt="" border="0" height="232" src="../assets/images/ISIS_AND_ARES/Go_to_pcb_part.png" style="border: none;" width="560"/>
+    </li>
+  </ol>
+  <p class="Tip">If the &#39;Go to PCB Part&#39; option is grayed out then either the layout module is not open, doesn&#39;t have the layout corresponding to the open schematic loaded, or the schematic and PCB are out of sync (close design explorer, turn on live netlisting in the layout module and repeat from step 2 above).</p>
+  <p class="Tip">The Design Explorer is a top level window which means that it can be minimised to the system tray. It will automatically detect when the schematic has changed and will close. This is required to ensure that the information displayed in the design explorer is entirely consistent with that on the schematic.</p>
+  <h3><a id="Cross_Probing_to_a_Net1" data-indexterm="Cross Probing to a Net"></a><a id="Cross_Probing_to_a_Net"></a>Cross Probing to a Net</h3>
+  <p class="ExampleTitle">To cross probe to a net in the layout:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Repeat steps 1 &amp; 2 in Design Explorer above.</li>
+    <li class="Numbers">Use the net icon at the top left of the design explorer to switch into Physical Netlist View - this will be reflected on the title bar.<br/>
+      <br/>
+      <img alt="" border="0" height="128" src="../assets/images/ISIS_AND_ARES/DXP_netlist.png" style="border: none;" width="265"/>
+    </li>
+    <li class="Numbers">The right hand pane will now be displaying a list of nets used in the schematic.<br/>
+      <br/>
+      <img alt="" border="0" height="177" src="../assets/images/ISIS_AND_ARES/DXP_netlist_RHS.png" style="border: none;" width="306"/>
+    </li>
+    <li class="Numbers">Right click on the net of interest within this pane and you should get a context menu with an option to &#39;Go to PCB Net&#39;. Select this menu option and the PCB Module will both zoom to and highlight the footprint corresponding to the component you selected.<br/>
+      <br/>
+      <img alt="" border="0" height="300" src="../assets/images/ISIS_AND_ARES/Go_to_pcb_net.png" style="border: none;" width="601"/>
+    </li>
+  </ol>
+  <p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

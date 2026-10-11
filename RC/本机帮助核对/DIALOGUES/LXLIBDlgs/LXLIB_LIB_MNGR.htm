@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+ <meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Library Manager</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+<body>
+<div>
+<h1>Library Manager</h1>
+<h3>Overview</h3>
+<p>This tool is used to manage your own user libraries, enabling you to create libraries and copy footprints between different libraries. It is important that you do not copy your own parts into the Labcenter system libraries as they will be overwritten on installation of a new version (to enable library updates). System libraries are read only by default to prevent this from happening.</p>
+<h3>Options</h3>
+<h4>Source and Destination Libraries</h4>
+<p>The Source or Primary Library and the Destination or Secondary Library are the libraries used as the source and destination of objects in operations such as Copy, Delete, etc., and as the library for operations such as Pack Library, Delete Library, etc.</p>
+<p>The Source or Primary Library is the library that last received the input focus; clicking on one of the two library list boxes causes that list box to become the Source (Primary) Library and the other list box to become the Destination (Secondary) Library. The text at the top of the list box indicates which list box is which, and the large black arrow between the two gives the sense of direction to the Copy and Move commands.</p>
+<p>The library list boxes allow for multiple-selection of items: clicking the left mouse button on an item to select it, clicking on a selected item un-selects it.</p>
+<p>The text at the top of a library list box indicates whether the specified library is read-only. Read-only libraries can only be used as a Source or Primary Library - you can still select a read-only library as a Destination (Secondary) Library, but the buttons that affect the library (e.g. Copy) will not be enabled. The text at the bottom of a library list box indicates the number of items in the library and the number of remaining entries in the library index.</p>
+<h4>Order</h4>
+<p>This button will launch a separate dialogue box which will allow you to specify the ordering of the available libraries.</p>
+<h4>Select All</h4>
+<p>This button is used to select all of the objects in the source library for copying moving or deleting.</p>
+<h4>Unselect All</h4>
+<p>This button is used to clear any objects that may have previously been highlighted for copying moving or deleting.</p>
+<h4>Copy Items</h4>
+<p>The Copy Items button copies the selected objects from the Source Library to the Destination Library. A percentage indicator on the right of the window indicates progress. The copy process stops once all the selected objects have been copied or when the destination library becomes full.</p>
+<p>You can only copy objects to a writable (i.e. non read-only) Destination Library that is different to the Source Library</p>
+<h4>Move Items </h4>
+<p>The Move Items button moves the selected objects from the Source Library to the Destination Library. A percentage indicator on the right of the window indicates progress. The move operation is done in two stages: an object is first copied to the destination library and then it is deleted from the source library. The process stops once all the selected objects have been moved or when the destination library becomes full. Objects are only deleted from the source library after being successfully copied to the destination library - so if the destination library becomes full, those objects  not yet moved are left in the source library.</p>
+<p>You can only move objects from a writable (i.e. non read-only) Source Library to a writable Destination Library that is different to the Source Library.</p>
+<h4>Delete Items</h4>
+<p>The Delete Items button deletes all the selected objects in the Source Library. Note that deleted items cannot be recovered. You can only delete objects from a writable (i.e. non read-only) library.</p>
+<h4>Rename Item</h4>
+<p>The Rename Item button allows you to change the name of the last selected item in the Source Library. You can only rename objects in a writable (i.e. non read-only) library.</p>
+<h4>Information</h4>
+<p>Provides information about the current library and highlighted object, including date at which the object was last modified.</p>
+<h4>Dump Library</h4>
+<p>The Dump Library button displays a form containing the library information as well as the headers and properties for any selected library objects.</p>
+<h4>ADI Library</h4>
+<p>ASCII Data Import allows you to assign given properties to particular objects according to whether their existing properties match certain test conditions. In ISIS III ADI can be applied directly to libraries as well as design files. Selecting ADI Library asks for the name of an ADI file to apply to the selected components in the source library.</p>
+<h4>Backup Libraries</h4>
+<p>Create a backup copy of the source library.</p>
+<h4>Create Library</h4>
+<p>The Create Library button allows you to create a new library. You are prompted to enter the maximum number of objects the new library will be able to hold. These values cannot be changed after the library has been created and there is no (reasonable) limit to the values you enter. The new library is initialized empty and writable (that is, with its MS-DOS or network read-only file attribute not set).</p>
+<h4>Delete Library</h4>
+<p>The Delete Library button allows you to delete the current Source Library from disk. Note that you cannot undelete a deleted library! You can only delete a writable (i.e. non read-only) library.</p>
+<h4>Pack Library</h4>
+<p>The Pack Library button packs the current Source (Primary) Library. The existing library is renamed to a .BAK file. You can only pack a writable (i.e. non read-only) library.</p>
+<h4>File Attribute</h4>
+<p>Change the read/write status of the current library.</p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

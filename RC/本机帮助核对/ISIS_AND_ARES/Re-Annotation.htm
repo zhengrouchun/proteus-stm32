@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Re-Annotation</title>
+  
+  <meta name="rh-index-keywords" content="Back-Annotation"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1>RE-ANNOTATION</h1>
+  <p>In some circumstances you may wish to renumber components on the PCB to suit manufacturing or assembly activities. This can be done either manually or automatically.</p>
+  <h3><a id="Manual_Re-annotation"></a>Manual Re-annotation</h3>
+  <p class="ExampleTitle">To re-annotate manually</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">
+      <p>Ensure that the PCB is synched with the schematic and then make sure that live netlisting is swiched on.<br/>
+        <img alt="" border="0" height="320" src="../assets/images/ISIS_AND_ARES/Live_netlist_synced.png" style="border: none;" width="553"/>
+      </p>
+    </li>
+    <li class="Numbers">Choose the <span style="font-style: italic;">Component Mode</span> icon on the PCB, and the correct layer for the component(s) you wish to annotate.<br/>
+      <img alt="" border="0" height="118" src="../assets/images/ISIS_AND_ARES/Component_mode.png" style="border: none;" width="224"/>
+    </li>
+    <li class="Numbers">Click on the component labels to edit them.<br/>
+      <img alt="" border="0" height="395" src="../assets/images/ISIS_AND_ARES/Edit_package_label.png" style="border: none;" width="330"/>
+    </li>
+    <li class="Numbers">Changes will automatically be reflected on the schematic.</li>
+  </ol>
+  <p class="Tip">You can re-annotate manually with live netlisting switched off but each annotation will involve a netlist change which in turn will require you to manually unlock the layout. Much easier to perform this type of operation with live netlisting enabled.</p>
+  <p class="Warning">Be careful that you do not end up with two components with the same reference (e.g. two R2 components). Proteus will cope with this and will warn you in the pre-production checker but it almost always leads to confusion.</p>
+  <h3><a id="Global_Annotator_(Layout)" data-indexterm="Global Annotator (Layout)"></a><a id="Annotation:Global_Annotator_(Layout)" data-indexterm="Annotation:Global Annotator (Layout)"></a><a id="Automatic_Re-annotation"></a>Automatic Re-annotation</h3>
+  <p>Automatic re-annotation will globally re-annotate the PCB and reflect the changes back to the schematic. You can select both a direction and a starting point for the annotator.</p>
+  <p class="ExampleTitle">To re-annotate automatically</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">
+      <p>Make sure that the layout is synched with the schematic module and then launch the automatic annotator from the tools menu in the layout module.<br/>
+        <br/>
+        <img alt="" border="0" height="437" src="../assets/images/ISIS_AND_ARES/Automatic_annotator.png" style="border: none;" width="246"/><br/>
+         
+      </p>
+    </li>
+    <li class="Numbers">Choose the direction and starting point for the re-annotation and click the OK button to start..</li>
+    <li class="Numbers">Changes will instantly be reflected on the schematic.</li>
+  </ol>
+  <h4>How it Works</h4>
+  <p>The annotator starts by scanning along the direction you specify from your starting point. It takes a &#39;strip&#39; of footprints from one side of the board to the other and the width of the strip is the &#39;thickest&#39; footprint outline. This strip is annotated in the direction you specified and another strip is then scanned using the same metric.</p>
+  <p>What this means is that while generally you will get good results it is quite possible to see what appears to be illogical annotation. An example would be where a big IC footprint is mostly but not completely in the same strip as a row of small resistors. In this case the annotation of the resistor outside of the strip may be markedly different from the other ones.</p>
+  <p>You can easily resolve this kind of thing by manually re-annotating any oddities.</p>
+  <h4>Caution</h4>
+  <p>The PCB  annotator will annotate the physical layout without consideration of the logical schematic. The annotation in the schematic will change automatically to match the new layout annotation but rules for annotation defined in the schematic will be ignored by the PCB annotator unless you check the box to preserve <a href="../MULTI_SHEET_DESIGNS/Flat_Designs.htm#Design_Menu_Commands">sheet annotation bases</a> on hierarchical designs.</p>
+  <p>Depending on the user, the logical annotation of sheets may be preferred over the geometric annotation on the board. If this is true for you, it may be easier to sort your annotation using the <a href="../GENERAL_CONCEPTS/Miscellaneous.htm#Automatic_Annotator">Global Annotator</a> from the Tools menu in the schematic module.</p>
+
+</div>
+<p> </p>
+
+</body></html>

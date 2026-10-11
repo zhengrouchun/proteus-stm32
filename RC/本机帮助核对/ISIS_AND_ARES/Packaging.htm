@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Packaging</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">PACKAGING</h1>
+  <h3>Introduction</h3>
+  <p>In order that the PCB layout module knows which library packages must be used for given components, this information must be entered somewhere in the design process. You can do this either when creating new library parts or when editing the schematic or when placing the part on the PCB. The property to use for this purpose is, not improbably, called PACKAGE. Most of the library parts in the supplied libraries have this property embedded.</p>
+  <p>The advantage of making packaging changes or additions in the schematic is that you can then run Make Device and store them for future projects. A component on the schematic can contain multiple packagings so you don&#39;t lose anything by adding a new package, provided you do so via the <a href="../LIBRARY_FACILITIES/Device_Libraries.htm#The_Visual_Packaging_Tool">packaging tool</a></p>
+  <p><img alt="" border="0" height="294" src="../assets/images/ISIS_AND_ARES/Multiple_packages.png" style="border: none;" width="517"/></p>
+  <h3><a id="Default_Packaging"></a>Default Packaging</h3>
+  <p>Most of the library parts supplied have suitable packages for PCB layout associated with them, and these packages can be viewed when you browse the libraries. Note that some parts - e.g. simulator primitive models do not represent real world components and so do not have packages.</p>
+  <p>Additionally, over 15 million parts can be automatically imported via the Proteus library web search. All of these parts will typically include a PCB footprint which will be imported at the same time. </p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="IMPORTER.chm::/LibraryPicker/WebSearchImport.htm">Integrated Web Search.</a></p>
+  <p>Proteus supports multiple packagings for a single schematic symbol, and where appropriate we have utilized this to offer both through hole (PTH) and surface mount (SMT) packagings for the parts in the libraries.</p>
+  <p class="Warning">Note, however, that the responsibility lies wholly with yourself to check that the defaults we have used are suitable for your particular application. We cannot  and will not accept any liability for losses due to boards being wasted as a result of unsuitable PCB packaging, however this may have arisen. We recommend most strongly that you make a one off prototype before commissioning the manufacture of large numbers of PCBs.</p>
+  <h3><a id="Manual_Packaging_in_ISIS"></a>Manual Packaging in Proteus</h3>
+  <p>Manual packagings can be edited or created in a variety of ways. The best and safest way to package a part for a single part is via the <a href="../LIBRARY_FACILITIES/Device_Libraries.htm#The_Visual_Packaging_Tool">Visual Packaging Tool</a> which provides both an intuitive user interface and visual verification that your packaging is correct. Simply highlight the part and invoke the Visual Packaging Tool to edit or add a packaging.</p>
+  <p><img alt="" border="0" height="243" src="../assets/images/ISIS_AND_ARES/Packaging_tool.png" style="border: none;" width="716"/></p>
+  <p>Where many components have the same package - e.g. resistors with 0805, you can use the Design Explorer to quickly change all the package properties.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="DXP.chm::/Search.htm">Design Explorer - Changing Packages..</a></p>
+  <h3><a id="Manual_Packaging_in_ARES"></a>Manual Packaging in the PCB</h3>
+  <p>You can also continue through to the PCB Layout module and board design without a packaging for a part. When you attempt to place the part on the layout Proteus will prompt you to choose a footprint for it and - once selected - that footprint will appear in the schematic component as well.</p>
+  <p><img alt="" border="0" height="207" src="../assets/images/ISIS_AND_ARES/Part_with_no_package.png" style="border: none;" width="758"/></p>
+  <h3><a id="Not_Connected_Pins" data-indexterm="Not Connected Pins"></a><a id="NC_Terminals" data-indexterm="NC Terminals"></a><a id="Not_Connected_Pins__NC_Pins_"></a>Not Connected Pins (NC Pins)</h3>
+  <p>There are three ways to have Not Connected (NC) Pins:</p>
+  <p>1) <span style="font-weight: bold;">Physical pins that are of electrical type NC. </span><span>This will ensure that NC pins are not internally connected on the layout but will not prevent a connection to the NC pin being made.</span></p>
+  <p>2) <span style="font-weight: bold;">Physical pins that you wire to an NC terminal. </span><span>This will explictly assign the pin to the NC net and any connection on the layout will then be an error.</span></p>
+  <p>3) <span style="font-weight: bold;">Virtual pins that  you assign to be NC in the packaging tool</span>. This will explicitly assign the pin to the NC net and any connection on the layout will then be an error.</p>
+  <p class="Tip">We recommend you use NC terminals when you have physical terminals.</p>
+  <p class="ExampleTitle">To make a pin NC with a terminal :</p>
+  <p>This is especially useful for large parts, or where the mapping of pins may change during design. In Proteus, you do this as follows:</p>
+  <p>1) Select terminal mode and the NC terminal type.</p>
+  <p><img alt="" border="0" height="244" src="../assets/images/ISIS_AND_ARES/ncTerminalMode.png" style="border: none;" width="219"/></p>
+  <p>2) Place the terminal against the pin ends with the cross facing outwards.</p>
+  <p><img alt="" border="0" height="212" src="../assets/images/ISIS_AND_ARES/placeNCTerminals.png" style="border: none;" width="549"/></p>
+  <p class="Tip">You can rotate the terminal using the + and - keys while placing.</p>
+  <p class="Tip">There is no need for wiring - simply place the terminal against the end of the pin to make the connection.</p>
+  <p>The packaging tool will determine which pads of the footprint that these pins are assigned to in the normal way. Then, in the layout package those pads will automatically be on the NC net and you will be unable to connect a track to them.</p>
+  <p>As an off-schematic alternative you can also assign NC pins entirely within the packaging tool. This is discussed in the library facilities topic linked below. Your choice of method depends on your QA requirements (if you need to print the schematics and therefore see the NC status this method is better), on how custom this particular design is (if you use this method you need to connect the terminals on each project) and on personal preference.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#NC__Not_Connected__Pins">Packaging Tool and NC Pins.</a></p>
+  <h3><a id="Automatic_Packaging_"></a>Automatic Packaging</h3>
+  <p class="Tip">Much of the following functionality is better done via Library Manager where an excel like Property grid allows quick viewing and setting/changing of properties such as PACKAGE directly into the library parts.</p>
+  <p>The <a href="../REPORT_GENERATION/ASCII_Data_Import.htm">ASCII Data Import</a> feature can be used for the automatic packaging of component types which always take the same package. As an example of this, the file DEVICE.ADI is supplied with Proteus and shows how packages and other properties were assigned to the parts in DEVICE.LIB.</p>
+  <p>The file is set up such that packages are loaded into the PACKAGE property which is then hidden. You can change this by editing the ADI block headers - see report generation for more information on ADI.</p>
+  <p>Some components such as ordinary and electrolytic capacitors come in many different shapes and sizes. Furthermore, we cannot know what particular capacitor families you will want to use. Nevertheless, it is possible to build ADI files that operate on part values as well as device library names. For example, the extract below packages capacitors from our favourite suppliers, and at the same time, loads the order codes for them into property ORDER.</p>
+  <p>Note that packaging is only done for capacitors which are not of the default size specified in DEVICE.LIB. Running CAPS.ADI would override the default assignments to achieve the desired result.</p>
+  <p class="Courier">;CAPACITOR PACKAGING FOR TYPES REQUIRING</p>
+  <p class="Courier">;OTHER THAN CAP10 / ELEC-RAD10 PACKAGES</p>
+  <p class="Courier">DATA DEVICE + VALUE : PACKAGE-</p>
+  <p class="Courier">CAP 1u : CAP20</p>
+  <p class="Courier">&quot;CAP ELEC&quot; 470u  : ELEC-RAD20</p>
+  <p class="Courier">&quot;CAP ELEC&quot; 1000u : ELEC-RAD30</p>
+  <p class="Courier">&quot;CAP ELEC&quot; 2200u : ELEC-RAD30</p>
+  <p class="Courier">END</p>
+  <p class="Courier">;CAPACITOR ORDER CODES</p>
+  <p class="Courier">;These are Ceramic, Polyester types and</p>
+  <p class="Courier">;Electrolytics at 25V or better.</p>
+  <p class="Courier">DATA DEVICE + VALUE : ORDERCODE-</p>
+  <p class="Courier">CAP 100p : F146-447</p>
+  <p class="Courier">CAP 680p : F146-457</p>
+  <p class="Courier">CAP   1n : F149-100</p>
+  <p class="Courier">CAP  1n5 : F149-101</p>
+  <p class="Courier">CAP  3n3 : F149-103</p>
+  <p class="Courier">.</p>
+  <p class="Courier">.</p>
+  <p class="Courier">.</p>
+  <p class="Courier">&quot;CAP ELEC&quot;  47u : R11-0235</p>
+  <p class="Courier">&quot;CAP ELEC&quot; 100u : R11-0245</p>
+  <p class="Courier">&quot;CAP ELEC&quot; 220u : R11-0260</p>
+  <p class="Courier">&quot;CAP ELEC&quot; 470u : R11-0280</p>
+  <p class="Courier">END</p>
+  <p>In general, there will always be a final phase of manual packaging to do for unusual parts, or for special components used in that design only. We suggest that you make the PACKAGE properties of manually packaged parts visible as a reminder that they are non-standard.</p>
+  <h3><a id="Using_the_Design_Explorer_to_Verify_Packaging"></a>Using the Design Explorer to Verify Packaging</h3>
+  <p>In the case of largish designs, it can become difficult to ascertain whether all the components have been packaged, and which packages have been assigned. You can check this quickly by launching the design explorer which - as well as telling you what footprints have been specified. Anything that has NONE assigned in blue means that the part has the check box &#39;Exclude from PCB Layout&#39; ticked in the <span style="font-style: italic;">Edit Component</span> form. Parts that have MISSING in red means that the part does not have a package assigned to it at all.</p>
+  <p class="Diagram"><img alt="" border="0" height="497" src="../assets/images/ISIS_AND_ARES/Packages_missing.png" style="border: none;" width="652"/></p>
+  <p>You can then right click on the part in the design explorer and cross-probe to navigate to the schematic part and adjust the packaging.</p>
+  <p class="Diagram"><img alt="" border="0" height="214" src="../assets/images/ISIS_AND_ARES/Go_to_schematic_part.png" style="border: none;" width="350"/></p>
+  <p class="Tip">If you have multiple missing packages it is much easier to separate the design explorer into a second frame so you can view side-by-side with the schematic. The design explorer will update live as you edit the schematic and package parts that are missing.</p>
+  <h3><a id="Packages_/_Footprints:Package_Verifier" data-indexterm="Packages / Footprints:Package Verifier"></a><a id="The_Package_Verifier"></a>The Package Verifier</h3>
+  <p>Proteus can verify that all the packages specified for components on a schematic exist in the PCB libraries, and that all the pin numbers specified in the schematic library parts exist in the specified packages.</p>
+  <p>Whilst this facility is most useful when creating library parts en masse, it is also useful if you wish to verify that all the packaging is correct prior to netlisting to the PCB module.</p>
+  <p>Apply the verification pass via the Verify Packaging command.</p>
+
+</div>
+<p> </p>
+
+</body></html>

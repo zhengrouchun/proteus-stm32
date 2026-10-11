@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Printer Output</title>
+  
+  <meta name="rh-index-keywords" content="Printing,Outputs"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">PRINTER OUTPUT</h1>
+  <h3>Printer Output</h3>
+  <p>Output through standard Windows device drivers is performed using the Print command on the File menu whilst the device to print to may be selected using the Printer Setup command. Context sensitive help is available on all fields within these dialogue forms.</p>
+  <h4>Specifying a Printer Device</h4>
+  <p>You can specify the printer device in one of two ways :</p>
+  <ul type="disc">
+    <li>Use the Printer Setup command from the File Menu. All printer settings including the printer device specified will be remembered across Proteus sessions and the printer device selected will be the default for future Proteus sessions.</li>
+    <li>Use the Printer button from the Print command on the File Menu. Under these circumstances no printer settings will be retained. This is useful if you want to print to a different printer for a specific design.</li>
+  </ul>
+  <h4>Print Preview</h4>
+  <p>The Print Preview appears on the far right of the Print dialogue form and displays the position and size of the schematic relative to the specified paper size. It will ‘live update’ as you configure the dialogue (scaling,colour,etc..) to your requirements.</p>
+  <p class="Diagram"><img alt="" border="0" height="241" src="../assets/images/HARD_COPY_GENERATION/Print.png" style="border: none;" width="414"/></p>
+  <p class="DiagramText">The Print Dialogue Form with the preview area on the right hand side</p>
+  <p>You can adjust the position of the printed schematic area by left depressing the mouse on the print preview and dragging to the desired position. Alternatively, you can choose a preconfigured position by right clicking the mouse on the preview pane and selecting the desired position from the context menu.</p>
+  <p class="Diagram"><img alt="" border="0" height="305" src="../assets/images/HARD_COPY_GENERATION/Print_prev_menu.png" style="border: none;" width="320"/></p>
+  <p class="DiagramText">The context menu for positioning can be launched by right clicking on the preview area</p>
+  <p class="Tip">Print Preview is disabled when ‘All Sheets’ is selected from the ‘What to Print’ section of the dialogue as it is not possible to show a preview of all sheets simultaneously. In this case printer output will be centered on the printable area.</p>
+  <h4>Configuring Margins</h4>
+  <p>When not printing all sheets you can manually configure the position of the output within the printeable area. Right click on the Print Preview and select Position Output Numerically and enter the margins that you want between the edge of the printeable area and the edge of the output area. This is, in effect, an absolute method of positioning the output area within the printable area. In general, however, we would anticipate most users to position the output area via the mouse drag method detailed above.The graphical illustration below depicts the use of margins.</p>
+  <p class="Diagram"><img alt="" border="0" height="391" src="../assets/images/HARD_COPY_GENERATION/Printer_margins.png" style="border: none;" width="310"/></p>
+  <p class="DiagramText">A graphical illustration of Printer Margins</p>
+  <p>If you turn off the option to Use Printer Margins on the context menu the margins you specify will be from the edge of the paper itself. In most cases this is not recommended as, depending on your printer driver, you are likely to lose part of your schematic if you position it absolutely at the edge of the paper (outside of the printable area).</p>
+  <h4>Scaling</h4>
+  <p>In addition to a number of standard scaling options you can select Fit to Page.</p>
+  <p>In the case where the output area is larger than the printable area both dimensions are examined and both X and Y dimensions of the output area are shrunk according to the dimension with the largest offset (thus ensuring that the entire output area is within the printable area).</p>
+  <p>In the case where the output area is smaller than the printable area both the X and Y dimensions of the output area are expanded according to the dimension with the smallest offset (again ensuring that the resulting output area is entirely contained within the printable area). Note that this option is only available if you uncheck the checkbox for Only Shrink to Fit.</p>
+  <h4>Printer Information</h4>
+  <p>The Printer Information option will dump a log of your printer details and capabilities. This is primarily for support purposes. Whilst our experience of printing support issues is that they are almost invariably the result of a defect in the printer driver we can make a better determination of the problem with the information detailed via this command.</p>
+
+</div>
+<p> </p>
+
+</body></html>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Edit Component</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Edit Component</h1>
+<h3>Overview</h3>
+<p>This dialogue form is the main editing window for the object. Users 
+ can add fields to the dialogue form by specifying additional properties 
+ for the component in the Make Device dialogue form. This means that each 
+ component can contain arbitrary information relevant to that particular 
+ device. The options detailed below are therefore simply some of the most 
+ common that will be found in Labcenter produced library parts.</p>
+<h3>Options</h3>
+<h4>Component Reference</h4>
+<p>Specify the part ID for the component. If the component is part of a 
+ multi-element part such as a 7400, use the naming syntax U1:A, U1:B etc. 
+ to select the different gates. ISIS will update the pin numbers automatically, 
+ when the part reference is so edited.</p>
+<p><span style="font-weight: bold;">Hidden</span> - If checked the component 
+ reference will not be visible on the schematic.</p>
+<h4>Resistance</h4>
+<p>Specify the component&#39;s part value.</p>
+<p>In ISIS 5.1, the data type, description and value range for this field 
+ can be defined for each device type by giving a property definition for 
+ the VALUE property.</p>
+<p><span style="font-weight: bold;">Hidden</span> - If checked the component 
+ value will not be visible on the schematic.</p>
+<h4>Model Type</h4>
+<p>If present, this field specifies whether a component is considered digital, 
+ analog or mixed mode by the Proteus simulation engine. Only applicable 
+ for parts with simulation models and therefore typically only present 
+ in Labcenter produced library parts.</p>
+<h4>PCB Package</h4>
+<p>When present, this field allows specification of one or more PCB footprints 
+ which are associated with the component for the purposes of PCB layout. 
+ This field is present on most physical devices and is used when netlisting 
+ to the ARES layout software to load the footprint for placement.</p>
+<h4>Other Properties</h4>
+<p>A free format text block in which you can add as many additional properties 
+ as you require. Text enclosed between curly brackets (&#39;{&#39; and &#39;}&#39;) is 
+ hidden.</p>
+<p>See also the Edit all Properties as Text button.</p>
+<h4>Exclude from Simulation</h4>
+<p>This option provides the means for a user to exclude parts from a simulation 
+ but leave them present on the schematic for physical netlist purposes. 
+ For example, connectors and crystals should not be simulated but would 
+ need to be present for PCB layout.</p>
+<h4>Exclude from PCB Layout</h4>
+<p>This options provides the means for a user to exclude parts from a PCB 
+ but to include them when simulating the schematic. For example, non-physical 
+ parts such as oscilloscopes and logic analysers are used in the simulation 
+ but are not present in the physical layout of the board.</p>
+<h4>Edit all properties as text</h4>
+<p>If checked, then all component properties are placed into the free format 
+ text block. This bypasses the syntax checking present when property definitions 
+ are in use, and allows you to enter parameterized expressions for the 
+ property values.</p>
+<p>In addition properties specified as HIDDEN by their property definitions 
+ can be viewed and/or edited.</p>
+<p>Recommended for advanced users only.</p>
+<h4>Attach hierarchy module</h4>
+<p>If checked, this option causes a child sheet to be attached to the component. 
+ You can access the child sheet by pointing at the component and pressing 
+ CTRL+&#39;Z&#39;.  The name used for the child sheet is determined when the 
+ device was made via the External Module field of the Make Device Dialogue 
+ form. If no external module was specified, ISIS uses the name of the device 
+ itself.</p>
+<p>This behaviour is different from ISIS versions prior to 5.1. Backward 
+ compatibility for old designs is retained.</p>
+<h4>Hide common pins</h4>
+<p>When checked, all the common pins on the element being edited will be 
+ hidden. This is intended for use with multi-element homogeneous parts 
+ where you only want the common power pins on one or more elements to be 
+ hidden. For example, with a quad op-amp you might only want power pins 
+ visible on one element and would therefore use this option to suppress 
+ the common power pins on the other elements.</p>
+<p>This option will be disabled for components with no common pins.</p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Wiring Up</title>
+  
+  <meta name="rh-index-keywords" content="Connecting to a Bus"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">WIRING UP</h1>
+  <h3>Wire Placement</h3>
+  <p>You may have noticed that there is no Wire icon. This is because Proteus  is intelligent enough to detect automatically when you want to place a wire. This avoids the tedium of having to select a wire-placement mode.</p>
+  <p class="ExampleTitle">To connect a wire between two objects:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Move the mouse over the first object - the mouse cursor will change to be a green pencil to indicate that you start wire placement at this point.<br/>
+      <br/>
+      <img alt="" border="0" height="145" src="../assets/images/GENERAL_CONCEPTS/Cursor_green.png" style="border: none;" width="223"/>
+    </li>
+    <li class="Numbers">Click left to start placement and then move the mouse towards the second connection point. The mouse cursor will change to an uncoloured pencil during placement.<br/>
+      <br/>
+      <img alt="" border="0" height="131" src="../assets/images/GENERAL_CONCEPTS/Wiring.png" style="border: none;" width="281"/>
+    </li>
+    <li class="Numbers">During more complex routes (which involve directional changes) left click the mouse to place an &#39;anchor&#39;. This will commit the previously section of track and continue to follow the mouse movement from the anchor point. Successive anchor points can be undone by hitting the BACK button on the keyboard.<br/>
+      <br/>
+      <img alt="" border="0" height="195" src="../assets/images/GENERAL_CONCEPTS/Follow_me_anchor.png" style="border: none;" width="129"/>
+    </li>
+    <li class="Numbers">When the mouse is over the termination point of the wire the cursor will again change to be green in colour. Left click to commit placement of the wire.<br/>
+      <br/>
+      <img alt="" border="0" height="157" src="../assets/images/GENERAL_CONCEPTS/Wiring_completed.png" style="border: none;" width="543"/>
+    </li>
+  </ol>
+  <p>A connection point can connect to precisely one wire. For components and terminals there is a connection point at the end of each pin. A dot has four connection points at its centre so that four wires can be joined at a junction dot.</p>
+  <p>Since it is common to wish to connect to existing wires, Proteus also treats wires as continuous connection points. Furthermore, as such a junction invariably means that 3 wires are meeting at a point it also places a dot for you. This completely avoids ambiguities that could otherwise arise from missing dots.</p>
+  <p class="ExampleTitle">See Also</p>
+  <p class="Reference"><a href="ISISTUT.chm::/Tutorial/Basic_Schematic_Entry.htm#Wiring_Up">Wiring Up (Tutorial)</a></p>
+  <h3><a id="Connect_by_Touch" data-indexterm="Connect by Touch"></a><a id="Connectivity_by_Touch"></a>Connectivity by Touch</h3>
+  <p>It is often convenient to place a component against a wire or the pin of another component/terminal in order to make a connection. Proteus supports this method of connection as shown in the following examples.</p>
+  <h4>Place component against wire</h4>
+  <p>If you place a component pin end directly against a wire it will be considered connected to the wire and a junction dot will be created. The component can then be moved and a wire will automatically be placed</p>
+  <p class="Diagram"><img alt="" border="0" height="284" src="../assets/images/GENERAL_CONCEPTS/Connect_by_touch_PE_wire.png" style="border: none;" width="520"/></p>
+  <h4> </h4>
+  <h4>Place component against terminal or component pin</h4>
+  <p>If you place a component such that a pin end on the component is directly against another component pin end or a terminal end on the schematic it will be connected to that component or terminal.</p>
+  <p class="Diagram"><img alt="" border="0" height="204" src="../assets/images/GENERAL_CONCEPTS/Connect_by_touch_PE_PE.png" style="border: none;" width="1091"/></p>
+  <h4> </h4>
+  <h4>Place (2-pin passive) component in the middle of a wire</h4>
+  <p>If you place a passive component (e.g. res, cap) in the middle of a wire it will insert into the wire connection and both pins of the component will be connected.</p>
+  <p class="Diagram"><img alt="" border="0" height="203" src="../assets/images/GENERAL_CONCEPTS/Connect_by_touch_res_wire.png" style="border: none;" width="893"/></p>
+  <h4> </h4>
+  <h4>Place component and then drag onto wire</h4>
+  <p>If you place a component on the schematic and then separately drag it onto a wire it will <span style="font-weight: bold;">not </span>connect. No junction dot is created. The part must be placed directly on to the wire in order to make a connection.</p>
+  <p class="Diagram"><img alt="" border="0" height="301" src="../assets/images/GENERAL_CONCEPTS/Connect_by_touch_PE_drag_to_wire.png" style="border: none;" width="971"/></p>
+  <p> </p>
+  <h4>Dragging a component on to a Junction dot</h4>
+  <p>You can connect a component to a junction dot by placing it or dragging the pin end on to a junction dot.</p>
+  <p class="Diagram"><img alt="" border="0" height="302" src="../assets/images/GENERAL_CONCEPTS/Connect_by_touch_PE_drag_to_dot.png" style="border: none;" width="1055"/></p>
+  <h4>Place component and then drag onto component / terminal pin</h4>
+  <p>If you place a component onto the schematic and then separately drag the component such that a pin touches the end of a component pin or a terminal pin it will form a connection.</p>
+  <p class="Diagram"><img alt="" border="0" height="281" src="../assets/images/GENERAL_CONCEPTS/Connect_by_touch_PE_drag_to_terminal.png" style="border: none;" width="700"/></p>
+  <p> </p>
+  <h4>Copy and Paste component pin end onto wire</h4>
+  <p>If you copy and paste a component and position the paste onto a wire, it will <span style="font-weight: bold;">not</span> connect It has the same rule as dragging an already placed component on to a wire.</p>
+  <h4>Copy and Paste component onto another component pin end or terminal end</h4>
+  <p>If you paste a component or a terminal on to another pin end or terminal it will create a connection</p>
+  <p class="Diagram"><img alt="" border="0" height="284" src="../assets/images/GENERAL_CONCEPTS/Connect_by_touch_pasting_component_to_terminal.png" style="border: none;" width="759"/></p>
+  <p> </p>
+  <p>The following basic rules of thumb may be helpful:</p>
+  <ul type="disc">
+    <li>If you are placing the component you can attach to another component, wire or terminal directly.</li>
+    <li>If you are dragging the component you can attach to another component pin, junction dot or terminal.</li>
+    <li>If you are copy and pasting you can only attach it to a pin end, a bus pin, a junction dot or a terminal only.</li>
+  </ul>
+  <h3><a id="The_Wire_Auto-Router"></a>The Wire Auto-Router</h3>
+  <p>The wire autorouter provides an intelligent aid to quickly placing wires on the schematic. After starting wire placement the wire router will follow the path of the mouse towards the terminal point, making orthogonal adjustments as required. For longer, more complex routes you should periodically click left to &#39;anchor&#39; or commit the previously routed segment (this gives you far more control over the routing process by allowing you to interact with the auto-router and direct it as required).</p>
+  <p class="Tip">The WAR can be completely disabled by holding down the CTRL key during route entry. This is useful if you want to route a diagonal wire directly between two connection points.</p>
+  <h3><a id="Wire_Repeat"></a>Wire Repeat</h3>
+  <p>Suppose you have to connect the data bus of an 8 bit ROM to the main data bus on the circuit diagram and that you have placed the ROM, bus and bus entries as shown below.</p>
+  <p class="Diagram"><img alt="" border="0" height="113" src="../assets/images/GENERAL_CONCEPTS/Wire_repeat.png" style="border: none; cursor: nwse-resize;" width="208"/></p>
+  <p class="DiagramText">Repeat wiring</p>
+  <p>You would first click left at A, then B to place a horizontal wire between them. By clicking twice at C, you will invoke the Wire Repeat function which will then place a wire between C and D. Clicking left twice on E will join E and F and so forth.</p>
+  <p>Wire Repeat copies exactly the way the previous wire was routed. If the previous wire was automatically routed then the repeated wire will also be automatically routed. On the other hand, if the previous wire was manually routed then its exact route will be offset and used for the new wire.</p>
+  <h3><a id="Dragging_Wires"></a>Dragging Wires</h3>
+  <p>Although wires follow the general scheme of tag then drag, there are various special techniques that you can apply to them. In particular:</p>
+  <ul type="disc">
+    <li>If you point at a corner and drag then the corner simply follows the pointer.</li>
+    <li>If you point in the middle of a horizontal or vertical wire segment, the segment will be dragged vertically or horizontally respectively and the adjacent segments will be stretched to maintain connectivity.</li>
+    <li>If you point in the middle of a diagonal segment, or at either end of the wire, then a corner will be created and then dragged. Note that in order for the latter to work, the object to which the wire connects must not be tagged, as otherwise Proteus will think you are trying to drag the object.</li>
+  </ul>
+  <p>It is also possible to move a wire segment, or a group of wire segments using block move techniques.</p>
+  <p class="ExampleTitle">To move a wire segment or group of segments:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Drag out a tag-box around the wire segment(s) you wish to move. It is quite acceptable for this &#39;box&#39; to be a line, lying along a single segment, if this is convenient.</li>
+    <li class="Numbers">Move the mouse inside the tagbox (the cursor will change to indicate that objects can be moved).</li>
+    <li class="Numbers">Depress the mouse and move in the direction orthogonal to the wire segments, as shown below.</li>
+    <li class="Numbers">Release the mouse to finish</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="143" src="../assets/images/GENERAL_CONCEPTS/Moving_wires.png" style="border: none;" width="345"/></p>
+  <p class="DiagramText">Moving a group of wires</p>
+  <p>A further technique provides a quick way of altering wiring topology, perhaps eliminating unwanted kinks in wires where they have been routed around an object which has since been moved.</p>
+  <p class="ExampleTitle">To edit a wires topology after routing :</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Tag the wire you wish to manipulate.</li>
+    <li class="Numbers">Move the mouse over the segment that you want to adjust.</li>
+    <li class="Numbers">Depress the left mouse button and move the mouse orthogonally as indicated by the mouse cursor.</li>
+    <li class="Numbers">Release the left mouse button when complete.</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="113" src="../assets/images/GENERAL_CONCEPTS/Removing_kinks.png" style="border: none;" width="412"/></p>
+  <p class="DiagramText">Removing kinks in a wire</p>
+
+</div>
+<p> </p>
+
+</body></html>

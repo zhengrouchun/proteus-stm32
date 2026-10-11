@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Symbol Libraries</title>
+  
+  <meta name="rh-index-keywords" content="Symbol Libraries"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">SYMBOL LIBRARIES</h1>
+  <h3>Introduction</h3>
+  <p>The symbol libraries are used to hold both general graphical symbols for direct placement onto drawings, and also symbols for terminals, module ports and device pins.</p>
+  <p>The various types of symbol are created with different name prefixes, and thus appear to all intents and purposes to be stored in separate &#39;compartments&#39; of the symbol library. A set of these objects is defined in SYSTEM.LIB and is pre-loaded into the various object selectors when you open the schematic. Thus, when you select the Terminal icon, and you see the names DEFAULT, INPUT, OUTPUT etc. you are actually accessing symbols called $TERDEFAULT, $TERINPUT, $TEROUTPUT and so on. When you place a terminal on the drawing, a terminal object is created and the appropriate symbol is assigned to it.</p>
+  <p>The significance of all this comes down to two points:</p>
+  <ul type="disc">
+    <li>Graphics symbols, terminals, module ports and device pins are all stored in symbol libraries (e.g. SYSTEM.LIB and the user library USERSYM.LIB). There are no special libraries for terminals, ports or pins.</li>
+    <li>The procedures for making the various symbol types are all very similar.</li>
+  </ul>
+  <h3><a id="Making:A_Graphics_Symbol" data-indexterm="Making:A Graphics Symbol"></a><a id="Graphics_Symbols"></a>Graphics Symbols</h3>
+  <p>A symbol is a group of 2D graphics objects which are treated as a single object. For instance, using three lines and two arcs you can form an AND gate symbol.</p>
+  <p class="Diagram"><img alt="" border="0" height="101" src="../assets/images/LIBRARY_FACILITIES/Making_symbols.png" style="border: none;" width="288"/></p>
+  <p class="DiagramText">Lines and curves and be joined together and made in to symbols (N.B. These are not component devices)</p>
+  <p class="ExampleTitle">To make a graphics symbol</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select one of the 2D graphics icons - e.g. Line, Box etc</li>
+    <li class="Numbers">In the Object Selector select a graphics style appropriate to the type of symbol you are creating. For a symbol that will form the basis of future components, this is generally the COMPONENT style though for some symbols, such as OP AMP, where a small line is needed to link the body of the symbol to the base of a pin this would be drawn in the PIN style.If the outline of the symbol consists of lines and arcs and you want the symbol to be filled, use the path object to create the outline.</li>
+    <li class="Numbers">Select and place graphic objects as required to form the symbol.</li>
+    <li class="Numbers">Any graphic that needs to have a fixed appearance should be edited, the appropriate Follow Global? checkboxes unchecked and the graphics style attribute changed.</li>
+    <li class="Numbers">If you want to define the origin for the symbol, select the Markers icon, click on the Origin marker in the object selector and place it where you want the origin to be. If you don&#39;t place an Origin, Proteus will default the origin to the centre of the symbol.</li>
+    <li class="Numbers">Tag the objects that will comprise the port by by entering selection mode and dragging a tag-box around them with the left mouse button.</li>
+    <li class="Numbers">Invoke the Make Symbol command, select a name and library for the new symbol.</li>
+    <li class="Numbers">Click OK to complete the operation.</li>
+  </ol>
+  <p>A symbol can only consist of 2D graphics objects - you cannot tag a whole section of circuitry including components, wires etc. and make that into a symbol. To manipulate circuit sections in this way, you should use the Import Section and Export Section commands.</p>
+  <h3><a id="Terminals:Making_Custom_Terminal_Types" data-indexterm="Terminals:Making Custom Terminal Types"></a><a id="Making:A_New_Terminal_Type" data-indexterm="Making:A New Terminal Type"></a><a id="User_Defined_Terminals"></a>User Defined Terminals</h3>
+  <p>Proteus permits the definition of user defined symbols for use as logical or physical terminals. These are made in the same way as ordinary symbols except that you must place a Node marker to specify the position of the terminal&#39;s connection point, and a Label marker to specify the position and orientation of its net label.</p>
+  <p class="ExampleTitle">To make a user defined terminal</p>
+  <ul type="disc">
+    <li>Select an appropriate 2D graphics icon - typically the Line icon - from the Mode Selector toolbar</li>
+    <li>In the Object Selector select an appropriate graphics style. This will nearly always be the TERMINAL style though the BUS WIRE style may also be appropriate for small parts of the symbol.</li>
+    <li>Select and place graphics objects as required to form the body of the terminal. Any graphic that needs to have a fixed appearance should be edited, the appropriate Follow Global? checkboxes unchecked and the graphics style attribute changed.</li>
+    <li>Select the Markers icon.  Place a Node or Busnode marker where you want the wire or bus to connect the terminal, and a Label marker where you want its net label to be. You can also place an Origin marker to define where its origin will be.</li>
+    <li>Tag the objects that will comprise the port by by entering selection mode and dragging a tag-box around them with the left mouse button.</li>
+    <li>Invoke the Make Symbol command, set the type to Terminal and then select a name and library for the new terminal.</li>
+    <li>Click OK to complete the operation.</li>
+  </ul>
+  <p class="Tip">Note that the electrical type of user defined terminals will always default to passive. If you need user defined terminals to carry different electrical types you must assign them after placement with the Property Assignment Tool.</p>
+  <h3><a id="Sub-Circuits:Creating_new_Module_Port_Symbols" data-indexterm="Sub-Circuits:Creating new Module Port Symbols"></a><a id="Making:A_New_Module_Port_Type" data-indexterm="Making:A New Module Port Type"></a><a id="User_Defined_Module_Ports"></a>User Defined Module Ports</h3>
+  <p>Module ports are the connectors used to attach wires to sub-circuits and it is possible to create user defined symbols for them. These are made in the same way as ordinary symbols except that you must place a Node marker to specify the position of the port&#39;s connection point, and a Label marker to specify the position and orientation of its label.</p>
+  <p class="ExampleTitle">To make a user defined module port</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select an appropriate 2D graphics icon - typically the Line icon - from the Mode Selector toolbar.</li>
+    <li class="Numbers">In the Object Selector select an appropriate graphics style. This will nearly always be the PORT style though the BUS WIRE style may also be appropriate for small parts of the symbol.</li>
+    <li class="Numbers">Select and place graphics objects as required to form the pin symbol. Any graphic that needs to have a fixed appearance should be edited, the appropriate Follow Global? checkboxes unchecked and the graphics style attribute changed. In drawing the port, you should orient it in a manner suitable to be placed on the left hand edge of a sub-circuit - Proteus will mirror it in X when it is placed on the right hand edge.</li>
+    <li class="Numbers">Select the Markers icon.  Place a Node or Busnode marker where you want the wire or bus to connect the port, and a Label marker where you want its net label to be. You should also place an Origin marker to correspond with where the edge of the sub-circuit will be.</li>
+    <li class="Numbers">Tag the objects that will comprise the port by by entering selection mode and dragging a tag-box around them with the left mouse button.</li>
+    <li class="Numbers">Invoke the Make Symbol command, set the type to Module Port and then select a name and library for the new terminal.</li>
+    <li class="Numbers">Click OK to complete the operation</li>
+  </ol>
+  <h3><a id="Making:A_New_Pin_Type" data-indexterm="Making:A New Pin Type"></a><a id="Pin_(making_a_new_type)" data-indexterm="Pin (making a new type)"></a><a id="User_Defined_Device_Pins"></a>User Defined Device Pins</h3>
+  <p>Device pins are, in fact, drawn as symbols and consequently you can define your own symbols for them. A variety of device pin symbols are supplied in SYSTEM.LIB. Nevertheless, there may be some situations in which it is appropriate to define your own.</p>
+  <p class="ExampleTitle">To make a user defined device pin</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select an appropriate 2D graphics icon - typically the Line icon - from the Mode Selector toolbar.</li>
+    <li class="Numbers">In the Object Selector select a graphics style. This will nearly always be the PIN style for a standard pin or the BUS WIRE style for a bus pin.</li>
+    <li class="Numbers">Select and place graphics objects as required to form the body of the terminal. Any graphic that needs to have a fixed appearance should be edited, the appropriate Follow Global? checkboxes unchecked and the graphics style attribute changed.</li>
+    <li class="Numbers">Select the Markers icon.  Place a Node or Busnode marker where you want the wire or bus to connect to the pin, a Pinname marker where you want the pin name to be, and a Pinnum marker where you want the pin number to be. You can also place an Origin marker to define where its origin will be.</li>
+    <li class="Numbers">Tag the objects that will comprise the port by by entering selection mode and dragging a tag-box around them with the left mouse button.</li>
+    <li class="Numbers">Invoke the Make Symbol command, set the type to Device Pin and then select a name and library for the new pin.</li>
+    <li class="Numbers">Click OK to complete the operation.</li>
+  </ol>
+  <h3><a id="Editing:An_Existing_Symbol" data-indexterm="Editing:An Existing Symbol"></a><a id="Editing_an_Existing_Symbol"></a>Editing an Existing Symbol</h3>
+  <p>Any type of symbol may be edited by placing an instance of it and then using the Decompose command.</p>
+  <p class="ExampleTitle">To edit a symbol:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Place an instance of the symbol. This will be a Graphics Symbol, Terminal, Module Port or Device Pin, as appropriate.</li>
+    <li class="Numbers">Tag the objects that will comprise the port by by entering selection mode and dragging a tag-box around them with the left mouse button.</li>
+    <li class="Numbers">Select the Decompose command. This will break the symbol into graphics and markers.</li>
+    <li class="Numbers">Add, delete or edit the graphics and markers as required.</li>
+    <li class="Numbers">Reconstitute the symbol according to the procedure from the previous sections appropriate to its type.</li>
+  </ol>
+  <h3><a id="Hierarchical_Symbol_Definitions"></a>Hierarchical Symbol Definitions</h3>
+  <p>The Proteus schematic will quite happily allows a symbol to contain other symbols and/or other graphic objects. This allows you to make, for instance, a NAND gate out of the previously defined AND gate plus a circle. Note that symbols defined from other symbols are not &quot;linked&quot; to them in any way - if the lower level symbols are changed or even deleted, this will not affect the new one. This also means that a symbol can be defined as a modification of itself without difficulty, although this will destroy the old version.</p>
+
+</div>
+<p> </p>
+
+</body></html>

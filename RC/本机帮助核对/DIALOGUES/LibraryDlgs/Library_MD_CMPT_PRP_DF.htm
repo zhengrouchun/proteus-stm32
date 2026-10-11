@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Component Properties &amp; Definitions</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Default Property Definitions</h1>
+<h3>Overview</h3>
+<p>This screen allows you to specify additional properties for the component. 
+ All properties added here can then be configured to be output in the bill 
+ of materials report (System Menu - Set BOM Scripts) or may be relevant 
+ to a simulation model if you have created your own model for a component.</p>
+<p class="Tip">You can directly create, manage and remove properties in 
+ the Bill of Materials module within a grid view.</p>
+<p class="ExampleTitle">See Also:</p>
+<p class="Reference"><a href="BOM.chm::/PROPERTIES/Properties.htm">BOM 
+ Reference Manual - Properties</a></p>
+<p class="Reference"><a href="BOM.chm::/EXAMPLES/Properties_Examples.htm">BOM 
+ Reference Manual - Examples</a></p>
+<h3>Options</h3>
+<h4>Left Pane</h4>
+<p>This combo-box displays the names of the property definitions. The property 
+ definitions on the right pertain to the highlighted property.</p>
+<ul type="disc">
+	<li><span style="font-weight: bold;">New</span> - Specify a new property. 
+	 Holding down this button will give you a list of existing default 
+	 property definitions from which you can select and modify as required.</li>
+	<li><span style="font-weight: bold;">Delete</span> - Delete an existing 
+	 property.</li>
+</ul>
+<h4>Property Definition</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Name</span> - Specify the name 
+	 of the property. This can be typed in or selected from a list of property 
+	 definitions.</li>
+	<li><span style="font-weight: bold;">Description</span> - Document 
+	 the meaning of the property in full English. This is especially useful 
+	 for model parameters. If the field is left blank, the property name 
+	 will be used as a description.</li>
+	<li><span style="font-weight: bold;">Type</span> - Select a data type 
+	 from the list given. Integer and floating point types enable range 
+	 limitation fields on the dialogue form.</li>
+	<li><span style="font-weight: bold;">Initial Directory</span> - Enter 
+	 the initial directory for the File Dialog to open.</li>
+	<li><span style="font-weight: bold;">File Description</span> - Enter 
+	 a description of the file type that is to be opened.</li>
+	<li><span style="font-weight: bold;">Extension</span> - Enter the file 
+	 extension for the type of file that you wish to open.</li>
+	<li><span style="font-weight: bold;">Type</span> - Specify how the 
+	 property is to be displayed and edited.</li>
+</ul>
+<p style="margin-left: 80px;" class="Bullet"><span style="margin-left: 88px;">Normal - The property is displayed in its 
+ own field on the Edit Component dialogue and can be edited in the normal 
+ way.</span></p>
+<p style="margin-left: 80px;" class="Bullet">Read 
+ only -  The property is displayed in it’s own field in the Edit Component 
+ dialogue but cannot be edited.</p>
+<p style="margin-left: 80px;" class="Bullet">Advanced 
+ - The property appears in the list of advanced properties on the Edit 
+ Component dialogue. To edit it, the user must select the property using 
+ the Advanced Properties combobox, and then edit the value in the associated 
+ data fields. This option is useful for simulator primitives or models 
+ that have large numbers of relatively obscure properties.</p>
+<p style="margin-left: 80px;" class="Bullet">Hidden 
+ - The property does not normally appear on the Edit Component dialogue 
+ and can only be edited by selecting the Edit All Properties as Text option.</p>
+<h4>Property Defaults</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Default Value</span> - Specify 
+	 a default value for the property. All instances of the component placed 
+	 on the schematic will be initialised with this property value.</li>
+	<li><span style="font-weight: bold;">Visibility</span> - Specify which 
+	 parts of the property definition you want displayed when a component 
+	 is placed.</li>
+</ul>
+<h4>Use Default Property Definitions when editing Components?</h4>
+<p>When checked Proteus will use the default property definitions when 
+ they do not exist in a component part. When you define a new property 
+ via System Menu -Set property definitions dialogue you are creating a 
+ default property definition. Let&#39;s assume you did this for Minimum Order 
+ Quantity (MoQ) and you define to be a integer greater than 100. </p>
+<p><img src="../../assets/images/DIALOGUES/LibraryDlgs/moq.png" style="border: none;" alt="" width="524" height="373" border="0"/></p>
+<p>Next you edit a component and type MOQ=150. If this checkbox is selected 
+ you will see that when you re-enter the dialogue form the entered string 
+ is automatically formatted and part of the Edit Component dialogue form.</p>
+<p><img src="../../assets/images/DIALOGUES/LibraryDlgs/props.png" style="border: none;" alt="" width="848" height="188" border="0"/></p>
+<p class="Tip">We recommend that you leave this option selected unless 
+ you are certain that you understand the consequences of removing it.</p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

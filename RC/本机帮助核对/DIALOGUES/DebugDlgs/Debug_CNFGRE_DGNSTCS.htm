@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Configure Diagnostics</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Configure Diagnostics</h1>
+<h3>Overview</h3>
+<p>Diagnostic messaging in Proteus is an extremely powerful debugging tool. 
+ This dialogue allows you to configure what messages you wish to be output 
+ and at what severity level for the parts on the current schematic. The 
+ list is dynamically updated with parts on the schematic that contain the 
+ ability to output diagnostic messages.</p>
+<p>Turning on diagnostics for a particular part or onboard peripheral is 
+ one of the best ways to quickly find problems in a design but it does 
+ come at the expense of simulation performance as large amounts of ASCII 
+ text can be output.</p>
+<p>All diagnostic messages are written to the simulation log and can be 
+ viewed either during simulation, when single step debugging or after a 
+ simulation is completed.</p>
+<h3>Options</h3>
+<h4>Trace Categories</h4>
+<p>Expand the treeview where appropriate to enable additional options and 
+ select the option for which you want to change the diagnostic levels. 
+ The contents of the treeview reflect the current schematic so all components 
+ on the design containing diagnostic information are available for selection 
+ here.The icons to the left of each item indicate the currently configured 
+ diagnostic level for that item.</p>
+<h4>Trace Information Level</h4>
+<p>These options allow you to configure the level of detail if the diagnostic 
+ reporting (from Disabled, through Warnings Only, down to Full Trace). 
+ Bear in mind that the more detail you specify the slower the simulation 
+ will run as more data is required to be written to the simulation advisor.</p>
+<p>Additionally, the Suspend checkbox allows you to suspend the simulation 
+ every time an event is logged to the simulation advisor. This is exceptionally 
+ useful when you need to closely monitor activity on a processor peripheral 
+ for example but enabling this when full trace is configured will almost 
+ certainly result in the simulation pausing frequently!</p>
+<h4>Log From</h4>
+<p>This option allows you to specify a start or arm time after which the 
+ diagnostics will become active. Typically, you might use this to bypass 
+ initialization or where you know the approximate time at which a certain 
+ problem is occurring. Together with the Run Time option this allows you 
+ to control the amount of trace data output this making it easier to assimilate 
+ the data.</p>
+<h4>For</h4>
+<p>This option allows you to specify the amount of time (in seconds) subsequent 
+ to the specified start time for which the configured diagnostic options 
+ will be active. For example, if you wanted diagnostic reporting between 
+ 15s and 25s you would set the start time to be 15s and this option to 
+ be 10s.</p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

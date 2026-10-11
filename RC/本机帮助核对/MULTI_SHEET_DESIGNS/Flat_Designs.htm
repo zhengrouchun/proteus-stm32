@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Flat Designs</title>
+  
+  <meta name="rh-index-keywords" content="Sheets:Flat Designs"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">MULTI-SHEET FLAT DESIGNS</h1>
+  <h3>Introduction</h3>
+  <p>With very large designs, or just to create some structure in smaller ones, it is common practice to draw the various sections of the design on separate sheets. Connections between the sheets are then indicated by means of common net names. For example, if two nets on different sheets are both labelled as MREQ, then they are assumed to be connected - see <a href="../NETLIST_GENERATION/Net_Names.htm">net names</a> for more information on net names.</p>
+  <h3><a id="Ordering_Sheets" data-indexterm="Ordering Sheets"></a><a id="Sheets:Ordering" data-indexterm="Sheets:Ordering"></a><a id="Design_Menu_Commands"></a>Design Menu Commands</h3>
+  <p>Proteus supports multi-sheet designs and keeps all the sheets of a design in one file. The following commands on the Design menu give you all the facilities you need:</p>
+  <ul type="disc">
+    <li>New Sheet - creates a new root sheet and loads it.</li>
+    <li>Previous Sheet – automatically moves you to the previous root sheet in the design.</li>
+    <li>Next Sheet – automatically moves you to the next sheet in the current design.</li>
+    <li>Remove Sheet  - removes and deletes the current sheet. You can only delete root sheets, and you cannot delete the last root sheet.</li>
+  </ul>
+  <p class="Tip">An additional two commands – Goto Previous root or sub-sheet and Goto Next root or subsheet are not exposed on the menu but can be mapped to shortcut keys via the Set Keyboard Mapping command on the System menu (default mappings are PGUP and PGDOWN). These commands work in exactly the same way as the Previous Sheet and Next sheet outlined above except that they will traverse the entire hierarchy of a schematic, moving between both root and subsheets (rather than only rootsheets).</p>
+  <p class="Tip">The Design Explorer can also be used to navigate to a particular sheet (or indeed a particular net or component) and provides a user interface for schematic navigation. Alternatively, all the sheets in the design are presented and dynamically updated at the bottom of the Design menu.</p>
+  <p>The titles presented by the Goto Sheet command are taken from the Sheet Title field of the Edit Sheet Properties dialogue form or machine generated from &lt;module&gt;&lt;ordinal&gt; (e.g. ROOT10, ROOT20) where no sheet title is given.</p>
+  <p class="Diagram"><img alt="" border="0" height="208" src="../assets/images/MULTI_SHEET_DESIGNS/Edit_sheet_properties.png" style="border: none;" width="425"/></p>
+  <p class="DiagramText">The Edit Sheet Properties Dialogue Form</p>
+  <p>The sheet ordinal determines its position in the design - i.e. the order in which the sheets will print if you print out the lot and which order they appear in the design menu.</p>
+  <p>The annotator init property is an extremely useful property which lets you set an annotation base for all components on the sheet. It can both be set here and also - under certain circumstances -  in the <a href="../GENERAL_CONCEPTS/Miscellaneous.htm#Automatic_Annotator">Global Annotator.</a> When working with a large design hierarchy, a little discipline with sheet annotation can add clarity to the design.</p>
+
+</div>
+<p> </p>
+
+</body></html>

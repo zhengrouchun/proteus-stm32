@@ -48,8 +48,8 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>ADC_CubeMX_Keil\</OutputDirectory>
-          <OutputName>ADC_CubeMX_Keil</OutputName>
+          <OutputDirectory>DIV_Power_Control\</OutputDirectory>
+          <OutputName>DIV_Power_Control</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>

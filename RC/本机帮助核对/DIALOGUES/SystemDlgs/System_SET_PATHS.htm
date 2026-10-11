@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Set Paths</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Set Paths</h1>
+<h3>Overview</h3>
+<p>This dialogue form allows easier navigation through folders while saving 
+ and loading layouts, keeping track of libraries and creating paths to 
+ the directory where CADCAM files will be placed.</p>
+<h3>Options</h3>
+<h4>Initial Folder for Designs</h4>
+<p>Provides options for the default behaviour of the File-Open directory. 
+ Options are to always use My Documents, to default to the last opened 
+ directory or to always open in a specified directory. </p>
+<h4>Library Locale</h4>
+<p>These option dictate whether component symbols are European or American 
+ standard. You will need to close and restart Proteus to reload the libraries 
+ before any changes here will take effect. These options affect parts selected 
+ into the design but do not adjust instances of a part that have already 
+ been placed on the schematic.</p>
+<h4>Template Folders</h4>
+<p>The templates path is used to specify the location or locations of your 
+ design templates and Bill of Materials templates. By default this is located 
+ within the Proteus directory of your installation but you can move this 
+ directory to a location of your choice. You can also add additional templates 
+ directories if for example, you want to have user design templates and 
+ company design templates in different directories.</p>
+<h4>Library Folders</h4>
+<p>Set the path(s) to the directory holding your library files. Proteus 
+ uses the library path(s) to locate all the schematic parts that have been 
+ created for use in Proteus. The libraries supplied with the software are 
+ located by default inside the Proteus directory of your installation but 
+ you can move them and/or add additional paths (on the network for example) 
+ as required.</p>
+<h4>Project Clips (Snippets) Folder</h4>
+<p>Set or change the path for the storage and retrieval of Project Clips. 
+ These are sections of schematic and optionally associated layout that 
+ you want to re-use in future designs (e.g. power supply, USB connector 
+ circuit).</p>
+<p class="ExampleTitle">See Also:</p>
+<p class="Reference"><a href="../../ISIS_AND_ARES/Project_Clips.htm">Project 
+ Clips.</a></p>
+<h4>Datasheet Folder</h4>
+<p>Specify the path to locally stored datasheets on components. This is 
+ only relevant should you choose to specify / associate component parts 
+ with datasheets. If you do this you can set datasheet name and download 
+ locations when making devices in the Libraries via the Make Device wizard.</p>
+<p><img src="../../assets/images/DIALOGUES/SystemDlgs/makeDeviceDatasheet.png" style="border: none;" alt="" width="398" height="328" border="0"/></p>
+<h4> </h4>
+<h4>Maximum Undo Levels</h4>
+<p>Set a value between 1 and 200 for the number of undo operations held 
+ in memory at any given time. The larger the number the more impact on 
+ computer memory and for most purposes the default of 20 is more than enough.</p>
+<h4>Maximum Backups</h4>
+<p>Proteus operates a system of incremental backups on save. These are 
+ saved into the specified Backups folder and work in a cyclical fashion. 
+ For example, when set to 10 the 11th save would overwrite the 1st backup 
+ so that the last 10 save operations were preserved in the Backups folder.</p>
+<p>This can be any number between 1 and 100.</p>
+<h4>Autosave Interval</h4>
+<p>An autosave is <span style="font-weight: bold;">not</span> the same 
+ as a backup (which happens on a manual save). Autosave takes place while 
+ you are working and produces a temporary snapshot at regular intervals 
+ specified by this field.</p>
+<p>This snapshot is then verified in the background by a second, silent 
+ copy of Proteus to ensure that it is not corrupted and that it can be 
+ loaded. After that it is placed into the Backups directory as an autosaved 
+ file.</p>
+<p>Since autosaved files are verified they protect against a creeping error 
+ such as data corruption which could result in a normal backup being unloadable.</p>
+<p>You can set the autosave interval from every 3 mins to every 60 mins. 
+ Bear in mind with large boards that it may take a second or so to save.</p>
+<p>Autosave cannot take place while a modal dialogue is open but will be 
+ scheduled and will then complete as soon as the dialogue form is closed.</p>
+<h4>Backup Folder</h4>
+<p>This is the location into which the file backups and autosave file will 
+ be processed. By default it is in the Project directory of your current 
+ project, although you can move it to another directory (e.g. a synched 
+ dropbox folder) by entering a suitable path and folder name.</p>
+<h4>Toolbar Icon Size</h4>
+<p>Allows the provision of different sized icons, letting you choose the 
+ most appropriate for your monitor resolution.</p>
+<p> </p>
+<h4>Simulation Model and Module Folders</h4>
+<p>Set the path(s) to the models directory (by default this is located 
+ inside the Proteus directory of your installation). Proteus looks inside 
+ the models directory before a simulation to find all the simulation models 
+ necessary for simulating the current schematic. While typically there 
+ would be no need to specify multiple paths here you can add additional 
+ models directories if need be (for example, if you have created some simulation 
+ models of your own and wish to keep them in a separate place from ours).</p>
+<h4>Path to Folder for Simulation Results</h4>
+<p>Set the path to the Results directory. (by default this is located inside 
+ the Proteus directory of your installation). The results path is used 
+ to store the results of graph based simulations, must be specified and 
+ there can be only be one results path.</p>
+<h4>Limit maximum disk space used for simulation results to</h4>
+<p>Specify the amount of space (in Kbytes) that you wish to allocate your 
+ Results directory. ISIS deletes results files on a last recently used 
+ basis to restrict the amount of accumulated results data to this value.</p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

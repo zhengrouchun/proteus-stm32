@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Multi Board Projects</title>
+  
+  <meta name="rh-index-keywords" content="Multiple PCBs,Multi-Board Projects"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">MULTI BOARD PROJECTS</h1>
+  <h3><a id="Introduction"></a>Introduction</h3>
+  <p class="Tip">This topic discusses using a single schematic to design a system with multiple PCB boards. For information on using a single schematic with multiple boards for simulation purposes please refer to the Proteus VSM help file.</p>
+  <p>When your product design includes more than one PCB you need to create a multi-board project in Proteus. A multi board project comprises of a single schematic design but multiple separate PCB boards where each PCB board can have it&#39;s own design rules and board stackup.</p>
+  <p>At the time of writing it is intended for use with multiple discrete rigid boards (e.g. mini connector boards) but we intend over time to enhance the scheme to more fully support flexi-design as well.</p>
+  <h3><a id="Setup"></a>Setup</h3>
+  <p class="ExampleTitle">To create a multi-board project:</p>
+  <p>1) Run the New Project Wizard in the normal way. This will create a project with a single schematic and PCB board.<br/>
+    <br/>
+    <img alt="" border="0" height="154" src="../assets/images/ISIS_AND_ARES/newProjectWizard.png" style="border: none;" width="795"/>
+  </p>
+  <p>2) Switch to the PCB tab. Add any additional boards one at a time from the new board command on the File menu.</p>
+  <p><img alt="" border="0" height="210" src="../assets/images/ISIS_AND_ARES/newBoardMenu.png" style="border: none;" width="255"/></p>
+  <p>This creates additional boards with customisable stackup and drilling.</p>
+  <p> </p>
+  <p>3) When you have multiple boards in the project you&#39;ll see a board selector appear at the top of application. This is the board selector and is a global combo box listing the boards in the project. You&#39;ll most likely want to rename the boards so switch to the design explorer tab and right click on the board names to change them.</p>
+  <p><img alt="" border="0" height="141" src="../assets/images/ISIS_AND_ARES/renameBoards.png" style="border: none;" width="720"/></p>
+  <p class="Tip">Design Explorer is the module in Proteus that provides a global view of the project. It&#39;s a great place to look at project overview and for navigation via the right click context menu..</p>
+  <p class="Warning">Don&#39;t try to have multiple boards on a single PCB view. You won&#39;t be able to configure stackups or design rules, the connectivity will become confusing and the scope for costly mistakes is high. You should create new boards and work within the framework outlined above.</p>
+  <h3><a id="Navigation"></a>Navigation</h3>
+  <p>Now that we have created multiple boards it&#39;s important to understand how the system is intended to work. At any time you are working on a single board as defined in the global combo box at the top of the application. This has advantages for performance since only one board is rendered at a time and also provides clear separation between the boards to allow different design rules and layer stacks on each PCB. You can quickly switch between boards at any time by toggling the board selector.</p>
+  <p class="Diagram"><img alt="" border="0" height="110" src="../assets/images/ISIS_AND_ARES/boardSelector.png" style="border: none;" width="359"/></p>
+  <p class="DiagramText">Switch between boards with the selector.</p>
+  <p>On the schematic side you need to remember that a sheet belongs to a board. So, to work on the design for a particular board you need first to select the board and then select the sheet in the normal way from the Design menu.</p>
+  <p class="Diagram"><img alt="" border="0" height="265" src="../assets/images/ISIS_AND_ARES/sheetNavigate1.png" style="border: none;" width="493"/></p>
+  <p class="DiagramText">Navigate to a sheet on the schematic.</p>
+  <p>If you prefer to navigate globally you can do so from the Design Explorer as shown earlier or you can use the Global Goto Sheet command on the Design menu in the Schematic Module.</p>
+  <p class="Diagram"><img alt="" border="0" height="239" src="../assets/images/ISIS_AND_ARES/globalSheetNavigation.png" style="border: none;" width="537"/></p>
+  <p class="DiagramText"><br/>
+    Using Goto Sheet Command for Global Navigation</p>
+  <p class="Tip">It&#39;s useful to map the Goto Sheet command onto a keyboard shortcut for quick navigation if you choose to use this method (System Menu -&gt; Set Keyboard Mapping).</p>
+  <p>It can help with clarity if you name the schematic sheets as well. You can do this for the current sheet from the Edit Sheet dialogue form on the Design Menu:</p>
+  <p class="Diagram"><img alt="" border="0" height="166" src="../assets/images/ISIS_AND_ARES/renameSheet.png" style="border: none;" width="298"/></p>
+  <p class="DiagramText">Renaming Sheet with Prefix indicating the Board.</p>
+  <h3><a id="Development"></a>Development</h3>
+  <p>Now that the basic setup is complete you can start design and development in the same way as normal. You work on one board at a time and simply use the board selector to switch between the different boards in the product. That said, there are a few areas where some extra thought and consideration are required.</p>
+  <h4>Annotation</h4>
+  <p>The question here is whether the annotation should be global to the project or global to the board. The default is global to the board rather than the project but you can change this by unchecking the box on the Edit Sheet properties dialogue. You only need to do this for one sheet per board.</p>
+  <p class="Diagram"><img alt="" border="0" height="162" src="../assets/images/ISIS_AND_ARES/boardGlobalAnnotation.png" style="border: none;" width="301"/></p>
+  <p class="DiagramText">Uncheck this <span style="font-weight: bold; text-decoration: underline; ">on each Board</span> for Project Global Annotation.</p>
+  <p>The top level for tools like the Global Annotator is Board Level. If you re-annotate in total mode at board level you will either get completely independent annotation (Board Local Part ID&#39;s) or completely unique annotation (Project Global Annotation)</p>
+  <p class="Tip">In practise, we&#39;d recommend board local annotation since it makes documentation like the BOM and Assembly Drawings more easily understood.</p>
+  <h4>Multi-Element Parts</h4>
+  <p>You clearly can&#39;t have different elements of multi-element parts on different boards since the footprint needs to be housed on one board. The system will try to detect this but with manual annotation it&#39;s possible to get this wrong.</p>
+  <p class="Warning">Keep all elements of a multi-element part on the same board.</p>
+  <h4>Power</h4>
+  <p>Power rail configuration is global to the project, not the board. If you need board specific power rails you can create extra in the Power Rail Configuration dialogue form.</p>
+  <p class="Tip">Since Net Classes relate to Design Rules they are Board Local.</p>
+  <h4>Assembly Variants</h4>
+  <p>Assembly variants are global to the project. You cannot for example have Variant 1 of Daughter Board 2 along with Variant 2 of the Main Board. Instead you should create a new variant and use the &#39;copy from variant&#39; option in Design Explorer to initialise the whole project from the nearest variant. You can then make the necessary changes to the board or boards required for the new variant.</p>
+  <p class="Diagram"><img alt="" border="0" height="129" src="../assets/images/ISIS_AND_ARES/newVariant.png" style="border: none;" width="304"/></p>
+  <p class="DiagramText">Create a new Variant based on an old one.</p>
+  <h4>Sub-Circuits</h4>
+  <p>You can build a sub-circuit hierarchy on a board in exactly the same way as you would in a single board project. You can even have mirrored sub-circuits on different boards, although it may be a little hard to keep track if you do so.</p>
+  <h4><br/>
+    Header Block</h4>
+  <p>The standard header block items are project global and set in the Edit Design Properties command on the schematic editor. If you want board specific content on the header block you can use the @BOARD syntax.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="../GENERAL_CONCEPTS/Miscellaneous.htm#The_Header_Block">The Header Block</a><br/>
+     </p>
+  <h4>Design Rules</h4>
+  <p>Design Rules and Net Classes are board local. This allows you to set object clearances and routing widths for each board in the project independently.  Coupled with the individual board stackup and drilling it means that each board is treated as a separate entity in the project.</p>
+  <h4>Output</h4>
+  <p>All of the output systems work on a per-board basis. Whether it&#39;s the Bill or Materials or the CADCAM Output you will need to generate the fileset for each board.</p>
+  <h4>Board Switching</h4>
+  <p>Switching boards automatically saves the current board to disk and then loads the requested board from disk. With multiple large boards in a project there may be slight delay while this happens.</p>
+  <h4>File Size</h4>
+  <p>It&#39;s possible with several complex boards that the file size on disk of the PDSPRJ file becomes quite large. However, we don&#39;t anticipate problems in development since only one board is loaded at any given time.</p>
+  <p> </p>
+  <h3><a id="Deleting_a_Board"></a>Deleting a Board</h3>
+  <p>If you have added a board, or have decided that you no longer need a second or third board you may wish to remove it from the project. In order to do this you need to delete the schematic board associated to the board.</p>
+
+</div>
+<p> </p>
+
+</body></html>

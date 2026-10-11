@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+ <meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Voltage Probe</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+<body>
+<div>
+<h1>Voltage Probe</h1>
+<h3>Overview</h3>
+<p>Voltage probes can be used to capture voltage data on a wire and display on a graph or to halt the simulation when a particular voltage condition is reached (hardware breakpoint). To record data on a graph you must apply the voltage probe to the wire of interest and then seperately add it to the graph.</p>
+<h3>Options</h3>
+<h4>Probe Name</h4>
+<p>Enter the name of the probe here. Once you have manually changed the name of a probe, ISIS will never replace it, even if you move the probe to a new net. If you want a probe to revert to automatic naming, clear its name to the blank string and then click OK.</p>
+<h4>Resistive Loading</h4>
+<ul type="disc">
+<li><span style="font-weight: bold;">Load to Ground?</span> - Specify whether you want to define a resistance to ground from the voltage probe. Use this where the probe is connected to a point which does not have a DC path to ground.</li>
+<li><span style="font-weight: bold;">Load</span> - Enter a value for the resistance from the probe to the ground net, and specify which, if any, properties of the probe you want to be visible on the schematic.</li>
+</ul>
+<h4>Waveform Recording</h4>
+<ul type="disc">
+<li><span style="font-weight: bold;">Record to File?</span> - When checked the output data will be recorded to a partition data file.  If you do not specifiy a path, the file will be stored in the RESULTS directory.</li>
+<li><span style="font-weight: bold;">Filename</span> - Specify the filename and path for the output data, and which details you want to be visible on the schematic.</li>
+</ul>
+<h4>Real Time Breakpoint</h4>
+<ul type="disc">
+<li><span style="font-weight: bold;">Trigger Value</span> - Specify the value at which you wish to halt the simulation. If digital, this amounts to 0 for logic low and 1 for logic high whilst in the analogue domain you simply enter the desired voltage.</li>
+<li><span style="font-weight: bold;">Arm at Time</span> - It is often useful to disable the condition until a particular point in time (e.g. after initialisation logic). The arm time represents the time at which the breakpoint becomes active.</li>
+</ul>
+<h4>Isolate After?</h4>
+<p>When checked a voltage probe placed in the middle of a wire acts to &#39;break&#39; the wire to which it is connected, isolating the circuitry to which the probe connects from the circuitry after it.</p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

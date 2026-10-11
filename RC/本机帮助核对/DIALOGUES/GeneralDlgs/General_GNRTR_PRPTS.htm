@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Generator Properties</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Generator Properties</h1>
+<h3>Overview</h3>
+<p>This dialogue allows configuration of all generator properties. The 
+ dialogue form is dynamic and will show/hide properties according to the 
+ type of generator selected.</p>
+<h3>Options</h3>
+<h4>Generator Name</h4>
+<p>Specify a name for the generator. Once you have manually changed the 
+ name of a generator, ISIS will never replace it, even if you move the 
+ generator to a new net. If you want a generator to revert to automatic 
+ naming, clear its name to the blank string and then click OK.</p>
+<h4>Analogue Types</h4>
+<h5>DC</h5>
+<p>This is used to generate a constant DC voltage or current Level.</p>
+<p> </p>
+<h5><span style="font-weight: bold;">Sine</span></h5>
+<p>This is used to produce continuous sinusoidal waves at a fixed frequency.</p>
+<p>The output level is specified as a peak amplitude (VA) with optional 
+ DC offset (VO). The amplitude may also be specified in term of RMS or 
+ peak-peak values.</p>
+<p>The frequency of oscillation can be given in Hz  (FREQ), or as 
+ a period (PER), or in terms of the number of cycles over the entire graph.</p>
+<p>A phase shift can be specified in either degrees (PHASE) or as a time 
+ delay (TD). In the latter case, oscillation does not start until the specified 
+ time.</p>
+<p>Exponential decay of the waveform after the start of oscillations is 
+ specified  by the damping factor, THETA.</p>
+<p>Mathematically, the output is given by:</p>
+<p><img src="../../assets/images/DIALOGUES/GeneralDlgs/sinform.jpg" alt="" style="border: none;" width="307" height="35" border="0"/></p>
+<p>for t &gt;= TD.  For t &lt; TD the output is simply the offset 
+ voltage, VO.</p>
+<p> </p>
+<h5>Pulse</h5>
+<p>This is used to produce a variety of repetitive input signals for analogue 
+ analysis. Square, saw-tooth and triangular waveforms can be produced, 
+ as well as single short pulses. Note that the rise and fall times cannot 
+ be zero and so a truly square wave is not allowed. This is because instantaneous 
+ changes in general are not allowed in PROSPICE. The operation of the pulse 
+ generator is best described by the following diagram:</p>
+<p> <img src="../../assets/images/DIALOGUES/GeneralDlgs/pulsdia.jpg" alt="" style="border: none;" width="449" height="136" border="0"/></p>
+<p>where</p>
+<p class="Bullet">PER 
+ - The period of the waveform. If none is specified, then FREQ is used 
+ instead.FREQ The frequency of the waveform. This defaults to one period 
+ for a transient analysis.</p>
+<p class="Bullet">V1 
+ - The low-level value of the output.</p>
+<p class="Bullet">V2 
+ - The high-level of the output.</p>
+<p class="Bullet">PW 
+ - The time for which the output is at V2 in each cycle. This does not 
+ include TR and TF.</p>
+<p class="Bullet">TR 
+ - The rise time - time taken between LOW and HIGH in each cycle. This 
+ defaults to 1ns.</p>
+<p class="Bullet">TF 
+ - The fall time - time taken between HIGH and LOW in each cycle. This 
+ defaults to TR.</p>
+<p class="Bullet">TD 
+ - The delay time. The output of the generator starts at V1, and will remain 
+ at this level for TD seconds.</p>
+<p> </p>
+<h5>Pwlin</h5>
+<p style="font-weight: normal;">This is used to produce analogue signals 
+ which are too  complicated for a pulse generator, or to reproduce 
+ a measured waveform. The output waveform is described using pairs of values 
+ for time and output magnitude. The output of the generator at intermediate 
+ times is linearly interpolated between the given times.</p>
+<p style="font-weight: normal;">If you have tabular data, you may find 
+ it easier to use manual edit mode. In this case, each data point is specified 
+ by a property of the form V(t). The following example shows how this works.</p>
+<p style="margin-left: 48px;">V(0)=0</p>
+<p style="margin-left: 48px;">V(2n)=0</p>
+<p style="margin-left: 48px;">V(3n)=1</p>
+<p style="margin-left: 48px;">V(5n)=1</p>
+<p style="margin-left: 48px;">V(6n)=0</p>
+<p style="font-weight: normal;">If you have a large amount of data, you 
+ may find it easier to use a FILE generator instead.</p>
+<p style="font-weight: normal;"> </p>
+<h5>File</h5>
+<p style="font-weight: normal;">This is used to drive a circuit from an 
+ analogue signal that is specified by a series of time points and data 
+ values contained in an ASCII file. The ASCII file should be formatted 
+ with one time/voltage pair on each line seperated by white space (spaces 
+ or tabs , not commas ). The time values must be in ascending order and 
+ all values must be simple floating point numbers ( no suffixes allowed 
+ ).</p>
+<p style="font-weight: normal;">Example</p>
+<p style="font-weight: normal;">The following example data file produces 
+ three cycles of a saw-tooth waveform with rise time 0.9ms,  fall 
+ time 0.1ms and amplitude 1V.</p>
+<p style="margin-left: 48px;">0                      0</p>
+<p style="margin-left: 48px;">9E-4                1</p>
+<p style="margin-left: 48px;">1E-3                0</p>
+<p style="margin-left: 48px;">1.9E-3             1</p>
+<p style="margin-left: 48px;">2E-3                0</p>
+<p style="margin-left: 48px;">2.9E-3             1</p>
+<p style="margin-left: 48px;">3E-3                0</p>
+<h4> </h4>
+<h5><span style="margin-left: 48px; font-weight: bold;">Audio</span></h5>
+<p>This is used to drive a circuit from a Windows WAV file. In conjunction 
+ with Audio Graphs they make it possible to hear the results of processing 
+ a sound signal through a simulated circuit.</p>
+<p> </p>
+<h5>Exponent</h5>
+<p style="font-weight: normal;">This produces the waveform as an RC circuit 
+ under charging and discharging conditions. . The parameters are best described 
+ by the diagram below.</p>
+<p style="font-weight: normal;"><img src="../../assets/images/DIALOGUES/GeneralDlgs/chrgdia.jpg" alt="" style="border: none;" width="333" height="107" border="0"/></p>
+<p style="font-weight: normal;">where the parameters are</p>
+<p class="Bullet">V1 - The low-level value of the output.</p>
+<p class="Bullet">V2 - The high-level of the output.</p>
+<p class="Bullet">TD1 - The start time of the rise curve.</p>
+<p class="Bullet">TAU1 - The time constant of the rise curve. This is 
+ the time for the voltage to reach approximately 0.63 of its full potential.</p>
+<p class="Bullet">TD2 - The start time of the fall curve. Note that TD2 
+ is measured from zero.</p>
+<p class="Bullet">TAU1 - The time constant of the fall curve.</p>
+<p style="font-weight: normal;">Mathematically, the waveform is defined 
+ in three sections:</p>
+<p style="font-weight: normal;">0 to TD1</p>
+<p style="font-weight: normal;">  <img src="../../assets/images/DIALOGUES/GeneralDlgs/V1.jpg" alt="" style="border: none;" width="36" height="28" border="0"/></p>
+<p style="font-weight: normal;">TD1 to TD2  </p>
+<p style="font-weight: normal;"><img src="../../assets/images/DIALOGUES/GeneralDlgs/V2.jpg" alt="" style="border: none;" width="191" height="57" border="0"/></p>
+<p style="font-weight: normal;">TD2 to TSTOP</p>
+<p style="font-weight: normal;"><img src="../../assets/images/DIALOGUES/GeneralDlgs/V3.jpg" alt="" style="border: none;" width="360" height="65" border="0"/></p>
+<h5>SFFM</h5>
+<p style="font-weight: normal;"><span style="font-weight: normal;">This 
+ produces a waveform that represents the result of frequency modulating 
+ one sine-wave with another. Mathematically, this is represented as:</span></p>
+<p style="font-weight: normal;"> <img src="../../assets/images/DIALOGUES/GeneralDlgs/V4.jpg" alt="" style="border: none;" width="287" height="31" border="0"/></p>
+<p style="font-weight: normal;">where the parameters are</p>
+<p class="Bullet">VO 
+ - The DC offset voltage.</p>
+<p class="Bullet">VA 
+ - The carrier amplitude.</p>
+<p class="Bullet">FC 
+ - The carrier frequency.</p>
+<p class="Bullet">FS 
+ - The signal frequency.</p>
+<p class="Bullet">MDI 
+ - The modulation index.</p>
+<h5>Random</h5>
+<p>This enables the injection of random noise into the circuit. The noise 
+ can never be rigorously white or pink because the sample rate is limited. 
+ But if the sample rate is around 10x the frequencies you&#39;re interested 
+ in it&#39;s a pretty good approximation.</p>
+<p><span style="font-weight: bold;">Filter Output:</span> When this option 
+ is selected an LPF is engaged, making the noise approximately pink, rather 
+ than white. Also a more continuous waveform. </p>
+<p><span style="font-weight: bold;">Random Seed:</span> If this checkbox 
+ is off, each generator gets it&#39;s own seed so they are all different but 
+ repeatable between simulation runs.</p>
+<p class="Tip">The Mayday sample design under graph based simulation shows 
+ how the random generator can be used.</p>
+<p> </p>
+<h5>EasyHDL</h5>
+<p>EasyHDL is a scriptable generator type based loosely on the BASIC programming 
+ language but adds additional features specific for its application in 
+ specifying test vectors. It is discussed in full in the topic on Scriptable 
+ Generators in the main simulation help file and you&#39;ll find a series of 
+ examples under the &#39;Generator Scripts&#39; category in the samples browser.</p>
+<p> </p>
+<h4>Digital Types</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Single Edge</span> - a single 
+	 transition from low to high or high to low.</li>
+	<li class="bulletblue"><span style="font-weight: bold;">Single Pulse</span> 
+	 - a pair of transitions in opposite directions which together form 
+	 a positive or negative pulse waveform. You can specify either the 
+	 times of each edge (start time and stop time) or the start time and 
+	 the pulse width.</li>
+	<li class="bulletblue"><span style="font-weight: bold;">Clock</span> 
+	 - a continuous pulse train of even mark-space ratio. You can specify 
+	 the starting value and the time of the first edge as well as the period 
+	 or frequency. The period specifies the time for a whole cycle, not 
+	 the width of a single mark or space.</li>
+	<li><span style="font-weight: bold;">Pattern</span> - This is the most 
+	 flexible and can, in fact, generate any of the other types. For larger 
+	 pulse trains consider using the pattern generator instrument which 
+	 can be scripted.</li>
+	<li><span style="font-weight: bold;">Easy HDL</span> - Use the EasyHDL 
+	 programming language to specify a signal chain for injection. See 
+	 the programming reference manual in the VSM Help file for more information.</li>
+</ul>
+<h4>Checkboxes</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Current Source?</span> - Specify 
+	 a current source. This is not applicable to digital generators.</li>
+	<li><span style="font-weight: bold;">Isolate Before?</span> - Specify 
+	 whether or not a generator placed in the middle of a wire acts to 
+	 &#39;break&#39; the wire to which it is connected, isolating the net to which 
+	 the generator points from the net behind it. The check box has no 
+	 affect on a generator connected directly to a net by a single wire.</li>
+	<li><span style="font-weight: bold;">Manual Edits?</span> - Enables 
+	 manual editing of all the properties. Use this to enter parameterized 
+	 expressions for generator properties. Recommended for advanced users 
+	 only.</li>
+	<li><span style="font-weight: bold;">Hide Properties?</span> - Hides 
+	 the textual representations of the properties.</li>
+</ul>
+<h4>DC Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Voltage</span>  - Specify 
+	 the constant output level. This can be either a Voltage (default) 
+	 or a current (select  the &#39;Current Source?&#39; radio button).</li>
+</ul>
+<h4>Sine Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Offset</span> - Specify the DC 
+	 offset for the sine wave.</li>
+	<li><span style="font-weight: bold;">Amplitude</span> - Specify the 
+	 amplitude as a half-wave value</li>
+	<li><span style="font-weight: bold;">Peak</span> - Specify the amplitude 
+	 as a peak to peak value.</li>
+	<li><span style="font-weight: bold;">RMS</span> - Specify the amplitude 
+	 as a RMS (Root Mean Squared ) value.</li>
+	<li><span style="font-weight: bold;">Frequency</span> - Specify the 
+	 frequency of oscillation in Hz.</li>
+	<li><span style="font-weight: bold;">Period</span> - Express the frequency 
+	 of oscillation as a period in seconds.</li>
+	<li><span style="font-weight: bold;">Cycles/Graph</span> - Express 
+	 the frequency of oscillation in terms of the number of cycles over 
+	 the entire graph.</li>
+	<li><span style="font-weight: bold;">Time Delay</span> - Express the 
+	 phase shift as a time delay in seconds. Oscillation does not start 
+	 until the specified time.</li>
+	<li><span style="font-weight: bold;">Phase</span> - Specify a phase 
+	 shift in degrees.</li>
+	<li><span style="font-weight: bold;">Damping Factor</span> - Specify 
+	 the rate of exponential decay of the  waveform after the start 
+	 of oscillation.</li>
+</ul>
+<h4>Pulse Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Initial (Low) Voltage</span> - 
+	 Specify the low level value of the output</li>
+	<li><span style="font-weight: bold;">Pulsed (High) Voltage</span> - 
+	 Specify the high-level value of the output</li>
+	<li><span style="font-weight: bold;">Start</span> - Specify the start 
+	 time for the waveform</li>
+	<li><span style="font-weight: bold;">Rise Time</span> - Specify the 
+	 time taken between <span style="font-weight: bold;">LOW</span> and 
+	 <span style="font-weight: bold;">HIGH</span> in each cycle. This is 
+	 not permitted to be zero and so a truly square wave is not possible.</li>
+	<li><span style="font-weight: bold;">Fall Time</span> - Specify the 
+	 time taken between <span style="font-weight: bold;">HIGH</span> and 
+	 <span style="font-weight: bold;">LOW</span> in each cycle. This is 
+	 not allowed to be zero and so a truly square  wave is not possible. 
+	 This defaults to the value for  Rise Time.      </li>
+	<li><span style="font-weight: bold;">Pulse Width (Secs)</span> - Specify 
+	 the time for which the output is <span style="font-weight: bold;">HIGH</span> 
+	 in each cycle. This does not include Rise Time and Fall Time. This 
+	 value can be zero if a triangle type waveform is required.</li>
+	<li><span style="font-weight: bold;">Pulse Width (%)</span> - Specify 
+	 the time for which the output is <span style="font-weight: bold;">HIGH</span> 
+	 as a percentage of the period. This does not include Rise Time and 
+	 Fall Time.</li>
+	<li><span style="font-weight: bold;">Frequency</span> - Specify the 
+	 frequency of the waveform in Hz.</li>
+	<li><span style="font-weight: bold;">Period</span> - Specify the period 
+	 of the waveform in seconds.</li>
+	<li><span style="font-weight: bold;">Cycles/Graph</span> - Specify 
+	 how many waveform cycles you want in the graph</li>
+</ul>
+<h4>Pwlin Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Time/Voltages</span> - Drag and 
+	 Drop Data Points on the Graph Editor. There must always be a point 
+	 at time zero, although it&#39; y-value an be changed.</li>
+	<li><span style="font-weight: bold;">X Min Scaling</span> - Specify 
+	 the minimum value for the x-axis.</li>
+	<li><span style="font-weight: bold;">X Max Scaling</span> - Specify 
+	 the maximum value for the x-axis.</li>
+	<li><span style="font-weight: bold;">Y Min Scaling</span> - Specify 
+	 the minimum value for the y-axis.</li>
+	<li><span style="font-weight: bold;">Y Max Scaling</span> - Specify 
+	 the maximum value for the y-axis.</li>
+	<li><span style="font-weight: bold;">Minimum rise/fall time</span> 
+	 - Specify the minimum rise/fall time. Should you attempt to create 
+	 a vertical edge the Graph Editor will separate the two data points 
+	 by this value.</li>
+</ul>
+<h4>File Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Data File</span> - Enter the name 
+	 of the ASCII data file. The file should be in the same directory as 
+	 the design file unless a full path is specified. There is no default 
+	 extension for the file.</li>
+</ul>
+<h4>Audio Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">WAV Audio File</span> - Selects 
+	 the filename of the audio file.The filename is assumed to have a default 
+	 extension of  WAV, and should be located in the same directory 
+	 as the ISIS design file (DSN extension) unless a full path is specified</li>
+	<li><span style="font-weight: bold;">Amplitude</span> - Specify amplitude 
+	 as a half-wave value.</li>
+	<li><span style="font-weight: bold;">Peak</span> - Specify amplitude 
+	 as a peak-to-peak value.</li>
+	<li><span style="font-weight: bold;">Offset</span> - Specifies the 
+	 DC offset. If this is set to zero the output voltage will oscillate 
+	 about zero.</li>
+	<li><span style="font-weight: bold;">Channel</span> - For stereo WAV 
+	 files this specifies which channel is played, or whether to treat 
+	 the data as mono.</li>
+</ul>
+<h4>Exponent Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Initial (Low) Voltage</span> - 
+	 Specify the low-level value of the output.</li>
+	<li><span style="font-weight: bold;">Pulsed (High) Voltage</span> - 
+	 Specify the high-level value of the output.</li>
+	<li><span style="font-weight: bold;">Rise Start time</span> - Specify 
+	 the start time of the rise curve in seconds.</li>
+	<li><span style="font-weight: bold;">Fall Start time</span> - Specify 
+	 the start time of the fall curve in seconds. Note that this time is 
+	 measured from zero.</li>
+	<li><span style="font-weight: bold;">Rise time constant</span> - Specify 
+	 the time constant for the rise curve. This is the time for the voltage 
+	 to reach approximately 0.63 of it&#39;s full potential.</li>
+	<li><span style="font-weight: bold;">Fall time constant</span> - Specify 
+	 the time constant of the fall curve.</li>
+</ul>
+<h4>SFFM Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Offset</span> - Specify the DC 
+	 offset of the waveform.</li>
+	<li><span style="font-weight: bold;">Amplitude</span> - Specify the 
+	 carrier amplitude.</li>
+	<li><span style="font-weight: bold;">Carrier Frequency</span> - Specify 
+	 the carrier frequency in Hz.</li>
+	<li><span style="font-weight: bold;">Modulation Index</span> - Specify 
+	 the modulation index for the wave.</li>
+	<li><span style="font-weight: bold;">Signal Frequency</span> - Specify 
+	 the signal frequency in Hz.</li>
+</ul>
+<h4>Easy HDL Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Assigned Script</span> - Specify 
+	 the script to be executed by the generator. Normally this is the local 
+	 script (&lt;LOCAL&gt;) but it is possible to have other script blocks 
+	 on the schematic.</li>
+	<li><span style="font-weight: bold;">Local Script</span> - Type the 
+	 script you wish to execute (assuming assigned script is set to &lt;LOCAL&gt;) 
+	 - refer to VSM help for the programming reference manual and some 
+	 practical examples.</li>
+	<li><span style="font-weight: bold;">Debug this Generator?</span> - 
+	 Select this option if you wish to single step debug the script during 
+	 simulation. This will present a source window when the simulation 
+	 is paused allowing you to debug in the normal way.</li>
+</ul>
+<h4>Steady State Properties</h4>
+<p>Specify a State from those listed.  The states are organised in 
+ a centred array decreasing in strength from Power  Rail High To Floating 
+ and from Power Rail Low  to Floating.</p>
+<h4>Single Edge Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Positive (Low-to-High) Edge</span> 
+	 - Specify a positive edge transition.</li>
+	<li><span style="font-weight: bold;">Negative (High-to-Low) Edge</span> 
+	 - Specify a negative edge transition.</li>
+	<li><span style="font-weight: bold;">Edge At</span> - Specify the time 
+	 in seconds at which the edge is to begin.</li>
+</ul>
+<h4>Single Pulse Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Pulse Polarity</span> - Select 
+	 the required polarity of the pulse.</li>
+	<li><span style="font-weight: bold;">Start Time</span> - Enter the 
+	 time in seconds at which you want the pulse to start.</li>
+	<li><span style="font-weight: bold;">Pulse Width</span> - Specify the 
+	 ovarall pulse width in seconds.</li>
+	<li><span style="font-weight: bold;">Stop Time</span> - Specify the 
+	 time in seconds at which you want the pulse to stop.</li>
+</ul>
+<h4>Clock Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Clock Type</span> - Select the 
+	 required polarity of clock phase.</li>
+	<li><span style="font-weight: bold;">First Edge At</span> - Specifies 
+	 the time in seconds at which the first clock edge occurs. Prior to 
+	 this time the generator stays in its initial state as specified by 
+	 the clock type.</li>
+	<li><span style="font-weight: bold;">Frequency</span> - Specifies the 
+	 clock frequency in Hz.</li>
+	<li><span style="font-weight: bold;">Period</span> - Specify the clock 
+	 period in seconds. The period specifies the time for a whole cycle, 
+	 not the width of a single mark or space.</li>
+</ul>
+<h4>Pattern Properties</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Initial State</span> - This specifies 
+	 the value at time zero. It is also the value used when finding the 
+	 operating point in a mixed mode circuit.</li>
+	<li><span style="font-weight: bold;">First Edge At</span> - Specifies 
+	 the time in seconds when the pattern output starts. The output will 
+	 remain at the initial state value until this time is reached.</li>
+	<li><span style="font-weight: bold;">Equal Mark/Space Timing?</span> 
+	 - Indicates whether or not each step of the pattern will take the 
+	 same time or have a different time for high and low  values. 
+	  </li>
+	<li><span style="font-weight: bold;">Pulse Width</span> - If each step 
+	 takes the same time (specified by checking the Equal Mark/Space Timing? 
+	 checkbox ) this  determines the pulse width. If there are different 
+	 times specified for high and low  values this determines  the 
+	 time for logic &#39;1&#39; values.</li>
+	<li><span style="font-weight: bold;">&#39;Space&#39; time</span> - When there 
+	 are different times for high and low values (specified by unchecking 
+	 the Equal Mark/Space Timing? checkbox) this value determines the time 
+	 for logic &#39; 0 &#39; values.</li>
+	<li><span style="font-weight: bold;">Continuous Sequence of Pulses</span> 
+	 - Specifies that the output will run continuously until the end of 
+	 the simulation, repeating the pattern as many times as are necessary.</li>
+	<li><span style="font-weight: bold;">Determine from Pattern Length</span> 
+	 - Specifies that the output will run until the end of the pattern. 
+	 This option can only be selected when a specific pulse train is entered.</li>
+	<li><span style="font-weight: bold;">Specific Number of Edges</span> 
+	 - Specifies  that the pattern is only to run for a specific number 
+	 of edges.</li>
+	<li><span style="font-weight: bold;">Standard High-Low Pulse Train</span> 
+	 - This indicates an alternating high-low-high-low sequence.</li>
+	<li><span style="font-weight: bold;">Specific Pulse Train</span> - 
+	 Specifies that a specified pattern string is to be enabled. Enables 
+	 the edit box below and permits the option of running the output until 
+	 the end of the pattern.</li>
+</ul>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

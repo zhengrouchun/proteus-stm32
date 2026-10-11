@@ -18,8 +18,8 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
-#include "stm32f1xx_it.h"
+#include "main.h" /* 引入 HAL 接口与立即断电函数声明。 */
+#include "stm32f1xx_it.h" /* 引入本工程中断处理函数声明。 */
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -69,6 +69,7 @@
 void NMI_Handler(void)
 {
   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
+  DivEmergencyStop(); /* 不可屏蔽异常出现时先断开两路电源再停机。 */
 
   /* USER CODE END NonMaskableInt_IRQn 0 */
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
@@ -84,6 +85,7 @@ void NMI_Handler(void)
 void HardFault_Handler(void)
 {
   /* USER CODE BEGIN HardFault_IRQn 0 */
+  DivEmergencyStop(); /* 硬件异常停机前先关闭被测电路供电。 */
 
   /* USER CODE END HardFault_IRQn 0 */
   while (1)
@@ -99,6 +101,7 @@ void HardFault_Handler(void)
 void MemManage_Handler(void)
 {
   /* USER CODE BEGIN MemoryManagement_IRQn 0 */
+  DivEmergencyStop(); /* 内存访问异常也不能留下运行电源开启。 */
 
   /* USER CODE END MemoryManagement_IRQn 0 */
   while (1)
@@ -114,6 +117,7 @@ void MemManage_Handler(void)
 void BusFault_Handler(void)
 {
   /* USER CODE BEGIN BusFault_IRQn 0 */
+  DivEmergencyStop(); /* 总线异常停机前立即关闭两个开关。 */
 
   /* USER CODE END BusFault_IRQn 0 */
   while (1)
@@ -129,6 +133,7 @@ void BusFault_Handler(void)
 void UsageFault_Handler(void)
 {
   /* USER CODE BEGIN UsageFault_IRQn 0 */
+  DivEmergencyStop(); /* 非法指令等异常出现时先关闭被测电路供电。 */
 
   /* USER CODE END UsageFault_IRQn 0 */
   while (1)
@@ -185,7 +190,7 @@ void SysTick_Handler(void)
   /* USER CODE BEGIN SysTick_IRQn 0 */
 
   /* USER CODE END SysTick_IRQn 0 */
-  HAL_IncTick();
+  HAL_IncTick(); /* 每次 SysTick 中断递增毫秒计数，供稳定等待、互锁和按钮消抖使用。 */
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */
@@ -199,5 +204,9 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /* USER CODE BEGIN 1 */
+void EXTI9_5_IRQHandler(void) /* EXTI5 至 EXTI9 共用的中断入口，本工程仅启用 PA5。 */
+{
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5); /* 清除 PA5 中断标志并调用 HAL_GPIO_EXTI_Callback 立即断电。 */
+}
 
 /* USER CODE END 1 */

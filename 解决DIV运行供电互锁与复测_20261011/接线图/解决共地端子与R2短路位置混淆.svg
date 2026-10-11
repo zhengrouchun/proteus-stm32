@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1460" viewBox="0 0 2200 1460">
+<rect width="100%" height="100%" fill="white"/>
+<text x="60" y="71" font-family="Microsoft YaHei,sans-serif" font-size="36" fill="#1c2733">解决共地端子与 R2 短路位置混淆：按你最新截图编号标注</text>
+<text x="60" y="127" font-family="Microsoft YaHei,sans-serif" font-size="27" fill="#1c2733">你的横向 R2 = CSV 的 R1；你的竖向 R3 = CSV 的 R2。先按位置识别，再操作开关。</text>
+<text x="60" y="202" font-family="Microsoft YaHei,sans-serif" font-size="30" fill="#1c2733">这些端子全部接到同一条公共 GND 母线（0 V）</text>
+<text x="38" y="263" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">1 V 测试电源</text>
+<text x="38" y="300" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">负极 VS_TEST−</text>
+<polyline points="140,371 140,465" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="140" cy="465" r="5" fill="#216449"/>
+<text x="308" y="263" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">3 V 运行电源</text>
+<text x="308" y="300" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">负极 VS_RUN−</text>
+<polyline points="410,371 410,465" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="410" cy="465" r="5" fill="#216449"/>
+<text x="578" y="263" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">3.3 V MCU 电源</text>
+<text x="578" y="300" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">负极 BAT2−</text>
+<polyline points="680,371 680,465" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="680" cy="465" r="5" fill="#216449"/>
+<text x="848" y="263" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">U1 的 VSS</text>
+<text x="848" y="300" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">23 / 35 / 47 脚</text>
+<text x="848" y="337" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">VSSA 第 8 脚</text>
+<polyline points="950,371 950,465" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="950" cy="465" r="5" fill="#216449"/>
+<text x="1118" y="263" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">两只 VSWITCH</text>
+<text x="1118" y="300" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">控制负端 C−</text>
+<text x="1118" y="337" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">两只下拉的下端</text>
+<polyline points="1220,371 1220,465" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="1220" cy="465" r="5" fill="#216449"/>
+<text x="1388" y="263" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">三只电压表</text>
+<text x="1388" y="300" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">EXC_IN、VA、VB</text>
+<text x="1388" y="337" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">各自的负端</text>
+<polyline points="1490,371 1490,465" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="1490" cy="465" r="5" fill="#216449"/>
+<text x="1658" y="263" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">操作按钮接地端</text>
+<text x="1658" y="300" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">LED 阴极</text>
+<text x="1658" y="337" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">复位按钮接地端</text>
+<polyline points="1760,371 1760,465" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="1760" cy="465" r="5" fill="#216449"/>
+<text x="1928" y="263" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">SW4 的下端</text>
+<text x="1928" y="300" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">BOOT0 下拉下端</text>
+<text x="1928" y="337" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">均为公共 GND</text>
+<polyline points="2030,371 2030,465" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="2030" cy="465" r="5" fill="#216449"/>
+<polyline points="60,465 2140,465" stroke="#216449" stroke-width="6" fill="none"/>
+<polyline points="1100,465 1100,477" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="1080,477 1120,477" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="1087,487 1113,487" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="1094,497 1106,497" stroke="#216449" stroke-width="4" fill="none"/>
+<text x="905" y="541" font-family="Microsoft YaHei,sans-serif" font-size="26" fill="#1c2733">同一 GND 网络，电位为 0 V</text>
+<text x="60" y="590" font-family="Microsoft YaHei,sans-serif" font-size="25" fill="#1c2733">R3 下端（SW4 上方）是内部节点：经 SW4 才接地；SW2 下端必须接这个内部节点。</text>
+<polyline points="60,625 2140,625" stroke="#1c2733" stroke-width="2" fill="none"/>
+<text x="80" y="686" font-family="Microsoft YaHei,sans-serif" font-size="29" fill="#1c2733">正常：两只电阻都参与分压</text>
+<text x="80" y="732" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#1c2733">1 V 检测条件；R2、R3 均先恢复 10 kΩ</text>
+<polyline points="100,800 165,800" stroke="#216449" stroke-width="4" fill="none"/>
+<rect x="165" y="787" width="90" height="26" fill="white" stroke="#1c2733" stroke-width="3"/>
+<text x="152" y="777" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#1c2733">RS 2 kΩ</text>
+<polyline points="255,800 310,800 360,800" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="310" cy="800" r="5" fill="#216449"/>
+<text x="290" y="779" font-family="Microsoft YaHei,sans-serif" font-size="24" fill="#1c2733">VA</text>
+<circle cx="360" cy="800" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<circle cx="425" cy="800" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<polyline points="360,800 425,800" stroke="#1c2733" stroke-width="3" fill="none"/>
+<text x="355" y="851" font-family="Microsoft YaHei,sans-serif" font-size="21" fill="#1c2733">SW1 闭合</text>
+<polyline points="425,800 460,800 480,800" stroke="#216449" stroke-width="4" fill="none"/>
+<rect x="480" y="787" width="90" height="26" fill="white" stroke="#1c2733" stroke-width="3"/>
+<text x="475" y="853" font-family="Microsoft YaHei,sans-serif" font-size="20" fill="#1c2733">R2 / CSV R1</text>
+<text x="495" y="883" font-family="Microsoft YaHei,sans-serif" font-size="20" fill="#1c2733">10 kΩ</text>
+<polyline points="570,800 655,800" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="655" cy="800" r="5" fill="#216449"/>
+<text x="635" y="779" font-family="Microsoft YaHei,sans-serif" font-size="24" fill="#1c2733">VB</text>
+<polyline points="460,800 460,752 495,752" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="495" cy="752" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<circle cx="560" cy="752" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<polyline points="495,752 540,730" stroke="#1c2733" stroke-width="3" fill="none"/>
+<text x="468" y="778" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#1c2733">SW5 断开</text>
+<polyline points="560,752 605,752 605,800" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="460" cy="800" r="5" fill="#216449"/>
+<circle cx="605" cy="800" r="5" fill="#216449"/>
+<polyline points="655,800 655,900" stroke="#216449" stroke-width="4" fill="none"/>
+<rect x="642" y="900" width="26" height="95" fill="white" stroke="#1c2733" stroke-width="3"/>
+<text x="688" y="923" font-family="Microsoft YaHei,sans-serif" font-size="20" fill="#1c2733">R3 / CSV R2</text>
+<text x="688" y="958" font-family="Microsoft YaHei,sans-serif" font-size="20" fill="#1c2733">10 kΩ</text>
+<polyline points="655,995 655,1040 655,1095" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="655" cy="1040" r="5" fill="#216449"/>
+<circle cx="655" cy="1095" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<circle cx="655" cy="1150" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<polyline points="655,1095 655,1150" stroke="#1c2733" stroke-width="3" fill="none"/>
+<text x="688" y="1121" font-family="Microsoft YaHei,sans-serif" font-size="21" fill="#1c2733">SW4 闭合</text>
+<polyline points="655,1150 655,1180" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="655,1180 655,1192" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="635,1192 675,1192" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="642,1202 668,1202" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="649,1212 661,1212" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="655,800 855,800 855,905" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="855" cy="905" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<circle cx="855" cy="960" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<polyline points="855,905 880,940" stroke="#1c2733" stroke-width="3" fill="none"/>
+<text x="885" y="931" font-family="Microsoft YaHei,sans-serif" font-size="21" fill="#1c2733">SW2 断开</text>
+<polyline points="855,960 855,1040 655,1040" stroke="#216449" stroke-width="4" fill="none"/>
+<text x="725" y="1083" font-family="Microsoft YaHei,sans-serif" font-size="19" fill="#1c2733">R3_BOTTOM</text>
+<text x="85" y="1245" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#1c2733">SW5 断开；只改变 SW2，SW1 / SW4 均闭合。</text>
+<text x="1170" y="686" font-family="Microsoft YaHei,sans-serif" font-size="29" fill="#1c2733">CSV DIV4：竖向电阻短路</text>
+<text x="1170" y="732" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#1c2733">1 V 检测条件；R2、R3 均先恢复 10 kΩ</text>
+<polyline points="1190,800 1255,800" stroke="#216449" stroke-width="4" fill="none"/>
+<rect x="1255" y="787" width="90" height="26" fill="white" stroke="#1c2733" stroke-width="3"/>
+<text x="1242" y="777" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#1c2733">RS 2 kΩ</text>
+<polyline points="1345,800 1400,800 1450,800" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="1400" cy="800" r="5" fill="#216449"/>
+<text x="1380" y="779" font-family="Microsoft YaHei,sans-serif" font-size="24" fill="#1c2733">VA</text>
+<circle cx="1450" cy="800" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<circle cx="1515" cy="800" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<polyline points="1450,800 1515,800" stroke="#1c2733" stroke-width="3" fill="none"/>
+<text x="1445" y="851" font-family="Microsoft YaHei,sans-serif" font-size="21" fill="#1c2733">SW1 闭合</text>
+<polyline points="1515,800 1550,800 1570,800" stroke="#216449" stroke-width="4" fill="none"/>
+<rect x="1570" y="787" width="90" height="26" fill="white" stroke="#1c2733" stroke-width="3"/>
+<text x="1565" y="853" font-family="Microsoft YaHei,sans-serif" font-size="20" fill="#1c2733">R2 / CSV R1</text>
+<text x="1585" y="883" font-family="Microsoft YaHei,sans-serif" font-size="20" fill="#1c2733">10 kΩ</text>
+<polyline points="1660,800 1745,800" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="1745" cy="800" r="5" fill="#216449"/>
+<text x="1725" y="779" font-family="Microsoft YaHei,sans-serif" font-size="24" fill="#1c2733">VB</text>
+<polyline points="1550,800 1550,752 1585,752" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="1585" cy="752" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<circle cx="1650" cy="752" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<polyline points="1585,752 1630,730" stroke="#1c2733" stroke-width="3" fill="none"/>
+<text x="1558" y="778" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#1c2733">SW5 断开</text>
+<polyline points="1650,752 1695,752 1695,800" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="1550" cy="800" r="5" fill="#216449"/>
+<circle cx="1695" cy="800" r="5" fill="#216449"/>
+<polyline points="1745,800 1745,900" stroke="#216449" stroke-width="4" fill="none"/>
+<rect x="1732" y="900" width="26" height="95" fill="white" stroke="#1c2733" stroke-width="3"/>
+<text x="1778" y="923" font-family="Microsoft YaHei,sans-serif" font-size="20" fill="#1c2733">R3 / CSV R2</text>
+<text x="1778" y="958" font-family="Microsoft YaHei,sans-serif" font-size="20" fill="#1c2733">10 kΩ</text>
+<polyline points="1745,995 1745,1040 1745,1095" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="1745" cy="1040" r="5" fill="#216449"/>
+<circle cx="1745" cy="1095" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<circle cx="1745" cy="1150" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<polyline points="1745,1095 1745,1150" stroke="#1c2733" stroke-width="3" fill="none"/>
+<text x="1778" y="1121" font-family="Microsoft YaHei,sans-serif" font-size="21" fill="#1c2733">SW4 闭合</text>
+<polyline points="1745,1150 1745,1180" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="1745,1180 1745,1192" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="1725,1192 1765,1192" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="1732,1202 1758,1202" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="1739,1212 1751,1212" stroke="#216449" stroke-width="4" fill="none"/>
+<polyline points="1745,800 1945,800 1945,905" stroke="#216449" stroke-width="4" fill="none"/>
+<circle cx="1945" cy="905" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<circle cx="1945" cy="960" r="5" fill="white" stroke="#1c2733" stroke-width="3"/>
+<polyline points="1945,905 1945,960" stroke="#1c2733" stroke-width="3" fill="none"/>
+<text x="1975" y="931" font-family="Microsoft YaHei,sans-serif" font-size="21" fill="#1c2733">SW2 闭合</text>
+<polyline points="1945,960 1945,1040 1745,1040" stroke="#216449" stroke-width="4" fill="none"/>
+<text x="1815" y="1083" font-family="Microsoft YaHei,sans-serif" font-size="19" fill="#1c2733">R3_BOTTOM</text>
+<text x="1175" y="1245" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#1c2733">SW5 断开；只改变 SW2，SW1 / SW4 均闭合。</text>
+<text x="60" y="1319" font-family="Microsoft YaHei,sans-serif" font-size="25" fill="#1c2733">短路路线：VB → SW2 → R3_BOTTOM → SW4 → GND；SW2 闭合后旁路 R3，R3 两端电压约为 0。</text>
+<text x="60" y="1367" font-family="Microsoft YaHei,sans-serif" font-size="25" fill="#1c2733">在 1 V 检测阶段，CSV DIV4 预期 VB≈0 mV、VA≈833 mV；实际填写以 ADC 串口报告为准。</text>
+<text x="60" y="1413" font-family="Microsoft YaHei,sans-serif" font-size="23" fill="#1c2733">MCU 的 VDDA / VDD / VBAT 接 3.3 V 正电源；它们不接 GND。你的复位上拉电阻现在编号 R4。</text>
+</svg>

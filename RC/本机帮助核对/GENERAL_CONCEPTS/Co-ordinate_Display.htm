@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Co-ordinate Display</title>
+  
+  <meta name="rh-index-keywords" content="Co-ordinates"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">CO-ORDINATE DISPLAY</h1>
+  <h3>Overview</h3>
+  <p>All co-ordinates in Proteus are actually held in 10nm units, purely to be consistent with the layout module. However, the coordinate read-out is restricted to 1 thou units. The origin is held to be in the centre of the work area and so both positive and negative values are used. The co-ordinates of the pointer are displayed at the bottom right of the screen.</p>
+  <p>We refer to a 1 thou increment as a unit.</p>
+  <h3><a id="Origin_(False_Origin)" data-indexterm="Origin (False Origin)"></a><a id="False_Origin1" data-indexterm="False Origin"></a><a id="False_Origin"></a>False Origin</h3>
+  <p>Although the Origin command appears on the View menu, it should only be used via its keyboard short cut (by default this is &#39;O&#39;). Its function is to zero the co-ordinate display at the current mouse position, a feature that is most useful when laying out a complex pattern of pads given a set of dimensions on a drawing of the component.</p>
+  <p>When a false origin is set, the co-ordinate display changes colour from black to magenta as a reminder.</p>
+  <p>Cancelling a false origin is done by invoking the Origin command a second time.</p>
+  <h3><a id="The_Dot_Grid"></a>The Grid</h3>
+  <p>A line grid is displayed in the Editing Window - this can be switched between line grid, dot grid and no grid via the &#39;G&#39; shortcut key or by invoking the Grid command on the View menu (three way toggle). When enabled, the spacing reflects the current snap setting, unless this would result in a ridiculous number of lines/dots, in which the spacing is increased.</p>
+  <h3><a id="Snapping_to_a_Grid"></a>Snapping to a Grid</h3>
+  <p>You will notice that when the pointer is over the Editing Window, the increments of the co-ordinate display are in fixed steps - initially 100th. This is called snapping and enables you to position components and other objects on a neat grid. The degree of snap may be selected with the Snap commands on the View menu, or directly via keyboard shortcuts (default assignation F4, F3, F2 and CTRL+F1).</p>
+  <p>If you wish to see exactly where the snapped position is, you can use the X-Cursor command that will display either a small or large cross at this location</p>
+  <h3><a id="Real_Time_Snap1" data-indexterm="Real Time Snap"></a><a id="Real_Time_Snap"></a>Real Time Snap</h3>
+  <p>Furthermore, when the pointer is positioned near to pin ends or wires, the cursor location will also be snapped onto these objects. This function is called Real Time Snap and allows you to connect to or from pins and wires that are not on the currently selected snap grid.</p>
+  <p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

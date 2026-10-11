@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Object Properties</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1>OBJECT PROPERTIES</h1>
+  <h3>Introduction</h3>
+  <p>There are two distinct types of object property - system properties and user properties. The former comprise a set of reserved keywords which have special functions within Proteus itself, whereas the latter relate either to external programs, or may relate to your own particular use of the software (for example, the Bill of Materials report).</p>
+  <h3><a id="Properties:System_Properties" data-indexterm="Properties:System Properties"></a><a id="System_Properties"></a>System Properties</h3>
+  <p>System properties are properties whose keywords have special meaning in Proteus . For example, the DEVICE property of a component object directly determines the library part assigned to it. Some of these properties are textual - e.g. component REF and VALUE labels are directly accessible from the Edit Component dialogue form, but others such as the aforementioned DEVICE property are manipulated as a result of graphical operations.</p>
+  <p>In general, you need only concern yourself with system properties if you wish to read their values with the Search and Tag command, or modify them with the Property Assignment Tool. For example, you might wish to tag all the 7400 components in your design. This requires you to know that the system property that will hold the library part name is called DEVICE.</p>
+  <p>Details of the system properties used by each type of object are given in the Object Specifics section of this documentation.</p>
+  <h3><a id="Properties:User_Properties" data-indexterm="Properties:User Properties"></a><a id="User_Properties"></a>User Properties</h3>
+  <p class="Warning">User Properties <u><strong>should not be entered via any method </strong></u>when working with <a href="../LIBRARY_FACILITIES/Device_Libraries.htm#Managed_Libraries">managed libraries</a>. The whole idea is that the managed library parts include managed properties that contain all the correct information. Only the librarian should make changes to the library parts as needed by releasing a new version of the library for users to update from.</p>
+  <p>Components, sub-circuits and VSM gadgets can carry an unlimited number of extra properties, in addition to their standard system properties. These user properties are held in a block of text known as a property block and consisting of lines such as:</p>
+  <p class="Courier">SUPPLIER=XYZ Electronics</p>
+  <p>The most convenient and common method for editing user property blocks is via the spreadsheet interface in design explorer although you can also do so directly on the dialogue forms of the various objects themselves. In either case it&#39;s important to realise that you are making local changes to the design and not persistent changes to the library parts. A more stringent approach would be to correct/update the library parts via Library Manager so that the master devices were correct and then pick the updated parts back into the current schematic. Either method is fine and the decision may largely be one of company policy with respect local property changes.</p>
+  <p class="Tip">One advantage of updating the library parts versus making local changes is that the Manage Changes command on the library menu will do a better job of handling design revisions.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="DXP.chm::/Search.htm">Design Explorer </a></p>
+  <p class="ExampleTitle">To edit user properties via Design Explorer</p>
+  <p>1) Add the properties to the component grid</p>
+  <p><img alt="" border="0" height="346" src="../assets/images/PROPERTIES/propertyColumns.png" style="border: none;" width="640"/></p>
+  <p>2) Change the values</p>
+  <p><img alt="" border="0" height="239" src="../assets/images/PROPERTIES/changingCost.png" style="border: none;" width="131"/></p>
+  <p>If you want to operate on only a subset of parts (for example change the package of all 10k resistors) then first use  the search tab to filter the list of parts and then follow the procedure above.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="DXP.chm::/Search.htm">Design Explorer </a></p>
+  <p class="ExampleTitle">To edit an objects user properties individually:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Bring up the object&#39;s dialogue form by tagging it and selecting Edit Properties from the resulting context menu.<br/>
+      <br/>
+      <img alt="" border="0" height="115" src="../assets/images/PROPERTIES/Edi_component_properties.png" style="border: none;" width="298"/>
+    </li>
+    <li class="Numbers">If the object can hold user properties, the dialogue form will have a text editor box labelled Properties. Point below any existing text in this box and click left.<br/>
+      <br/>
+      <img alt="" border="0" height="330" src="../assets/images/PROPERTIES/Edit_properties.png" style="border: none;" width="462"/>
+    </li>
+    <li class="Numbers">Edit the text as required. Each property should consists of a single line comprising a keyword and value separated by an equals sign (=).</li>
+  </ol>
+  <p class="Warning">User property keywords should, as a rule, consist of letters, numbers and underscores only. Under no circumstances should they contain spaces, commas, double quotes or equals signs  (,&quot;=).</p>
+  <p>In accordance with the general behaviour of text on the schematic, if a property assignment is enclosed in curly brackets (&#39;{&#39; and &#39;}&#39;) then it will not be displayed on the screen. For example, entering:</p>
+  <p class="Courier">{PRIMITIVE=DIGITAL}</p>
+  <p>will define an object as requiring digital simulation, but this text will not actually appear.</p>
+  <p>Occasionally, one may want just the value to appear, in which case you can do:</p>
+  <p class="Courier">{MODFILE=}OPAMP</p>
+  <p>In theory you can put curly brackets in other places. However, when the <a href="Property_Assignment_Tool.htm">Property Assignment Tool</a> modifies property blocks, it works on the assumption that if used at all, curly brackets have been placed as shown in the above examples. If they have been placed elsewhere, then you may get unexpected results.</p>
+  <h3><a id="Property_Definitions__PROPDEFS_"></a>Property Definitions (PROPDEFS)</h3>
+  <p>It is possible to provide extra details for specific user properties of a device. For example, common user component properties are PACKAGE and MODFILE. Given that appropriate Property Definitions have been created for the component libraries, these properties are displayed in their own fields on the Edit Component dialogue form. The property definitions include a description of the property, a data type (such as integer, floating point or string) and for numeric data types a valid input range. A default value may also be (and often is) specified.</p>
+  <p>This scheme makes it much easier to see what properties are valid for a particular model, and what those properties mean. It is also then possible to supply alternate package types and simulator models in a way that is obvious to the end user of a particular library part.</p>
+  <p>Properties which are not known for a particular device (or all properties for a device which does not have property definitions) still appear in the textual properties block as described above, and the scheme is thus backward compatible with old designs and/or library parts which do not have property definitions.</p>
+  <p class="Tip">When adding and configuring properties via the Bill of Materials property editor rather than manually, the PROPDEFS are created and written for you at the point you create the BOM field.</p>
+  <p>You can view, edit and delete the current set of propdefs via the Set Property Definitions dialogue on the System Menu.</p>
+  <p class="Diagram"><img alt="" border="0" height="204" src="../assets/images/TEMPLATES/Set_property_definitions.png" style="border: none;" width="189"/></p>
+
+</div>
+<p> </p>
+
+</body></html>

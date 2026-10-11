@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Edit Graph DSIM</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Simulation Options - DSIM</h1>
+<h3>Options</h3>
+<h4>Random Initialization Values</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Fully Random Values</span> - Specifies 
+	 that the initialization values for each model in the design with a 
+	 scaleable timing value will be completely random both on the initial 
+	 simulation and through repeat simulations.</li>
+	<li><span style="font-weight: bold;">Pseudo-Random values based on 
+	 seed</span> - Specifies that the random numbers generated are dependant 
+	 on a seed value. This, in effect, means that while all capable models 
+	 receive random values ( which are dependant on the value of the seed 
+	 that you specify ) they will receive those same values on repeat simulations. 
+	 This is particularly useful for isolating errors in the simulation.</li>
+</ul>
+<h4>Propagation Delay Scaling</h4>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Scale all values by constant amount</span> 
+	 - When this option is checked all propogation delays for models in 
+	 DSIM will be scaled by the amount specified. For example, a high to 
+	 low edge propogation delay of 10ns will actually take 20ns if this 
+	 setting is selected and a value of 2 is specified.</li>
+	<li><span style="font-weight: bold;">Pseudo-random scaling based on 
+	 seed</span> - When this option is checked propagation delays are randomized 
+	 within the bounds specified according to seed. The fact that the randomization 
+	 is seeded ensures that the ordering is constant and so subsequent 
+	 simulation runs will produce the same ‘random’ values as the initial 
+	 simulation.</li>
+	<li><span style="font-weight: bold;">Fully Random Scaling</span> - 
+	 Selects an option from those given to indicate how you would like 
+	 DSIM to handle propagation delay in the models on the design. See 
+	 the context sensitive help on each edit field for more information. 
+	 The Upper and Lower Scaling Limits fields specify the limits for random 
+	 propogation delays and ensure that random delays have sensible boundaries.</li>
+</ul>
+<p> </p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

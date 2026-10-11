@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Device Libraries</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">DEVICE LIBRARIES</h1>
+  <h3>Introduction</h3>
+  <p>A device (in Proteus terminology) is a type of real world component such as an NPN transistor or a PIC microprocessor. It follows that a component placed on the drawing is an instance of a device. There are essentially three types of device:</p>
+  <ul type="disc">
+    <li>Single element devices. These are parts for which there is a one to one correspondence between the schematic symbol and the PCB package. Each pin has a single name and a single pin number.</li>
+    <li>Homogenous multi-element devices. These are parts for which there are several identical elements in the one PCB package. Typical examples would be a 7400 quad NAND gate or a TL072 dual op-amp. The same pin will have a different pin number for each element, except for the power pins which tend to be common.</li>
+    <li>Heterogeneous multi-element devices. These are parts where there are several different elements in the one PCB package, but where you wish to draw each element as separate component on the schematic. The most common example by far is a relay, in which you wish to have the coil and one or more sets of contacts on different parts of the schematic.</li>
+  </ul>
+  <p>Proteus also provides support for bus pins. Devices such as microprocessors and their associated peripherals can thus be drawn in very compact forms since their data and address buses may be represented by single pins. Wiring them up becomes a lot less tedious, too. Devices with one or more bus pins also require a pinout to specify the pin numbers for each physical pin of the bus.</p>
+  <p>Whereas a single element device will have just one physical pin number associated with each schematic pin, multi-element parts and parts with bus pins all have multiple pin numbers for each device pin. This aspect of the device creation process is handled by the Visual Packaging Tool. In addition, this tool will allow you to create alternate packagings (each with its own set of pin numbers) for the same schematic part. A typical application of this would a microprocessor chip such as the PIC16F877 which is available in both DIL40 and PLCC44.</p>
+  <h4>Important Note</h4>
+  <p>While the following topics are a detailed explanation of how to create component parts in Proteus, <span style="font-weight: bold; text-decoration: underline; ">in practise this should almost never be necessary</span>. In addition to the many installed libraries Proteus includes free access to over 15 million component parts and footprints via two other means:</p>
+  <p>1) Integrated web search and import. This works directly from the library picker dialogue on the schematic and requires a valid maintenance contract.</p>
+  <p class="Reference"><a href="IMPORTER.chm::/LibraryPicker/WebSearchImport.htm">Integrated Web Search.</a></p>
+  <p>2) The universal part import dialogue. This provides support for almost all third party part vendors (Ultra-Librarian, Samacsys, SnapEDA, etc.). If the part doesn&#39;t exist in Proteus itself the next step is to search for and then import it directly from a third party vendor.</p>
+  <p class="Reference"><a href="IMPORTER.chm::/LibraryPartDialogue/libPartImport.htm">Universal Part Import Dialogue</a></p>
+  <p>Tutorial movies on both techniques can be found on our <a href="https://www.youtube.com/channel/UCFNnl5S532GMtwXJUYRo_wQ" target="_blank">Youtube Channel</a>.</p>
+  <h4><a data-indexterm="Managed Libraries" id="Managed_Libraries1"></a><a id="Managed_Libraries"></a>Managed Libraries</h4>
+  <p>Proteus also supports working with managed libraries. These are libraries containing approved library parts which can be exported and held under version control. The versioning information can then be used to ascertain whether the latest version of a library part is in use in a project.</p>
+  <p>With a managed library workflow there are typically three areas of responsibility; the user,  the librarian and the reviewer. This could be three different people or just one person operating across all three roles.</p>
+  <ul class="Disc">
+    <li>The <strong>user </strong>simply switches Proteus into managed mode (System Menu-&gt;System Settings-&gt;Managed Libraries Preferred checkbox) and then continues working. Proteus will disable web <span style="font-size: 10pt;">import in the pickers, restrict local property changes and default to showing only managed libraries for selection.</span></li>
+    <li>The <strong>librarian </strong>works in library manager to create managed libraries, move parts into them, handles versioing and releases managed libraries back to the users.</li>
+    <li>The <strong>reviewer </strong>works with a combination of the manage changes dialogue form and the pre-production check to verify that the latest approved version of the library parts is in use on a ny given project.</li>
+  </ul>
+  <p class="Reference">Full documentation on the managed libraries workflow can be found in the library manager help file (LIBMAN.CHM) or via the help menu in the Library Manager module.</p>
+  <p>Tutorial movies on managed libraries can be found on our <a href="https://www.youtube.com/channel/UCFNnl5S532GMtwXJUYRo_wQ" target="_blank">Youtube Channel</a>.</p>
+  <h3><a id="Making:A_Device_Element" data-indexterm="Making:A Device Element"></a><a id="Making_a_Device_Element"></a>Making a Device Element</h3>
+  <p>Most of the devices you will encounter will involve only a single element. That is to say that by placing one component object, you account for all the pins in the physical part. This is in contrast to a multi-element part like a 7400 for which you need to place four gates to account for all the pins. Either way, the first stage in making a new library part is to place the graphics and pins for the device element or elements.</p>
+  <p class="ExampleTitle">To make a device element:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Place graphics objects to define the device body in the appropriate graphics style(s).</li>
+    <li class="Numbers">Place device pin objects to represent the pins.</li>
+    <li class="Numbers">Annotate the pins to assign name and types using any of the standard editing techniques (see Editing an Object) or the Property Assignment Tool.</li>
+    <li class="Numbers">Tag all the objects that comprise the element. Then invoke the Make Device command and assign any default properties.</li>
+  </ol>
+  <p>These stages are worthy of further discussion:</p>
+  <h4>Defining the Device Body</h4>
+  <p>The device body is essentially the complete graphic for the device, excluding its reference designator and pins. Very often, it will just be a box, in which case you should simply select and place a graphics box of the appropriate size in the COMPONENT graphics style as shown below.</p>
+  <p class="Diagram"><img alt="" border="0" height="112" src="../assets/images/LIBRARY_FACILITIES/2D_square_mode.png" style="border: none;" width="206"/></p>
+  <p class="DiagramText">Select the Component Graphics Style </p>
+  <p>For components with more complex graphics such as transistors, op-amps and so forth you can use any of the graphic objects that Proteus provides in whatever graphics styles are appropriate and perhaps editing the objects and assigning local, fixed values to some or all of the graphics style attributes.</p>
+  <p>It is important to think carefully about what graphics styles you choose for the graphics in the new component. In general most graphics will be placed with the COMPONENT style selected and the graphic objects will not need editing as they default to fully following this parent COMPONENT style. Occasionally, however, you will want part of the graphics of the new device to be ‘fixed’. For example, you may want the solid body of a transistor to always be filled, perhaps to black. In these cases it is appropriate to edit the graphic object after placement and uncheck some or all of the graphics style attributes and to set local values though where possible you should endeavor to leave as many attributes as possible following the parent, COMPONENT, style. Your other consideration should be how the graphic object placed will fit in to a schematic. For example, if you are designing an OPAMP you may wish to use short lines between the slope of the body and the base of power, compensation or some such pins in which case it is best if these lines are placed in the PIN style so that they look like part of the pin.</p>
+  <p>If you wish to define the origin for the device, you should also place an Origin marker at the appropriate point. If you don&#39;t specify an origin, Proteus will default it to the top leftmost pin end</p>
+  <p class="Diagram"><img alt="" border="0" height="160" src="../assets/images/LIBRARY_FACILITIES/Marker_icon_graphics.png" style="border: none;" width="213"/></p>
+  <p class="Reference">See <a href="../OBJECT_SPECIFICS/2D_Graphics.htm">2D Graphics</a> for more information about placing and editing graphics objects.</p>
+  <p class="Reference">See <a href="../TEMPLATES/Tutorial.htm#Editing_Local_Styles">Editing Local Styles</a> for more information on customizing individual graphic objects</p>
+  <p class="Reference">See <a href="../TEMPLATES/Tutorial.htm#Editing_Global_Styles">Editing Global Styles</a> for more information on defining a global or ‘house’ style for a type of object.</p>
+  <h4>Placing the Pins</h4>
+  <p>When making a device, you use the special device pin objects, available with the Device Pin icon selected to place each pin in turn. Several types of device pin are pre-loaded into the Object Selector when you first select the Device Pin icon, and further types can be picked from the symbol libraries as required. You may also define pin types of your own.</p>
+  <p>As you place each pin object, you need to be sure that it is oriented correctly. The blue cross that appears at one end of each pin object designates the connection point for the pin; the other should generally be in contact with some part of the device body.</p>
+  <p class="Diagram"><img alt="" border="0" height="186" src="../assets/images/LIBRARY_FACILITIES/Pin_placement.png" style="border: none;" width="205"/></p>
+  <p class="DiagramText">A correctly orientated device pin being placed on a component outline</p>
+  <p class="Reference">For further information about pin objects see <a href="../OBJECT_SPECIFICS/Pin_Objects.htm">Pin Objects</a>.</p>
+  <h4>Annotating the Pins</h4>
+  <p>This third phase of the device creation process is probably the trickiest, and can lead to some obscure problems much later on in the design cycle if not carried out correctly. It is therefore extremely important to get right!</p>
+  <p>Each pin can carry a pin name, pin number and electrical type. The latter is used for electrical rules checking, and also by the ProSPICE simulator. The electrical type of pins must be correctly specified for digital simulator models in particular.</p>
+  <p>You have two basic approaches available to you in annotating the pins:</p>
+  <ul type="disc">
+    <li>Edit each pin in turn (point at it and use the keyboard shortcut for ‘Edit Object under mouse’ – CTRL+E by default – will probably be easiest), and proceed to edit its properties using the dialogue form.</li>
+  </ul>
+  <p class="Diagram"><img alt="" border="0" height="328" src="../assets/images/LIBRARY_FACILITIES/Edit_pin.png" style="border: none;" width="341"/></p>
+  <p class="DiagramText">The Edit Pin dialogue form being annotated</p>
+  <ul type="disc">
+    <li>Use the Property Assignment Tool to assign to the PINNAME, PINNUM and TYPE properties of the pins.</li>
+  </ul>
+  <p class="Diagram"><img alt="" border="0" height="367" src="../assets/images/LIBRARY_FACILITIES/PAT_IO.png" style="border: none;" width="579"/></p>
+  <p class="DiagramText">The PAT dialogue form being primed to assign Electrical Type as Bi-directional</p>
+  <p>In most cases, you will find it appropriate to use a mix of these techniques. In general, it is easier to assign pin numbers using the Visual Packaging Tool, and this is the only way to assign pin numbers for a multi-element part or a part with bus pins. However, for a simple single element device, you can enter pin numbers at this stage, if you wish.</p>
+  <p>In assigning pin names and numbers, bear in mind the following:</p>
+  <ul type="disc">
+    <li>A pin must always have a name. If you type in a number when there is no name, the pin name will automatically be made the same as the pin number</li>
+    <li>To place pins with overbars in their names, , use dollar (&#39;$&#39;) characters to mark the start and end of the overbar. For example RD/$WR$ would display with an overbar on the &#39;WR&#39; letters .</li>
+  </ul>
+  <p class="Warning">If you give two or more pins the same name, they will be deemed to be electrically interconnected in the netlist and thus on the PCB layout. While extremely useful this can cause serious problems if used improperly.</p>
+  <p>In assigning pin types, the following table may be helpful:</p>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 24.287%;"/>
+      <col style="width: 12.02%;"/>
+      <col style="width: 63.693%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st" style="height: 24px;">
+        <td>Pin Type</td>
+        <td>Type ID</td>
+        <td>Example Uses</td>
+      </tr>
+      <tr class="t2Row" style="height: 24px;">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">Passive</span></p>
+        </td>
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">PS</span></p>
+        </td>
+        <td>Passive Device Terminals</td>
+      </tr>
+      <tr class="t1Row" style="height: 24px;">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">Input</span></p>
+        </td>
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">IP</span></p>
+        </td>
+        <td>Analogue or digital device inputs</td>
+      </tr>
+      <tr class="t2Row" style="height: 24px;">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">Output</span></p>
+        </td>
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">OP</span></p>
+        </td>
+        <td>Analogue or digital device outputs</td>
+      </tr>
+      <tr class="t1Row" style="height: 24px;">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">BiDir</span></p>
+        </td>
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">IO</span></p>
+        </td>
+        <td>Microprocessor or RAM data bus pins</td>
+      </tr>
+      <tr class="t2Row" style="height: 24px;">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">Tri-State</span></p>
+        </td>
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">TS</span></p>
+        </td>
+        <td>ROM output pins</td>
+      </tr>
+      <tr class="t1Row" style="height: 24px;">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">Pull Down</span></p>
+        </td>
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">PD</span></p>
+        </td>
+        <td>Open Collector/drain outputs</td>
+      </tr>
+      <tr class="t2Row" style="height: 24px;">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">Pull Up</span></p>
+        </td>
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">PU</span></p>
+        </td>
+        <td>Open emitter/source outputs</td>
+      </tr>
+      <tr class="t1Row" style="height: 14px;">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace;">Not Connected</p>
+        </td>
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace;">NC</p>
+        </td>
+        <td>An NC pin. Note that you should still connect an NC terminal as <a href="../ISIS_AND_ARES/Packaging.htm#Not_Connected_Pins__NC_Pins_">discussed here</a>.</td>
+      </tr>
+      <tr class="t2Row" style="height: 14px;">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">Power</span></p>
+        </td>
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">PP</span></p>
+        </td>
+        <td>Power/Ground supply pins</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>If you are unclear how to actually perform the required editing operations, the following sections of the manual are also relevant:</p>
+  <p class="Reference"> See <a href="../OBJECT_SPECIFICS/Pin_Objects.htm">Pin Objects</a> for a full discussion of the Edit Pin dialogue form.</p>
+  <p class="Reference"> See <a href="../PROPERTIES/Property_Assignment_Tool.htm">The Property Assignment Tool</a> for  examples of how to use the Property Assignment Tool.</p>
+  <p>The final stage of creating a single element device is to tag all the objects (graphics and pins) which comprise the device, and then invoke the Make Device command.</p>
+  <h3><a id="Make_Device_Command" data-indexterm="Make Device Command"></a><a id="The_Make_Device_Command"></a>The Make Device Command</h3>
+  <p>The Make Device command is a multi-stage dialogue form sometimes referred to as a Wizard in other applications. There are four pages:</p>
+  <ul type="disc">
+    <li>Device properties - these are things like the name of the device, the prefix to use for new components and also properties associated with component animation as used by Proteus VSM</li>
+    <li>Packaging - this page displays the packagings that have been defined (for an existing component) and provides access to the Visual Packaging Tool.</li>
+    <li>Component Properties - this page provides the means to create and edit property definitions and default property values.</li>
+    <li>Datasheet &amp; Help - this page allows you to assign a datasheet and/or help file to the component.</li>
+    <li>Library selection - the final screen allows you to specify indexing information and choose the library in which the device will be stored.</li>
+  </ul>
+  <p>Detailed context sensitive help is provided for all the fields on these pages. If you are unsure of the purpose of a particular field, click the &#39;?&#39; at the top right of the dialogue form and then click the field itself to see an explanation of its purpose.</p>
+  <h4><a id="Device_Properties_Page"></a>Device Properties Page</h4>
+  <p>This page has two major sections:- General Properties and Active Component Properties.</p>
+  <p class="Diagram"><img alt="" border="0" height="472" src="../assets/images/LIBRARY_FACILITIES/Make_device_form.png" style="border: none;" width="554"/></p>
+  <p class="DiagramText">The Device Properties page of the Make Device dialogue form</p>
+  <p>The General Properties section determines the name of the device, and the reference prefix. This is the letter or letters that appear in front of the part ID for newly placed components. Note that if you make this blank, newly placed components will be un-annotated and that their part value and properties text will also be hidden. This is useful for block diagram type drawings, or for components such as the Virtual Oscilloscope, which are not really part of the design.</p>
+  <p>The Active Component Properties section is used for creating animated components for use with Proteus VSM. More information on this is provided on a limited basis (and at our discretion) under NDA terms within the Proteus VSM SDK.</p>
+  <h4><a id="Packagings_Page"></a>Packagings Page</h4>
+  <p>This page displays the set of packagings that have been defined for the device; for a new device the list will be empty.</p>
+  <p class="Diagram"><img alt="" border="0" height="472" src="../assets/images/LIBRARY_FACILITIES/Packaging_tool_section.png" style="border: none;" width="554"/></p>
+  <p class="DiagramText">The Packaging tab of the Make Device form</p>
+  <p>Pressing the Add/Edit button will launch the Visual Packaging Tool . More information on the tool can be found in the following sections.</p>
+  <p class="Reference">  <a href="ISISTUT.chm::/Tutorial/Making_New_Devices.htm"> Tutorial: Making a New Device</a></p>
+  <p class="Reference">   <a href="#The_Visual_Packaging_Tool">The Visual Packaging Tool Explained</a> .</p>
+  <p class="Tip">Note that a different procedure is required to package a heterogeneous multi-element part. In this case, the packaging tool must be invoked for the complete set of elements as placed on the schematic.</p>
+  <h4><a id="Component_Properties___Definitions_Page"></a>Component Properties &amp; Definitions Page</h4>
+  <p>This page is used to define property definitions and default values for the component&#39;s properties. The selector on the left shows the properties that have been defined, whilst the Property Definition and Property Defaults sections determine the type, visibility and default value of the property.</p>
+  <p class="Diagram"><img alt="" border="0" height="472" src="../assets/images/LIBRARY_FACILITIES/Component_properties_section.png" style="border: none;" width="554"/></p>
+  <p class="DiagramText">The Properties Definitions page of the Make Device dialogue form</p>
+  <p class="Reference">See <a href="../PROPERTIES/Property_Definitions.htm">Property Definitions</a> for more information about component properties and property definitions</p>
+  <h4><a id="Data_Sheet_and_Help_Page"></a>Data Sheet and Help Page</h4>
+  <p>This page allows you to associate a data sheet (PDF file) and/or a help topic with the device. If a data sheet is defined, a Data button will appear on the Edit Component dialogue form and if a help topic is defined, a Help button will appear. You will see these buttons for many of the components in the supplied libraries.</p>
+  <p class="Diagram"><img alt="" border="0" height="480" src="../assets/images/LIBRARY_FACILITIES/Help_properties_section.png" style="border: none;" width="567"/></p>
+  <p class="DiagramText">The Data Sheet and Help page of the Make Device Dialogue form</p>
+  <p>The Data Sheet and Help page of the Make Device Wizard.</p>
+  <p>Data sheets can be located in one of two places:</p>
+  <ul type="disc">
+    <li>In the Data directory of your Proteus installation. You can change the location that Proteus searches for data sheets by clicking the Path Settings button on the Data Sheet Not Found dialogue form that appears when Proteus cannot find a data sheet.</li>
+    <li>On an HTTP or FTP server - either on the Internet or on your company Intranet.  You may need to enter a user ID and password for some servers.</li>
+  </ul>
+  <p>The general idea is that there should be a central repository for data sheets, and that Proteus copies them to individual users installations on as-needed basis.</p>
+  <p>Referencing a help topic is most useful if you are creating complex models for the ProSPICE simulator, and need to create documentation to be associated with the model. This is likely to be of  relevance onto to advanced users and model developers.</p>
+  <h4><a id="Library_Selection_Page"></a>Library Selection Page</h4>
+  <p>The final page allows you to specify the library indexing data for the new part and also to select into which library the new device will be stored. Only read/write (as opposed to read only) device libraries are displayed.</p>
+  <p class="Diagram"><img alt="" border="0" height="472" src="../assets/images/LIBRARY_FACILITIES/Library_properties_section.png" style="border: none;" width="554"/></p>
+  <p class="DiagramText">Committing the device to a user assigned library</p>
+  <p>The Device Category drop-down menu displays a list of existing categories, whilst the sub-category list contains existing sub-categories for the currently selected category. You can add new categories and sub-categories by clicking the adjacent New buttons. Note that a category or sub-category will disappear automatically from the lists when there are no parts in the libraries that match it.</p>
+  <p>The Device Notes field allows you to enter more extensive notes that relate to the device These notes can be viewed from the Edit Component dialogue form; a good use is to provide helpful information regarding simulator model parameters or limitations.</p>
+  <p>Once you click the OK button, the device will be stored to the selected library. Also, if it exists within the design you will be prompted as to whether you wish to update all the components that use it with the new definition.</p>
+  <h3><a id="Visual_Packaging_Tool:Overview" data-indexterm="Visual Packaging Tool:Overview"></a><a id="The_Visual_Packaging_Tool"></a>The Visual Packaging Tool</h3>
+  <p>The visual packaging tool provides a graphical environment in which to assign one or more PCB footprints to a schematic part. For each PCB package, a table mapping pin numbers to pin names is created such that different packagings can have different pin numbers for the same schematic pin.</p>
+  <p>The packaging tool also facilitates the entry of different pin numbers for each element in a multi-element part, and each bit of a bus pin.</p>
+  <p class="Diagram"><img alt="" border="0" height="448" src="../assets/images/LIBRARY_FACILITIES/Packaging_tool.png" style="border: none;" width="608"/></p>
+  <p class="DiagramText">The Visual Packaging Tool</p>
+  <p>The packaging tool can be invoked in one of two ways:</p>
+  <ul type="disc">
+    <li>By clicking the Add/Edit button of the Packaging Page in the Make Device dialogue form.</li>
+    <li>By placing the element or elements of the device to be packaged on the schematic, tagged them and selecting the Packaging Tool command from the Library menu or the packaging tool icon.</li>
+  </ul>
+  <p>The second method is the only way to package heterogeneous multi-element parts.</p>
+  <p class="Tip">As with the Make Device command, detailed context sensitive help is available on all the fields. To see the help on a particular field, click the &#39;?&#39; at the top right of the form, and then click the field itself.</p>
+  <h4>Packaging Selector</h4>
+  <p>The Packages section of the packaging tool shows a list-selector for the packagings that have been defined so far and buttons for adding, renaming, deleting and ordering them. One package may be selected as the default, and this is the one that will be used for newly placed components.</p>
+  <p>The Add button will launch a copy of the package library browser enabling you to choose a footprint for the new packaging.</p>
+  <p class="Diagram"><img alt="" border="0" height="475" src="../assets/images/LIBRARY_FACILITIES/Add_package.png" style="border: none;" width="612"/></p>
+  <p class="DiagramText">Browsing and adding a package to the device</p>
+  <h4>Pin Grid</h4>
+  <p>The main business of the packaging tool is carried out using the pin grid. Here you can enter pin numbers for each pin in each element, and also select which pins are common between the elements of a multi-element device.</p>
+  <p>You can assign pin numbers either directly by typing in the number or by clicking on the associated pad in the package viewer.</p>
+  <p class="Diagram"><img alt="" border="0" height="425" src="../assets/images/LIBRARY_FACILITIES/Pad_numbering.png" style="border: none;" width="577"/></p>
+  <p class="DiagramText">Clicking on a Pad in the package viewer will hilight the pad and assign the pin number</p>
+  <p>The electrical type is displayed for information only, and cannot be changed here - you must define it when placing the individual pins around the device element.</p>
+  <h4><a id="BGA_(Pin_Mapping)" data-indexterm="BGA (Pin Mapping)"></a><a id="FPGA_(Pin_Mapping)" data-indexterm="FPGA (Pin Mapping)"></a><a id="Xilinx_(Pin_Mapping)" data-indexterm="Xilinx (Pin Mapping)"></a><a id="Altera_(pin_mapping)" data-indexterm="Altera (pin mapping)"></a><a id="Automatic_Pin_Mapping_"></a>Automatic Pin Mapping</h4>
+  <p>For large BGA&#39;s you can automatically apply Altera Quantas or Xilinx Pinout files via the &#39;Load Pin Information Script&#39; command on the context menu of the pin grid.</p>
+  <p class="Diagram"><img alt="" border="0" height="376" src="../assets/images/LIBRARY_FACILITIES/Pin_mapping.png" style="border: none;" width="914"/></p>
+  <p>For other large pin count devices it may be worth using the Proteus pin information script format which is basically a comma separated list of pin names and pin numbers. For example,</p>
+  <p class="Courier"> </p>
+  <p class="Courier">*PINSCRIPT</p>
+  <p class="Courier">PKGNAME=DIL08</p>
+  <p class="Courier">PIN1,1,</p>
+  <p class="Courier">PIN2,2,</p>
+  <p class="Courier">PIN3,3,</p>
+  <p class="Courier">PIN4,4,</p>
+  <p class="Courier">PIN5,5,</p>
+  <p class="Courier">PIN6,6,</p>
+  <p class="Courier">PIN7,7,</p>
+  <p class="Courier">PIN8,8,</p>
+  <p class="Courier">*ENDSCRIPT</p>
+  <p> </p>
+  <p class="Tip">Please be aware that the script is case sensitive.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"> <a href="IMPORTER.chm::/Examples.htm#Renaming_Pins_on_the_List">BSDL Import topic</a>.</p>
+  <h4>Number of Elements</h4>
+  <p>This field determines the number of pin-number columns that appear in the pin grid. For a multi-element heterogeneous part, it should represent the total number of elements.</p>
+  <h4>Package Viewer</h4>
+  <p>The package viewer displays the PCB footprint chosen for the current packaging. As each pin is assigned to the pin grid, it is highlighted such that you can see which pins remain unassigned. Also, if you point at a pin with the mouse, Proteus will display the associated name (if assigned) and the pin number.</p>
+  <p class="Tip">If the text cursor is in the pin grid, then clicking on a pin in the package view will enter its number into the pin grid and the pin will highlight to show that it is now assigned.</p>
+  <h4><a id="Visual_Packaging_Tool:and_Hidden_Pins" data-indexterm="Visual Packaging Tool:and Hidden Pins"></a><a id="Hidden_Pins"></a>Hidden Pins</h4>
+  <p>Hidden pins are generally used to specify power supply connections to components in such a way that they do not clutter up the schematic. A hidden pin can be defined in one of three ways:</p>
+  <ul type="disc">
+    <li>By clearing the Draw Body checkbox in the Edit Pin dialogue form. This must be done when making the device element. Such a pin will appear in the Pin Grid when the packaging tool is first invoked, and will be present in all packagings.</li>
+    <li>By clicking the Add Hidden Pin button. This creates a hidden pin that is specific to a given packaging, and is implicitly common to all its elements.</li>
+    <li>By selecting &#39;Hide Power Pins&#39; in the BSDL Import dialogue. This will hide power pins with the same name and add them to the packaging tool as hidden pins.</li>
+  </ul>
+  <p class="Tip">Hidden pins connect by pin name to the net with the same name. For example, hidden pins named VCC will connect to the VCC net.</p>
+  <h4><a id="Visual_Packaging_Tool:and_Common_Pins" data-indexterm="Visual Packaging Tool:and Common Pins"></a><a id="Common_Pins"></a>Common Pins</h4>
+  <p>A common pin is one which has the same pin number on all the elements of a multi-element device. Typically this will apply to power pins and enable/strobe pins that are common to all buffers within a multi-element driver.</p>
+  <p>If a common pin is not hidden, then any wiring to it on one element will be connected wiring on the other elements.</p>
+  <p>A common pin is also deemed to be associated with all the elements in a heterogeneous multi-element part, even if it is not present on some of them. This has implications for the gate swap rules within ARES.</p>
+  <h4><a id="Visual_Packaging_Tool:and_GateSwap" data-indexterm="Visual Packaging Tool:and GateSwap"></a><a id="Gate_Swap"></a>Gate Swap</h4>
+  <p>Selecting this checkbox will flag to ARES that the gate elements can be swapped.</p>
+  <h4><a id="Visual_Packaging_Tool:and_swapable_pins" data-indexterm="Visual Packaging Tool:and swapable pins"></a><a id="Swapable_Pins"></a>Swapable Pins</h4>
+  <p>The swappable pins section allows you to define groups of pins that are electrically interchangeable. For example, the two inputs A and B of a 7400 quad NAND gate are electrically identical can could be swapped on the PCB for convenience of wiring.</p>
+  <p>You can add a swap-group to the list by highlighting the pins in the pin grid (hold the ctrl key down and click left on the pin names), and then clicking the Add button.</p>
+  <p class="Diagram"><img alt="" border="0" height="457" src="../assets/images/LIBRARY_FACILITIES/Swapable_pins.png" style="border: none;" width="472"/></p>
+  <p class="DiagramText">Assigning pins as swapable pins in the Visual Packaging tool</p>
+  <h4><a id="Visual_Packaging_Tool:and_NC_Pins" data-indexterm="Visual Packaging Tool:and NC Pins"></a><a id="NC__Not_Connected__Pins"></a>NC (Not Connected) Pins</h4>
+  <p>When packaging a large device, it may be useful to &#39;prove&#39; that all the pins have been accounted for by verifying that all the pins are highlighted in the Package View.  Since some pins may be specified as non-connected, it is useful to be able to record that they have been accounted for. This can be achieved by entering their numbers in the NC Pins field. Use commas to separate the pin numbers.</p>
+  <p class="Tip">For added redundancy you can add physical pins to the NC pin list. For example, if you are not using certain pins of an IC in your project you can add the pad that they would connect to the NC pins list. The system will not permit routing to  an NC pin in ARES.</p>
+  <p class="Tip">Alternatively, If you wish NC pins to be explicitly visible or wired to something on the schematic then you can do so with an NC terminal. This on-schematic method of specifying NC pins is increasingly popular but large devices as, from a QA perspective, design intent is visible on the schematic.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="../ISIS_AND_ARES/Packaging.htm#Not_Connected_Pins__NC_Pins_">Connecting NC Pins to Terminal</a></p>
+  <h3><a id="Making:A_Single_Element_Device" data-indexterm="Making:A Single Element Device"></a><a id="Making_a_Single_Element_Device"></a>Making a Single Element Device</h3>
+  <p class="Tip">It will almost always be faster to simply <a href="IMPORTER.chm::/Examples.htm">import the part</a> directly.</p>
+  <p>Most of the devices you make will have a one-one correspondence between the schematic symbol and the PCB package. In these cases, the procedure is pretty much the same as that for creating a device element.</p>
+  <p class="ExampleTitle">To make a single element device</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Place graphics objects to define the device body in the appropriate graphics style(s).<br/>
+      <br/>
+      <img alt="" border="0" height="154" src="../assets/images/LIBRARY_FACILITIES/opamp1.png" style="border: none;" width="167"/>
+    </li>
+    <li class="Numbers">Place device pin objects to represent the pins.<br/>
+      <br/>
+      <img alt="" border="0" height="155" src="../assets/images/LIBRARY_FACILITIES/Opamp2.png" style="border: none;" width="285"/>
+    </li>
+    <li class="Numbers">Annotate the pins to assign name and types using any of the standard editing techniques for Pin Objects or the Property Assignment Tool.<br/>
+      <br/>
+      <img alt="" border="0" height="328" src="Edit_pin_+IN.png" style="border: none;" width="341"/>
+    </li>
+    <li class="Numbers">Tag all the objects that comprise the device. Then invoke the Make Device command.<br/>
+      <br/>
+      <img alt="" border="0" height="238" src="../assets/images/LIBRARY_FACILITIES/Opamp4.png" style="border: none;" width="361"/>
+    </li>
+    <li class="Numbers">Enter a name and reference prefix for the device in the Device Properties page, then click Next to move to the Packaging page.</li>
+    <li class="Numbers">Assuming that the device has a PCB footprint, click the Add/Edit button and use the Visual Packaging Tool to assign a package and pin numbering. When you are done, click Assign Packages to return to the Packaging page.</li>
+    <li class="Numbers">Click Next to move to the Component Properties page and enter any property definitions and default values for other component properties.</li>
+    <li class="Numbers">Click Next to move to the Data Sheet page and specify the location of any data sheet or help topic that you wish to associate with the device.</li>
+    <li class="Numbers">Click Next to move to the Library Selection page and choose the library in which you wish to store the device.</li>
+    <li class="Numbers">Finally, click OK to complete the process.</li>
+  </ol>
+  <p class="Tip">If you prefer, you can also assign pin numbers for single element devices at step [3]. In this case, the pin numbers will appear automatically within the Visual Packaging Tool.</p>
+  <h3><a id="Making:A_Multi-Element_Homogeneous_Device" data-indexterm="Making:A Multi-Element Homogeneous Device"></a><a id="Homogeneous_Devices_(making)" data-indexterm="Homogeneous Devices (making)"></a><a id="Multi-Element_Devices_(making):Homogeneous_Multi-Element" data-indexterm="Multi-Element Devices (making):Homogeneous Multi-Element"></a><a id="Making_a_Multi-Element_Homogenous_Device"></a>Making a Multi-Element Homogenous Device</h3>
+  <p>A multi-element homogenous device is one like a 7400 in which the physical part consists of several identical elements which you wish to place as separate components on the schematic. To handle such a device, Proteus must allow for different sets of pin numbers to be applied to the same element. For a 7400, there are 4 sets of pin numbers - one for each gate - and which set is used for a given gate is determined by the component reference suffix. For example, if you label a 7400 gate as U1:C then Proteus will use the third set of pin numbers: 8, 9 &amp; 10.</p>
+  <p>The question then arises as to where to store these sets pin numbers, and how best to allow for their entry and editing. This is all handled by the Visual Packaging Tool.</p>
+  <p class="Diagram"><img alt="" border="0" height="275" src="../assets/images/LIBRARY_FACILITIES/Multi_element_homogeneous.png" style="border: none;" width="620"/></p>
+  <p class="DiagramText">An example of a multi-element homogeneous device in the Visual Packaging Tool</p>
+  <p class="ExampleTitle">To make a multi-element homogeneous device</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Make the device body and place its pins as discussed see  <a href="#Making_a_Device_Element">Making a Device Element</a>.</li>
+    <li class="Numbers">Annotate the pins to assign name and types using any of the standard editing techniques for Pin Objects or the Property Assignment Tool.</li>
+    <li class="Numbers">Draw a tagbox (left depress and drag the mouse to encompass all the elements) to tag all elements that comprise the device. Then invoke the Make Device command.</li>
+    <li class="Numbers">Enter a name and reference prefix for the device in the Device Properties page,  then click Next to move to the Packaging page.</li>
+    <li class="Numbers">Click the Add/Edit button on the Packaging page to launch the Visual Packaging Tool.</li>
+    <li class="Numbers">Specify the number of elements in the device and then fill out the pin number fields for each element in turn. Check the common column to indicate pins (such as power pins) that have the same number on all elements.<br/>
+      <br/>
+      <img alt="" border="0" height="319" src="../assets/images/LIBRARY_FACILITIES/Muli_element_gates_with_common.png" style="border: none;" width="514"/>
+    </li>
+    <li class="Numbers">Proceed as for a <a href="#Making_a_Single_Element_Device">single element device</a> from step 7.</li>
+  </ol>
+  <h3><a id="Making:A_Multi-Element_Heterogeous_Device" data-indexterm="Making:A Multi-Element Heterogeous Device"></a><a id="Heterogeneous_Devices_(making)" data-indexterm="Heterogeneous Devices (making)"></a><a id="Multi-Element_Devices_(making):Heterogeneous_Multi-Element" data-indexterm="Multi-Element Devices (making):Heterogeneous Multi-Element"></a><a id="Making_a_Multi-Element_Heterogeneous_Device"></a>Making a Multi-Element Heterogeneous Device</h3>
+  <p>A multi-element heterogeneous device is defined as a part which consists of several different  elements, each of which will be placed as a separate component on the drawing. The most common example is probably a relay where you have a coil and one of more sets of contacts. The requirement is to place the coil at one point in the drawing, and the set(s) of contacts elsewhere.</p>
+  <p class="Tip">It is important to understand that you need only create an element for each distinct part of the heterogeneous device. In the case of a relay with one coil and two contacts this means that you need to create two elements; one to represent the coil and the other to represent the contacts. You should not create three elements because the two contacts are instances of the same element. See the example below.</p>
+  <p>As with a <a href="#Making_a_Multi-Element_Homogenous_Device">multi-element homogenous device</a>, the <a href="#The_Visual_Packaging_Tool">Visual Packaging Tool</a> is used to deal with the assignment of pin numbers to each element.</p>
+  <h4><a id="Example_:_Making_a_multi-element_heterogeneous_device__Relay_with_coil_and_two_contacts_"></a>Example : Making a multi-element heterogeneous device (Relay with coil and two contacts)</h4>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Place graphics objects and device pins to define appearance of the elements. Make sure the elements are sufficiently separated in the Editing Window so that you can tag the objects that comprise each one by themselves. The process for creating a device element is described in detail <a href="#Making_a_Single_Element_Device">here</a>.<br/>
+      <br/>
+      <img alt="" border="0" height="123" src="../assets/images/LIBRARY_FACILITIES/Hetrogeneous_coil_contact.png" style="border: none;" width="331"/>
+    </li>
+    <li class="Numbers">Annotate the pins to assign pin names and types only</li>
+    <li class="Numbers">Tag all the objects that comprise the first element. Then invoke the Make Device command from the Library menu. Enter the Device Name with in the form<br/>
+      <span style="font-family: &#39;Courier New&#39;, monospace;">NAME:A</span><br/>
+      where NAME  is whatever you want to call the part as a whole. The suffix :A tells Proteus that this is the first element of a heterogeneous device.<br/>
+      <br/>
+      <img alt="" border="0" height="183" src="../assets/images/LIBRARY_FACILITIES/Make_device_coil.png" style="border: none;" width="362"/>
+    </li>
+    <li class="Numbers">Walk through the wizard in the normal way, noting that we do not attempt to package the part at this point (skip past this page) and storing the element in a library..</li>
+    <li class="Numbers">Repeat the procedure from step [3] for the other element, naming it as <span style="font-family: &#39;Courier New&#39;, monospace;">NAME:B </span><br/>
+      <br/>
+      <img alt="" border="0" height="183" src="../assets/images/LIBRARY_FACILITIES/Make_device_contact.png" style="border: none;" width="362"/>
+    </li>
+    <li class="Numbers">You should now have two parts in the library. Select the Component icon and place one instance of element A (the coil) and two instances of element B (the contact) in a free area of the schematic.<br/>
+      <br/>
+      <img alt="" border="0" height="171" src="../assets/images/LIBRARY_FACILITIES/Coils_and_both_contacts.png" style="border: none;" width="531"/>
+    </li>
+    <li class="Numbers">Edit the RL?:A and RL?:B (second element only) to be RL1:A and RL1:B<br/>
+      <br/>
+      <img alt="" border="0" height="171" src="../assets/images/LIBRARY_FACILITIES/Coils_and_both_contacts_numbered.png" style="border: none;" width="531"/>
+    </li>
+    <li class="Numbers">Edit the second element B and re-annotate to be element C.<br/>
+      <br/>
+      <img alt="" border="0" height="171" src="../assets/images/LIBRARY_FACILITIES/Coils_and_both_contacts_relayC.png" style="border: none;" width="531"/>
+    </li>
+    <li class="Numbers">Drag a tag box around the placed elements, and then invoke the Packaging Tool from the <span style="font-style: italic;">Library</span> menu. You should see that there are pin number columns for each element, but that pins which are unavailable for a particular element have &#39;---&#39; in the number column.<br/>
+      <br/>
+      <img alt="" border="0" height="488" src="../assets/images/LIBRARY_FACILITIES/Hetrogeneous_packaging_tool.png" style="border: none;" width="700"/>
+    </li>
+    <li class="Numbers">Create a packaging and enter the pin numbering in the usual way (as picture above).</li>
+    <li class="Numbers">Click the Assign Packages button to store the packagings into the library parts. Note that the library part that you created for each element of the device will be updated.<br/>
+      <br/>
+      <img alt="" border="0" height="171" src="../assets/images/LIBRARY_FACILITIES/Hetrogeneous_package.png" style="border: none;" width="322"/>
+    </li>
+  </ol>
+  <p class="Tip">Placing Heterogenous parts is different from placing homogeneous parts. Where Homogeneous parts will automatically change to the next U1:X the Heterogenous devices must be placed as there are saved in the libraries. So for example, if you require Element :C then you will need to pick the RELAY:C from the object selector. You will also need to edit the &#39;?&#39; in the reference to be the required number.</p>
+  <p> </p>
+  <h3><a id="Making:A_Device_with_Bus_pins" data-indexterm="Making:A Device with Bus pins"></a><a id="Bus_Pins_(Making_a_part_with)" data-indexterm="Bus Pins (Making a part with)"></a><a id="Making_a_Device_with_Bus_Pins"></a>Making a Device with Bus Pins</h3>
+  <p>The device library system has the capability to support devices in which a single pin on the drawn component represents several pins on the physical part. Such a pin is called a bus  pin and is intended to facilitate the efficient representation of microprocessors and their support chips. As with multi-element devices, the process of entering pin numbers for each bit of the bus is achieved with the Visual Packaging Tool.</p>
+  <p class="ExampleTitle">To make a device with bus pins</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Make the device body and place its pins in the same way as for a single element device. You must use the Bus pin, or a user defined pin with a Busnode marker, for the bus pins.<br/>
+      <br/>
+      <img alt="" border="0" height="147" src="../assets/images/LIBRARY_FACILITIES/Bus_pins.png" style="border: none;" width="193"/>
+    </li>
+    <li class="Numbers">Tag all the objects that comprise the device, invoke the Make Device command.</li>
+    <li class="Numbers">Enter a name and reference prefix for the device in the Device Properties page, then click Next to move to the Packaging page.</li>
+    <li class="Numbers">Assuming that the device has a PCB footprint, click the Add/Edit button and use the Visual Packaging Tool to assign a package and pin numbering. You will see that each bit of the bus is given its own row in the Pin Grid. Beyond this, the process for assigning pin numbers is exactly the same as for an ordinary part. When you are done, click Assign Packages to return to the Packaging page<br/>
+      <br/>
+      <img alt="" border="0" height="195" src="../assets/images/LIBRARY_FACILITIES/Bus_packaging_tool.png" style="border: none;" width="265"/>
+    </li>
+    <li class="Numbers">Proceed as from step 7 for <a href="#Making_a_Single_Element_Device">making a single element device</a>.</li>
+  </ol>
+  <h3><a id="Property_Definitions_and_Default_Properties"></a>Property Definitions and Default Properties</h3>
+  <p>There are a variety of applications in which it is useful to arrange for library parts to carry default user properties which are automatically assigned to each component as it is placed. Some common examples include:</p>
+  <ul type="disc">
+    <li>PACKAGE properties for PCB design. Most of the library parts in the supplied libraries carry these properties pre-defined for through hole packaging.</li>
+    <li>PRIMITIVE, MODEL and MODFILE properties for VSM simulation. Again, all our library parts for which there is simulator support carry these default properties.</li>
+    <li>Stock and/or supplier order codes. If you add default properties for these to your libraries, then they can be included in the Bill of Materials report.</li>
+  </ul>
+  <p class="ExampleTitle">To add default properties to a device whilst making it:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Follow the steps in Making a Device Element for making the device.</li>
+    <li class="Numbers">When you get to the Make Device dialogue form, use the Component Properties page to assign property definitions and default values for the properties..</li>
+    <li class="Numbers">Store the device to a library in the ordinary way.</li>
+  </ol>
+  <p class="ExampleTitle">To add to or edit the default properties of an existing device:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Pick, place and tag an instance of the device. There is no need to decompose it.</li>
+    <li class="Numbers">Invoke the Make Device command and click Next to move to the Component Properties page.  Any existing property definitions will be displayed.</li>
+    <li class="Numbers">Edit the properties as required.</li>
+    <li class="Numbers">Click Next twice more and then store the device back to a library by clicking OK.</li>
+  </ol>
+  <p class="Tip">Default properties may also be assigned to library parts en masse through the <a href="BOM.chm::/PROPERTIES/Properties.htm">Bill of Materials Property Editor</a> or by applying an ADI script.</p>
+  <h3><a id="Power_Pins_-_General" data-indexterm="Power Pins - General"></a><a id="Dealing_with_Power_Pins"></a>Dealing with Power Pins</h3>
+  <p>The handling of power pins tends to be a somewhat confusing subject with different schematic capture packages doing different things. Further difficulty arises from the need to accurately define what happens with the power rails whilst not cluttering up the drawing with what is essentially trivial information.</p>
+  <p>Proteus provides you with a variety of approaches to handling power pins:</p>
+  <ul type="disc">
+    <li>Make the power pins visible and physically wire them to the appropriate points in the circuit. This has the advantage that you can see exactly what is connected where, but tends to be very inconvenient where there are lots of ICs on a schematic.</li>
+    <li>Hide the power pins and let Proteus default their connections to like named nets. A hidden VCC pin will thus connect to the VCC net, and a hidden GND pin to the GND net.</li>
+    <li>Hide the power pins and specify explicitly which nets they connect to using like named user properties. For example, the user property<br/>
+      <span style="font-family: &#39;Courier New&#39;, monospace;">VCC = +5V</span><br/>
+      applied to an object with a hidden VCC pin will cause that pin to be connected to the +5V net.
+    </li>
+  </ul>
+  <p>You can, of course, use a mix of these techniques as appropriate to different parts of a drawing. In general, we have found the use of hidden power pins to be almost essential for digital designs whereas in analogue work, it is often simplest just to wire up the power pins to the appropriate supply rails. This state of affairs is reflected in the construction of the supplied library parts.</p>
+  <p class="ExampleTitle"><a id="To_create_a_hidden_pin_on_a_simple__single_element_device:"></a>To create a hidden pin on a simple, single element device:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Place a pin object for the pin in the usual way.</li>
+    <li class="Numbers">Bring up the Edit Pin dialogue from by clicking right then left on the pin.</li>
+    <li class="Numbers">De-select the Draw body checkbox. This hides the pin body, name and number irrespective of the settings of the Draw name and Draw number checkboxes.</li>
+    <li class="Numbers">If the pin is to be a power pins, set the pin type to Power.</li>
+  </ol>
+  <p>The existence of the pin object will then be marked only by a dark blue cross at its node end, and the pin will not be drawn at all on any device in which it is included. At netlist time, it will be automatically connected to a net with the same name as its pin name, unless explicitly overridden with an appropriately named user property.</p>
+  <p class="ExampleTitle"><a id="To_create_a_hidden_power_pin_within_a_packaging_:"></a>To create a hidden power pin within a packaging :</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Create the device element(s) in the usual way, but do not place pin objects for the hidden pins.</li>
+    <li class="Numbers">When creating the packaging(s) inside the visual packaging tool use the Add Pin button to create an extra row within the Pin Grid for the hidden pin.</li>
+    <li class="Numbers">Type in a name for the hidden pin e.g. VCC, and then assign the pin a number</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="215" src="../assets/images/LIBRARY_FACILITIES/Hidden_pin.png" style="border: none;" width="265"/></p>
+  <p class="DiagramText">The Virtual Pin is called named as VCC</p>
+  <p>As with the other type of hidden pin, at netlist time Proteus will connect all hidden pins specified in the packaging to nets with the same name as the given pin names, unless you override this action with an appropriately named user property.</p>
+  <p class="ExampleTitle">To override a hidden pin&#39;s net:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Tag all the elements of the component for which the hidden pin exists. This is most easily achieved using the Search and Tag command with its Begins With option.</li>
+    <li class="Numbers">Use the Property Assignment Tool to assign a user property of the form.<br/>
+      <span style="font-family: &#39;Courier New&#39;, monospace;">PINNAME=NET</span><br/>
+       where <span style="font-family: &#39;Courier New&#39;, monospace;">PINNAME</span> is the name of the hidden pin, and <span style="font-family: &#39;Courier New&#39;, monospace;">NET</span> is the name of the net you want it connected to.
+    </li>
+  </ol>
+  <h3><a id="Editing:An_Existing_Device" data-indexterm="Editing:An Existing Device"></a><a id="Editing_an_Existing_Device"></a>Editing an Existing Device</h3>
+  <p>Any device element, whether a self contained, single element device, or a constituent of a multi-element may be broken into its constituent pins and graphics using the Decompose command.</p>
+  <p class="ExampleTitle">To edit device graphics or pins:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select component mode and place an instance of the device as a component on the schematic.</li>
+    <li class="Numbers">Tag the object by pointing at it and clicking left.</li>
+    <li class="Numbers">Select the Decompose command. This will break the device into 2D graphics, pins and possibly an Origin marker. You will also get a text script which contains the device name, prefix, packaging and any default component properties.</li>
+    <li class="Numbers">Add, delete or edit the 2D graphics, pins and markers as required.</li>
+    <li class="Numbers">Reconstitute the device using the Make Device command as previously described. If you tag the text script generated by the Decompose command as well as the graphics before making the device then you can avoid having to re-enter the device properties.</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="273" src="../assets/images/LIBRARY_FACILITIES/Make_device.png" style="border: none;" width="523"/></p>
+  <p class="DiagramText">Invoking the Make Device form</p>
+  <p>If the library part is in use in the current drawing, you will get a prompt requesting whether to perform a Design Global Update. If you select this, then all components on the design that use the device will be updated with the new one using the same mechanism as described for the Pick command. Note that the properties of already placed components will not be modified as Proteus doesn’t know which properties have been manually edited.</p>
+  <p class="Warning">Note that the properties of already placed components will not be modified in such circumstances as Proteus doesn’t know which properties have been manually edited.</p>
+  <p class="ExampleTitle">To edit device properties</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Pick, place and tag an instance of the device. There is no need to decompose it.</li>
+    <li class="Numbers">Invoke the Make Device command and click Next to move to the Component Properties page.  Any existing property definitions will be displayed.</li>
+    <li class="Numbers">Edit the properties as required.</li>
+    <li class="Numbers">Click Next twice more and then store the device back to a library by clicking OK.</li>
+  </ol>
+  <p>As with device elements, you will be prompted as to whether you want to update components in the current design.</p>
+  <p class="ExampleTitle">To edit device packagings:</p>
+  <p>Pick, place and tag an instance of the device. There is no need to decompose it.</p>
+  <p>Invoke the Packaging Tool command.</p>
+  <p>Modify the packagings as required.</p>
+  <p>Click Assign Package(s) to store the changes back into the device library.</p>
+  <p>As with device elements, you will be prompted as to whether you want to update components in the current design.</p>
+  <p>Two other points are worth making:</p>
+  <ul type="disc">
+    <li>Remember that all schematics (Proteus project pdsprj files) carry with them their own copies of the library parts that they use. Consequently, changing a part in a library will not directly change any designs that make use of it. To effect such a change, you must load the project into Proteus and use the Pick command from the Library menu to effect a replace operation.</li>
+    <li>When Proteus is installed, our own libraries are set to be read-only. This is to deter you from changing them - an action which would backfire on you when we issue updates. It follows that if you which to change any of the supplied library parts, you should store them to USERDVC.LIB, or some other library of your own.</li>
+  </ul>
+  <h3><a id="Library_Indexing" data-indexterm="Library Indexing"></a><a id="Indexing_Libraries_with_ADI" data-indexterm="Indexing Libraries with ADI"></a><a id="ASCII_Data_Import_(and_Libraries)" data-indexterm="ASCII Data Import (and Libraries)"></a><a id="Indexing_Libraries_with_ASCII_Data_Import__ADI_"></a>Indexing Libraries with ASCII Data Import (ADI)</h3>
+  <p>If you have upgraded to Proteus from a very old version prior to V6.5, you will likely have existing user device libraries that do not contain indexing data (Category, Sub-Category, Manufacturer and Description). This section explains how you can index such libraries without needing to re-make each part individually.</p>
+  <p>The easiest and most convenient way to add categories, subcategories, manufacturers and descriptions to existing device libraries is using ASCII Data Import (ADI). ADI allows you to apply textual properties to a schematic or library by listing the information in an ADI file and then load it in to a design or library. The format of the ADI file lets you apply data to parts selectively by allowing you to specify one or more ‘match’ criteria.</p>
+  <h4>Example ADI File</h4>
+  <p>For the purposes of indexing device libraries created with an earlier version of Proteus, an ADI file of the following format is suitable:</p>
+  <p class="Courier">; ADI File For My Component Library.</p>
+  <p class="Courier">; Last updated 1st January 2004.</p>
+  <p class="Courier">BLOCK=INDEX</p>
+  <p class="Courier">; Start by removing all data from the part:</p>
+  <p class="Courier">IF TRUE</p>
+  <p class="Courier">CAT,REMOVE</p>
+  <p class="Courier">SUBCAT,REMOVE</p>
+  <p class="Courier">MFR,REMOVE</p>
+  <p class="Courier">DESC,REMOVE</p>
+  <p class="Courier">END</p>
+  <p class="Courier">DATA DEVICE : CAT-,  SUBCAT-,              MFR-,        DESC-</p>
+  <p class="Courier">     74LS00 : &quot;TTL&quot;, &quot;Low Power Schottky&quot;, &quot;TEXAS&quot;,     &quot;Quad NAND Gate&quot;</p>
+  <p class="Courier">     74HC00 : &quot;TTL&quot;, &quot;High Speed CMOS&quot;,    &quot;TEXAS&quot;,     &quot;Quad NAND Gate&quot;</p>
+  <p class="Courier">     74F00  : &quot;TTL&quot;, &quot;Fast TTL&quot;,           &quot;Fairchild&quot;, &quot;Quad NAND Gate&quot;</p>
+  <p class="Courier">     7400   : &quot;TTL&quot;, &quot;Standard TTL&quot;,       [SKIP],      &quot;Quad NAND Gate&quot;</p>
+  <p class="Courier">END</p>
+  <p>When the ADI file is loaded, it is applied to each part (in the design if brought in to a design, or to the selected items in the source library, if brought in to the Library Manager).</p>
+  <p>All lines beginning with a semi-colon character are comments and are ignored by the ADI system. All comments must be on separate lines – you cannot have comments with in a ADI statement or at its end.</p>
+  <p>For the purposes of indexing a design or a library, all ADI files must have the statement</p>
+  <p class="Courier">BLOCK=INDEX</p>
+  <p>at the start to tell the ADI system that the properties being assigned are those used for indexing.</p>
+  <p>The property names used by Proteus for indexing a part are CAT for the category, SUBCAT for the subcategory, MFR for the manufacturer and DESC for the description.</p>
+  <p>We then use an ADI IF TRUE…END block with a TRUE test condition so that the statement always executes when applied to any part. The lines within the block (indented for clarity) remove all current assignments to the category (CAT), subcategory (SUBCAT), manufacturer (MFR) and description (DESC) of the part and ensures we start with a clean, un-indexed part.</p>
+  <p>To assign index data to the part we use an ADI DATA…END block. In this example, the DATA statement has been set to test just the DEVICE property of the part (its name in the library) and, if matched, to assign CAT, SUBCAT, MFR and DESC properties (the minus signs after the names cause the properties to be ‘hidden’ with the script if the part should be decomposed).</p>
+  <p>The lines within the DATA…END block specify the match criteria and values to be assigned. In our example, we are matching just the DEVICE name but if you want, you can modify the DATA statement to specify additional properties to be matched if you want a more selective test. To the right of the colon are the values to be assigned to the properties specified in the DATA statement, in the order they are specified – i.e. the first item is assigned to CAT, the next to SUBCAT, and so on.</p>
+  <p>Occasionally, you will find that you want to ‘skip’ assigning a property because either it isn’t pertinent or you don’t have the information. In these cases, use the special statement [SKIP] (the word SKIP inside square braces) to skip assignment. We’ve shown an example in the last line. Here, a 7401 device, would be assigned a category ‘TTL’, a subcategory ‘Standard TTL’ and a description ‘Quad NAND Gate’. The manufacturer would not be specified and, as we force its removal in the IF…END block means this part will not have a manufacturer specified for it.</p>
+  <h4>ADI File for Library where all Parts have same Category</h4>
+  <p>If you are writing an ADI file for applying to a library and all the parts in it require, say, the same category, you can use a simpler ADI file:</p>
+  <p class="Courier">; ADI File For My Component Library.</p>
+  <p class="Courier">; Last updated 1st January 2004.</p>
+  <p class="Courier">BLOCK=INDEX</p>
+  <p class="Courier">; Start by removing all data from the part:</p>
+  <p class="Courier">IF TRUE</p>
+  <p class="Courier">  CAT=&quot;TTL&quot;,HIDE</p>
+  <p class="Courier">  SUBCAT,REMOVE</p>
+  <p class="Courier">  MFR=&quot;TEXAS&quot;,HIDE</p>
+  <p class="Courier">  DESC=&quot;A TTL Part&quot;,HIDE</p>
+  <p class="Courier">END</p>
+  <p class="Courier">DATA DEVICE : SUBCAT-,              DESC-</p>
+  <p class="Courier">     74LS00 : &quot;Low Power Schottky&quot;, &quot;Quad NAND Gate&quot;</p>
+  <p class="Courier">     74HC00 : &quot;High Speed CMOS&quot;,    &quot;Quad NAND Gate&quot;</p>
+  <p class="Courier">     74F00  : &quot;Fast TTL&quot;,           &quot;Quad NAND Gate&quot;</p>
+  <p class="Courier">     7400   : &quot;Standard TTL&quot;,       &quot;Quad NAND Gate&quot;</p>
+  <p class="Courier">END</p>
+  <p>In this ADI file, we used the IF…END block to specify the category, manufacturer and a (default) description. As before, with the test condition TRUE the IF statement is always applied to every part so all parts start with their category, manufacturer and description specified. A DATA…END block is then used to assign the subcategory and a proper description. Thus, for example, a library containing, say, a 74HCT00 (which isn’t in the DATA…END block), will still get a category, manufacturer and default description assigned to it by way of the IF…END block.</p>
+  <h4>Using Wild Cards</h4>
+  <p>Finally, note that you can use asterisk and question-mark wild-cards within the matching of a DATA…END block but you need to think carefully about how it works. The following example endeavours to use an asterisk wild-card to match all TTL families:</p>
+  <p class="Courier">DATA DEVICE : DESC-</p>
+  <p class="Courier">     74*121 : &quot;A TTL 74xx121 part&quot;</p>
+  <p class="Courier">     74*21  : &quot;A TTL 74xx21 part&quot;</p>
+  <p class="Courier">END</p>
+  <p>In this, somewhat contrived, example we’ve deliberately placed the 74xx21 match after the 74xx121 match. As the statements are tested and applied in order the first statement will (correctly) match a 74LS121 but so will (incorrectly) the second statement! This means that the 74LS121 will have the description &quot;A TTL 74xx21&quot; part. For these reasons, it may be preferable to use either one or more question marks or to avoid wild-cards altogether!</p>
+  <p>To apply the ADI file to a library, use the Library Manager tool. Select the library you want to from the list of Source libraries and then use the Select All button to select all the parts in the library. Finally, use the ADI Library button to browse for and select the ADI file to be applied. After the ADI is complete, you can select any single library part and then use the Information button to see its indexed values.</p>
+  <p class="Diagram"><img alt="" border="0" height="523" src="../assets/images/LIBRARY_FACILITIES/ADI_library.png" style="border: none;" width="381"/></p>
+  <p class="DiagramText">ADI Library from within the Library Manager.</p>
+
+</div>
+<p> </p>
+
+</body></html>

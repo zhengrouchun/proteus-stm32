@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Introduction</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body>
+<div>
+  <h1>INTRODUCTION</h1>
+  <h3>About Proteus Schematic Capture</h3>
+  <p>Many CAD users dismiss schematic capture as a necessary evil in the process of creating PCB layout but we have always disputed this point of view. With PCB layout now offering automation of both component placement and track routing, getting the design into the computer can often be the most time consuming element of the exercise. And if you use circuit simulation to develop your ideas, you are going to spend even more time working on the schematic.</p>
+  <p>The schematic capture module has been created with this in mind. It has evolved over twenty years research and development and has been proven by thousands of users worldwide. The strength of its architecture has allowed us to integrate first conventional graph based simulation and with Proteus VSM - interactive circuit simulation - into the design environment. You can now draw a complete circuit for a micro-controller based system and then test it interactively, all from within the same piece of software. Meanwhile, Proteus retains a host of features aimed at the PCB designer, so that the same design can be exported for production with the inbuilt Proteus Layout module or other 3rd party PCB layout software.</p>
+  <p>For the educational user and engineering author, the schematic capture also excels at producing attractive schematics like you see in the magazines. It provides total control of drawing appearance in terms of line widths, fill styles, colours and fonts. In addition, a system of templates allows you to define a ‘house style’ and to copy the appearance of one drawing to another.</p>
+  <p>Other general features include:</p>
+  <ul type="disc">
+    <li>Runs on Windows 10 onwards.</li>
+    <li>Automatic wire routing and dot placement/removal.</li>
+    <li>Powerful tools for selecting objects and assigning their properties.</li>
+    <li>Total support for buses including component pins, inter-sheet terminals, module ports and wires.</li>
+    <li>Fully configurable Bill of Materials reporting.</li>
+    <li>Live netlisting to the Layout module and additional netlist outputs to suit other PCB layout tools.</li>
+  </ul>
+  <p>For the ‘power user’, Proteus capture incorporates a number of features which aid in the management of large designs. Indeed, a number of our customers have used it to produce designs containing many thousands of components.</p>
+  <ul type="disc">
+    <li>Hierarchical design with support for parameterized component values on sub-circuits.</li>
+    <li>Full support for Assembly Variants.</li>
+    <li>Project clips and sub-circuit binding to enable simple, error free design re-use.</li>
+    <li>Design Global Annotation allowing multiple instances of a sub-circuit to have different component references.</li>
+    <li>Automatic Annotation - the ability to number the components automatically.</li>
+    <li>ASCII Data Import - .this  facility provides the means to automatically bring component stock codes and costs into Proteus design or library files where they can then be incorporated  or even totaled up in the Bill of Materials report.</li>
+  </ul>
+  <h3><a id="OpenGL_Requirements" data-indexterm="OpenGL Requirements"></a><a id="System_Requirements1" data-indexterm="System Requirements"></a><a id="Requirements" data-indexterm="Requirements"></a><a id="Minimum_Configuration" data-indexterm="Minimum Configuration"></a><a id="System_Requirements"></a>System Requirements</h3>
+  <p>Performance in Proteus is scaleable according to your computer specification. The following are the recommended minimums requirements :</p>
+  <ul type="disc">
+    <li>3.5GHz or faster Intel Pentium processor (AMD processors fine but less optimised).</li>
+    <li>Graphics card supporting OpenGL Version 2.0 or higher and/or Direct 2D and multi-sampling (MSAA).</li>
+    <li>16Gb RAM.</li>
+    <li>Windows 10.</li>
+  </ul>
+  <p>In particular, note that if your graphics card does not satisfy the above requirements the software will run in Windows GDI mode. This means that display of the screen is handled by Windows and not your graphics hardware and therefore that some features of the software will not be available.</p>
+  <p>As a general rule, manufacturer graphics cards such as ATI and NVIDEA will satisfy these requirements whilst chipset graphics such as those supplied by Intel will not.</p>
+  <h3><a id="ISIS___ARES"></a>Schematic and Layout</h3>
+  <p>Users intending to design PCB&#39;s using the Proteus Layout module will find some of the following PCB layout specific features of interest:</p>
+  <ul type="disc">
+    <li>The ability to assign and configure net classes directly from the place wire label command on a schematic connection. This allow you to specify trace width and via styles and feeds into the design rule manager in ARES where you can further configure board constraints.</li>
+    <li>Sheet Global Net Properties which allow you to efficiently define a net class for all the nets on a given sheet (e.g. a power supply needing POWER width tracks).</li>
+    <li>Physical terminals which provide the means to have the pins on a connector scattered all over a design.</li>
+    <li>Support for heterogeneous multi-element devices. For example, a relay device can have three elements called RELAY:A, RELAY:B and RELAY:C. RELAY:A is the coil whilst elements B and C are separate contacts. Each element can be placed individually wherever on the design is most convenient.</li>
+    <li>Live netlisting between schematic and layout modules and automatic forward and back annotation between them.</li>
+    <li>Support for pin-swap and gate-swap. This includes both the ability to specify legal swaps in the library parts and the ability to back-annotate changes into a schematic.</li>
+    <li>A visual packaging tool which shows the PCB footprint and its pin numbers alongside the list of pin names for the schematic part. This facilitates easy and error free assignment of pin numbers to pin names. In additional, multiple packagings may be created for a single schematic part.</li>
+    <li>A full chapter is provided on how to use the schematic and layout modules together.</li>
+  </ul>
+  <h3><a id="ISIS___Simulation"></a>Schematic &amp; Simulation</h3>
+  <p>Schematic capture provides the development environment for PROTEUS VSM, our revolutionary interactive system level simulator. This product combines mixed mode circuit simulation, micro-processor models and interactive component models to allow the simulation of complete micro-controller based designs.</p>
+  <p>The schematic provides the means to enter the design in the first place, the architecture for real time interactive simulation and a system for managing the source and object code associated with each project. In addition, a number of graph objects can be placed on the schematic to enable  conventional time, frequency and swept variable simulation to be performed.</p>
+  <p>Major features of PROTEUS VSM include:</p>
+  <ul type="disc">
+    <li>True Mixed Mode simulation based on Berkeley SPICE3F5 with extensions for digital simulation and true mixed mode operation.</li>
+    <li>Support for both interactive and graph based simulation.</li>
+    <li>CPU Models available for popular microcontrollers such as the PIC, 8051, AVR and ARM series.</li>
+    <li>Interactive peripheral models include LED and LCD displays, a universal matrix keypad, I2C &amp; SPI peripherals, RS232 terminal and a whole library of switches, pots, lamps, LEDs etc.</li>
+    <li>Virtual Instruments include voltmeters, ammeters, a dual beam oscilloscope and a 24 channel logic analyser.</li>
+    <li>An integrated IDE - VSM Studio - which automatically detects and configures installed compilers and will generate optimal code for debugging in Proteus VSM.</li>
+    <li>Active Popups within VSM Studio allow you to both view and interact with parts of the schematic from within the IDE.</li>
+    <li>On-screen graphing - the graphs are placed directly on the schematic just like any other object. Graphs can be maximised to a full screen mode for cursor based measurement and so forth.</li>
+    <li>Graph Based Analysis types include transient, frequency, noise, distortion, AC and DC sweeps and fourier transform. An Audio graph allows playback of simulated waveforms.</li>
+    <li>Direct support for analogue component models in SPICE format.</li>
+    <li>Open architecture for ‘plug in’ component models coded in C++ or other languages. These can be electrical., graphical or a combination of the two.</li>
+    <li>Digital simulator includes a BASIC-like programming language for modelling and test vector generation.</li>
+    <li>A design created for simulation can also be used to generate a netlist for creating a PCB - there is no need to enter the design a second time.</li>
+  </ul>
+  <p>Full details of all these features and much more are provided in the PROTEUS VSM manual.</p>
+  <h3><a id="ISIS___Networks"></a>Proteus &amp; Networks</h3>
+  <p>Proteus is fully network compatible, and offers the following features to help Network Managers:</p>
+  <ul type="disc">
+    <li>Library files can be set to Read Only. This prevents users from messing with symbols or devices that may be used by others.</li>
+    <li>Individual user configuration exists in the windows registry. Since the registry determines the location of library files, it follows that users can have individual USERDVC.LIB files in their personal or group directories.</li>
+    <li>Server based licensing options.</li>
+  </ul>
+  <h3><a id="How_to_Use_this_Documentation"></a>How to Use this Documentation</h3>
+  <p>This manual contains background and reference information, wile the tutorial document provides a practical walkthrough of the application and the context sensitive help provides limited information relating to commands and dialog forms. Help on most objects in the user interface can be obtained by pointing with the mouse and pressing F1.</p>
+  <p>Proteus capture is a vast and tremendously powerful piece of software and it is unreasonable to expect to master all of it at once. However, the basics of how to enter a straightforward circuit diagram and create your own components are extremely simple and the techniques required for these tasks can be mastered most quickly by following the Tutorial. We strongly recommend that you work through this as it will save you time in the long run.</p>
+  <p>With some of the more advanced aspects of the package, you are probably going to find some of the concepts are new, let alone the details of how Proteus handles them. Each area of the software has been given a chapter of its own, and we generally start by explaining the background theory before going into the operation and use of the relevant features. You will thus find it well worthwhile reading the introductory sections rather than jumping straight to the how-to bits.</p>
+
+</div>
+<p> </p>
+
+</body></html>

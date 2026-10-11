@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Property Assignment Tool</title>
+  
+  <meta name="rh-index-keywords" content="Properties:Property Assignment Tool,Property Assignment Tool"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">PROPERTY ASSIGNMENT TOOL (PAT)</h1>
+  <h3>Introduction</h3>
+  <p>The property assignment tool is a very flexible way to change component properties on the schematic. For component properties, this has now been largely superseded by the Design Explorer which allows you to edit the schematic properties in an Excel like view. However, the PAT remains a very useful tool for applying other object properties, particularly wire labels (e.g. tapping a bus).</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="DXP.chm::/Search.htm">Design Explorer </a></p>
+  <h3>The PAT Dialogue Form</h3>
+  <p>The PAT is operated from a modestly complex dialogue form with the following fields:</p>
+  <p class="Diagram"><img alt="" border="0" height="367" src="../assets/images/PROPERTIES/PAT.png" style="border: none;" width="579"/></p>
+  <p class="DiagramText">The Property Assignment Dialogue Form</p>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 17.906%;"/>
+      <col style="width: 82.094%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Field</td>
+        <td>Description</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">String</p>
+        </td>
+        <td>
+          <p>The property assigment , or property keyword on which the selected action will be performed for each object</p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">Count</p>
+        </td>
+        <td>
+          <p>the initial value for the counter. The counter is incremented on each application of the PAT. The current value of the counter may be included in the string by using the hash (#) character - see <a href="#Examples">examples</a>.</p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">Action</p>
+        </td>
+        <td>
+          <p>The action you wish to perfrom - see <a href="#PAT_Actions">PAT actions</a>.</p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">Apply</p>
+        </td>
+        <td>
+          <p>The application mode in which you want the PAT to operate - see <a href="#PAT_Application_Modes">PAT application modes</a></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3><a id="PAT_Actions"></a>PAT Actions</h3>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 17.906%;"/>
+      <col style="width: 82.094%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Field</td>
+        <td>Description</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">ASSIGN</p>
+        </td>
+        <td>
+          <p>The string should contain a property definition of the form:</p>
+          <p class="Courier">keyword=value</p>
+          <p>and this property will then be assigned to the selected objects.</p>
+          <p>If you want to assign values that run in a sequence, such as D0, D1,D2, etc then use the hash(&#39;#&#39;) character in the value and set the initial count as required.</p>
+          <p>Both user and system properties may be assigned: assigning system properties may cause graphical changes to your drawing.</p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">REMOVE</p>
+        </td>
+        <td>
+          <p>The string should contain a property keyword only and this property will be removed from the selected objects.</p>
+          <p>Only user properties can be removed.</p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">RENAME</p>
+        </td>
+        <td>
+          <p>The string should contain a property assignment of the form:</p>
+          <p class="Courier">current_keyword=new_keyword</p>
+          <p>The name to the left of the assignment is the existing property name you wish to rename; the name to the right is the new name of the property.</p>
+          <p>Only user properties can be renamed.</p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">SHOW</p>
+        </td>
+        <td>
+          <p>The string should contain a property keyword only and this property will be made visible for the selected objects.</p>
+          <p>All user properties and system properties can be shown.</p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">HIDE</p>
+        </td>
+        <td>
+          <p>The string should contain a property keyword only and this property will be hidden  for the selected objects.</p>
+          <p>All user properties and system properties can be shown.</p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">RESIZE</p>
+        </td>
+        <td>
+          <p>The string should contain an assignment such as :</p>
+          <p class="Courier">REF=20,16</p>
+          <p>and  the given property will be assigned a new height and width for the selected objects. Only textual system properties may be resized.</p>
+           
+          <p class="Warning">Changing a labels text size implicitly sets the height and width attributes of the labels text style to be local and that thereafter, changes to the global text style for the label will not be reflected in these labels.</p>
+           
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3><a id="PAT_Application_Modes"></a>PAT Application Modes</h3>
+  <p>The selected PAT action can be applied to the design in the following ways:</p>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 18.897%;"/>
+      <col style="width: 81.103%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Field</td>
+        <td>Description</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">On Click</p>
+        </td>
+        <td>
+          <p>On selecting the OK button, the selection mode icon is selected. Each object on which you click left has the selected action performed upon it.</p>
+          <p>When you select a different icon the PAT is cancelled.</p>
+          <p>This mode is the only way to apply the PAT to wires, in order to assign wire labels, Proteus cannot perform PAT assignments on tagged wires because the would be no way for it to know where to put the wire labels.</p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">Local Tagged</p>
+        </td>
+        <td>
+          <p>The selected action is performed on all tagged objects on the current sheet only.</p>
+          <p>You can select the tagged objects either individually or with the <a href="#The_Search___Tag_Command">search and tag command</a>.</p>
+        </td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">Global Tagged</p>
+        </td>
+        <td>
+          <p>The selected action is performed on all tagged objects across the entire design.</p>
+          <p>You can select the tagged objects either individually or with the <a href="#The_Search___Tag_Command">search and tag command</a>.</p>
+        </td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center" style="font-family: &#39;Courier New&#39;, monospace; font-size: 12pt;">All Objects</p>
+        </td>
+        <td>
+          <p>The selected action is performed on all the objects on the design.</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3><a id="Finding_Objects_(Search_&amp;_Tag)" data-indexterm="Finding Objects (Search &amp; Tag)"></a><a id="Search_&amp;_Tag_Command" data-indexterm="Search &amp; Tag Command"></a><a id="The_Search___Tag_Command"></a>The Search &amp; Tag Command</h3>
+  <p>The Search and Tag dialogue allows you to search within a design for components or other objects matching specified criteria. The criteria are specified by the properties of the object type you are searching for. For example, a search for all components with a value of 10k would look like the following :</p>
+  <p class="Diagram"><img alt="" border="0" height="180" src="../assets/images/PROPERTIES/Search_tag.png" style="border: none;" width="425"/></p>
+  <p class="DiagramText">A Search for all components with a value of 10k</p>
+  <p>Search results are displayed in a list box at the bottom of the dialogue. You can zoom and centre the schematic on a particular component by double clicking the entry in the list box for that component.</p>
+  <p>The Search and Tag dialogue form provides the following additional functionality :</p>
+  <p>A number of mode match criteria are available allowing you greater flexibility when processing searches.</p>
+  <p>Having completed your original search you can refine or extend your search by changing the search parameters and selecting either the AND or the OR search as required.</p>
+  <p>You can search across the entire design or only on the current sheet. By default a search across the entire design is selected.</p>
+  <p>When you zoom into an object from the list box all the search item results will highlight and the dialogue form will exit to allow you an unrestricted view of the schematic. However, the list box automatically repopulates itself with all currently tagged components when you invoke the Search and Tag command. You can browse the search results therefore by simply re-invoking the dialogue box (default shortcut key is ‘T’) and double clicking on the next item in the list.</p>
+  <h3><a id="Naming_Pins" data-indexterm="Naming Pins"></a><a id="Numbering_Pins" data-indexterm="Numbering Pins"></a><a id="Packages_/_Footprints:Assigning_to_multiple_components_(PAT)" data-indexterm="Packages / Footprints:Assigning to multiple components (PAT)"></a><a id="Bus_Taps_-_Labelling_with_PAT" data-indexterm="Bus Taps - Labelling with PAT"></a><a id="Examples"></a>Examples</h3>
+  <p>The Property Assignment Tool and Search &amp; Tag command provide great power and flexibility when it comes to manipulating object properties. However, they can seem somewhat daunting to beginners. With this in mind, some step by step examples to get you started are given below.</p>
+  <p class="ExampleTitle">To label a set of bus taps:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Invoke the PAT.(default keyboard assignation is ‘A’).</li>
+    <li class="Numbers">Set the string to NET=D# and click OK. The action will have defaulted to Assign and the mode to On Click.</li>
+    <li class="Numbers">Click left on each wire where you want the wire label to appear. The cursor keys and the enter key can be used as an alternative to the mouse. The wires you click on will be assigned new wire labels in the sequence D0, D1, D2, etc.</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="195" src="../assets/images/PROPERTIES/Bus_wire_naming.png" style="border: none;" width="538"/></p>
+  <p class="DiagramText">Labelling a set of bus taps with the Property Assignment Tool</p>
+  <p class="ExampleTitle">To assign a package to all the BC108s in a design:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Invoke the Search and Tag command (by default this is mapped to the  &#39;T&#39; key).</li>
+    <li class="Numbers">Set the property to VALUE and the string to BC108, then click OK. The mode will have defaulted to Equals. Exit the dialogue with the Done button to highlight all the search results. All the components with the value BC108 will now be tagged.</li>
+    <li class="Numbers">Invoke the PAT (default keyboard shortcut is ‘A’).</li>
+    <li class="Numbers">Set the string to PACKAGE=TO18 and click OK. The action will have defaulted to Assign and the mode to Global Tagged (assuming there were tagged BC108s). All the tagged BC108s will be given the new user property.</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="158" src="../assets/images/PROPERTIES/SAT_BC108_PAT_TO18.png" style="border: none;" width="580"/></p>
+  <p class="ExampleTitle">To rename all ITEM properties to CODE properties:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Invoke the PAT.</li>
+    <li class="Numbers">Set the string to ITEM=CODE, the action to Replace and the mode to All Objects, then click OK. All objects with the property ITEM=value will be replaced with a property CODE=value.</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="367" src="../assets/images/PROPERTIES/Item_code.png" style="border: none;" width="579"/></p>
+  <p class="DiagramText">Renaming properties globally with the Property Assignment Tool</p>
+  <p class="ExampleTitle">To hide all package properties:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Invoke the PAT.</li>
+    <li class="Numbers">Set the string to PACKAGE, the action to Hide and the mode to All Objects, then click OK. All the PACKAGE properties will be hidden</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="367" src="../assets/images/PROPERTIES/Hide_package_property.png" style="border: none;" width="579"/></p>
+  <p class="DiagramText">Hiding package properties globally with the Property Assignment Tool</p>
+  <p class="ExampleTitle">To resize the component references:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Invoke the PAT.</li>
+    <li class="Numbers">Set the string to REF=10,8, the action to Resize, and the mode to All Objects, then click OK. All the component references will be shrunk to the new size.</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="367" src="../assets/images/PROPERTIES/Resizing_REF_property.png" style="border: none;" width="579"/></p>
+  <p class="DiagramText">Resizing component references globally with the Property Assignment Tool</p>
+  <p class="ExampleTitle">To assign larger packages to 1000uF capacitors:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Invoke the Search and Tag command (by default this is mapped to the &#39;T&#39; key on your keyboard).</li>
+    <li class="Numbers">Set the property to DEVICE and the string to CAP ELEC, then click the Search button. This will display all the electrolytic capacitors in the list box at the bottom of the dialogue box.</li>
+    <li class="Numbers">Change the Search mode to AND Search.</li>
+    <li class="Numbers">Set the property to VALUE, the string to 1000u, and the mode to Begins, then click Search. This will display all capacitors with the values 1000u  or 1000uF. Use the OK button to exit the dialogue and tag all the components matching the search results.</li>
+    <li class="Numbers">Invoke the PAT.</li>
+    <li class="Numbers">Set the string to PACKAGE=ELEC-RAD30 and click OK. The action will have defaulted to Assign and the mode to Global Tagged (assuming there were tagged capacitors). All the tagged capacitors will be given the new package.</li>
+  </ol>
+  <p class="Diagram"><img alt="" border="0" height="279" src="../assets/images/PROPERTIES/Search_tag_PAT.png" style="border: none;" width="610"/></p>
+
+</div>
+<p> </p>
+
+</body></html>

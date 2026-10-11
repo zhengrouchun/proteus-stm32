@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>ASCII Data Import</title>
+  
+  <meta name="rh-index-keywords" content="ASCII Data Import (Reference)"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">ASCII Data Import</h1>
+  <h3>Introduction</h3>
+  <p>ASCII Data Import is a scriptable language for assigning properties to components. For the most part users will have no need to use this method of property manipulation as the Design Explorer and the <a href="BOM.chm::/PROPERTIES/Properties.htm">Bill of Materials Property Editor</a> both provide a convenient GUI driven front end to the language.</p>
+  <p>However, there may be times where the full flexibility of writing ADI scripts is preferred and for completeness of documentation the following is a reference guide to the language.</p>
+  <p>The idea of ADI is that much of the data you would store within components (e.g. costs, stock codes, tolerances) will remain the same for each component type across all your designs. ADI allows you to specify data for different component types in a simple ASCII file and to import it all into a design with just one command.</p>
+  <p>The ADI source file can be created with any ASCII text editor - for example Ultraedit or Notepad. The file can contain any number of separate commands, each of which starts on a new line with its command keyword and ends on a new line with the keyword END. There are two ADI commands, the IF...END command and the DATA...END command.</p>
+  <p>The ADI &#39;interpreter&#39; is run by invoking the ADI command and then selecting an ADI file with the file selector. The commands within the ADI file are then loaded and pre-compiled - any errors will be written to the error log, which is automatically displayed if errors occur. Proteus then applies each command in the ADI file, in order, to each component in the design.</p>
+  <p class="Reference"><a href="../LIBRARY_FACILITIES/Device_Libraries.htm#Indexing_Libraries_with_ASCII_Data_Import__ADI_">See Also : Using ADI to Index Libraries.</a></p>
+  <h3><a id="IF...END_Command_(ADI)" data-indexterm="IF...END Command (ADI)"></a><a id="The_IF...END_Command_"></a>The IF...END Command</h3>
+  <p>The IF...END command allows you to test the existing properties of each component via an expression, and if the expression evaluates TRUE, then the sub-commands within the IF...END block are applied to the component is succession. The syntax is best explained by example:</p>
+  <p class="Courier">IF DEVICE=&quot;CAP ELEC&quot; AND NOT VALUE=10p</p>
+  <p class="Courier">   VALUE=1n,HIDEKWD</p>
+  <p class="Courier">   TOLERANCE,HIDE</p>
+  <p class="Courier">   STOCKCODE,REMOVE</p>
+  <p class="Courier">END</p>
+  <p>The expression to be applied to the component follows the keyword IF.  Expressions consist of one or more terms separated by operators. Each term consists of a property value, optionally followed by an equals sign and a value.</p>
+  <ul type="disc">
+    <li>A term only evaluates TRUE if the property named exists, and in the case where a value has been specified, the property value matches the value specified character-for-character, case-sensitive.</li>
+    <li>Operators consist of brackets - which may be used to enclose sub-expressions, and the keywords AND, OR and NOT.  The operators AND and OR are executed left to right - there is no precedence. The AND operator evaluates TRUE only if the evaluation so far is TRUE and the term or sub-expression following it evaluates TRUE. The OR operator evaluates TRUE if the evaluation so far is TRUE or the term or sub-expression following it evaluates TRUE. The NOT operator is unary and has the affect of negating the result of the evaluation of the term or sub-expression that follows it.  </li>
+    <li>A special expression, consisting of the single keyword TRUE allows you to affect all components in the design.</li>
+  </ul>
+  <p>In the example, the expression tests that the component is an instance of the CAP ELEC library device and that it does not have a value of 10p. If this is the case, then the three sub-commands after the IF expression and before the closing END keyword are applied to the component. Note that, because the device beginning tested for contains a space (CAP ELEC), it is enclosed in double quote (&#39;&quot;&#39;) characters.</p>
+  <p>Each sub-command consists of a property name optionally followed by an equals sign and a new value and/or a comma and a command. If a value is specified, the property named is either created with the new value or has its existing value modified. If a command is specified it is executed following any assignment, as follows:</p>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 19.765%;"/>
+      <col style="width: 80.235%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Command</td>
+        <td>Description</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">SHOW</span></p>
+        </td>
+        <td>Both the property name and its value are made visible.</td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">HIDE</span></p>
+        </td>
+        <td>Both the property name and it&#39;s value are hidden.</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">HIDEKWD</span></p>
+        </td>
+        <td>The property name is hidden; the visibility of the property value is unchanged.</td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">HIDEVAL</span></p>
+        </td>
+        <td>The property value is hidden; the visibility of the property name is unchanged.</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">REMOVE</span></p>
+        </td>
+        <td>The property name and any value is removed from the component.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>If no command is specified then the existing visibility of the property name and value is unchanged.</p>
+  <p>In the example, the property VALUE is assigned the value 1n and the property name is hidden, the value of the property TOLERANCE is left unchanged but the property/value pair is hidden and finally, the property STOCKCODE is removed from the component.</p>
+  <h3><a id="DATA..END_Command_(ADI)" data-indexterm="DATA..END Command (ADI)"></a><a id="The_DATA...END_Command_"></a>The DATA...END Command</h3>
+  <p>The DATA...END command allows multiple test values to be tested against a fixed list of property names, and given a match, allows a set of separate values to be assigned to a separate set of fixed properties.</p>
+  <p>Consider the following example of a DATA...END command:</p>
+  <p class="Courier">DATA DEVICE   +  VALUE : COST+, TOLERANCE, STOCKCODE-</p>
+  <p class="Courier">     RES         1k    : 0.01,  1%,        100-1001</p>
+  <p class="Courier">     RES         1k2   : 0.01,  1%,        [REMOVE]</p>
+  <p class="Courier">     &quot;CAP ELEC&quot;  1n    : 0.03,  5%,        200-1001</p>
+  <p class="Courier">     SWITCH      *     : 0.25,  [SKIP] ,    300-1001</p>
+  <p class="Courier">END</p>
+  <p>The DATA keyword is followed by the name or names of the properties to be tested, separated by plus characters. This list is followed by a colon and then a list of the name or names of the properties to be assigned, separated by commas. Each  property name may optionally be directly followed by a plus or minus character that reflects whether you want the property named and the value assigned to it to be shown or hidden respectively; no character indicates that existing visibility should be maintained.</p>
+  <p>In the example, the DEVICE and VALUE properties are tested. Given a match, new values are assigned to the COST, TOLERANCE and STOCKCODE properties; the COST property and its value being made visible and the STOCKCODE property and its value being hidden.</p>
+  <p>Each line between the DATA keyword line and the END keyword consists of a list of the property values that you want to test for (separated by one or more spaces), a colon, and then the list of property values you want to assign, separated by commas.  Each line is executed in turn; the value of each property named in the list to the left of the colon on the DATA line is tested against the corresponding test value on current line. If all property values match, then each property named on the right of the colon on the DATA line is assigned the corresponding assignment value on the current line.</p>
+  <p>In the example, the first line tests the DEVICE property for the value RES and the VALUE property for the value 1k; if both match then the COST property is assigned a value of 0.01, the TOLERANCE property a value of 1% and the STOCKCODE property a value of 100-1001. Similarly the third line tests the DEVICE property for the value CAP ELEC (because the device name contains a space it must be enclosed it in double quotes) and the VALUE property for the value 1n; if both match then the COST property takes a value of 0.03, the TOLERANCE property a value of 5% and the STOCKCODE property a value of 300-1001.</p>
+  <p>Note that the CAP ELEC device name is enclosed in double quotes. You must do this for any of the match values to the left of the colon as these are space delimited. If this were not done, Proteus would have complained it was expecting a colon since it would have assumed you  wanted to test DEVICE property against the value CAP and VALUE property against the value ELEC; the 1n would then be unexpected. Similarly, the assignment values to the right of the colon are comma delimited, so if you wanted to assign a new value that contains a comma, then you would have to enclose the value  in double quotes.</p>
+  <p>There are two unusual features of the property values that ADI tests for.</p>
+  <ul type="disc">
+    <li>The values can contain the wild-card characters: &#39;?&#39; and &#39;*&#39;. The question mark indicates that any single character may appear in the property value being tested in same position as the question mark. The asterisk indicates that any number of characters may appear in the property value being tested between the sets of characters to the left and right of the asterisk.  In our example above, we test for a DEVICE property with the value SWITCH but choose not to test such a component&#39;s VALUE property by specifying a test value of a single asterisk.</li>
+    <li>Numerical values (including values that contain exponent suffixes such as &#39;k&#39; or &#39;u&#39;). Such values are converted by Proteus in to a textual representation with six decimal places and an exponent and the textual representations are then compared character by character. In our example, component placed from the library device RES and assigned the values 1k, 1000 and 1.0k would all match the test condition in the first line.</li>
+  </ul>
+  <p>Whilst the list to the right of the colon normally consists of  a new value to be assigned to the respective property named on the DATA line, you can instead specify a command, as follows:</p>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 24.102%;"/>
+      <col style="width: 75.898%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Command</td>
+        <td>Description</td>
+      </tr>
+      <tr class="t2Row">
+        <td><span style="font-family: &#39;Courier New&#39;, monospace;">[NULL]</span></td>
+        <td>Assign the respective property an empty string. Only the property name and the following equals sign will appear in the component&#39;s properties text block.</td>
+      </tr>
+      <tr class="t1Row">
+        <td><span style="font-family: &#39;Courier New&#39;, monospace;">[REMOVE]</span></td>
+        <td>Remove the property; the property name and its value are removed from the component&#39;s text property block.</td>
+      </tr>
+      <tr class="t2Row">
+        <td><span style="font-family: &#39;Courier New&#39;, monospace;">[SKIP]</span></td>
+        <td>Skip assignment to the respective property. This keyword is required as an empty assignment (nothing between the commas) will cause an error. Any existing property in the component&#39;s text property block is left unchanged.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>The second line of the example specified that the STOCKCODE property of any component placed from a RES device with a VALUE of 1k2 should be removed. Similarly, line four, specifies that there should be no assignment to the TOLERANCE property of a component placed from a SWITCH device.</p>
+
+</div>
+<p> </p>
+
+</body></html>

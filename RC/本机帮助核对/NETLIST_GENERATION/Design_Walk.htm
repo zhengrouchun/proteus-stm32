@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+<meta name="template" content="../assets/masterpages/LX Master.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Design Walk</title>
+
+<meta name="rh-index-keywords" content="Tagging (net),Highlight Net,Net Tag,Design Walk"/><meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body page-style="x-size: Letter;">
+<div>
+<h1 position="fixed">DESIGN WALK </h1>
+<h3><a id="Introduction"></a>Introduction</h3>
+<p>It is often useful to follow a net through the various sheets of the 
+ schematic. The design walk feature provides a convenient way to do this 
+ using net tagging on the schematic sheets as a visual indicator.</p>
+<p class="Tip">The Design Explorer module by contrast provides a full data 
+ driven analysis of net contents and can also be viewed per sheet.</p>
+<h3><a id="Tagging_a_Net_on_a_Sheet"></a>Tagging a Net on a Sheet</h3>
+<p>The design walk is started by specifying the net. This is done on schematic 
+ by right clicking on a wire, terminal or pin of that net and selecting 
+ the &#39;Highlight net on sheet&#39; option from the context menu.</p>
+<p class="Diagram"><img src="../assets/images/NETLIST_GENERATION/highlightNetonSheet.png" style="border: none;" alt="" width="364" height="190" border="0"/></p>
+<p class="DiagramText">Highlight net on a Sheet shows both which sheets 
+ contain the net and also the current sheet (with a tick).</p>
+<p>All of the sheets on the schematic are listed in order with those not 
+ containing the net disabled. The checkbox on the left hand side shows 
+ the current sheet. Left clicking on a sheet will tag it and navigate the 
+ schematic to that sheet.</p>
+<p class="Diagram"><img src="../assets/images/NETLIST_GENERATION/3v3Tagged.png" style="border: none;" alt="" width="384" height="274" border="0"/></p>
+<p class="DiagramText">3.3V net tagged on a sheet.</p>
+<p>You can also tag a net on a sheet from the Design Explorer Module. First 
+ make sure you are in Netlist Mode and then right click on a net and select 
+ the Show Schematic Net option from the context menu.</p>
+<p class="Diagram"><img src="../assets/images/NETLIST_GENERATION/tagNetonDXP.png" style="border: none;" alt="" width="726" height="143" border="0"/></p>
+<p class="DiagramText">Selecting a net on a sheet from inside the DXP module.</p>
+<h3><a id="Walking_the_Design"></a>Walking the Design</h3>
+<p>Once you have the net tagged on one sheet you can cycle the sheets with 
+ the page up and page down arrow keys. Navigation on a multi-sheet hierarchical 
+ design is down then across.</p>
+<p class="Diagram"><img src="../assets/images/NETLIST_GENERATION/arrowKeys.png" style="border: none;" alt="" width="268" height="185" border="0"/></p>
+<p class="DiagramText">Use the PgUp and PgDn arrow keys to switch through 
+ the sheets.</p>
+<p>Alternatively, if you want more control just right click on the wire 
+ again and select your next destination sheet from the list.</p>
+<h4>Following a Signal</h4>
+<p>Let&#39;s assume you want to follow a signal on the schematic. In our case, 
+ we&#39;ll choose an RS232 line. It&#39;s very likely that this will be on only 
+ one or two of the sheets. The best solution is therefore to use the context 
+ menu twice since it shows you on which sheets the signal is present. So:</p>
+<ol type="1" class="Numbers">
+	<li class="Numbers">Right click and tag on current sheet.</li>
+	<li class="Numbers">View.</li>
+	<li class="Numbers">Right click and tag on next sheet signal is present.</li>
+	<li class="Numbers">View.</li>
+	<li class="Numbers">etc</li>
+</ol>
+<p class="Diagram"><img src="../assets/images/NETLIST_GENERATION/followingSignal.png" style="border: none;" alt="" width="343" height="302" border="0"/></p>
+<p class="DiagramText">Use the Sheet states for faster navigation.</p>
+<h4>Checking Power</h4>
+<p>The other common use case will be to look at the IC&#39;s on the schematic 
+ and check that everything is powered. In this case the net will be a power 
+ net and is likely to be on most every sheet on the schematic. In this 
+ case cycling through the sheets with PGUP/PGDOWN after the initial tag 
+ is probably going to be easiest. So:</p>
+<ol type="1" class="Numbers">
+	<li class="Numbers">Right click and tag on current sheet.</li>
+	<li class="Numbers">View.</li>
+	<li class="Numbers">PGDN.</li>
+	<li class="Numbers">View.</li>
+	<li class="Numbers"><p>PGDN</p></li>
+	<li class="Numbers"><p>...</p></li>
+</ol>
+<p class="Tip">Needless to say this is only going to work well if you have 
+ visible power pins. If you use hidden power pins then they can&#39;t be highlighted 
+ because they are hidden ! You should use Design Explorer data view in 
+ this situation.</p>
+<h3><a id="Status_Bar"></a>Status Bar</h3>
+<p>The sheet name is shown on the status bar after you switch to it so 
+ you have some idea of where you are on the design hierarchy when cycling 
+ through sheets.</p>
+<p><img src="../assets/images/NETLIST_GENERATION/netSheet1.png" style="border: none;" alt="" width="314" height="31" border="0"/></p>
+<p>It will also tell you if there is no net presence on the sheet. Assuming 
+ this is intentional (!) you can then just continue Pgup/Pgdown cycling 
+ to the next sheet.</p>
+<p><img src="../assets/images/NETLIST_GENERATION/netSheet2.png" style="border: none;" alt="" width="313" height="36" border="0"/></p>
+
+</div>
+<p> </p>
+
+</body></html>

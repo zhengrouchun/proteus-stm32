@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2220" height="1430" viewBox="0 0 2220 1430">
+<rect width="100%" height="100%" fill="white"/>
+<text x="60" y="73" font-family="Microsoft YaHei, sans-serif" font-size="39" fill="#1c2733">解决 DIV 运行供电互锁与复测：对应新固件的接线图</text>
+<text x="60" y="117" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#1c2733">绿色：被测电路主回路    蓝色：GPIO 控制    同名网络必须在 Proteus 中连线或放置同名网络标签</text>
+<polyline points="135,250 285,250" fill="none" stroke="#216449" stroke-width="4"/>
+<polyline points="135,250 135,282" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="135" cy="330" r="48" stroke="#1c2733" fill="white" stroke-width="3"/>
+<text x="121" y="316" font-family="Microsoft YaHei, sans-serif" font-size="28" fill="#1c2733">+</text>
+<text x="122" y="368" font-family="Microsoft YaHei, sans-serif" font-size="28" fill="#1c2733">−</text>
+<text x="58" y="219" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#1c2733">VS_TEST</text>
+<text x="192" y="315" font-family="Microsoft YaHei, sans-serif" font-size="30" fill="#1c2733">1 V</text>
+<polyline points="135,378 135,395" fill="none" stroke="#216449" stroke-width="4"/>
+<polyline points="135,395 135,407" fill="none" stroke="#216449" stroke-width="4"/>
+<polyline points="115,407 155,407" fill="none" stroke="#216449" stroke-width="3"/>
+<polyline points="122,416 148,416" fill="none" stroke="#216449" stroke-width="3"/>
+<polyline points="129,425 141,425" fill="none" stroke="#216449" stroke-width="3"/>
+<polyline points="135,570 285,570" fill="none" stroke="#216449" stroke-width="4"/>
+<polyline points="135,570 135,602" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="135" cy="650" r="48" stroke="#1c2733" fill="white" stroke-width="3"/>
+<text x="121" y="636" font-family="Microsoft YaHei, sans-serif" font-size="28" fill="#1c2733">+</text>
+<text x="122" y="688" font-family="Microsoft YaHei, sans-serif" font-size="28" fill="#1c2733">−</text>
+<text x="58" y="539" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#1c2733">VS_RUN</text>
+<text x="192" y="635" font-family="Microsoft YaHei, sans-serif" font-size="30" fill="#1c2733">3 V</text>
+<polyline points="135,698 135,715" fill="none" stroke="#216449" stroke-width="4"/>
+<polyline points="135,715 135,727" fill="none" stroke="#216449" stroke-width="4"/>
+<polyline points="115,727 155,727" fill="none" stroke="#216449" stroke-width="3"/>
+<polyline points="122,736 148,736" fill="none" stroke="#216449" stroke-width="3"/>
+<polyline points="129,745 141,745" fill="none" stroke="#216449" stroke-width="3"/>
+<rect x="340" y="198" width="180" height="107" stroke="#1c2733" fill="white" stroke-width="3"/>
+<polyline points="285,250 370,250 370,232 395,232" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="395" cy="232" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<circle cx="460" cy="232" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<polyline points="395,232 443,210" fill="none" stroke="#1c2733" stroke-width="3"/>
+<polyline points="460,232 490,232 490,250 585,250" fill="none" stroke="#216449" stroke-width="4"/>
+<text x="342" y="182" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#1c2733">K_TEST  VSWITCH</text>
+<circle cx="430" cy="275" r="13" stroke="#235c96" fill="white" stroke-width="3"/>
+<text x="422" y="280" font-family="Microsoft YaHei, sans-serif" font-size="17" fill="#235c96">V</text>
+<polyline points="390,305 390,275 417,275" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="475,305 475,275 443,275" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="430,243 430,247" fill="none" stroke="#1c2733" stroke-width="2"/>
+<polyline points="430,251 430,255" fill="none" stroke="#1c2733" stroke-width="2"/>
+<text x="345" y="300" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#235c96">C+</text>
+<text x="480" y="300" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#235c96">C−</text>
+<polyline points="390,305 390,355" fill="none" stroke="#235c96" stroke-width="4"/>
+<text x="222" y="351" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#235c96">TEST_ENABLE</text>
+<polyline points="390,355 390,370" fill="none" stroke="#235c96" stroke-width="4"/>
+<rect x="376" y="370" width="28" height="70" stroke="#1c2733" fill="white" stroke-width="3"/>
+<text x="418" y="412" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#235c96">100 kΩ</text>
+<polyline points="390,440 390,448" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="390,448 390,460" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="370,460 410,460" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="377,469 403,469" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="384,478 396,478" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="475,305 475,312" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="475,312 475,324" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="455,324 495,324" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="462,333 488,333" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="469,342 481,342" fill="none" stroke="#235c96" stroke-width="3"/>
+<rect x="340" y="518" width="180" height="107" stroke="#1c2733" fill="white" stroke-width="3"/>
+<polyline points="285,570 370,570 370,552 395,552" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="395" cy="552" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<circle cx="460" cy="552" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<polyline points="395,552 443,530" fill="none" stroke="#1c2733" stroke-width="3"/>
+<polyline points="460,552 490,552 490,570 585,570" fill="none" stroke="#216449" stroke-width="4"/>
+<text x="342" y="502" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#1c2733">K_RUN  VSWITCH</text>
+<circle cx="430" cy="595" r="13" stroke="#235c96" fill="white" stroke-width="3"/>
+<text x="422" y="600" font-family="Microsoft YaHei, sans-serif" font-size="17" fill="#235c96">V</text>
+<polyline points="390,625 390,595 417,595" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="475,625 475,595 443,595" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="430,563 430,567" fill="none" stroke="#1c2733" stroke-width="2"/>
+<polyline points="430,571 430,575" fill="none" stroke="#1c2733" stroke-width="2"/>
+<text x="345" y="620" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#235c96">C+</text>
+<text x="480" y="620" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#235c96">C−</text>
+<polyline points="390,625 390,675" fill="none" stroke="#235c96" stroke-width="4"/>
+<text x="222" y="671" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#235c96">RUN_ENABLE</text>
+<polyline points="390,675 390,690" fill="none" stroke="#235c96" stroke-width="4"/>
+<rect x="376" y="690" width="28" height="70" stroke="#1c2733" fill="white" stroke-width="3"/>
+<text x="418" y="732" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#235c96">100 kΩ</text>
+<polyline points="390,760 390,768" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="390,768 390,780" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="370,780 410,780" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="377,789 403,789" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="384,798 396,798" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="475,625 475,632" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="475,632 475,644" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="455,644 495,644" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="462,653 488,653" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="469,662 481,662" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="585,250 610,250 610,570 585,570" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="610" cy="250" r="5" stroke="#216449" fill="#216449" stroke-width="3"/>
+<text x="548" y="206" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#1c2733">EXC_IN</text>
+<polyline points="610,250 670,250" fill="none" stroke="#216449" stroke-width="4"/>
+<rect x="670" y="236" width="100" height="28" stroke="#1c2733" fill="white" stroke-width="3"/>
+<text x="672" y="225" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#1c2733">RS  2 kΩ</text>
+<polyline points="770,250 830,250 875,250" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="830" cy="250" r="5" stroke="#216449" fill="#216449" stroke-width="3"/>
+<polyline points="830,250 830,155" fill="none" stroke="#235c96" stroke-width="4"/>
+<text x="759" y="142" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#235c96">DIV_VA</text>
+<circle cx="875" cy="250" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<circle cx="940" cy="250" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<polyline points="875,250 940,250" fill="none" stroke="#1c2733" stroke-width="3"/>
+<text x="865" y="315" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#1c2733">SW1</text>
+<polyline points="940,250 965,250" fill="none" stroke="#216449" stroke-width="4"/>
+<rect x="965" y="236" width="100" height="28" stroke="#1c2733" fill="white" stroke-width="3"/>
+<text x="953" y="306" font-family="Microsoft YaHei, sans-serif" font-size="20" fill="#1c2733">R2 / CSV R1</text>
+<text x="968" y="337" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#1c2733">10 kΩ</text>
+<polyline points="1065,250 1160,250" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="1160" cy="250" r="5" stroke="#216449" fill="#216449" stroke-width="3"/>
+<polyline points="1160,250 1160,170 1290,170" fill="none" stroke="#235c96" stroke-width="4"/>
+<text x="1190" y="152" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#235c96">DIV_VB</text>
+<polyline points="950,250 950,168 987,168" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="987" cy="168" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<circle cx="1052" cy="168" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<polyline points="987,168 1035,146" fill="none" stroke="#1c2733" stroke-width="3"/>
+<polyline points="1052,168 1100,168 1100,250" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="950" cy="250" r="5" stroke="#216449" fill="#216449" stroke-width="3"/>
+<circle cx="1100" cy="250" r="5" stroke="#216449" fill="#216449" stroke-width="3"/>
+<text x="984" y="151" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#1c2733">SW5</text>
+<polyline points="1160,250 1160,360" fill="none" stroke="#216449" stroke-width="4"/>
+<rect x="1146" y="360" width="28" height="90" stroke="#1c2733" fill="white" stroke-width="3"/>
+<text x="1195" y="386" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#1c2733">R3</text>
+<text x="1195" y="414" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#1c2733">CSV R2</text>
+<text x="1195" y="446" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#1c2733">10 kΩ</text>
+<polyline points="1160,450 1160,475 1160,535" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="1160" cy="535" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<circle cx="1160" cy="590" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<polyline points="1160,535 1160,590" fill="none" stroke="#1c2733" stroke-width="3"/>
+<text x="1193" y="576" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#1c2733">SW4</text>
+<polyline points="1160,590 1160,660" fill="none" stroke="#216449" stroke-width="4"/>
+<polyline points="1160,660 1160,672" fill="none" stroke="#216449" stroke-width="4"/>
+<polyline points="1140,672 1180,672" fill="none" stroke="#216449" stroke-width="3"/>
+<polyline points="1147,681 1173,681" fill="none" stroke="#216449" stroke-width="3"/>
+<polyline points="1154,690 1166,690" fill="none" stroke="#216449" stroke-width="3"/>
+<polyline points="1160,250 1330,250 1330,350" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="1330" cy="350" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<circle cx="1330" cy="405" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<polyline points="1330,350 1352,388" fill="none" stroke="#1c2733" stroke-width="3"/>
+<text x="1360" y="371" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#1c2733">SW2</text>
+<polyline points="1330,405 1330,475 1160,475" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="1160" cy="475" r="5" stroke="#216449" fill="#216449" stroke-width="3"/>
+<text x="1227" y="518" font-family="Microsoft YaHei, sans-serif" font-size="20" fill="#1c2733">电阻下端</text>
+<polyline points="610,570 680,570 680,627" fill="none" stroke="#216449" stroke-width="4"/>
+<circle cx="680" cy="665" r="38" stroke="#1c2733" fill="white" stroke-width="3"/>
+<text x="665" y="675" font-family="Microsoft YaHei, sans-serif" font-size="32" fill="#1c2733">V</text>
+<polyline points="680,703 680,724" fill="none" stroke="#216449" stroke-width="4"/>
+<polyline points="680,724 680,736" fill="none" stroke="#216449" stroke-width="4"/>
+<polyline points="660,736 700,736" fill="none" stroke="#216449" stroke-width="3"/>
+<polyline points="667,745 693,745" fill="none" stroke="#216449" stroke-width="3"/>
+<polyline points="674,754 686,754" fill="none" stroke="#216449" stroke-width="3"/>
+<text x="732" y="644" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#1c2733">新增电压表</text>
+<text x="732" y="678" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#1c2733">检测期间约 1 V</text>
+<text x="732" y="714" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#1c2733">正常运行约 3 V</text>
+<rect x="1735" y="185" width="420" height="630" stroke="#1c2733" fill="white" stroke-width="3"/>
+<text x="1760" y="230" font-family="Microsoft YaHei, sans-serif" font-size="29" fill="#1c2733">U1  STM32F103C8</text>
+<polyline points="1680,300 1735,300" fill="none" stroke="#235c96" stroke-width="4"/>
+<text x="1758" y="308" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#235c96">PA0 / 10</text>
+<text x="1548" y="276" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#235c96">DIV_VB</text>
+<polyline points="1680,380 1735,380" fill="none" stroke="#235c96" stroke-width="4"/>
+<text x="1758" y="388" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#235c96">PA1 / 11</text>
+<text x="1548" y="356" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#235c96">DIV_VA</text>
+<polyline points="1680,490 1735,490" fill="none" stroke="#235c96" stroke-width="4"/>
+<text x="1758" y="498" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#235c96">PB12 / 25</text>
+<text x="1548" y="466" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#235c96">TEST_ENABLE</text>
+<polyline points="1680,575 1735,575" fill="none" stroke="#235c96" stroke-width="4"/>
+<text x="1758" y="583" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#235c96">PB13 / 26</text>
+<text x="1548" y="551" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#235c96">RUN_ENABLE</text>
+<polyline points="1680,680 1735,680" fill="none" stroke="#235c96" stroke-width="4"/>
+<text x="1758" y="688" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#235c96">PA4 / 14</text>
+<text x="1548" y="656" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#235c96">RETEST</text>
+<polyline points="1680,755 1735,755" fill="none" stroke="#235c96" stroke-width="4"/>
+<text x="1758" y="763" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#235c96">PA5 / 15</text>
+<text x="1548" y="731" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#235c96">STOP</text>
+<text x="1745" y="866" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#1c2733">VDD / VDDA / VBAT：3.3 V</text>
+<text x="1745" y="901" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#1c2733">VSS / VSSA：公共 GND</text>
+<text x="1745" y="940" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#1c2733">PA9 / 30 → 终端 RXD</text>
+<text x="1745" y="975" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#1c2733">终端：115200，8N1</text>
+<polyline points="60,860 1480,860" fill="none" stroke="#1c2733" stroke-width="2"/>
+<text x="60" y="914" font-family="Microsoft YaHei, sans-serif" font-size="29" fill="#1c2733">新增操作按钮与运行指示</text>
+<text x="75" y="973" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#235c96">PA4 / 14</text>
+<polyline points="170,986 170,1010" fill="none" stroke="#235c96" stroke-width="4"/>
+<circle cx="170" cy="1010" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<circle cx="170" cy="1065" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<polyline points="170,1010 192,1048" fill="none" stroke="#1c2733" stroke-width="3"/>
+<polyline points="170,1065 170,1112" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="170,1112 170,1124" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="150,1124 190,1124" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="157,1133 183,1133" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="164,1142 176,1142" fill="none" stroke="#235c96" stroke-width="3"/>
+<text x="75" y="1183" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#1c2733">SW_RETEST</text>
+<text x="440" y="973" font-family="Microsoft YaHei, sans-serif" font-size="25" fill="#235c96">PA5 / 15</text>
+<polyline points="535,986 535,1010" fill="none" stroke="#235c96" stroke-width="4"/>
+<circle cx="535" cy="1010" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<circle cx="535" cy="1065" r="5" stroke="#1c2733" fill="white" stroke-width="3"/>
+<polyline points="535,1010 557,1048" fill="none" stroke="#1c2733" stroke-width="3"/>
+<polyline points="535,1065 535,1112" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="535,1112 535,1124" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="515,1124 555,1124" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="522,1133 548,1133" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="529,1142 541,1142" fill="none" stroke="#235c96" stroke-width="3"/>
+<text x="440" y="1183" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#1c2733">SW_STOP</text>
+<text x="65" y="1233" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#1c2733">两只均用 SW-SPST-MOM；固件内部上拉，按下接地。</text>
+<polyline points="1010,947 1010,987" fill="none" stroke="#235c96" stroke-width="4"/>
+<text x="908" y="933" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#235c96">RUN_ENABLE / PB13</text>
+<rect x="996" y="987" width="28" height="90" stroke="#1c2733" fill="white" stroke-width="3"/>
+<text x="1050" y="1033" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#1c2733">1 kΩ</text>
+<polyline points="1010,1077 1010,1093" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="994,1095 1026,1095 1010,1125 994,1095" fill="none" stroke="#1c2733" stroke-width="3"/>
+<polyline points="993,1127 1027,1127" fill="none" stroke="#1c2733" stroke-width="3"/>
+<polyline points="1025,1100 1044,1084" fill="none" stroke="#1c2733" stroke-width="2"/>
+<polyline points="1035,1111 1054,1095" fill="none" stroke="#1c2733" stroke-width="2"/>
+<text x="1070" y="1114" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#1c2733">绿色 LED</text>
+<text x="1070" y="1147" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#1c2733">上端阳极，下端阴极</text>
+<polyline points="1010,1127 1010,1150" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="1010,1150 1010,1162" fill="none" stroke="#235c96" stroke-width="4"/>
+<polyline points="990,1162 1030,1162" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="997,1171 1023,1171" fill="none" stroke="#235c96" stroke-width="3"/>
+<polyline points="1004,1180 1016,1180" fill="none" stroke="#235c96" stroke-width="3"/>
+<text x="897" y="1232" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#1c2733">LED 显示控制电平；实际供电另看 EXC_IN 电压表。</text>
+<rect x="60" y="1270" width="2100" height="125" stroke="#1c2733" fill="#f3f5f7" stroke-width="1"/>
+<text x="80" y="1310" font-family="Microsoft YaHei, sans-serif" font-size="24" fill="#1c2733">全部接地符号属于同一个 GND：三路电源负端、MCU 地、C−、下拉、LED、按钮和仪表负端。</text>
+<text x="80" y="1346" font-family="Microsoft YaHei, sans-serif" font-size="23" fill="#1c2733">开关目标：RON=0.1 Ω，ROFF=1 TΩ，VON=2.4 V，VOFF=0.9 V；先用 0 V / 3.3 V 验证模型。</text>
+<text x="80" y="1382" font-family="Microsoft YaHei, sans-serif" font-size="22" fill="#1c2733">图示正常位置：SW1、SW4 闭合，SW2、SW5 断开；CSV 的 R2 短路：只闭合 SW2，SW4 仍闭合。</text>
+</svg>

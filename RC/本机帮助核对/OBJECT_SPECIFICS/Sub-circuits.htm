@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Sub-circuits</title>
+  
+  <meta name="rh-index-keywords" content="Sub-Circuits"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">SUB-CIRCUITS</h1>
+  <h3>Introduction</h3>
+  <p>Sub-circuits are used to attach lower level sheets to higher level sheets in a hierarchical design. Each sub-circuit has a name that identifies the child sheet, and a circuit name that identifies the child circuit. On any given sheet, all the sub-sheets should have different sheet names, but may - and often will - have the same circuit names.</p>
+  <p class="Reference">More information about hierarchical design is given in <a href="../MULTI_SHEET_DESIGNS/Hierarchical_Designs.htm">Hierarchical Designs</a>.</p>
+  <p>Sub-circuits can also have property lists, and this leads to the possibility of parameterized circuits in which different instances of a given circuit can have different part values (or other properties) as well as independent annotations.</p>
+  <p class="Reference">Further information about this powerful feature are given in <a href="../PROPERTIES/Parameterized_Circuits.htm">Parameterized Circuits</a>.</p>
+  <h3><a id="Placing:Sub-Circuits" data-indexterm="Placing:Sub-Circuits"></a><a id="Sub-Circuits:Placing_Sub-Circuits" data-indexterm="Sub-Circuits:Placing Sub-Circuits"></a><a id="Placing_Sub-Circuits"></a>Placing Sub-Circuits</h3>
+  <p class="ExampleTitle">To place a sub-circuit box:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select the Sub-circuit icon from the Mode Selector Toolbar.<br/>
+      <br/>
+      <img alt="" border="0" height="106" src="../assets/images/OBJECT_SPECIFICS/Subcircuit_icon.png" style="border: none;" width="51"/>
+    </li>
+    <li class="Numbers">Left click the mouse at the point in the editing window where you want to draw the sub-circuit outline.</li>
+    <li class="Numbers">Move the mouse to define the size of the sub-circuit and then left click the mouse again to commit the shape and place the sub-circuit.<br/>
+      <br/>
+      <img alt="" border="0" height="171" src="../assets/images/OBJECT_SPECIFICS/Subcircuit.png" style="border: none;" width="137"/>
+    </li>
+  </ol>
+  <p class="ExampleTitle">To place sub-circuit ports:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select the Sub-circuit icon from the Mode Selector Toolbar.<br/>
+      <br/>
+      <img alt="" border="0" height="106" src="../assets/images/OBJECT_SPECIFICS/Subcircuit_icon.png" style="border: none;" width="51"/>
+    </li>
+    <li class="Numbers">Choose the port type that you want from the Object Selector. Your choice here is dependant on the function of the port.<br/>
+      <br/>
+      <img alt="" border="0" height="149" src="../assets/images/OBJECT_SPECIFICS/Subcircuit_terminals.png" style="border: none;" width="160"/>
+    </li>
+    <li class="Numbers">Point where you want the port. This must be a point on the left or right edge of  the sub-circuit to which you want to attach the port. The mouse cursor will change to the hot placement cursor to indicate legal points where you can place a port.<br/>
+      <br/>
+      <img alt="" border="0" height="182" src="../assets/images/OBJECT_SPECIFICS/Placing_subcircuit_terminals.png" style="border: none;" width="223"/>
+    </li>
+    <li class="Numbers">Left click the mouse to place the port.<br/>
+      <br/>
+      <img alt="" border="0" height="172" src="../assets/images/OBJECT_SPECIFICS/Subcircuit_terminal_placed.png" style="border: none;" width="192"/>
+    </li>
+  </ol>
+  <p>Having placed a port or ports, you must annotate them. Hierarchical design works by connecting the ports on the parent object with like named logical terminals on the child sheet. It follows that both the ports and the terminals must be given unique names. This can be achieved in a variety of ways:</p>
+  <ul type="disc">
+    <li>Edit the terminal label using any of the methods described in Editing an Object.</li>
+    <li>Use the Property Assignment Tool to assign the NET property of one or more ports. This is especially effective if a group of ports have names which run in an alphanumeric sequence.</li>
+  </ul>
+  <p>It is quite legal to connect buses to ports. In this case, the name for the port should generally define the range for the bus, as in D[0..7], although this is not mandatory. If no range is given, Proteus will use the range given for the bus section that connects to the port, or if that has no name or range then the width will be taken from whatever bus pins connect to the bus.</p>
+  <p class="Warning">Placing a port without annotating it will be reported as a netlist error since such an object has no meaning and cannot be tied up with anything on the child sheet.</p>
+  <p class="Reference">Information on naming sub-circuits and their general usage can be found in Hierarchical Designs.</p>
+  <h3><a id="Editing:Sub-circuits" data-indexterm="Editing:Sub-circuits"></a><a id="Sub-Circuits:Editing_Sub-circuits" data-indexterm="Sub-Circuits:Editing Sub-circuits"></a><a id="Editing_Sub-Circuits"></a>Editing Sub-Circuits</h3>
+  <p>A sub-circuit may be resized using the general procedure described in <a href="../GENERAL_CONCEPTS/General_Editing_Facilities.htm#Resizing_an_Object">Resizing an Object</a> and edited using any of the general editing techniques described in <a href="../GENERAL_CONCEPTS/General_Editing_Facilities.htm#Editing_an_Object">Editing an Object</a>.</p>
+  <p class="Reference">See  <a href="../PROPERTIES/Parameterized_Circuits.htm">Parameterized Circuits</a> for further information on parameterized circuits.</p>
+  <h3><a id="Properties:Sub-circuit_Properties" data-indexterm="Properties:Sub-circuit Properties"></a><a id="Sub-Circuits:Sub-circuit_properties" data-indexterm="Sub-Circuits:Sub-circuit properties"></a><a id="Sub-Circuit_Properties"></a>Sub-Circuit Properties</h3>
+  <p>Sub-circuits have the following system properties:</p>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 18.278%;"/>
+      <col style="width: 81.722%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Property Name</td>
+        <td>Description</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">NAME</span></p>
+        </td>
+        <td>The sub-circuit instance name. This is also used as the name for the child sheet.</td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">CIRCUIT</span></p>
+        </td>
+        <td>The name of the child circuit. If you do not assign this, Proteus will choose an automatic name when you first enter the child sheet.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>If any other property names are assigned, then these will create user properties in the sub-circuit&#39;s text block. Such properties then become sheet properties for the child sheet and may be used in property expressions.</p>
+  <p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

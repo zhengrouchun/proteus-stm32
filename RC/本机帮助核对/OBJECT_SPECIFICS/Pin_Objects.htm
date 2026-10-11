@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Pin Objects</title>
+  
+  <meta name="rh-index-keywords" content="Pin Objects"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">PIN OBJECTS</h1>
+  <h3>Introduction</h3>
+  <p>A full description of how to create and edit your own devices is given in Library Facilities. Here, we just discuss the placement and editing of pin objects. These are used to represent each drawn pin of a device element and consist of some graphics (often just a single line) plus the capacity to carry and display a pin name and a pin number.</p>
+  <p>Note that you cannot wire off a pin object - you can only connect to pins that belong to fully constituted components that have been placed in the usual way</p>
+  <h3><a id="Placing:Pin_Objects" data-indexterm="Placing:Pin Objects"></a><a id="Placing_Pin_Objects"></a>Placing Pin Objects</h3>
+  <p>An unlimited number of pin object types may be defined, and a good selection are provided in SYSTEM.LIB. However, when you first select the Device Pin icon, a basic set of 6 types are automatically pre-loaded into the Object Selector and these will suffice for most purposes.</p>
+  <p class="ExampleTitle">To place a pin:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">If the pin type you want is not listed in the Object Selector, first pick it from the symbol library.<br/>
+      <br/>
+      <img alt="" border="0" height="151" src="../assets/images/OBJECT_SPECIFICS/Pin_icon.png" style="border: none;" width="168"/>
+    </li>
+    <li class="Numbers">Highlight the pin type name in the Object Selector. Proteus will show a preview of the pin in the Overview Window.<br/>
+      <br/>
+      <img alt="" border="0" height="251" src="../assets/images/OBJECT_SPECIFICS/Pins.png" style="border: none;" width="160"/>
+    </li>
+    <li class="Numbers">Use the Rotation and Mirror icons to orient the pin according to how you want to place it.<br/>
+      <br/>
+      <img alt="" border="0" height="145" src="../assets/images/OBJECT_SPECIFICS/Rotation_icons.png" style="border: none;" width="39"/>
+    </li>
+    <li class="Numbers">Left click the mouse on the Editing Window to enter placement mode.</li>
+    <li class="Numbers">Move the mouse to the position where you want to place the pin object (a &#39;shadow&#39; pin will follow the mouse in this mode).<br/>
+      <br/>
+      <img alt="" border="0" height="68" src="../assets/images/OBJECT_SPECIFICS/Placing_pin.png" style="border: none;" width="86"/>
+    </li>
+    <li class="Numbers">Left click the mouse again to commit the pin at that position and exit placement mode.<br/>
+      <br/>
+      <img alt="" border="0" height="69" src="../assets/images/OBJECT_SPECIFICS/Pin_placed.png" style="border: none;" width="85"/>
+    </li>
+  </ol>
+  <p>Having placed a pin, you will generally want to modify it to give it a pin name, number and electrical type. There are a variety of possibilities:</p>
+  <ul type="disc">
+    <li>Edit the terminal label using any of the methods described in Editing an Object.</li>
+    <li>Use the Property Assignment Tool to assign the NAME, NUMBER and TYPE property of one or more pins This is especially effective if a group of ports have names which run in an alphanumeric sequence.</li>
+  </ul>
+  <p>If a pin represents a data or address bus, you may want to use a bus pin In this case, pin numbers can only be specified using the Visual Packaging Tool. Equally, if the device has multiple elements, (e.g. a 7400) you must again specify pin numbers for each element using the packaging tool. In either of these cases, you should leave the pin numbers of the pins blank.</p>
+  <p class="Reference">Please see the section on the <a href="../LIBRARY_FACILITIES/Device_Libraries.htm#The_Visual_Packaging_Tool">Visual Packaging Tool</a> for more information about packaging considerations.</p>
+  <h3><a id="Editing:Pin_Objects" data-indexterm="Editing:Pin Objects"></a><a id="Editing_Pin_Objects"></a>Editing Pin Objects</h3>
+  <p>A pin may be edited using any of the general editing techniques (see <a href="../GENERAL_CONCEPTS/General_Editing_Facilities.htm#Editing_an_Object">Editing an Object</a>). In addition, since pins often appear in groups, the Property Assignment Tool can be put to good use for defining pin names, numbers and electrical types.</p>
+  <h3><a id="Properties:Pin_Object_Properties" data-indexterm="Properties:Pin Object Properties"></a><a id="Pin_Object_Properties"></a>Pin Object Properties</h3>
+  <p>Pin objects have the following system properties:</p>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 23.854%;"/>
+      <col style="width: 76.146%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Property Name</td>
+        <td>Description</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">NAME</span></p>
+        </td>
+        <td>The pin name.</td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">NUM</span></p>
+        </td>
+        <td>The pin number.</td>
+      </tr>
+      <tr class="t2Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">SYMBOL</span></p>
+        </td>
+        <td>The symbol used for the pin. This can be one of the standard pin symbols, or else the name of a user defined pin symbol.</td>
+      </tr>
+      <tr class="t1Row">
+        <td>
+          <p align="center"><span style="font-family: &#39;Courier New&#39;, monospace;">TYPE</span></p>
+        </td>
+        <td>The electrical type of the terminal. This can be any of PASSIVE, INPUT, OUTPUT, BIDIR, TRISTATE, PULLUP, PULLDOWN, NC or POWER.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Power Rail Configuration</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Power Rail Configuration</h1>
+<h3>Overview</h3>
+<p>This dialogue form allows you to configure power connections and to 
+ connect supplies to rails. If you prefer you can do the same thing by 
+ wiring power terminals together on the schematic (e.g. VCC &amp; +5V) 
+ - all such connections will be honoured by this configuration tool.</p>
+<h3>Options</h3>
+<h4>Power Supplies</h4>
+<p>This groupbox contains a series of controls (each with it’s own context 
+ sensitive help) which allow you to configure the characteristics of all 
+ the power supplies on the schematic.</p>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Name</span> - Displays a list 
+	 of existing power supplies for the current design. This list is populated 
+	 both from the default set of power supplies (preconfigured and shipped 
+	 with the software) , with any explicitly defined power supplied on 
+	 the schematic and with any power supplies you have added via this 
+	 dialogue form. For each power supply a list of power nets connected 
+	 to the rail is displayed towards the bottom right of the dialogue.</li>
+	<li><span style="font-weight: bold;">New</span> - Specify a new power 
+	 supply. This allows you to create a power supply which you can then 
+	 configure via the other options on the dialogue form.</li>
+	<li><span style="font-weight: bold;">Rename</span> - Rename an existing 
+	 power supply. This allows you to rename the currently selected  power 
+	 supply. Note that if the power supply has been explicitly specified 
+	 on the schematic (e.g. a power terminal annotated +12V) this field 
+	 will be disabled.</li>
+	<li><span style="font-weight: bold;">Delete</span> - Delete the currently 
+	 selected power supply. Note that you cannot delete a power supply 
+	 via this dialogue form where the power supply has been explicitly 
+	 specified on the schematic.</li>
+	<li><span style="font-weight: bold;">Voltage</span> - Set the voltage 
+	 for the currently selected power supply. Note that power supplies 
+	 which have been explicitly specified on the schematic (e.g. a power 
+	 terminal annotated +12V) cannot have their voltage altered via this 
+	 dialogue – this field will be disabled for such supplies.</li>
+	<li><span style="font-weight: bold;">Class</span> - Set the strategy 
+	 for the currently selected power supply. By default all supplies will 
+	 be assigned the POWER strategy but, should a rail require particular 
+	 consideration you can specify a custom strategy name here and configure 
+	 design rules etc. for the strategy in ARES. Note that where a strategy 
+	 has been specified explicitly on the schematic (e.g. a wire label 
+	 annotated STRAT=FRED) you cannot change the strategy via this dialogue 
+	 form.</li>
+</ul>
+<h4>Unconnected power nets</h4>
+<p>This listbox contains all the power nets currently on the schematic 
+ which have not been bound to a power rail. You can assign a net to a power 
+ supply by selecting the desired supply from the combo box above (or creating 
+ a new supply via the New button), left clicking on the net name within 
+ this listbox to highlight the net, and then clicking the mouse on the 
+ Add button to assign the net to the power supply.</p>
+<h4>Nets connected to GND</h4>
+<p>This listbox contains all power nets assigned to the power supply currently 
+ selected via the combo box at the top of the dialogue form. You can add 
+ unassigned power nets or remove existing power nets via the Add/Remove 
+ buttons to the left of the listbox.</p>
+<h4>Add</h4>
+<p>Use this button to assign a highlighted (unconnected) power net to the 
+ currently selected power supply. In the case where two (or more) power 
+ nets have been wired together on the schematic, assigning one net to a 
+ power supply will assign all the conjoined nets as well.</p>
+<h4>Remove</h4>
+<p>Use this button to remove a highlighted (assigned) power net from  the 
+ currently selected power supply. In the case where two (or more) power 
+ nets have been wired together on the schematic, removing one net from 
+ a power supply will remove all the conjoined nets as well.</p>
+<h4>Use default power rail connections</h4>
+<p>When checked the default power supplies will be applied to the current 
+ design. Note that at the point of activation this will supersede any manual 
+ edits that have been made to power supplies with the same names as those 
+ in the default set. We recommend that you leave this option enabled unless 
+ you specifically require customisation of the default power supplies.</p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

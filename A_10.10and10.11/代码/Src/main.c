@@ -17,7 +17,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include "main.h" /* 引入 HAL、芯片定义和 Error_Handler 声明。 */
+#include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -60,19 +60,19 @@ typedef struct /* 保存一次检测结果，初始化时所有有效标志为�
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-ADC_HandleTypeDef hadc1; /* 保存 ADC1 的 HAL 配置及状态。 */
+ADC_HandleTypeDef hadc1;
 
-UART_HandleTypeDef huart1; /* 保存 USART1 的 HAL 配置及状态。 */
+UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
-void SystemClock_Config(void); /* 声明系统时钟配置函数。 */
-static void MX_GPIO_Init(void); /* 声明 GPIO 初始化函数。 */
-static void MX_ADC1_Init(void); /* 声明 ADC1 初始化函数。 */
-static void MX_USART1_UART_Init(void); /* 声明 USART1 初始化函数。 */
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_ADC1_Init(void);
+static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 static const char *ReadAdcChannel(uint32_t channel, uint32_t *raw, uint32_t *conversions); /* 声明真实采样函数。 */
 static void SendReport(const DivMeasurement *result); /* 声明报告函数。 */
@@ -207,23 +207,23 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init(); /* 复位 HAL 并建立 1 ms 的 SysTick 时间基准。 */
+  HAL_Init();
 
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
 
   /* Configure the system clock */
-  SystemClock_Config(); /* 应用原工程的内部 HSI 8 MHz 时钟方案。 */
+  SystemClock_Config();
 
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
-  MX_GPIO_Init(); /* 打开 GPIOA 时钟。 */
-  MX_ADC1_Init(); /* 初始化 ADC1 单次软件转换，MSP 同时设置 PA0 和 PA1 为模拟输入。 */
-  MX_USART1_UART_Init(); /* 初始化 USART1 与 PA9、PA10 引脚。 */
+  MX_GPIO_Init();
+  MX_ADC1_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 const char startup[] = "BOOT=DIV_20261011 MODE=TWO_NODES VREF_MV=3300 ADC_BITS=12 BAUD=115200 RUN_POWER=NOT_IMPLEMENTED\r\n"; /* 自报固件版本和换算假设。 */
   const char calibration_error[] = "STATE=UNKNOWN ERROR=ADC_CALIBRATION_FAILED RUN_POWER=NOT_IMPLEMENTED\r\n"; /* 校准失败时明确说明原因。 */
@@ -237,7 +237,7 @@ const char startup[] = "BOOT=DIV_20261011 MODE=TWO_NODES VREF_MV=3300 ADC_BITS=1
     Error_Handler(); /* 校准失败不得继续采样判别。 */
   }
 
-/* USER CODE END 2 */
+  /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -250,7 +250,7 @@ RunDivDetection(); /* 两点采样、判别、计数、计时并发送本轮结�
     HAL_Delay(REPORT_PERIOD_MILLISECONDS); /* 给终端留出观察时间，不计入本轮检测耗时。 */
   }
 
-/* USER CODE END 3 */
+  /* USER CODE END 3 */
 }
 
 /**
@@ -259,40 +259,40 @@ RunDivDetection(); /* 两点采样、判别、计数、计时并发送本轮结�
   */
 void SystemClock_Config(void)
 {
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0}; /* 将振荡器配置字段全部清零。 */
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0}; /* 将总线时钟配置字段全部清零。 */
-  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0}; /* 将 ADC 外设时钟配置字段全部清零。 */
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI; /* 选择片内 HSI 振荡器。 */
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON; /* 开启 8 MHz HSI。 */
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT; /* 保留 HSI 默认校准值。 */
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE; /* 保持原工程不使用 PLL 的配置。 */
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) /* 应用振荡器设置并检查失败。 */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
-    Error_Handler(); /* 初始化失败时停止，不继续发送可能错误的读数。 */
+    Error_Handler();
   }
 
   /** Initializes the CPU, AHB and APB buses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2; /* 连同上一行选择 SYSCLK、HCLK、PCLK1 和 PCLK2。 */
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI; /* 系统时钟选 HSI 8 MHz。 */
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1; /* AHB 不分频，HCLK 为 8 MHz。 */
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1; /* APB1 不分频，为 8 MHz。 */
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1; /* APB2 不分频，为 8 MHz。 */
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK) /* 应用总线频率；8 MHz 使用零个 Flash 等待周期。 */
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
   {
-    Error_Handler(); /* 初始化失败时停止，不继续发送可能错误的读数。 */
+    Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC; /* 选择要配置的 ADC 外设时钟。 */
-  PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV2; /* 8 MHz 除以二，ADC 工作在 4 MHz。 */
-  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK) /* 应用 ADC 时钟并检查失败。 */
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
+  PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV2;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
-    Error_Handler(); /* 初始化失败时停止，不继续发送可能错误的读数。 */
+    Error_Handler();
   }
 }
 
@@ -308,7 +308,7 @@ static void MX_ADC1_Init(void)
 
   /* USER CODE END ADC1_Init 0 */
 
-  ADC_ChannelConfTypeDef sConfig = {0}; /* 准备初始通道配置，各字段先清零。 */
+  ADC_ChannelConfTypeDef sConfig = {0};
 
   /* USER CODE BEGIN ADC1_Init 1 */
 
@@ -316,26 +316,26 @@ static void MX_ADC1_Init(void)
 
   /** Common config
   */
-  hadc1.Instance = ADC1; /* 选择芯片 ADC1 外设。 */
-  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE; /* 关闭多通道自动扫描，由应用逐次切换通道。 */
-  hadc1.Init.ContinuousConvMode = DISABLE; /* 关闭连续转换，每次 Start 仅转换一次。 */
-  hadc1.Init.DiscontinuousConvMode = DISABLE; /* 关闭间断扫描模式。 */
-  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START; /* 由软件启动，不使用外部触发器。 */
-  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT; /* 原码右对齐，直接得到 0 至 4095。 */
-  hadc1.Init.NbrOfConversion = 1; /* 常规序列长度设为一。 */
-  if (HAL_ADC_Init(&hadc1) != HAL_OK) /* 应用 ADC 配置并检查失败。 */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.NbrOfConversion = 1;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
   {
-    Error_Handler(); /* 初始化失败时停止，不继续发送可能错误的读数。 */
+    Error_Handler();
   }
 
   /** Configure Regular Channel
   */
-  sConfig.Channel = ADC_CHANNEL_0; /* 启动后的默认输入为 PA0 的 VB。 */
-  sConfig.Rank = ADC_REGULAR_RANK_1; /* 通道位于常规序列第一位。 */
-  sConfig.SamplingTime = ADC_SAMPLETIME_239CYCLES_5; /* 初始采样时间同样为 239.5 周期。 */
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK) /* 应用初始通道配置并检查失败。 */
+  sConfig.Channel = ADC_CHANNEL_0;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_239CYCLES_5;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
-    Error_Handler(); /* 初始化失败时停止，不继续发送可能错误的读数。 */
+    Error_Handler();
   }
   /* USER CODE BEGIN ADC1_Init 2 */
 
@@ -358,17 +358,17 @@ static void MX_USART1_UART_Init(void)
   /* USER CODE BEGIN USART1_Init 1 */
 
   /* USER CODE END USART1_Init 1 */
-  huart1.Instance = USART1; /* 选择 USART1 外设。 */
-  huart1.Init.BaudRate = 115200; /* 与终端统一为 115200 波特。 */
-  huart1.Init.WordLength = UART_WORDLENGTH_8B; /* 每帧包含八个数据位。 */
-  huart1.Init.StopBits = UART_STOPBITS_1; /* 每帧使用一个停止位。 */
-  huart1.Init.Parity = UART_PARITY_NONE; /* 不使用奇偶校验。 */
-  huart1.Init.Mode = UART_MODE_TX_RX; /* 保留原工程收发模式，本应用只发送。 */
-  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE; /* 不使用 CTS 或 RTS 流控。 */
-  huart1.Init.OverSampling = UART_OVERSAMPLING_16; /* 使用十六倍串口过采样。 */
-  if (HAL_UART_Init(&huart1) != HAL_OK) /* 应用串口和 MSP 引脚配置并检查失败。 */
+  huart1.Instance = USART1;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
   {
-    Error_Handler(); /* 初始化失败时停止，不继续发送可能错误的读数。 */
+    Error_Handler();
   }
   /* USER CODE BEGIN USART1_Init 2 */
 
@@ -383,12 +383,24 @@ static void MX_USART1_UART_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
   /* USER CODE BEGIN MX_GPIO_Init_1 */
 
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOA_CLK_ENABLE(); /* 使能 GPIOA 时钟以便配置 PA 引脚。 */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+
+  /*Configure GPIO pin : PC13 */
+  GPIO_InitStruct.Pin = GPIO_PIN_13;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
 

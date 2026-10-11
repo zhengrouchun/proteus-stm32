@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+ <meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Set Graphics Styles</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+<body>
+<div>
+<h1>Set Graphics Styles</h1>
+<h3>Overview</h3>
+<p>This dialogue is the main configuration tool for the appearance of the objects on the schematic. Select the object type you wish to edit and then set the attributes as desired. When you are finished you need to use the Save as Template command on the File Menu if you wish to persist the settings for future designs (all new designs are derived from a template).</p>
+<h3>Options</h3>
+<h4>Style</h4>
+<p>Specify the name of the current global style being edited. When a new style is selected, the previous style is automatically updated with any changes made to its attributes.</p>
+<ul type="disc">
+<li><span style="font-weight: bold;">New</span> - Click to create a new global style. The new style is initialised with settings taken from the controls on the dialogue form when it is created so the new button also effects a ‘copy’ operation. Note that you cannot create a new style with the same name as an existing style.</li>
+<li><span style="font-weight: bold;">Rename</span> - Click to rename the current global style. You cannot rename any of the predefined (system) styles – when one of these styles is selected the Rename button is disabled. You cannot rename a style to the same name as an existing style.</li>
+<li><span style="font-weight: bold;">Delete</span> - Click to delete the currently selected global style. You cannot delete any of the predefined (system) styles - when one of these styles is selected the Delete button is disabled. Selecting this button causes a confirmation to be displayed after which the style is deleted. A deleted style cannot be recovered using the Undo button. Once a style is deleted, any local styles in the design using the style as their parent style are updated to use the most appropriate system style as their parent.</li>
+<li><span style="font-weight: bold;">Undo</span> - Click to undo any edits to the currently selected Global Style. Note that  Rename and Delete operations cannot be undone using this button.</li>
+<li><span style="font-weight: bold;">Import</span> - Click to import a global graphics style.</li>
+<li><span style="font-weight: bold;">Close</span> - Click to close the dialogue form and commits any changes made to the currently selected style.</li>
+</ul>
+<h4>Line Attributes</h4>
+<ul type="disc">
+<li><span style="font-weight: bold;">Line Style</span> - Specify the line style used for drawing lines, arcs and the outside boundaries of boxes, circles, paths, etc. The (none) option allows you to draw filled graphics with no bounding lines.</li>
+<li><span style="font-weight: bold;">Width</span> - Specify the line thickness for solid line styles. A width cannot be specified for dot/dash style lines as these can only be drawn with a single pixel width. You can specify a value of zero which forces ISIS to draw the line as a single device pixel regardless of any device resolution and/or scaling applicable at the time the line is drawn.</li>
+<li><span style="font-weight: bold;">Colour</span> - Specify the line colour.</li>
+</ul>
+<h4>Fill Attributes</h4>
+<ul type="disc">
+<li><span style="font-weight: bold;">Fill Style</span> - Specify the type of fill to be applied to any closed area within the graphic object. The None option indicates the object is not to be filled (i.e. it is transparent), the Solid fill indicates the object is to be completely filled whilst the other fill styles indicate the object is to be given a hatched fill.</li>
+<li><span style="font-weight: bold;">FG Colour</span> - Specify an FG Colour.This option is only applicable for a solid or hatch fill; where no fill is specified this control is disabled. The foreground colour is the colour used for the solid fill or for the hatch lines in a hatched fill.</li>
+<li><span style="font-weight: bold;">Use Bk. Colour?</span> - This option is only applicable for a hatched fill; where none or a solid fill is specified this control is disabled. Deselecting this checkbox indicates that the &#39;gaps&#39; between the lines of a hatched fill are to be transparent. Selecting this checkbox indicates that the &#39;gaps&#39; are to be (solid) filled in a additional, background colour.</li>
+<li><span style="font-weight: bold;">Bk. Colour</span> - Specify a background colour. This option is only applicable for a hatched fill and where the Use Bk. Colour? Checkbox is selected (checked). Where none or a solid fill is specified this control is disabled, or where a hatched fill is specified and the Use Bk. Colour? checkbox  is not selected (unchecked) this control is disabled. The background colour is the colour used to fill in between the lines of a hatched fill.</li>
+</ul>
+<h4>Sample</h4>
+<p>The sample window shows a (scaled) 1&quot; x 1&quot; box drawn in the current line and fill attributes.</p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

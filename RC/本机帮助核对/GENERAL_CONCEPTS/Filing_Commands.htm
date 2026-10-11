@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Filing Commands</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">FILING COMMANDS</h1>
+  <h3>Introduction</h3>
+  <p>The Proteus schematic module makes use of the following file types:</p>
+  <ul type="disc">
+    <li>Project Files (.PDSPRJ)</li>
+    <li>Workspace Files (.WORKSPACE)</li>
+    <li>Project Clips (.PDSCLP)</li>
+    <li>Module Files (.MOD)</li>
+    <li>Library Files (.LIB)</li>
+  </ul>
+  <p>All data from the schematic is collated and stored as part of the main Proteus project file with extension &#39;PDSPRJ&#39;. This is a compound file containing the schematic data, the layout data, the project database and potentially other simulation related files. Backup copies made when saving over an existing file are prefixed with &#39;Backup of...&#39;.</p>
+  <p>Information about which modules are open in Proteus (e.g. Schematic, Bill of Materials and Layout) together with their positions on your monitor(s) and which frames they are in are stored in the project workspace file. This allows you to return to the same project state when you reload a project.</p>
+  <p>A section of a drawing can be exported to a section file and subsequently read into another drawing. Section files have the extension &#39;SEC&#39;. and are read and written by the Import and Export commands on the File menu.</p>
+  <p>Module files have the extension &#39;MOD&#39; and are used in conjunction with the other features for hierarchical design. See hierarchical designs for further information.</p>
+  <p>Symbol and device libraries have the extension &#39;LIB&#39;.</p>
+  <p>The Proteus VSM simulation system uses other file types as well. See the VSM manual for further details.</p>
+  <h3><a id="New_Project_(Starting)" data-indexterm="New Project (Starting)"></a><a id="Starting_a_New_Project1" data-indexterm="Starting a New Project"></a><a id="New_Project_Wizard" data-indexterm="New Project Wizard"></a><a id="Starting_a_New_Project"></a>Starting a New Project</h3>
+  <p>To start a new design you need to create a new Proteus project. You do this by invoking the New Project Wizard either from the home page or from the file menu. This wizard guides you through the setup of your next Proteus project. There is a start page in which you specify the project name and destination directory and then potentially three main screens for schematic, PCB and firmware.</p>
+  <h4>Schematic</h4>
+  <p>When creating a schematic check the box at the top of the screen and then select the template on which you want to base the schematic. Those provided by Labcenter basically contain different sizes of work area, although you can customize and save your own templates from within the schematic capture module.</p>
+  <p><img alt="" border="0" height="198" src="../assets/images/GENERAL_CONCEPTS/Isis_template.png" style="border: none;" width="318"/></p>
+  <h4>PCB Layout</h4>
+  <p>If you are creating a PCB check the box at the top of the screen and select from the available templates. PCB templates contain pre-defined board edges, mounting holes and a full set of technology data (design rules, layers in use, default units, etc.) As with schematic, you can customize and save your own templates from within the PCB layout module.</p>
+  <p><img alt="" border="0" height="198" src="../assets/images/GENERAL_CONCEPTS/Ares_template.png" style="border: none;" width="282"/></p>
+  <p class="Tip">This screen will only be presented to you if you have a license for one of the Proteus PCB design products.</p>
+  <h4>Firmware</h4>
+  <p>If you are creating an embedded design and want to simulate your firmware, check the create firmware box at the top of the screen and then select your controller and compiler using the combo boxes. If selected, the quick start files checkbox will generate a skeleton firmware project for you and configure project settings for compilation.</p>
+  <p><img alt="" border="0" height="203" src="../assets/images/GENERAL_CONCEPTS/Adding_firmware.png" style="border: none;" width="274"/></p>
+  <p>Creating a firmware project requires a schematic in order to simulate so you cannot proceed from this screen if you opted not to create a schematic earlier in the wizard.</p>
+  <p class="Tip">The combo boxes on this screen are license aware so you cannot create a firmware project for a controller than you cannot simulate in Proteus.</p>
+  <p>There is also a summary page at the end allowing you to review your setup before the wizard exits and generates the project files.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="ISISTUT.chm::/Tutorial/Introduction.htm#Creating_a_New_Project">Creating a New Project (Tutorial)</a></p>
+  <h3><a id="Loading_an_Existing_Project1" data-indexterm="Loading an Existing Project"></a><a id="Opening_an_Existing_Project" data-indexterm="Opening an Existing Project"></a><a id="Loading_an_Existing_Project"></a>Loading an Existing Project</h3>
+  <p>Loading an existing project can be done in three ways:</p>
+  <ul type="disc">
+    <li>From the command prompt as in: <span style="font-family: &#39;Courier New&#39;, monospace;">PDS.EXE &lt;my_project&gt;</span></li>
+    <li>By using the Open Project command once Proteus is running.</li>
+    <li>By double clicking the file in Windows Explorer.</li>
+  </ul>
+  <h3><a id="Importing_a_Legacy_Design" data-indexterm="Importing a Legacy Design"></a><a id="DSN_file_Importing" data-indexterm="DSN file Importing"></a><a id="Legacy_Design_Import" data-indexterm="Legacy Design Import"></a><a id="Importing_a_Legacy_Project"></a>Importing a Legacy Project</h3>
+  <p>Older versions of Proteus (prior to Proteus 8) typically contained several files such as a DSN file for schematic and a LYT file for layout. The Import Wizard on the home page and File Menu is used to bring these projects into Proteus.</p>
+  <p class="ExampleTitle">To import a legacy project</p>
+  <p>Launch the import wizard.</p>
+  <p><img alt="" border="0" height="88" src="../assets/images/GENERAL_CONCEPTS/Import_legacy_design.png" style="border: none;" width="457"/></p>
+  <p>Browse for the old schematic (.dsn file)</p>
+  <p><img alt="" border="0" height="136" src="../assets/images/GENERAL_CONCEPTS/Browse_schematic.png" style="border: none;" width="513"/></p>
+  <p>If a PCB file (.lyt file) is associated with the schematic it will automatically appear in the Layout field. If there is no layout file associated with the schematic then leave this field blank.</p>
+  <p><img alt="" border="0" height="136" src="../assets/images/GENERAL_CONCEPTS/Browse_pcb.png" style="border: none;" width="513"/></p>
+  <p>If an old VSMStudio file (.vsmp) with the same name as the schematic exists in the same directory it will automatically appear in the VSM Studio edit box. If the wrong VSMP file appears or there is no corresponding VSMP file then either browse for the file or leave blank.</p>
+  <p><img alt="" border="0" height="136" src="../assets/images/GENERAL_CONCEPTS/Browse_vsm.png" style="border: none;" width="513"/></p>
+  <p>The project name and path are taken from the filestem and location of the schematic being imported. You can change this if required from the fields at the bottom of the dialogue box.</p>
+  <p><img alt="" border="0" height="165" src="../assets/images/GENERAL_CONCEPTS/Project_stem.png" style="border: none;" width="205"/></p>
+  <p class="Warning">If you change the path for a VSM project then you will need to manually change the PROGRAM property of the microcontroller, otherwise your simulation will fail.</p>
+  <p>When you are finished use the import button to create an import a Proteus 8 project.</p>
+  <h3><a id="Saving_a_Project" data-indexterm="Saving a Project"></a><a id="Saving_the_Project"></a>Saving the Project</h3>
+  <p>You can save your Project when quitting via the Exit command, or at any other time, using the Save Project command. In both cases it is saved to the same file from which it was loaded. The old version will be prefixed with the text ‘Backup of’.</p>
+  <p>The Save As command allows you to save the Project to a different file.</p>
+  <h3><a id="Import___Export_Section"></a>Import / Export Section</h3>
+  <p>The Export command creates a section file out of all currently tagged objects. This file can then be read into another sheet using the Import command. After you have chosen the section file, operation is identical to the Block Copy function.</p>
+  <p>These commands have nothing to do with graphics export to DTP packages. The Export Graphics commands handle this functionality</p>
+  <h3><a id="Quitting_Proteus"></a>Quitting Proteus</h3>
+  <p>When you wish to end a Proteus session, you should use the Exit command, default key &#39;Q&#39; or use the cross at the top right of the application. If you have modified the project, you will be prompted as to whether you wish to save it.</p>
+
+</div>
+<p> </p>
+
+</body></html>

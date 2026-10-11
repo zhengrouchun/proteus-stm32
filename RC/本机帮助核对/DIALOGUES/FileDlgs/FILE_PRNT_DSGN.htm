@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Print Design</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+
+<body>
+<div>
+<h1>Print Design</h1>
+<h3>Overview</h3>
+<p>This dialogue allows you to configure the scale and range of the schematic 
+ for printing.</p>
+<h3>Options</h3>
+<h4>Printer &amp; Output Device</h4>
+<p>This allows you to specify and configure the printer output device for 
+ the current print job. Note that selecting a different print device here 
+ will not change the default printer for ISIS. You can specify the default 
+ printer for use with ISIS via the Printer Setup option on the File Menu.</p>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Printer</span> - Use this button 
+	 to configure the printer device for the current print job.</li>
+	<li><span style="font-weight: bold;">Filename</span> - Click to specify 
+	 a path and filename for the file to be exported.</li>
+</ul>
+<h4>Options</h4>
+<p>Use these options to specify colour output or to use the Labcenter Plotter 
+ Driver. Note that the plotter driver button is only enabled if you have 
+ specified a plotter device (via the printer button on the left).</p>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Print in Colour?</span> - Check 
+	 this box to specify colour output. Note that some printers do not 
+	 support this mode.</li>
+	<li><span style="font-weight: bold;">Labcenter Plotter Driver?</span> 
+	 - If this option is checked then ISIS only relies on the plotter driver’s 
+	 ability to draw a line on the plotter with ISIS linearising arcs, 
+	 circles, etc. and rendering text in a vector font. If this option 
+	 is not checked then ISIS treats the plotter driver just like any other 
+	 driver and expects it to sensibly handle all Windows GDI calls. This 
+	 option is only enabled when a plotter is selected as the output device.</li>
+</ul>
+<h4>What to Print</h4>
+<p>The options in this groupbox allow you to configure which areas of the 
+ design you wish to print. Note that the print preview is disabled when 
+ printing all sheets.</p>
+<ul type="disc">
+	<li><span style="font-weight: bold;">Marked Area</span> - Export the 
+	 marked area as set by the Set Area command on the File Menu. This 
+	 option is only enabled where there a marked area and there is no maximised 
+	 graph.</li>
+	<li><span style="font-weight: bold;">Current Graph</span> - Export 
+	 the currently maximised graph. This option is only enabled where a 
+	 graph has been maximised. To maximise a graph either select the graph 
+	 title from the bottom of the Graph menu or click left once on the 
+	 graph&#39;s title bar.</li>
+	<li><span style="font-weight: bold;">Current Sheet</span> - Export 
+	 the currently displayed sheet. This option is only enabled where there 
+	 is no maximised graph.</li>
+	<li><span style="font-weight: bold;">All Sheets</span> - Export all 
+	 sheets, including root sheets and hierarchical sub-sheets. This option 
+	 is only enabled where there is no maximised graph. Note that no print 
+	 preview is available with this option and the sheets will position 
+	 with origin at the centre of the printable area. For more control 
+	 over sheet position select the ‘Current sheet’ option and print for 
+	 every sheet individually.</li>
+</ul>
+<h4>Copies</h4>
+<p>Specify the number of copies you want for the current print job. Note 
+ that if your printer does not support multiple copies this field will 
+ be disabled.</p>
+<h4>Scale</h4>
+<p>These options allow you to specify the appropriate scaling factor for 
+ your output area. The print preview will display the output area at the 
+ current scaling. Note that the Scale to Fit option will, by default, only 
+ shrink a large design down to fit the paper size. To enlarge a small design 
+ to fit you must first uncheck the Only Shrink to Fit option.</p>
+<p><span style="font-weight: bold;">Only Shrink to Fit?</span> - This checkbox 
+ is only enabled when the ‘Scale to Fit’ option is selected. When checked 
+ the output area will, if necessary, shrink to fit within the printable 
+ area. It will not however, expand a smaller area to the bounds of the 
+ printable area. When unchecked designs can be both shrunk and expanded 
+ to the printable area.</p>
+<h4>Page Orientation</h4>
+<p>These options specify whether the document should be printed with its 
+ top along the short side of the paper (Portrait) or along the long side 
+ of the paper (Landscape). The print preview will automatically update 
+ to provide a visual representation of the specified orientation.</p>
+<h4>Compensation Factors</h4>
+<p>The compensation parameters scale the absolute co-ordinates of the graphic 
+ leaving the relative size(s) unaffected. For example, if you have a line 
+ of length 10 units drawn at co-ordinates (5, 5) and you set the x-compensation 
+ =  0.6 and the y-compensation =  0.5, then the line would actually 
+ be outputed at co-ordinates  (3, 2). The length (10 units) remains 
+ unaffected. The purpose of these parameters is therefore to allow dimensionally 
+ critical designs to be of sufficient accuracy.</p>
+<h4>Print to File?</h4>
+<p>Specify whether or not you want to save the print job to disk.</p>
+<h4>Advanced Options</h4>
+<p>These options allow you to override the information that your printer 
+ supplies to ISIS and should only be used when the information supplied 
+ is incorrect. We advise you to use these options with caution – for example, 
+ enabling colour options on a printer which does not support colour output 
+ is pointless and will achieve nothing.</p>
+<p> </p>
+
+</div>
+<p> </p>
+
+</body></html>

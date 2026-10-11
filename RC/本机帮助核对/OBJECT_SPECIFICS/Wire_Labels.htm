@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Wire Labels</title>
+  
+  <meta name="rh-index-keywords" content="Labels:Wire Labels,Wire Labels"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">WIRE LABELS</h1>
+  <h3>Introduction</h3>
+  <p>Wire labels are used to assign particular net names to groups of wires and pins, and also to assign net properties to specific nets. They are not in fact proper objects in the general scheme of the software. Instead, their behaviour is similar to other labels such as the reference and value labels of a component. It follows that the procedures for their placement and removal are somewhat different from those for other objects.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="../NETLIST_GENERATION/Introduction.htm">Netlist Generation</a></p>
+  <h3><a id="Editing:Wire_Labels" data-indexterm="Editing:Wire Labels"></a><a id="Placing:Wire_Labels" data-indexterm="Placing:Wire Labels"></a><a id="Placing_and_Editing_Wire_Labels"></a>Placing and Editing Wire Labels</h3>
+  <p class="ExampleTitle">To place or edit a wire label:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select the Wire Label icon from the Mode Selector toolbar.<br/>
+      <br/>
+      <img alt="" border="0" height="185" src="../assets/images/OBJECT_SPECIFICS/Wire_label_icon.png" style="border: none;" width="47"/>
+    </li>
+    <li class="Numbers">If placing a new label, point at the wire at the position where you want the label to be placed or, for an existing label, point anywhere along the wire or at the label itself.<br/>
+      <br/>
+      <img alt="" border="0" height="83" src="../assets/images/OBJECT_SPECIFICS/Placing_wire_label.png" style="border: none;" width="123"/>
+    </li>
+    <li class="Numbers">Click left to place the label. The Edit Wire Label dialogue form will be displayed.<br/>
+      <br/>
+      <img alt="" border="0" height="222" src="../assets/images/OBJECT_SPECIFICS/Wire_label_GND.png" style="border: none;" width="387"/>
+    </li>
+    <li class="Numbers">Type in the required text for the wire label.</li>
+    <li class="Numbers">Click OK or press ENTER to close the dialogue form.</li>
+  </ol>
+  <p class="Reference">See <a href="../TEMPLATES/Tutorial.htm#Editing_Local_Styles">Editing Local Styles</a> for more details of the controls on the Style tab of the dialogue forms.</p>
+  <p class="Tip">You cannot place a wire label on anything apart from a wire.</p>
+  <p class="Tip">You can also place a wire label from the right click context menu of a wire.</p>
+  <p class="Tip">You can place more than one label on a wire. If you wish them all to have the same name, and for all of them to update automatically whenever any of the names are changed, the click the Auto-Sync checkbox.</p>
+  <p class="Tip">Proteus will orient the wire label according the orientation of the wire segment on which it is placed. This can be changed on the Edit Wire Label dialogue form.</p>
+  <p class="ExampleTitle">To change the appearance of a wire:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Ensure that the Wire Label Icon is not selected.</li>
+    <li class="Numbers">Tag the wire by pointing at it and right clicking.</li>
+    <li class="Numbers">From the resulting context menu select Edit Wire Style to launch the dialogue form.</li>
+    <li class="Numbers">Uncheck the Follow Global? checkboxes of those style attributes of the graphics style you want to change. If a style attribute and its Follow Global? checkbox are both disabled it is because the style attribute is not meaningful given other attribute settings, either locally or through following the global style attribute.</li>
+    <li class="Numbers">Set the style attribute to the required setting.</li>
+    <li class="Numbers">Press ENTER or click the OK button to close the dialogue form and keep the changes. Press ESC or click the CANCEL button to close the dialogue form and abandon changes.</li>
+  </ol>
+  <p>To change the appearance of all wires on the schematic, use the Set Graphics Style command on the Template menu to edit the WIRE graphics style.</p>
+  <p class="Diagram"><img alt="" border="0" height="219" src="../assets/images/OBJECT_SPECIFICS/Set_graphics_style.png" style="border: none;" width="632"/></p>
+  <p class="DiagramText">Configuring the style and appearance of wires on the Proteus schematic</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="2D_Graphics.htm">Graphics and Text Styles.</a></p>
+  <h3><a id="Deleting_Wire_Labels"></a>Deleting Wire Labels</h3>
+  <p class="ExampleTitle">To delete a wire label:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Select the Selection icon from the Mode Selector toolbar.<br/>
+      <br/>
+      <img alt="" border="0" height="96" src="../assets/images/OBJECT_SPECIFICS/Selection_icon.png" style="border: none;" width="47"/>
+    </li>
+    <li class="Numbers">Left click on the label. Both the wire and the label with be selected. Care is required to actually left click on the label and not the wire itself.</li>
+    <li class="Numbers">Right click and select &#39;Delete Label&#39; from the resulting context menu. If this option is not available on the context menu then you have clicked on the wire and not on the wire label. Try zooming in around the bus label to ensure accuracy.<br/>
+      <br/>
+      <img alt="" border="0" height="118" src="../assets/images/OBJECT_SPECIFICS/Delete_wire_label.png" style="border: none;" width="260"/>
+    </li>
+  </ol>
+  <h3><a id="Using_a_Wire_Label_to_Assign_a_Net_Name"></a>Using a Wire Label to Assign a Net Name</h3>
+  <p>The normal use of wire labels is to indicate that a particular wire, and all the pins to which it is graphically connected, belong to a given net. Then, that group of pins are deemed connected to any other groups of pins which have also been assigned the same net name, even where there is no graphical connection. Occasionally, one may also label particular nets purely for human benefit.</p>
+  <p class="Diagram"><img alt="" border="0" height="99" src="../assets/images/OBJECT_SPECIFICS/AGND.png" style="border: none;" width="179"/></p>
+  <p class="DiagramText">Net name AGND</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="../NETLIST_GENERATION/Net_Names.htm">Net Names </a></p>
+  <h3><a id="Using_a_Wire_Label_to_Assign_a_Net_Property"></a>Using a Wire Label to Assign a Net Property</h3>
+  <p>Wire labels are most often used to specify the net class for PCB Layout. The net class is essentially a grouping of nets which have the same characteristics - for example, POWER, or SIGNAL. Creating your own net classes allows you to set up trace and via styles for routing the board and also to define more granular board constraints (design rules) in the layout module.</p>
+  <p class="ExampleTitle">To specify a wire as belonging to a net class</p>
+  <p>1) Right click on the wire and select Place Wire Label from the resulting context menu.<br/>
+    <br/>
+    <img alt="" border="0" height="126" src="../assets/images/OBJECT_SPECIFICS/Placing_wire_label_context_menu.png" style="border: none;" width="230"/><br/>
+    2) Switch to the Net Class tab and click the new button to create a new net class.
+  </p>
+  <p><img alt="" border="0" height="115" src="../assets/images/OBJECT_SPECIFICS/Wire_label_net_clase_tab.png" style="border: none;" width="333"/></p>
+  <p>3) Enter a name for the net class and then define the routing styles, via type and ratsnest display on the dialogue form.</p>
+  <p><img alt="" border="0" height="117" src="../assets/images/OBJECT_SPECIFICS/New_net_class.png" style="border: none;" width="296"/></p>
+  <p>4) Click the OK button to commit placement.</p>
+  <p class="Tip">Having set up net classes in the schematic module you can define design rules and clearance with respect of net classes from the Design Rule Manager on the Technology Menu in the Proteus Layout module.</p>
+  <p class="ExampleTitle">See Also:</p>
+  <p class="Reference"><a href="../ISIS_AND_ARES/Routing_Classes.htm">Routing Classes</a></p>
+  <h3><a id="Properties:Wire_Label_Properties" data-indexterm="Properties:Wire Label Properties"></a><a id="Wire_Label_Properties"></a>Wire Label Properties</h3>
+  <p>A wire or wire label (they are equivalent for this purpose) has the following property:</p>
+  <table cellspacing="0" class="LXTable" width="100%">
+    <colgroup>
+      <col style="width: 22.739%;"/>
+      <col style="width: 77.261%;"/>
+    </colgroup>
+    <tbody>
+      <tr class="t1st">
+        <td>Property Name</td>
+        <td>Description</td>
+      </tr>
+      <tr class="t2Row">
+        <td><span style="font-size: 12pt; font-family: &#39;Courier New&#39;, monospace;">NET</span></td>
+        <td>
+          <p>The wire label text</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="Tip">Wire labels can also be assigned via the <a href="../PROPERTIES/Property_Assignment_Tool.htm">Property Assignment Tool</a> but only when it is used in On Click mode. This is because there is no way for Proteus to determine where a wire label should be placed on a tagged wire, unless you mark the position with the mouse.</p>
+
+</div>
+<p> </p>
+
+</body></html>

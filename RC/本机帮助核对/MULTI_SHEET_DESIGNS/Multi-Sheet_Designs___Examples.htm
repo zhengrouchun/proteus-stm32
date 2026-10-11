@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+<meta name="template" content="../assets/masterpages/LX Master.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Multi-Sheet Designs : Examples</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+
+<body page-style="x-size: Letter;">
+<div>
+<h1 position="fixed">EXAMPLES</h1>
+<h3><a id="MSD_Overview"></a>Overview</h3>
+<p>The following examples illustrate the various ways in which you can 
+ use sub-circuits and multi-sheet designs to split your project into logical 
+ blocks. There are also examples of how to re-use these blocks in the same 
+ design and also across different Proteus projects.</p>
+<h3><a id="MSD_Simple_Sub-Circuits"></a>Example: Simple Sub-Circuits</h3>
+<p class="Diagram"><img src="../assets/images/MULTI_SHEET_DESIGNS/simple_sub1.png" alt="" style="border: none;" width="713" height="400" border="0"/></p>
+<p class="DiagramText">An example of a logical block encapsulated in a 
+ sub-circuit.</p>
+<p>Here we have added a sub-circuit on the parent sheet of the schematic 
+ and then added and named the ports on the sub-circuit body. We&#39;ve connected 
+ all the ports to input or output terminals and given everything a sensible 
+ name. This is all covered previously in the <a href="Hierarchical_Designs.htm#Sub-Circuits">basics 
+ of sub-circuits</a>.</p>
+<p>The next step is to right click on the sub-circuit, enter the child 
+ sheet and then design a block of circuitry that performs the logical function 
+ of the sub-circuit. <span style="text-decoration: underline; ">The key 
+ thing to remember is that you &#39;join up&#39; the signals on the child sheet 
+ to the ports on the sub-circuit by naming the terminals with the port 
+ names</span>.</p>
+<p class="Diagram"><img src="../assets/images/MULTI_SHEET_DESIGNS/simple_sub2.png" alt="" style="border: none;" width="678" height="584" border="0"/></p>
+<p class="DiagramText">Terminal names matching the names on the ports transfer 
+ connections up and down the design hierarchy.</p>
+<p> </p>
+<h4>Key Concept : Scope</h4>
+<p>Everything connected inside a sub-circuit is local to that sub-circuit 
+ with the exception of nets of type POWER.</p>
+<p>A power net is denoted by the use of a terminal of type POWER or GND. 
+ Nets with the names VCC and GND are always of type POWER.</p>
+<p>Power nets are default design global so that you don&#39;t have to wire 
+ up and down through lots of sub-circuits. </p>
+<p>As an example, the terminals above are all local and are wired up through 
+ the sub-circuit ports into the parent sheet. The terminals below are design 
+ global (using POWER terminals).</p>
+<p class="Diagram"><img src="../assets/images/MULTI_SHEET_DESIGNS/simple_sub3.png" alt="" style="border: none;" width="796" height="382" border="0"/></p>
+<p class="DiagramText">Power terminals default to being design global</p>
+<p class="Tip">If you want to use power terminals but still wire everything 
+ up between sub-circuits then you can un-check the Global Power Nets options 
+ from the Design Properties on the Design Menu.</p>
+<h4>Rules of Thumb</h4>
+<p>If a block of circuitry does a single job, it&#39;s best in a sub-circuit.</p>
+<p>Decide <span style="font-weight: bold;">early </span><span>how you want 
+ to handle power nets for your project. You can either have them all global 
+ to the design or you can have them local to a sheet.</span> If you want 
+ global power nets (convenience) then use power terminals. If you want 
+ them local (explicit wiring) then either use default terminal types or 
+ un-check the global power nets option.</p>
+<p>To connect from the sub-circuit to the parent sheet wire to a terminal 
+ and give the terminal the same name as the port on the parent sheet.</p>
+<h3><a id="MSD_Sheet_Annotation"></a>Example: Single Sheet Annotation</h3>
+<p>One of the nicer properties of a sheet is that it can contain an annotation 
+ base. This allows you to separate the annotation of parts contained in 
+ one sheet from that on a second sheet. The process is simple.</p>
+<p>Place the sub-circuit, attach and name the ports in the usual way.</p>
+<p>Enter the sub-circuit and then visit Design Menu -&gt; Edit Sheet Properties 
+ command.</p>
+<p>Change the initial annotation for the sub-circuit (e.g to 500)</p>
+<p>Place and wire circuitry in the usual way.</p>
+<p class="Diagram"><img src="../assets/images/MULTI_SHEET_DESIGNS/annotation_init.png" alt="" style="border: none;" width="1108" height="754" border="0"/></p>
+<p class="DiagramText">Initial annotation set to 500 sets an annotation 
+ base for components placed on that sheet.</p>
+<p> </p>
+<p>If you have placed components and then decide that you want a base annotation 
+ for the sheet later, simply use the annotator in global mode and set the 
+ initial annotation count.</p>
+<p class="Diagram"><img src="../assets/images/MULTI_SHEET_DESIGNS/Global_annotator_current_sheet.png" style="border: none;" alt="" width="261" height="241" border="0"/></p>
+<p class="DiagramText">Global Annotator set to Current sheet and Total 
+ mode.</p>
+<p>Note that sub-circuit annotation will typically not survive re-annotation 
+ from the layout. ARES has a command for annotating the board in a physical 
+ way (e.g. top left to bottom right) and this will re-annotate the schematic 
+ automatically. You can choose to have the logical annotation preserved 
+ by selecting the &#39;Use Sheet Offsets&#39; checkbox in the ARES annotator.</p>
+<p class="Diagram"><img src="../assets/images/MULTI_SHEET_DESIGNS/Annotator_offsets.png" alt="" style="border: none;" width="303" height="317" border="0"/></p>
+<p class="DiagramText">Sheet Offset in the Annotator maintains the schematic 
+ annotation at the expense of directional flow on the physical layout</p>
+<p class="DiagramText"> </p>
+<h3><a id="Example:_Multi-Sheet_Annotation"></a>Example: Multi-Sheet 
+ Annotation</h3>
+<p>The <a href="../GENERAL_CONCEPTS/Miscellaneous.htm#Automatic_Annotator">Global 
+ Annotator</a> is used to batch annotate designs, but it can also be used 
+ to annotate only a branch of a design. A branch of the design is considered 
+ to be the current sheet downwards in the hierarchy.</p>
+<p>Re-annotating in branch mode will:</p>
+<p>1) Set the initial count of the current sheet to the annotation specified 
+ on the dialogue form.</p>
+<p>2) Annotate the current sheet and then propagate downwards though any 
+ child sheets.</p>
+<p>3) Preserve any initial annotation counts specified in child sheets. 
+ </p>
+<p class="Diagram"><img src="../assets/images/MULTI_SHEET_DESIGNS/annotator_branch.png" alt="" style="border: none;" width="564" height="241" border="0"/></p>
+<p class="DiagramText">Branch Scope, Total mode will annotate downwards 
+ in a hieirarchy.</p>
+<p class="Tip">This mode is ideally suited to re-annotating after a copy 
+ and paste of a sub-circuit hierarchy.</p>
+<h3><a id="Circuit_(Duplication)1" data-indexterm="Circuit (Duplication)"></a><a id="Re-use_(Circuit_Duplication)" data-indexterm="Re-use (Circuit Duplication)"></a><a id="MSD_Duplicating_Circuitry__ProjectClips"></a>Example: Duplicating 
+ Circuitry (Project Clips)</h3>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/cross.png" alt="" style="border: none;" width="35" height="35" border="0"/> Suitable for duplication of sub-circuits containing 
+ sub-circuits (multi-level hierarchy). Project clips are single sheet only!</p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/tick.jpg" alt="" style="border: none;" width="30" height="30" border="0"/>   Suitable for re-use between projects.</p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/tick.jpg" alt="" style="border: none;" width="30" height="30" border="0"/>   Simple and easy to use.</p>
+<p> </p>
+<h4>Step 1: Create Project Clip</h4>
+<p> <a href="../ISIS_AND_ARES/Project_Clips.htm#Schematic_and_Layout_Snippets">Create 
+ the Project Clip</a> and store to disk.</p>
+<p> </p>
+<h4>Step 2: Set up Sub-Circuits</h4>
+<p>Place a sub-circuit, along with it&#39;s ports and then name the Sheet and 
+ Circuit appropriately.</p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/Subcircuit_amp.png" alt="" style="border: none;" width="338" height="343" border="0"/></p>
+<p>Select and block copy the sub-circuit as many times as you need and 
+ then rename the sheets. <span style="font-weight: bold; text-decoration: underline; ">Do 
+ not rename the circuit</span> as this is the binding.</p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/Subcircuit_amp_4.png" alt="" style="border: none;" width="317" height="341" border="0"/> </p>
+<p> </p>
+<h4>Step 3 : Import the Project Clip</h4>
+<p>Enter the first sub-circuit (CHANNEL1 in our example) and import the 
+ Project Clip. This will populate and correctly annotate all of the other 
+ sub-circuit channels as well.</p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/Subcircuit_amp_circuit.png" alt="" style="border: none;" width="1148" height="655" border="0"/></p>
+<p> </p>
+<h4>Step 4: Place the layout clips</h4>
+<p>On the layout side, you will have five clips in the parts bin, each 
+ of which will place as a single entity with the correct annotation.</p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/Subcircuit_amp_pcb.png" alt="" style="border: none;" width="177" height="546" border="0"/></p>
+<p class="Tip">If you decide to add another channel (e.g. CHANNEL6) once 
+ the project clip has been imported you will need to place the sub-circuit 
+ and import the project clip into it manually. It&#39;s best to set up all 
+ the empty sub-circuits with the same name and then import the project 
+ clip into one of them.</p>
+<p class="Tip">If you haven&#39;t set a sheet annotation offest and then decide 
+ you want one later, you can use the annotator in ARES or the annotator 
+ in ISIS in branch mode as decribed above.</p>
+<h3><a id="Circuit_(Duplication)" data-indexterm="Circuit (Duplication)"></a><a id="Replicate" data-indexterm="Replicate"></a><a id="Re-use_(Circuit_Duplication)1" data-indexterm="Re-use (Circuit Duplication)"></a><a id="MSD_Duplicating_Circuitry__Replicate"></a>Example: Duplicating 
+ Circuitry (Replicate)</h3>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/tick.jpg" alt="" style="border: none;" width="30" height="30" border="0"/>  Suitable for duplication of sub-circuits containing 
+ sub-circuits (multi-level hierarchy).</p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/cross.png" alt="" style="border: none;" width="35" height="35" border="0"/> Suitable for re-use between projects.</p>
+<p>The following process shows how to duplicate circuitry inside a project 
+ :</p>
+<p> </p>
+<h4>Step 1: Lay out the first schematic sub-circuit.</h4>
+<p>Place the first sub-circuit and lay out the circuitry.</p>
+<p>Edit the circuit name and sheet name to reflect the contents of the 
+ sub-circuit </p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/Subcircuit_replicate1.png" alt="" style="border: none;" width="336" height="291" border="0"/></p>
+<p>The Circuit inside SUB_NAME1 also contains a sub circuit which in turn 
+ contains another circuit:</p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/Subcircuit_replicate.png" alt="" style="border: none;" width="687" height="276" border="0"/></p>
+<p> </p>
+<h4>Step 2 : Copy and Paste</h4>
+<p>Block copy the sub-circuit on the root sheet (the top level of the hierarchy 
+ branch) as many times are required and rename the sheet. <span style="font-weight: bold; 
+	 text-decoration: underline; ">Do not</span> rename the circuit as 
+ this is the binding.</p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/Subcircuit_replicate2.png" alt="" style="border: none;" width="747" height="270" border="0"/></p>
+<p class="Tip">The two sheets now contain the same circuit. Making a change 
+ to one will also make the same change in the other one. </p>
+<p> </p>
+<h4>Step 3: Re-Annotate the Copies </h4>
+<p>Note that at this stage you will have duplicate annotations in the various 
+ sheets. You need to run the Annotator in global mode to generate unique 
+ annotations for all of the copies. If you prefer, you can work in branch 
+ mode inside each circuit with a different annotation count. This will 
+ set sheet annotation for you.</p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/total_annotation.png" alt="" style="border: none;" width="866" height="363" border="0"/></p>
+<p>OR</p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/branch_annotation.png" alt="" style="border: none;" width="874" height="318" border="0"/></p>
+<p class="ExampleTitle">See Also</p>
+<p class="Reference"><a href="#Example:_Multi-Sheet_Annotation">Multi-Sheet 
+ Annotation</a></p>
+<h4>Step 4: Layout one Circuit</h4>
+<p>Place and track the first section of circuitry in ARES. It&#39;s easiest 
+ if you do this in open space for now so that you can easily select it.</p>
+<h4>Step 5 : Replicate the other Copies</h4>
+<p>Carefully draw a selection box around the circuitry and invoke the replicate 
+ command. If the Bind command is disabled, you have selected parts not 
+ contained in the sub-circuit. Select the second sheet to bind to, an X-Y 
+ offset for the placement.</p>
+<p><img src="../assets/images/MULTI_SHEET_DESIGNS/Replicate_pcb.png" alt="" style="border: none;" width="747" height="338" border="0"/></p>
+
+</div>
+<p> </p>
+
+</body></html>

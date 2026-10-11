@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../../_rhdefault.css"/><link rel="StyleSheet" href="../../assets/css/lx.css" type="text/css"/>
+ <meta name="template" content="../../assets/masterpages/dialogues.htt"/>
+<meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+<meta name="generator" content="Adobe RoboHelp 2020"/>
+<title>Pick Devices/Symbol</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../../ehlpdhtm.js"></script></head>
+<body>
+<div>
+<h1>Pick Devices/Symbol</h1>
+<h3>Overview</h3>
+<p>This dialogue presents a search and selection system for bringing library parts into the current schematic.</p>
+<h3>Options</h3>
+<h4>Keywords</h4>
+<p>Search for library part(s) by keyword. This method is ideal if you want one (or more) components of a specific type. Examples of possible searches include, ‘</p>
+<p>NAND Gate’, ‘Line Driver’,  ‘res 2k2’, ‘cap 22n’, ‘zener 4.7’ etc. Search results can then be refined by using the Category, Subcategory and Manufacturer fields below.</p>
+<p>Alternatively, you can use keywords to refine a search in which you have already specified categories. For example, if you select the Diodes category and the Zener subcategory you could then refine the search by entering ‘4.7’ in the keywords field.</p>
+<p>Keywords are matched in the following ways</p>
+<ul type="disc">
+<li><span style="font-weight: bold;">Textual comparison</span> - Each keyword is matched against the part name and part description on a ‘contains string’ basis, unless the Whole Word matching option is checked.</li>
+<li><span style="font-weight: bold;">Part Name Digit matching</span> - A keyword containing only digits will be matched against part names using just digits. This means that ‘8051’ will find ‘80C51’, and ‘1684’ will find ‘PIC16F84’.</li>
+<li><span style="font-weight: bold;">Part Name Wildcards</span> - A  search for 74*373, 74??373, *373, 74LS373, will all yield the 74LS373 in the results.</li>
+<li><span style="font-weight: bold;">Value matching -</span> A keyword which will evaluate to a  number will be compared numerically with any values in the part descriptions. So 1500 will match 1k5, and 220n will match 0.22u, for example.</li>
+<li>Note that you can use the TAB key to move from the keywords field to the list of the results, the UP/DOWN arrow keys will navigate through the results, and the ENTER key will select the currently highlighted result into the schematic and exit the form.</li>
+<li><span style="font-weight: bold;">Match Whole Words?</span> - This option enforces a full word match on the description field. For example, a search for ‘OR Gate’ may yield a result for an ‘Open Collector AND Gate’ (the ‘or’ being contained within the word collector) but a whole word only search will eliminate such matches from the results list.</li>
+<li><span style="font-weight: bold;">Show only parts with models?</span> - This option is relevant if you are performing a simulation and wish to restrict search results to those with a simulation model.</li>
+</ul>
+<h4>Category</h4>
+<p>This field displays a list of categories according to the following rules:</p>
+<ul type="disc">
+<li>If a keyword search has been entered then the category list will contain all categories containing results from the search. You can then select a category to refine your search.</li>
+<li>If no keywords have been entered the category list displays all available categories. Selecting a category in this case will display all results for that category. Typically you would use this mode (together with the subcategory listbox) for non-specific browsing.</li>
+</ul>
+<p>The Unspecified category contains all library parts for which no indexing information has been provided. For example, if you have created your own library parts and they have not been indexed they can be found by selecting this category.</p>
+<h4>Subcategory</h4>
+<p>This field displays a list of subcategories pertaining to the currently selected category. This works in one of two ways :</p>
+<ul type="disc">
+<li>If you have entered a keyword search then the listbox will display all subcategories for the currently selected category where the subcategory contains results matching the textual search term entered.</li>
+<li>If no keywords are entered the listbox will display all available sub-categories under the currently selected category.</li>
+</ul>
+<p>In either case if no category is currently selected then the subcategory listbox will be empty.</p>
+<h4>Manufacturer</h4>
+<p>This field displays a list of manufacturers for the currently selected category and subcategory. The contents of this listbox are based on the following rules :</p>
+<ul type="disc">
+<li>If a keyword search has been entered only those manufacturers containing results from the textual search and the currently selected category will be displayed.</li>
+<li>If no keywords have been entered then all available manufacturers for the specified category will be displayed</li>
+</ul>
+<p>Note that we have only provided manufacturer information for parts where it was deemed appropriate, usually as a result of an entire library originating from a single manufacturer.</p>
+<h4>Results</h4>
+<p>This is the main display window for search results. The names and textual description of parts matching the search criteria are displayed here - additional information can be added or removed from the display by clicking right to display a context menu.</p>
+<p>To select a part(s) into your just design double-click on the part(s) within the results list.</p>
+<p>The results can be ordered by column information by clicking on the column names at the top of the list view.</p>
+<h4>Schematic Preview</h4>
+<p>These fields display previews of the currently selected schematic part and its footprint. For parts packaged with more than one footprint the footprint preview can be changed via the footprint name selector at the bottom of the dialogue.</p>
+<p>These previews will be blank until a part is selected within the results list.</p>
+<h4>PCB Preview</h4>
+<p>These fields display previews of the currently selected schematic part and its footprint. For parts packaged with more than one footprint the footprint preview can be changed via the footprint name selector at the bottom of the dialogue.</p>
+<p>These previews will be blank until a part is selected within the results list.</p>
+<h4>Drop Down List</h4>
+<p>Where a schematic part has been packaged with multiple footprints this drop down list allows you to preview all the packages associated with the selected ISIS component. The package preview above displays the footprint for the currently selected package.</p>
+
+</div>
+<p> </p>
+
+</body></html>

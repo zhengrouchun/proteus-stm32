@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Pinswap Gateswap</title>
+  
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">PIN-SWAP/GATE-SWAP</h1>
+  <h3>Introduction</h3>
+  <p>Many types of component have either interchangeable pins - for example the two enable pins on a 74138, or interchangeable elements - for example the six inverters in a 7404. Some components such as the 7400 have both - there are four interchangeable gates each of which has two identical inputs. This phenomenon can be exploited when routing complex PCBs in that it may turn out to be easier to route to an alternate pin or gate to the one specified in the netlist. Clearly, making such a &#39;spur of the moment&#39; decision will affect the connectivity of the design, and this change needs to be recorded and eventually reflected back on the schematic.</p>
+  <p>Proteus provides an extremely comprehensive degree of support for this aspect of the EDA problem. Specifically, the following features are provided:</p>
+  <ul type="disc">
+    <li>A scheme for specifying swappable pins and gates within the schematic library parts.</li>
+    <li>The ability to mark a pin or gate in ARES and see a graphical display of which other pins and gates it can be swapped with based on the data from the ISIS library parts.</li>
+    <li>A gate-swap optimiser which will attempt to find the optimum gate allocations based on achieving the shortest possible ratsnest length.</li>
+    <li>Automatic back-annotation of both manual and automatic changes into the schematic.</li>
+    <li>A locking mechanism which prevents changes being made to both schematic and PCB simultaneously, thus preventing conflicts and ambiguities.</li>
+  </ul>
+  <h3><a id="Pinswap_(single_element_device)" data-indexterm="Pinswap (single element device)"></a><a id="Specifying_Pin-Swaps_in_Single_Element_Devices"></a>Specifying Pin-Swaps in Single Element Devices</h3>
+  <p>This is achieved through the use of the <a href="../LIBRARY_FACILITIES/Device_Libraries.htm#The_Visual_Packaging_Tool">Visual Packaging Tool</a>, using the &#39;<a href="../LIBRARY_FACILITIES/Device_Libraries.htm#Swapable_Pins">swappable pins</a>&#39; field at the time of packaging the component to specify the pins that can be swapped on the footprint.</p>
+  <p class="Diagram"><img alt="" border="0" height="390" src="../assets/images/ISIS_AND_ARES/Swappable_pins.png" style="border: none;" width="436"/></p>
+  <p class="DiagramText">The Packaging Tool showing the swappable pins on a single element part</p>
+  <h3><a id="Pinswap_(multi-element_device)" data-indexterm="Pinswap (multi-element device)"></a><a id="Specifying_Pin-Swaps_in_Multi-Element_Devices_"></a>Specifying Pin-Swaps in Multi-Element Devices</h3>
+  <p>As with single element devices you should use the Visual Packaging Tool to specify pinswaps on multi-element parts such a the 7400 shown below.,</p>
+  <p class="Diagram"><img alt="" border="0" height="448" src="../assets/images/ISIS_AND_ARES/7400_swappable_pins.png" style="border: none;" width="435"/></p>
+  <p class="DiagramText">The Visual Packaging Tool launched on a 7400 showing the pin swap area</p>
+  <p class="ExampleTitle">To add a pinswap group to a packaging:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Highlight the pins to be swapped in the Pin Grid by holding down the CTRL key and clicking on each row in turn. In the above case, pins A and B are swappable, so you would highlight their rows as shown.</li>
+    <li class="Numbers">Click the Add button to create the pinswap group.</li>
+  </ol>
+  <p>You can define multiple swap groups by repeating the above procedure.</p>
+  <h3><a id="Gateswap_(multi-element_device)" data-indexterm="Gateswap (multi-element device)"></a><a id="Specifying_Gate-Swaps_in_Multi-Element_Devices_"></a>Specifying Gate-Swaps in Multi-Element Devices</h3>
+  <p>It is a happy fact that Proteus can work out the much of the gate-swap information for a multi-element device entirely by itself. For example, in the case of the 7400 , the packaging script contains sufficient information to tell that the swappable element consists of pins A,B and Y and that there are 4 of them.</p>
+  <p>The only requirement is that we tell Proteus to allow gate swaps using the Gateswap checkbox in the Visual Packaging Tool</p>
+  <p>Note that the power pins VCC and GND are automatically excluded from the swappable element because they are hidden. They are also required to be on the same nets if a swap is to be made between different packages, since they are marked as being common</p>
+  <p>Once set up, you can perform gateswaps from the <a href="../OBJECT_SPECIFICS/Components.htm#Gateswapping_Components">Edit Component dialogue form</a>.</p>
+  <p>Our final example is of a heterogeneous multi-element part - in this case a DPDT relay consisting of a coil and two pairs of contacts</p>
+  <p class="Diagram"><img alt="" border="0" height="155" src="../assets/images/ISIS_AND_ARES/Hetrogeneous_gateswap.png" style="border: none;" width="468"/></p>
+  <p class="DiagramText">Specifying gate-swaps on a heterogeneous multi-element device</p>
+  <p>In this case, both pins of the coil are both common and swappable. Omitting the common  would, of course, be disastrous as it would allow swaps of contacts between different relays!</p>
+  <h3><a id="Performing_Manual_Pin-Swaps_and_Gate-Swaps_in_ARES"></a>Performing Manual Pin-Swaps and Gate-Swaps in ARES</h3>
+  <p>Pin-swaps and gate-swaps are both carried out in exact the same way using the Ratsnest mode on the PCB layout.</p>
+  <p class="ExampleTitle">To swap two pins or gates:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Make sure that the layout is synched with the schematic - it must not be in either locked (live netlisting off) or changes pending mode.</li>
+    <li class="Numbers">Select the Ratsnest icon.</li>
+    <li class="Numbers">Click Right on the source pin. The Ratsnest lines connected to it will highlight.</li>
+    <li class="Numbers">Click and hold down the left button. All pins with which the source pin can be swapped will highlight. This set includes all the valid pin-swaps within the source gate and all the same pin-sets in any valid gate-swaps.</li>
+    <li class="Numbers">Drag the source ratsnest lines to the destination pin you want to swap with. If this pin is in the same gate then just a pin swap will be performed. If it is in another gate, then a gate-swap and possible also a pin-swap will occur.</li>
+  </ol>
+  <p>There is little more to it than that. Note, however, that the layout module will not allow swaps where any of the source or destination pins have tracking attached. In the case of a gate swap, all pins of both gates must be unrouted.</p>
+  <p class="Warning">Pin-swaps and Gate-swaps constitute changes to the connectivity of your design. The PCB module uses the pin-swap and gate-swap data specified in the schematic libraries to decide what is, and is not, a valid swap. If there are errors in this data, then Proteus may well suggest illegal swaps. We will not, under any circumstances, be held liable for any costs incurred or losses arising  as result of such mishaps, whether the error be in your library parts or ours or in the software itself. We strongly recommend that you check that the swaps you make are legal, and that you prototype your PCB prior to manufacturing large quantities.</p>
+  <h3><a id="The_Gate-Swap_Optimiser"></a>The Gate-Swap Optimiser</h3>
+  <p>In cases where a design has large numbers of swappable gates, it can be very hard to see what the best gate-allocation should be. The number of possible combinations can become literally astronomical even for small numbers of gates. The sample design SHIFT16 contains many more combinations than there are grains of sand in the sahara!</p>
+  <p>To help you find a near optimum solution, Proteus incorporates and automatic gate-swap optimizer which will perform thousands of trial swaps in such a way as to find what is technically called a &#39;local minima&#39; for a given board placement. In many cases this is very near optimum, and almost invariably gives some reduction in the total ratsnest length.</p>
+  <p class="ExampleTitle">To use the Gate-Swap Optimiser:</p>
+  <ol class="Numbers" type="1">
+    <li class="Numbers">Make sure that the layout is synchronized with the schematic - you cannot perform this operation if the layout is in a locked (live netlisting off) or changes pending state.</li>
+    <li class="Numbers">Place all the components in the usual way, aiming to achieve as low a ratsnest length as possible. The swap optimizer is no excuse for bad placement!</li>
+    <li class="Numbers">Invoke the Gate-Swap Optimizer command from the Tools menu.</li>
+  </ol>
+  <p>The algorithm makes repeated passes until such time as it can make no further improvement. Run times can be quite long (5-10 minutes) if there lots of possible swaps.</p>
+  <p class="Warning">The Gate-Swap Optimizer relies entirely on the gate-swap data specified in the schematic component libraries to decide what is, and is not, a valid swap. If there are errors in this data, then the swap-optimizer is likely to make erroneous changes to the connectivity of your design. We will not, under any circumstances, be held liable for any costs incurred or losses arising as result of such mishaps, whether the error be in your library parts or ours or in the software itself. We strongly recommend that this command be used only if you are going to prototype your PCB prior to manufacture.</p>
+
+</div>
+<p> </p>
+
+</body></html>

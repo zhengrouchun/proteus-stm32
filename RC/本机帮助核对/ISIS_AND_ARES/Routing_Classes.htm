@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="../_rhdefault.css"/><link rel="StyleSheet" href="../assets/css/lx.css" type="text/css"/>
+  <meta name="template" content="../assets/masterpages/LX Master.htt"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=WINDOWS-1252"/>
+  <meta name="generator" content="Adobe RoboHelp 2020"/>
+  <title>Routing Classes</title>
+  
+  <meta name="rh-index-keywords" content="Classes (Routing Classes),Net Classes"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/><script type="text/javascript" src="../ehlpdhtm.js"></script></head>
+<body page-style="x-size: Letter;">
+<div>
+  <h1 position="fixed">ROUTING CLASSES</h1>
+  <h3>Introduction</h3>
+  <p>On the PCB layout, every net is associated with a routing class which defines track and via styles, net type, routing layers and so forth. Net Classes are also integrated into the design rule system, allowing you to better control clearances on a per class basis. By default, all nets take the SIGNAL net class except.</p>
+  <ul type="disc">
+    <li>Nets bound to power rails which for which a net class has been specified on the Power Rail Configuration dialogue form.</li>
+    <li>Nets with names such as D[0] which take the BUS net class. It is the presence of the square brackets which is important. This syntax is really provided for use with schematics packages which could not otherwise convey a net property for a bus</li>
+  </ul>
+  <p class="Tip">One of the most important things you can do to make your PCB layout easier is to create and assign net classes as you design the schematic. This will automate both the trace and via selection when routing and give you full control over board constraints and clearances.</p>
+  <h3><a id="Changing_the_Net_Class_Assigned_to_a_Power_Rail"></a>Changing the Net Class Assigned to a Power Rail</h3>
+  <p>The most common reason for assigning a net class other than SIGNAL is because the net is part of the power wiring and will carry heavier currents. With this in mind, Proteus allows you to specify a routing class for each power supply defined in the Power Rail Configuration dialogue form which you can access from the Design menu in the schematic.</p>
+  <p>To do this you need to edit the name displayed in the Net Class field of the Power Rail Configuration dialogue form as shown below:</p>
+  <p class="Diagram"><img alt="" border="0" height="173" src="../assets/images/ISIS_AND_ARES/Changing_net_class.png" style="border: none;" width="502"/></p>
+  <p class="DiagramText">Changing the Routing Class assigned to a Power Rail</p>
+  <p>Note that the class will be applied to all the nets which are bound to the power supply - VCC and VDD in this case.</p>
+  <p class="Reference">For further information about changing the power rail configuration see <a href="../NETLIST_GENERATION/Power_Rail_Configuration.htm">Power Rail Configuration</a></p>
+  <h3><a id="Changing_the_Net_Class_using_a_Net_Property"></a>Changing the Net Class using a Net Property</h3>
+  <p>You can also override the default class assignment for a given net by attaching a Net Property to one of the wires on the net. This is achieved by placing a wire label and defining a net class as shown below.</p>
+  <p class="Diagram"><img alt="" border="0" height="126" src="../assets/images/ISIS_AND_ARES/Class_netname.png" style="border: none;" width="257"/></p>
+  <p class="DiagramText">Assigning a custom routing class via a wire label</p>
+  <p class="Reference"><a href="../OBJECT_SPECIFICS/Wire_Labels.htm#Using_a_Wire_Label_to_Assign_a_Net_Name">Using a wire label to specify a net class</a></p>
+  <p>If the named net class does not exist, the layout module will create it and add it to the net class selector in the layout Design Rule Manager when the netlist is loaded. Trace and via styles for the net class can be edited via this dialogue form and design rules created to constrain clearances as required.</p>
+  <p class="Diagram"><img alt="" border="0" height="134" src="../assets/images/ISIS_AND_ARES/DRC_netname.png" style="border: none;" width="510"/></p>
+  <p class="DiagramText">The net class &#39;is available for Design Rule Config in the Proteus Layout Module (Technology Menu)</p>
+  <p>Sometimes it is appropriate to specify a net class for all the nets on a given sheet. For example, you might want all the nets on the power supply sheet to be assigned to the POWER net class.</p>
+  <p>This could be done by placing  a script block as follows:</p>
+  <p class="Courier">*NETPROP</p>
+  <p class="Courier">CLASS=POWER</p>
+  <p>on the appropriate sheet of the design.</p>
+  <p>Wire and bus label net properties take precedence over sheet global net properties.</p>
+
+</div>
+<p> </p>
+
+</body></html>
